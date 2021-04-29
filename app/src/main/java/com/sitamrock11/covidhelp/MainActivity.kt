@@ -1,19 +1,26 @@
 package com.sitamrock11.covidhelp
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.CompoundButton
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(),CompoundButton.OnCheckedChangeListener {
-    lateinit var list:ArrayList<String>
-    var url="https://twitter.com/search?q=verified%20Kolkata%20"
+class MainActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener {
+    lateinit var list: ArrayList<String>
+    lateinit var otherItem:String
+    lateinit var verify:String
+    var url = "https://twitter.com/search?q=verified%20"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-         list= ArrayList()
+        val city = intent.getStringExtra("city")
+        if(!city.equals("other")){
+            cvCityName.visibility= View.GONE
+        }
+        list = ArrayList()
         beds.setOnCheckedChangeListener(this)
         icu.setOnCheckedChangeListener(this)
         oxygen.setOnCheckedChangeListener(this)
@@ -25,82 +32,181 @@ class MainActivity : AppCompatActivity(),CompoundButton.OnCheckedChangeListener 
         tocilizumab.setOnCheckedChangeListener(this)
         plasma.setOnCheckedChangeListener(this)
         food.setOnCheckedChangeListener(this)
-        btnSearch.setOnClickListener {
-            if (list.isNotEmpty()) {
-                var item = list[0]
-                for (i in 1 until list.size) item += "%20OR%20${list[i]}"
-
-                url = "$url($item)%20-\"not%20verified\"%20-\"unverified\"%20-\"needed\"%20-\"need\"%20-\"needs\"%20-\"required\"%20-\"require\"%20-\"requires\"%20-\"requirement\"%20-\"requirements\"&f=live"
-                println(url)
-                val intent = Intent(this, WebActivity::class.java)
-                intent.putExtra("urlLink", url)
-                startActivity(intent)
+        ambulance.setOnCheckedChangeListener(this)
+        chkOther.setOnCheckedChangeListener(this)
+        if(stwVerification.isChecked){
+            verify=""
+        }else{
+            verify="\"not%20verified\"%20-\"unverified\"%20-"
+        }
+        stwVerification.setOnCheckedChangeListener { buttonView, isChecked ->
+            if(isChecked){
+                stwVerification.text="Verified Only "
+                verify=""
             }else{
-                Toast.makeText(this,"Select at least one required field",Toast.LENGTH_SHORT).show()
+                stwVerification.text="All "
+                verify="\"not%20verified\"%20-\"unverified\"%20-"
             }
+        }
+        btnSearch.setOnClickListener {
+            if(etOthers.text.toString().isNotEmpty()) {
+                 otherItem = etOthers.text.toString()
+                list.add(otherItem)
+            }
+            if(city.equals("other")) {
+                if (list.isNotEmpty() && !etCityName.text.toString().isNullOrEmpty()) {
+                    var item = list[0]
+                    for (i in 1 until list.size) item += "%20OR%20${list[i]}"
+                        url =
+                            "$url${etCityName.text.toString()}%20($item)%20-$verify\"needed\"%20-\"need\"%20-\"needs\"%20-\"required\"%20-\"require\"%20-\"requires\"%20-\"requirement\"%20-\"requirements\"&f=live"
+
+                    println(url)
+                    val intent = Intent(this, WebActivity::class.java)
+                    intent.putExtra("urlLink", url)
+                    startActivity(intent)
+                } else if (!etCityName.text.toString().isNullOrEmpty()) {
+                    Toast.makeText(this, "Select at least one required field", Toast.LENGTH_SHORT)
+                        .show()
+                } else if (etCityName.text.toString().isNullOrEmpty()) {
+                    etCityName.error = "City-Name missing"
+                    Toast.makeText(this, "Enter a valid City-Name", Toast.LENGTH_SHORT).show()
+                }
+            }else{
+                if(list.isEmpty()){
+                    Toast.makeText(this, "Select at least one required field", Toast.LENGTH_SHORT)
+                        .show()
+                }else{
+                    var item = list[0]
+                    for (i in 1 until list.size) item += "%20OR%20${list[i]}"
+                    url =
+                        "$url$city%20($item)%20-$verify\"needed\"%20-\"need\"%20-\"needs\"%20-\"required\"%20-\"require\"%20-\"requires\"%20-\"requirement\"%20-\"requirements\"&f=live"
+                    val intent = Intent(this, WebActivity::class.java)
+                    intent.putExtra("urlLink", url)
+                    startActivity(intent)
+                }
+            }
+
         }
     }
 
     override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
-        when(buttonView!!.id){
-            R.id.beds->{
-                if(isChecked && !list.contains(beds.text.toString())){
+        when (buttonView!!.id) {
+            R.id.beds -> {
+                if (isChecked && !(list.contains("bed") || list.contains("beds"))) {
                     list.add("bed")
                     list.add("beds")
                 }
+                if (!isChecked && (list.contains("bed") || list.contains("beds"))) {
+                    list.remove("bed")
+                    list.remove("beds")
+                }
             }
-            R.id.icu->{
-                if(isChecked && !list.contains(icu.text.toString())){
+            R.id.icu -> {
+                if (isChecked && !list.contains("icu")) {
                     list.add("icu")
                 }
-            }
-            R.id.oxygen->{
-                if(isChecked && !list.contains(beds.text.toString())){
-                    list.add("oxygen")
+                if (!isChecked && list.contains("icu")) {
+                    list.remove("icu")
                 }
             }
-            R.id.ventilator->{
-                if(isChecked && !list.contains(beds.text.toString())){
+            R.id.oxygen -> {
+                if (isChecked && !list.contains("oxygen")) {
+                    list.add("oxygen")
+                }
+                if (!isChecked && list.contains("oxygen")) {
+                    list.remove("oxygen")
+                }
+            }
+            R.id.ventilator -> {
+                if (isChecked && !list.contains("ventilator")) {
                     list.add("ventilator")
 
                 }
+                if (!isChecked && list.contains("ventilator")) {
+                    list.remove("ventilator")
+
+                }
             }
-            R.id.tests->{
-                if(isChecked && !list.contains(beds.text.toString())){
+            R.id.tests -> {
+                if (isChecked && !(list.contains("test") || list.contains("tests"))) {
                     list.add("test")
                     list.add("tests")
                 }
+                if (!isChecked && (list.contains("test") || list.contains("tests"))) {
+                    list.remove("test")
+                    list.remove("tests")
+                }
             }
-            R.id.fabiflu->{
-                if(isChecked && !list.contains(beds.text.toString())){
+            R.id.fabiflu -> {
+                if (isChecked && !list.contains("fabiflu")) {
                     list.add("fabiflu")
                 }
+                if (!isChecked && list.contains("fabiflu")) {
+                    list.remove("fabiflu")
+                }
             }
-            R.id.remdesivir->{
-                if(isChecked && !list.contains(beds.text.toString())){
+            R.id.remdesivir -> {
+                if (isChecked && !list.contains("remdesivir")) {
                     list.add("remdesivir")
                 }
+                if (!isChecked && list.contains("remdesivir")) {
+                    list.remove("remdesivir")
+                }
             }
-            R.id.favipiravir->{
-                if(isChecked && !list.contains(beds.text.toString())){
+            R.id.favipiravir -> {
+                if (isChecked && !list.contains("favipiravir")) {
                     list.add("favipiravir")
                 }
+                if (!isChecked && list.contains("favipiravir")) {
+                    list.remove("favipiravir")
+                }
             }
-            R.id.tocilizumab->{
-                if(isChecked && !list.contains(beds.text.toString())){
+            R.id.tocilizumab -> {
+                if (isChecked && !list.contains("tocilizumba")) {
                     list.add("tocilizumba")
                 }
+                if (!isChecked && list.contains("tocilizumba")) {
+                    list.remove("tocilizumba")
+                }
             }
-            R.id.plasma->{
-                if(isChecked && !list.contains(beds.text.toString())){
+            R.id.plasma -> {
+                if (isChecked && !list.contains("plasma")) {
                     list.add("plasma")
                 }
-            }
-            R.id.food->{
-                if(isChecked && !list.contains(beds.text.toString())){
-                    list.add("food")
+                if (!isChecked && list.contains("plasma")) {
+                    list.remove("plasma")
                 }
             }
+            R.id.food -> {
+                if (isChecked && !list.contains("food")) {
+                    list.add("food")
+                }
+                if (!isChecked && list.contains("food")) {
+                    list.remove("food")
+                }
+            }
+            R.id.ambulance -> {
+                if (isChecked && !list.contains("ambulance")) {
+                    list.add("ambulance")
+                }
+                if (!isChecked && list.contains("ambulance")) {
+                    list.remove("ambulance")
+                }
+            }
+            R.id.chkOther->{
+                if(isChecked)
+                tilOthers.visibility=View.VISIBLE
+                else
+                    tilOthers.visibility=View.GONE
+            }
         }
+    }
+
+    override fun onBackPressed() {
+        val intent = Intent(this, CitySelectionActivity::class.java)
+        intent.putExtra("EXIT", true)
+        startActivity(intent)
+        super.onBackPressed()
+        finish()
     }
 }

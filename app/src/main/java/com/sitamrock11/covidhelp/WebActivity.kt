@@ -1,5 +1,6 @@
 package com.sitamrock11.covidhelp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.webkit.WebViewClient
@@ -15,5 +16,16 @@ class WebActivity : AppCompatActivity() {
         webView.loadUrl(url!!)
         val webSetting=webView.settings
         webSetting.javaScriptEnabled=true
+    }
+
+    override fun onBackPressed() {
+        if(webView.canGoBack()) webView.goBack()
+        else {
+            val intent= Intent(this,CitySelectionActivity::class.java)
+            intent.putExtra("EXIT", true)
+            startActivity(intent)
+            super.onBackPressed()
+            finish()
+        }
     }
 }
