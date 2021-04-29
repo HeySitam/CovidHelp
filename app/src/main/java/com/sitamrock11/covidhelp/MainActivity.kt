@@ -9,18 +9,28 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener {
-    lateinit var list: ArrayList<String>
-    lateinit var otherItem:String
-    lateinit var verify:String
+    var list = ArrayList<String>()
+    var otherItem:String?=null
+    var verify:String?=null
     var url = "https://twitter.com/search?q=verified%20"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if(!chkOther.isChecked){
+            tilOthers.visibility=View.GONE
+        }
+        if(!stwVerification.isChecked){
+            stwVerification.text="All "
+            verify="\"not%20verified\"%20-\"unverified\"%20-"
+        }
         val city = intent.getStringExtra("city")
         if(!city.equals("other")){
             cvCityName.visibility= View.GONE
         }
-        list = ArrayList()
         beds.setOnCheckedChangeListener(this)
         icu.setOnCheckedChangeListener(this)
         oxygen.setOnCheckedChangeListener(this)
@@ -50,15 +60,15 @@ class MainActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
         }
         btnSearch.setOnClickListener {
             if(etOthers.text.toString().isNotEmpty()) {
-                 otherItem = etOthers.text.toString()
-                list.add(otherItem)
+                otherItem = etOthers.text.toString()
+                list.add(otherItem!!)
             }
             if(city.equals("other")) {
                 if (list.isNotEmpty() && !etCityName.text.toString().isNullOrEmpty()) {
                     var item = list[0]
                     for (i in 1 until list.size) item += "%20OR%20${list[i]}"
-                        url =
-                            "$url${etCityName.text.toString()}%20($item)%20-$verify\"needed\"%20-\"need\"%20-\"needs\"%20-\"required\"%20-\"require\"%20-\"requires\"%20-\"requirement\"%20-\"requirements\"&f=live"
+                    url =
+                        "$url${etCityName.text.toString()}%20($item)%20-$verify\"needed\"%20-\"need\"%20-\"needs\"%20-\"required\"%20-\"require\"%20-\"requires\"%20-\"requirement\"%20-\"requirements\"&f=live"
 
                     println(url)
                     val intent = Intent(this, WebActivity::class.java)
@@ -87,6 +97,28 @@ class MainActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
             }
 
         }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        list.clear()
+        otherItem = null
+        verify = null
+        url = "https://twitter.com/search?q=verified%20"
+        beds.isChecked=false
+        icu.isChecked=false
+        oxygen.isChecked=false
+        ventilator.isChecked=false
+        tests.isChecked=false
+        fabiflu.isChecked=false
+        remdesivir.isChecked=false
+        favipiravir.isChecked=false
+        tocilizumab.isChecked=false
+        plasma.isChecked=false
+        food.isChecked=false
+        ambulance.isChecked=false
+        chkOther.isChecked=false
+        stwVerification.isChecked=false
     }
 
     override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
@@ -202,11 +234,4 @@ class MainActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
         }
     }
 
-    override fun onBackPressed() {
-        val intent = Intent(this, CitySelectionActivity::class.java)
-        intent.putExtra("EXIT", true)
-        startActivity(intent)
-        super.onBackPressed()
-        finish()
-    }
 }

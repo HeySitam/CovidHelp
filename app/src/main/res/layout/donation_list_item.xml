@@ -1,0 +1,1049 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="10dp"
+        android:layout_gravity="center_horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imgDonate1"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/hemkunt_foundation" />
+
+            <TextView
+                android:id="@+id/txtOrgName1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgDonate1"
+                android:layout_centerHorizontal="true"
+                android:text="Hemkunt Foundation"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/llOrg1"
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtOrgName1">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="start"
+                    android:background="@color/black" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="0.1dp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="end"
+                    android:background="@color/black" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtOrg1"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llOrg1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:text="@string/hemkunt_foundation"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
+            <LinearLayout
+                android:id="@+id/llOrgs1"
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtOrg1">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="start"
+                    android:background="@color/black" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="0.1dp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="end"
+                    android:background="@color/black" />
+            </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDonate1"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llOrgs1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="Donate"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                app:cornerRadius="8dp"/>
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="10dp"
+        android:layout_gravity="center_horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imgDonate2"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/act_grants" />
+
+            <TextView
+                android:id="@+id/txtOrgName2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgDonate2"
+                android:layout_centerHorizontal="true"
+                android:text="ACT Grants"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/llOrg2"
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtOrgName2">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="start"
+                    android:background="@color/black" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="0.1dp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="end"
+                    android:background="@color/black" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtOrg2"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llOrg2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:text="@string/act_grants"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
+            <LinearLayout
+                android:id="@+id/llOrgs2"
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtOrg2">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="start"
+                    android:background="@color/black" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="0.1dp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="end"
+                    android:background="@color/black" />
+            </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDonate2"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llOrgs2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="Donate"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                app:cornerRadius="8dp"/>
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="10dp"
+        android:layout_gravity="center_horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imgDonate3"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="15dp"
+                android:scaleType="centerCrop"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/give_india" />
+
+            <TextView
+                android:id="@+id/txtOrgName3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgDonate3"
+                android:layout_centerHorizontal="true"
+                android:text="Give India"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/llOrg3"
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtOrgName3">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="start"
+                    android:background="@color/black" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="0.1dp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="end"
+                    android:background="@color/black" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtOrg3"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llOrg3"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:text="@string/give_india"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
+            <LinearLayout
+                android:id="@+id/llOrgs3"
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtOrg3">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="start"
+                    android:background="@color/black" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="0.1dp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="end"
+                    android:background="@color/black" />
+            </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDonate3"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llOrgs3"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="Donate"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                app:cornerRadius="8dp"/>
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="10dp"
+        android:layout_gravity="center_horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imgDonate4"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ketto" />
+
+            <TextView
+                android:id="@+id/txtOrgName4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgDonate4"
+                android:layout_centerHorizontal="true"
+                android:text="Feeding From Far"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/llOrg4"
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtOrgName4">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="start"
+                    android:background="@color/black" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="0.1dp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="end"
+                    android:background="@color/black" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtOrg4"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llOrg4"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:text="@string/feeding_from_far"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
+            <LinearLayout
+                android:id="@+id/llOrgs4"
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtOrg4">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="start"
+                    android:background="@color/black" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="0.1dp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="end"
+                    android:background="@color/black" />
+            </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDonate4"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llOrgs4"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="Donate"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                app:cornerRadius="8dp"/>
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imgDonate5"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/act_grants" />
+
+            <TextView
+                android:id="@+id/txtOrgName5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgDonate5"
+                android:layout_centerHorizontal="true"
+                android:text="Swasth"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/llOrg5"
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtOrgName5">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="start"
+                    android:background="@color/black" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="0.1dp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="end"
+                    android:background="@color/black" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtOrg5"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llOrg5"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:text="@string/swasth"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
+            <LinearLayout
+                android:id="@+id/llOrgs5"
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtOrg5">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="start"
+                    android:background="@color/black" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="0.1dp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="end"
+                    android:background="@color/black" />
+            </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDonate5"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llOrgs5"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="Donate"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                app:cornerRadius="8dp"/>
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imgDonate6"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/zomato" />
+
+            <TextView
+                android:id="@+id/txtOrgName6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgDonate6"
+                android:layout_centerHorizontal="true"
+                android:text="Zomato Feeding India"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/llOrg6"
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtOrgName6">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="start"
+                    android:background="@color/black" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="0.1dp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="end"
+                    android:background="@color/black" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtOrg6"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llOrg6"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:text="@string/zomato_feeding_india"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
+            <LinearLayout
+                android:id="@+id/llOrgs6"
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtOrg6">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="start"
+                    android:background="@color/black" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="0.1dp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="end"
+                    android:background="@color/black" />
+            </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDonate6"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llOrgs6"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="Donate"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                app:cornerRadius="8dp"/>
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        android:layout_gravity="center_horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imgDonate"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/help" />
+
+            <TextView
+                android:id="@+id/txtOrgName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgDonate"
+                android:layout_centerHorizontal="true"
+                android:text="Donation Organization"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/llOrg"
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtOrgName">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="start"
+                    android:background="@color/black" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="0.1dp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="end"
+                    android:background="@color/black" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtOrg"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llOrg"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:text="is providing essentials like ration and hygiene material, with dignity, to daily wagers, migrant workers and people struggling for the basics in the villages of India."
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
+            <LinearLayout
+                android:id="@+id/llOrg2"
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtOrg">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="start"
+                    android:background="@color/black" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="0.1dp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="end"
+                    android:background="@color/black" />
+            </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDonate"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llOrg2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="Donate"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                app:cornerRadius="8dp"/>
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        android:layout_gravity="center_horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imgDonate"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/help" />
+
+            <TextView
+                android:id="@+id/txtOrgName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgDonate"
+                android:layout_centerHorizontal="true"
+                android:text="Donation Organization"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/llOrg"
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtOrgName">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="start"
+                    android:background="@color/black" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="0.1dp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="end"
+                    android:background="@color/black" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtOrg"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llOrg"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:text="is providing essentials like ration and hygiene material, with dignity, to daily wagers, migrant workers and people struggling for the basics in the villages of India."
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
+            <LinearLayout
+                android:id="@+id/llOrg2"
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtOrg">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="start"
+                    android:background="@color/black" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="0.1dp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="end"
+                    android:background="@color/black" />
+            </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDonate"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llOrg2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="Donate"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                app:cornerRadius="8dp"/>
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        android:layout_gravity="center_horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imgDonate"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/help" />
+
+            <TextView
+                android:id="@+id/txtOrgName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgDonate"
+                android:layout_centerHorizontal="true"
+                android:text="Donation Organization"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/llOrg"
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtOrgName">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="start"
+                    android:background="@color/black" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="0.1dp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="end"
+                    android:background="@color/black" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtOrg"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llOrg"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:text="is providing essentials like ration and hygiene material, with dignity, to daily wagers, migrant workers and people struggling for the basics in the villages of India."
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
+            <LinearLayout
+                android:id="@+id/llOrg2"
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtOrg">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="start"
+                    android:background="@color/black" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="0.1dp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="end"
+                    android:background="@color/black" />
+            </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDonate"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llOrg2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="Donate"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                app:cornerRadius="8dp"/>
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        android:layout_gravity="center_horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imgDonate"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/help" />
+
+            <TextView
+                android:id="@+id/txtOrgName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgDonate"
+                android:layout_centerHorizontal="true"
+                android:text="Donation Organization"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/llOrg"
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtOrgName">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="start"
+                    android:background="@color/black" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="0.1dp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="end"
+                    android:background="@color/black" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtOrg"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llOrg"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:text="is providing essentials like ration and hygiene material, with dignity, to daily wagers, migrant workers and people struggling for the basics in the villages of India."
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
+            <LinearLayout
+                android:id="@+id/llOrg2"
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtOrg">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="start"
+                    android:background="@color/black" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="0.1dp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="end"
+                    android:background="@color/black" />
+            </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDonate"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llOrg2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="Donate"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                app:cornerRadius="8dp"/>
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+</LinearLayout>
+</ScrollView>

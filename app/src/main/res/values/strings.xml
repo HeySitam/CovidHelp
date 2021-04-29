@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">CovidHelp</string>
+    <string name="hemkunt_foundation">Hemkunt Foundation has been helping out with Oxygen Cylinders. 80G donation receipts available.</string>
+    <string name="act_grants">ACT grants has been helping with distribution of oxygen. Run by Indian startup ecosystem. International donations also accepted.</string>
+    <string name="give_india">Give India are providing sanitary napkins for women affected by the Pandemic.</string>
+    <string name="feeding_from_far">Feeding From Far has been feeding the poor and unemployed who are struggling to feed themselves during the lockdown. Accepts international payments.</string>
+    <string name="swasth">Swasth along with ACT Grants is procuring oxygen concentrators and channeling them to hospitals in India.</string>
+    <string name="zomato_feeding_india">Zomato Feeding India are providing hospitals and patients with oxygen and related supplies for free. Accepts international payments.</string>
+    <string name="goonj">Goonj is providing essentials like ration and hygiene material, with dignity, to daily wagers, migrant workers and people struggling for the basics in the villages of India. Eligible for tax deduction of 50% u/s 80G.</string>
+    <string name="enrich_lives_foundation">Enrich Lives Foundation is providing grocery kits and meals to the poor communities.</string>
+    <string name="paytm_foundation">Paytm Foundation is raising ₹10 crore to donate Oxygen Concentrators across India. They will match the contributions received through this initiative.</string>
+    <string name="mission_oxygen">This campaign started as a self-funded mission to help hospitals across the country get immediate access to oxygen concentrators. We assumed a requirement of 100 pieces that we could manage.</string>
 </resources>

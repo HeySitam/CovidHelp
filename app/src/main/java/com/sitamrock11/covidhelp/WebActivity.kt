@@ -21,11 +21,11 @@ class WebActivity : AppCompatActivity() {
     override fun onBackPressed() {
         if(webView.canGoBack()) webView.goBack()
         else {
-            val intent= Intent(this,CitySelectionActivity::class.java)
-            intent.putExtra("EXIT", true)
-            startActivity(intent)
+//            val intent= Intent(this,CitySelectionActivity::class.java)
+//            intent.putExtra("EXIT", true)
+//            startActivity(intent)
             super.onBackPressed()
-            finish()
+//            finish()
         }
     }
 }

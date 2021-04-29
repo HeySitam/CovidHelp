@@ -12,13 +12,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CovidHelp">
-        <activity android:name=".ChooseActivity"></activity>
-        <activity android:name=".CitySelectionActivity">
+        <activity android:name=".ChooseActivity"
+            android:theme="@style/NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".CitySelectionActivity">
+
         </activity>
         <activity android:name=".WebActivity" />
         <activity android:name=".MainActivity"></activity>

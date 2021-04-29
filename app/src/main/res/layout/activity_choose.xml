@@ -3,6 +3,93 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#10000000"
     android:layout_height="match_parent"
     tools:context=".ChooseActivity">
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:scaleType="fitCenter"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/cvNeedHelp"
+        android:layout_marginBottom="50dp"
+        android:src="@drawable/help"/>
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvNeedHelp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_above="@+id/llORChoose"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="5dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="8dp"
+        app:strokeWidth="2dp"
+        app:strokeColor="#d3d3d3"
+        android:layout_centerHorizontal="true">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="💕Need Help ?"
+            android:fontFamily="cursive"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="10dp"/>
+    </com.google.android.material.card.MaterialCardView>
+    <LinearLayout
+        android:id="@+id/llORChoose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0.1dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@android:color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="   OR   "
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0.1dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@android:color/black" />
+    </LinearLayout>
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvDonate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        app:cardCornerRadius="8dp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/llORChoose"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        app:strokeWidth="2dp"
+        app:strokeColor="#d3d3d3"
+        android:layout_centerHorizontal="true">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Donate🎁"
+            android:fontFamily="cursive"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="10dp"/>
+    </com.google.android.material.card.MaterialCardView>
 </RelativeLayout>

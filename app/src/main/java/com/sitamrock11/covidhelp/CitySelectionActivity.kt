@@ -11,7 +11,6 @@ import com.royrodriguez.transitionbutton.TransitionButton
 import kotlinx.android.synthetic.main.activity_city_selection.*
 
 class CitySelectionActivity : AppCompatActivity(),View.OnClickListener {
-    var count=0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_city_selection)
@@ -104,17 +103,6 @@ class CitySelectionActivity : AppCompatActivity(),View.OnClickListener {
                 intent.putExtra("city","goa")
                 startActivity(intent)
             }
-        }
-    }
-
-    override fun onBackPressed() {
-        count++
-        if(count==1){
-            Toast.makeText(this,"Press again to exit",Toast.LENGTH_SHORT).show()
-        }else if(count==2) {
-            super.onBackPressed()
-            ActivityCompat.finishAffinity(this);
-            android.os.Process.killProcess(android.os.Process.myPid());
         }
     }
 }
