@@ -45,4 +45,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'com.mikhaellopez:circularimageview:4.2.0'
     implementation 'com.royrodriguez:transitionbutton:0.2.0'
+    implementation 'com.github.sparrow007:carouselrecyclerview:1.1.0'
 }

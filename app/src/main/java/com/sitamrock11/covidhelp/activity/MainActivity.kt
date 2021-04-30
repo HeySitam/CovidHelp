@@ -1,4 +1,4 @@
-package com.sitamrock11.covidhelp
+package com.sitamrock11.covidhelp.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,8 @@ import android.view.View
 import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.sitamrock11.covidhelp.R
+import com.sitamrock11.covidhelp.activity.WebActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener {
@@ -225,7 +227,7 @@ class MainActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
                     list.remove("ambulance")
                 }
             }
-            R.id.chkOther->{
+            R.id.chkOther ->{
                 if(isChecked)
                 tilOthers.visibility=View.VISIBLE
                 else

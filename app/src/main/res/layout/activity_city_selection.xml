@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#10000000"
-    tools:context=".CitySelectionActivity">
+    tools:context=".activity.CitySelectionActivity">
 
     <TextView
         android:id="@+id/txtCities"
@@ -534,7 +534,7 @@
             android:layout_weight="1"
             android:background="@android:color/black" />
     </LinearLayout>
-    <com.royrodriguez.transitionbutton.TransitionButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/transitionButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -548,7 +548,5 @@
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="15sp"
-        android:textStyle="bold"
-        app:defaultColor="#000000"
-        app:loaderColor="@android:color/white" />
+        android:textStyle="bold" />
 </RelativeLayout>
