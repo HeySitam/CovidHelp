@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/stateWise"
+        android:title="State Wise"
+        android:icon="@drawable/city"/>
+    <item
+        android:id="@+id/cityWise"
+        android:title="City Wise"
+        android:icon="@drawable/city_bottom"/>
+    <item
+        android:id="@+id/covidTracker"
+        android:title="Covid Tracker"
+        android:icon="@drawable/corona_virus"/>
+</menu>
