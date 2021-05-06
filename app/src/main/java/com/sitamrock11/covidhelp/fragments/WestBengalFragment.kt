@@ -1,6 +1,8 @@
 package com.sitamrock11.covidhelp.fragments
 
+import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -65,55 +67,44 @@ class WestBengalFragment : Fragment(), View.OnClickListener {
             }
             R.id.cvBed -> {
                 url="https://excise.wb.gov.in/CHMS/Public/Page/CHMS_Public_Hospital_Bed_Availability.aspx"
-                intent=Intent(requireContext(),WebActivity::class.java)
-                intent.putExtra("urlLink",url)
-                context!!.startActivity(intent)
+                intentBrowse(context)
             }
             R.id.cvHome -> {
                 url="https://excise.wb.gov.in/CHMS/Public/Page/CHMS_Public_Safe_Home_Bed_Availability.aspx"
-                intent=Intent(requireContext(),WebActivity::class.java)
-                intent.putExtra("urlLink",url)
-                context!!.startActivity(intent)
+                intentBrowse(context)
             }
             R.id.cvHelpDesk -> {
                 url="https://excise.wb.gov.in/CHMS/Public/Page/CHMS_Public_District_Contact_Details.aspx?Telephone_Number_Flag=A"
-                intent=Intent(requireContext(),WebActivity::class.java)
-                intent.putExtra("urlLink",url)
-                context!!.startActivity(intent)
+                intentBrowse(context)
             }
             R.id.cvCenter -> {
                 url="https://excise.wb.gov.in/CHMS/Public/Page/CHMS_Public_District_Contact_Details.aspx?Telephone_Number_Flag=C"
-                intent=Intent(requireContext(),WebActivity::class.java)
-                intent.putExtra("urlLink",url)
-                context!!.startActivity(intent)
+                intentBrowse(context)
             }
             R.id.cvAmbulance -> {
                 url="https://excise.wb.gov.in/CHMS/Public/Page/CHMS_Public_MIS_Ambulance.aspx"
-                intent=Intent(requireContext(),WebActivity::class.java)
-                intent.putExtra("urlLink",url)
-                context!!.startActivity(intent)
+                intentBrowse(context)
             }
             R.id.cvHearse -> {
                 url="https://excise.wb.gov.in/CHMS/Public/Page/CHMS_Public_MIS_Hearse_Van.aspx"
-                intent=Intent(requireContext(),WebActivity::class.java)
-                intent.putExtra("urlLink",url)
-                context!!.startActivity(intent)
+                intentBrowse(context)
             }
             R.id.cvNodal -> {
                 url="https://excise.wb.gov.in/CHMS/Public/Page/CHMS_Public_Cremation_Nodal_Officer.aspx"
-                intent=Intent(requireContext(),WebActivity::class.java)
-                intent.putExtra("urlLink",url)
-                context!!.startActivity(intent)
+                intentBrowse(context)
             }
             R.id.cvBurial -> {
                 url="https://excise.wb.gov.in/CHMS/Public/Page/CHMS_Public_Burial_Cremation_Information.aspx"
-                intent=Intent(requireContext(),WebActivity::class.java)
-                intent.putExtra("urlLink",url)
-                context!!.startActivity(intent)
+                intentBrowse(context)
             }
         }
     }
-
+private fun intentBrowse(context: Context?){
+    intent=Intent()
+    intent.action=Intent.ACTION_VIEW
+    intent.data= Uri.parse(url)
+    context!!.startActivity(intent)
+}
     private fun clickHandle() {
         cvBed.setOnClickListener(this)
         cvSafeHome.setOnClickListener(this)

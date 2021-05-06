@@ -38,7 +38,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/biswa_bangla"
+                android:src="@drawable/bed"
                 app:civ_border="true"
                 app:civ_border_color="@color/black"
                 app:civ_border_width="2dp" />
@@ -78,7 +78,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/biswa_bangla"
+                android:src="@drawable/safe_home"
                 app:civ_border="true"
                 app:civ_border_color="@color/black"
                 app:civ_border_width="2dp" />
@@ -125,7 +125,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="15dp"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/biswa_bangla"
+                    android:src="@drawable/help_desk"
                     app:civ_border="true"
                     app:civ_border_color="@color/black"
                     app:civ_border_width="2dp" />
@@ -165,7 +165,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="15dp"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/biswa_bangla"
+                    android:src="@drawable/coordination"
                     app:civ_border="true"
                     app:civ_border_color="@color/black"
                     app:civ_border_width="2dp" />
@@ -212,7 +212,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="15dp"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/biswa_bangla"
+                    android:src="@drawable/ambulance"
                     app:civ_border="true"
                     app:civ_border_color="@color/black"
                     app:civ_border_width="2dp" />
@@ -252,7 +252,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="15dp"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/biswa_bangla"
+                    android:src="@drawable/hearse"
                     app:civ_border="true"
                     app:civ_border_color="@color/black"
                     app:civ_border_width="2dp" />
@@ -299,7 +299,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="15dp"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/biswa_bangla"
+                    android:src="@drawable/officer"
                     app:civ_border="true"
                     app:civ_border_color="@color/black"
                     app:civ_border_width="2dp" />
@@ -340,8 +340,7 @@
                     android:layout_height="100dp"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="15dp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/biswa_bangla"
+                    android:src="@drawable/burial"
                     app:civ_border="true"
                     app:civ_border_color="@color/black"
                     app:civ_border_width="2dp" />
