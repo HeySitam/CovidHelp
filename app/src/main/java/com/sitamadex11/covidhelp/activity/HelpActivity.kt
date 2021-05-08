@@ -1,12 +1,12 @@
-package com.sitamrock11.covidhelp.activity
+package com.sitamadex11.covidhelp.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.sitamrock11.covidhelp.R
-import com.sitamrock11.covidhelp.fragments.CityWiseFragment
-import com.sitamrock11.covidhelp.fragments.CovidTrackerFragment
-import com.sitamrock11.covidhelp.fragments.StateWiseFragment
+import com.sitamadex11.covidhelp.R
+import com.sitamadex11.covidhelp.fragments.CityWiseFragment
+import com.sitamadex11.covidhelp.fragments.CovidTrackerFragment
+import com.sitamadex11.covidhelp.fragments.StateWiseFragment
 import kotlinx.android.synthetic.main.help_activity.*
 
 class HelpActivity : AppCompatActivity() {

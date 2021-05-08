@@ -1,12 +1,10 @@
-package com.sitamrock11.covidhelp.activity
+package com.sitamadex11.covidhelp.activity
 
-import android.graphics.Color
 import android.os.Bundle
-import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
-import com.sitamrock11.covidhelp.R
+import com.sitamadex11.covidhelp.R
 import kotlinx.android.synthetic.main.activity_web.*
 
 

@@ -1,9 +1,9 @@
-package com.sitamrock11.covidhelp.activity
+package com.sitamadex11.covidhelp.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.sitamrock11.covidhelp.R
+import com.sitamadex11.covidhelp.R
 import kotlinx.android.synthetic.main.activity_choose.*
 
 class ChooseActivity : AppCompatActivity() {
@@ -11,7 +11,7 @@ class ChooseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_choose)
         cvNeedHelp.setOnClickListener {
-            val intent= Intent(this, CitySelectionActivity::class.java)
+            val intent= Intent(this, HelpActivity::class.java)
             startActivity(intent)
         }
         cvDonate.setOnClickListener {

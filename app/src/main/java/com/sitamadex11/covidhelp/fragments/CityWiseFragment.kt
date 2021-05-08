@@ -1,0 +1,140 @@
+package com.sitamadex11.covidhelp.fragments
+
+import android.content.Intent
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.card.MaterialCardView
+import com.royrodriguez.transitionbutton.TransitionButton
+import com.sitamadex11.covidhelp.R
+import com.sitamadex11.covidhelp.activity.MainActivity
+
+class CityWiseFragment : Fragment(), View.OnClickListener {
+    lateinit var btnSearchCity: MaterialButton
+    lateinit var mdKolkata: MaterialCardView
+    lateinit var mdDelhi: MaterialCardView
+    lateinit var mdPune: MaterialCardView
+    lateinit var mdMumbai: MaterialCardView
+    lateinit var mdBangalore: MaterialCardView
+    lateinit var mdThane: MaterialCardView
+    lateinit var mdHyderbad: MaterialCardView
+    lateinit var mdNagpur: MaterialCardView
+    lateinit var mdLucknow: MaterialCardView
+    lateinit var mdAhmedabad: MaterialCardView
+    lateinit var mdChennai: MaterialCardView
+    lateinit var mdGoa: MaterialCardView
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_city_wise, container, false)
+        init(view!!)
+        btnSearchCity.setOnClickListener {
+            val intent = Intent(context, MainActivity::class.java)
+            intent.putExtra("city", "other")
+            startActivity(intent)
+            Toast.makeText(context, "Here we Go!!", Toast.LENGTH_SHORT).show()
+        }
+        mdKolkata.setOnClickListener(this)
+        mdDelhi.setOnClickListener(this)
+        mdPune.setOnClickListener(this)
+        mdMumbai.setOnClickListener(this)
+        mdBangalore.setOnClickListener(this)
+        mdThane.setOnClickListener(this)
+        mdHyderbad.setOnClickListener(this)
+        mdNagpur.setOnClickListener(this)
+        mdLucknow.setOnClickListener(this)
+        mdAhmedabad.setOnClickListener(this)
+        mdChennai.setOnClickListener(this)
+        mdGoa.setOnClickListener(this)
+        return view
+    }
+
+    private fun init(view: View) {
+        btnSearchCity = view.findViewById(R.id.btnSearchCity)
+        mdKolkata=view.findViewById(R.id.mdKolkata)
+        mdDelhi=view.findViewById(R.id.mdDelhi)
+        mdPune=view.findViewById(R.id.mdPune)
+        mdMumbai=view.findViewById(R.id.mdMumbai)
+        mdBangalore=view.findViewById(R.id.mdBangalore)
+        mdThane=view.findViewById(R.id.mdThane)
+        mdHyderbad=view.findViewById(R.id.mdHyderbad)
+        mdNagpur=view.findViewById(R.id.mdNagpur)
+        mdLucknow=view.findViewById(R.id.mdLucknow)
+        mdAhmedabad=view.findViewById(R.id.mdAhmedabad)
+        mdChennai=view.findViewById(R.id.mdChennai)
+        mdGoa=view.findViewById(R.id.mdGoa)
+    }
+
+    override fun onClick(v: View?) {
+        when(v!!.id){
+            R.id.mdKolkata ->{
+                val intent=Intent(context, MainActivity::class.java)
+                intent.putExtra("city","kolkata")
+                startActivity(intent)
+            }
+            R.id.mdDelhi ->{
+                val intent=Intent(context, MainActivity::class.java)
+                intent.putExtra("city","delhi")
+                startActivity(intent)
+            }
+            R.id.mdPune ->{
+                val intent=Intent(context, MainActivity::class.java)
+                intent.putExtra("city","pune")
+                startActivity(intent)
+            }
+            R.id.mdMumbai ->{
+                val intent=Intent(context, MainActivity::class.java)
+                intent.putExtra("city","mumbai")
+                startActivity(intent)
+            }
+            R.id.mdBangalore ->{
+                val intent=Intent(context, MainActivity::class.java)
+                intent.putExtra("city","bangalore")
+                startActivity(intent)
+            }
+            R.id.mdThane ->{
+                val intent=Intent(context, MainActivity::class.java)
+                intent.putExtra("city","thane")
+                startActivity(intent)
+            }
+            R.id.mdHyderbad ->{
+                val intent=Intent(context, MainActivity::class.java)
+                intent.putExtra("city","hyderbad")
+                startActivity(intent)
+            }
+            R.id.mdNagpur ->{
+                val intent=Intent(context, MainActivity::class.java)
+                intent.putExtra("city","nagpur")
+                startActivity(intent)
+            }
+            R.id.mdLucknow ->{
+                val intent=Intent(context, MainActivity::class.java)
+                intent.putExtra("city","lucknow")
+                startActivity(intent)
+            }
+            R.id.mdAhmedabad ->{
+                val intent=Intent(context, MainActivity::class.java)
+                intent.putExtra("city","ahmedabad")
+                startActivity(intent)
+            }
+            R.id.mdChennai ->{
+                val intent=Intent(context, MainActivity::class.java)
+                intent.putExtra("city","chennai")
+                startActivity(intent)
+            }
+            R.id.mdGoa ->{
+                val intent=Intent(context, MainActivity::class.java)
+                intent.putExtra("city","goa")
+                startActivity(intent)
+            }
+        }
+    }
+
+}

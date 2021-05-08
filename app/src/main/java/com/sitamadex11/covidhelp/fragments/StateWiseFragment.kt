@@ -1,4 +1,4 @@
-package com.sitamrock11.covidhelp.fragments
+package com.sitamadex11.covidhelp.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
-import com.sitamrock11.covidhelp.R
-import com.sitamrock11.covidhelp.adapter.StateWiseViewPagerAdapter
+import com.sitamadex11.covidhelp.R
+import com.sitamadex11.covidhelp.adapter.StateWiseViewPagerAdapter
 
 class StateWiseFragment : Fragment() {
 lateinit var viewPagerAdapter: FragmentPagerAdapter

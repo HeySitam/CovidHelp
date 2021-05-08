@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.sitamrock11.covidhelp">
+    package="com.sitamadex11.covidhelp">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -12,23 +12,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CovidHelp">
-        <activity android:name=".activity.HelpActivity"
+        <activity android:name="com.sitamadex11.covidhelp.activity.HelpActivity"
             android:theme="@style/helpActivity">
+
+        </activity>
+        <activity android:name="com.sitamadex11.covidhelp.activity.DonationListActivity" />
+        <activity
+            android:name="com.sitamadex11.covidhelp.activity.ChooseActivity"
+            android:theme="@style/NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.DonationListActivity" />
-        <activity
-            android:name=".activity.ChooseActivity"
-            android:theme="@style/NoActionBar">
-
-        </activity>
-        <activity android:name=".activity.CitySelectionActivity" />
-        <activity android:name=".activity.WebActivity" />
-        <activity android:name=".activity.MainActivity" />
+        <activity android:name="com.sitamadex11.covidhelp.activity.CitySelectionActivity" />
+        <activity android:name="com.sitamadex11.covidhelp.activity.WebActivity" />
+        <activity android:name="com.sitamadex11.covidhelp.activity.MainActivity" />
     </application>
 
 </manifest>

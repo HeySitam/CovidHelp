@@ -1,4 +1,4 @@
-package com.sitamrock11.covidhelp
+package com.sitamadex11.covidhelp
 
 import org.junit.Test
 

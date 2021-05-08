@@ -1,10 +1,10 @@
-package com.sitamrock11.covidhelp.adapter
+package com.sitamadex11.covidhelp.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.sitamrock11.covidhelp.fragments.OtherStateFragment
-import com.sitamrock11.covidhelp.fragments.WestBengalFragment
+import com.sitamadex11.covidhelp.fragments.OtherStateFragment
+import com.sitamadex11.covidhelp.fragments.WestBengalFragment
 
 class StateWiseViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
     override fun getCount(): Int {

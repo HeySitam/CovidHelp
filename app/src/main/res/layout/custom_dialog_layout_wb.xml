@@ -1,364 +1,399 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#f5f5f5"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-<LinearLayout
-    android:layout_width="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_height="match_parent">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="1"
-    android:layout_marginStart="30dp"
-    android:layout_marginEnd="30dp">
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cvBed"
-        android:layout_width="0dp"
+    android:background="#f5f5f5">
+
+    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_weight="1"
-        app:cardCornerRadius="10dp"
-        app:strokeWidth="1dp"
-        android:layout_marginEnd="5dp"
-        app:strokeColor="@android:color/darker_gray"
-        app:cardElevation="2dp">
-        <RelativeLayout
+        android:orientation="vertical">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:background="@drawable/custom_background"
-            android:layout_height="match_parent">
-            <com.mikhaellopez.circularimageview.CircularImageView
-                android:id="@+id/imgBed"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="15dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/bed"
-                app:civ_border="true"
-                app:civ_border_color="@color/black"
-                app:civ_border_width="2dp" />
-            <TextView
-                android:id="@+id/txtBed"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/imgBed"
-                android:layout_centerHorizontal="true"
-                android:text="Bed Availability"
-                android:textAlignment="center"
+            android:layout_height="0dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_weight="1">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvBed"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="5dp"
                 android:layout_marginBottom="10dp"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-        </RelativeLayout>
-    </com.google.android.material.card.MaterialCardView>
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cvHome"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_weight="1"
-        android:layout_marginStart="5dp"
-        app:cardCornerRadius="10dp"
-        app:strokeWidth="1dp"
-        app:strokeColor="@android:color/darker_gray"
-        app:cardElevation="2dp">
-        <RelativeLayout
+                android:layout_weight="1"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@android:color/darker_gray"
+                app:strokeWidth="1dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/custom_background">
+
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:id="@+id/imgBed"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="15dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/bed"
+                        app:civ_border="true"
+                        app:civ_border_color="@color/black"
+                        app:civ_border_width="2dp" />
+
+                    <TextView
+                        android:id="@+id/txtBed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/imgBed"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="10dp"
+                        android:text="Bed Availability"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvHome"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@android:color/darker_gray"
+                app:strokeWidth="1dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/custom_background">
+
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:id="@+id/imgHome"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="15dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/safe_home"
+                        app:civ_border="true"
+                        app:civ_border_color="@color/black"
+                        app:civ_border_width="2dp" />
+
+                    <TextView
+                        android:id="@+id/txtHome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/imgHome"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="10dp"
+                        android:text="SafeHome Availability"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:background="@drawable/custom_background"
-            android:layout_height="match_parent">
-            <com.mikhaellopez.circularimageview.CircularImageView
-                android:id="@+id/imgHome"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="15dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/safe_home"
-                app:civ_border="true"
-                app:civ_border_color="@color/black"
-                app:civ_border_width="2dp" />
-            <TextView
-                android:id="@+id/txtHome"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/imgHome"
-                android:layout_centerHorizontal="true"
-                android:text="SafeHome Availability"
-                android:textAlignment="center"
+            android:layout_height="0dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_weight="1">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvHelpDesk"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="5dp"
                 android:layout_marginBottom="10dp"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-        </RelativeLayout>
-    </com.google.android.material.card.MaterialCardView>
-</LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp">
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cvHelpDesk"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_weight="1"
-            app:cardCornerRadius="10dp"
-            app:strokeWidth="1dp"
-            android:layout_marginEnd="5dp"
-            app:strokeColor="@android:color/darker_gray"
-            app:cardElevation="2dp">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:background="@drawable/custom_background"
-                android:layout_height="match_parent">
-                <com.mikhaellopez.circularimageview.CircularImageView
-                    android:id="@+id/imgHelpDesk"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="15dp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/help_desk"
-                    app:civ_border="true"
-                    app:civ_border_color="@color/black"
-                    app:civ_border_width="2dp" />
-                <TextView
-                    android:id="@+id/txtHelpDesk"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/imgHelpDesk"
-                    android:layout_centerHorizontal="true"
-                    android:text="Admission Cell Helpdesk"
-                    android:textAlignment="center"
-                    android:layout_marginBottom="10dp"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-        </com.google.android.material.card.MaterialCardView>
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cvCenter"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_weight="1"
-            android:layout_marginStart="5dp"
-            app:cardCornerRadius="10dp"
-            app:strokeWidth="1dp"
-            app:strokeColor="@android:color/darker_gray"
-            app:cardElevation="2dp">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:background="@drawable/custom_background"
-                android:layout_height="match_parent">
-                <com.mikhaellopez.circularimageview.CircularImageView
-                    android:id="@+id/imgCenter"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="15dp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/coordination"
-                    app:civ_border="true"
-                    app:civ_border_color="@color/black"
-                    app:civ_border_width="2dp" />
-                <TextView
-                    android:id="@+id/txtCenter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/imgCenter"
-                    android:layout_centerHorizontal="true"
-                    android:text="Co-Ordinate Center"
-                    android:textAlignment="center"
-                    android:layout_marginBottom="10dp"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-        </com.google.android.material.card.MaterialCardView>
+                android:layout_weight="1"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@android:color/darker_gray"
+                app:strokeWidth="1dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/custom_background">
+
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:id="@+id/imgHelpDesk"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="15dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/help_desk"
+                        app:civ_border="true"
+                        app:civ_border_color="@color/black"
+                        app:civ_border_width="2dp" />
+
+                    <TextView
+                        android:id="@+id/txtHelpDesk"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/imgHelpDesk"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="10dp"
+                        android:text="Admission Cell Helpdesk"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvCenter"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@android:color/darker_gray"
+                app:strokeWidth="1dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/custom_background">
+
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:id="@+id/imgCenter"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="15dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/coordination"
+                        app:civ_border="true"
+                        app:civ_border_color="@color/black"
+                        app:civ_border_width="2dp" />
+
+                    <TextView
+                        android:id="@+id/txtCenter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/imgCenter"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="10dp"
+                        android:text="Co-Ordinate Center"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_weight="1">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvAmbulance"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@android:color/darker_gray"
+                app:strokeWidth="1dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/custom_background">
+
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:id="@+id/imgAmbulance"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="15dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ambulance"
+                        app:civ_border="true"
+                        app:civ_border_color="@color/black"
+                        app:civ_border_width="2dp" />
+
+                    <TextView
+                        android:id="@+id/txtAmbulance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/imgAmbulance"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="10dp"
+                        android:text="Ambulance Provider"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvHearse"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@android:color/darker_gray"
+                app:strokeWidth="1dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/custom_background">
+
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:id="@+id/imgHearse"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="15dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/hearse"
+                        app:civ_border="true"
+                        app:civ_border_color="@color/black"
+                        app:civ_border_width="2dp" />
+
+                    <TextView
+                        android:id="@+id/txtHearse"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/imgHearse"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="10dp"
+                        android:text="Hearse van Availability"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_weight="1">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvNodal"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@android:color/darker_gray"
+                app:strokeWidth="1dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/custom_background">
+
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:id="@+id/imgNodal"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="15dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/officer"
+                        app:civ_border="true"
+                        app:civ_border_color="@color/black"
+                        app:civ_border_width="2dp" />
+
+                    <TextView
+                        android:id="@+id/txtNodal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/imgNodal"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="10dp"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:text="Nodal Officers for Burial and Cremation"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvBurial"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@android:color/darker_gray"
+                app:strokeWidth="1dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/custom_background">
+
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:id="@+id/imgBurial"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/burial"
+                        app:civ_border="true"
+                        app:civ_border_color="@color/black"
+                        app:civ_border_width="2dp" />
+
+                    <TextView
+                        android:id="@+id/txtBurial"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/imgBurial"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="10dp"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:text="Burial and Cremation Related Information"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp">
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cvAmbulance"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_weight="1"
-            app:cardCornerRadius="10dp"
-            app:strokeWidth="1dp"
-            android:layout_marginEnd="5dp"
-            app:strokeColor="@android:color/darker_gray"
-            app:cardElevation="2dp">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:background="@drawable/custom_background"
-                android:layout_height="match_parent">
-                <com.mikhaellopez.circularimageview.CircularImageView
-                    android:id="@+id/imgAmbulance"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="15dp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/ambulance"
-                    app:civ_border="true"
-                    app:civ_border_color="@color/black"
-                    app:civ_border_width="2dp" />
-                <TextView
-                    android:id="@+id/txtAmbulance"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/imgAmbulance"
-                    android:layout_centerHorizontal="true"
-                    android:text="Ambulance Provider"
-                    android:textAlignment="center"
-                    android:layout_marginBottom="10dp"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-        </com.google.android.material.card.MaterialCardView>
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cvHearse"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_weight="1"
-            android:layout_marginStart="5dp"
-            app:cardCornerRadius="10dp"
-            app:strokeWidth="1dp"
-            app:strokeColor="@android:color/darker_gray"
-            app:cardElevation="2dp">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:background="@drawable/custom_background"
-                android:layout_height="match_parent">
-                <com.mikhaellopez.circularimageview.CircularImageView
-                    android:id="@+id/imgHearse"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="15dp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/hearse"
-                    app:civ_border="true"
-                    app:civ_border_color="@color/black"
-                    app:civ_border_width="2dp" />
-                <TextView
-                    android:id="@+id/txtHearse"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/imgHearse"
-                    android:layout_centerHorizontal="true"
-                    android:text="Hearse van Availability"
-                    android:textAlignment="center"
-                    android:layout_marginBottom="10dp"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-        </com.google.android.material.card.MaterialCardView>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp">
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cvNodal"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_weight="1"
-            app:cardCornerRadius="10dp"
-            app:strokeWidth="1dp"
-            android:layout_marginEnd="5dp"
-            app:strokeColor="@android:color/darker_gray"
-            app:cardElevation="2dp">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:background="@drawable/custom_background"
-                android:layout_height="match_parent">
-                <com.mikhaellopez.circularimageview.CircularImageView
-                    android:id="@+id/imgNodal"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="15dp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/officer"
-                    app:civ_border="true"
-                    app:civ_border_color="@color/black"
-                    app:civ_border_width="2dp" />
-                <TextView
-                    android:id="@+id/txtNodal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/imgNodal"
-                    android:layout_centerHorizontal="true"
-                    android:textAlignment="center"
-                    android:text="Nodal Officers for Burial and Cremation"
-                    android:layout_marginBottom="10dp"
-                    android:maxLines="2"
-                    android:ellipsize="end"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-        </com.google.android.material.card.MaterialCardView>
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cvBurial"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_weight="1"
-            android:layout_marginStart="5dp"
-            app:cardCornerRadius="10dp"
-            app:strokeWidth="1dp"
-            app:strokeColor="@android:color/darker_gray"
-            app:cardElevation="2dp">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:background="@drawable/custom_background"
-                android:layout_height="match_parent">
-                <com.mikhaellopez.circularimageview.CircularImageView
-                    android:id="@+id/imgBurial"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="15dp"
-                    android:src="@drawable/burial"
-                    app:civ_border="true"
-                    app:civ_border_color="@color/black"
-                    app:civ_border_width="2dp" />
-                <TextView
-                    android:id="@+id/txtBurial"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/imgBurial"
-                    android:layout_centerHorizontal="true"
-                    android:textAlignment="center"
-                    android:text="Burial and Cremation Related Information"
-                    android:maxLines="2"
-                    android:ellipsize="end"
-                    android:layout_marginBottom="10dp"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-        </com.google.android.material.card.MaterialCardView>
-    </LinearLayout>
-</LinearLayout>
 </ScrollView>
