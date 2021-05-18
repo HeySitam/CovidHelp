@@ -92,4 +92,57 @@
             android:gravity="center"
             android:padding="10dp"/>
     </com.google.android.material.card.MaterialCardView>
+    <LinearLayout
+        android:id="@+id/llOR2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       android:layout_below="@id/cvDonate"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0.1dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@android:color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="   OR   "
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0.1dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@android:color/black" />
+    </LinearLayout>
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvVolunteer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        app:cardCornerRadius="8dp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/llOR2"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        app:strokeWidth="2dp"
+        app:strokeColor="#d3d3d3"
+        android:layout_centerHorizontal="true">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="👥Volunteer"
+            android:fontFamily="cursive"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="10dp"/>
+    </com.google.android.material.card.MaterialCardView>
 </RelativeLayout>

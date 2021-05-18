@@ -12,22 +12,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CovidHelp">
-        <activity android:name="com.sitamadex11.covidhelp.activity.HelpActivity"
-            android:theme="@style/helpActivity">
-
-        </activity>
-        <activity android:name="com.sitamadex11.covidhelp.activity.DonationListActivity" />
+        <activity android:name=".activity.VolunteerActivity"></activity>
+        <activity android:name=".activity.DemoTestingActivity"></activity>
         <activity
-            android:name="com.sitamadex11.covidhelp.activity.ChooseActivity"
+            android:name=".activity.HelpActivity"
+            android:theme="@style/helpActivity" />
+        <activity android:name=".activity.DonationListActivity" />
+        <activity
+            android:name=".activity.ChooseActivity"
             android:theme="@style/NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.sitamadex11.covidhelp.activity.CitySelectionActivity" />
-        <activity android:name="com.sitamadex11.covidhelp.activity.WebActivity" />
-        <activity android:name="com.sitamadex11.covidhelp.activity.MainActivity" />
+        <activity android:name=".activity.WebActivity" />
+        <activity android:name=".activity.MainActivity" />
     </application>
 
 </manifest>

@@ -36,12 +36,12 @@ class DonationListActivity : AppCompatActivity() {
                 val desc = snapshot.getString("desc")
                 val url = snapshot.getString("url")
                 list.add(OrgDetails(img, desc, url, title))
-                Log.d("ref_check", list.toString())
-                val adapter = DonationListAdapter(list, this)
-                recycler.adapter = adapter
-                recycler.set3DItem(true)
-                recycler.setAlpha(true)
+                Log.d("ref_check", img.toString())
             }
+            val adapter = DonationListAdapter(list, this)
+            recycler.adapter = adapter
+            recycler.set3DItem(true)
+            recycler.setAlpha(true)
         }.addOnFailureListener { e ->
             Log.d("EXPLOREFRAGMENT", "onFailure: " + e.message)
             Toast.makeText(this, "Something went wrong...", Toast.LENGTH_SHORT).show()
