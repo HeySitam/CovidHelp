@@ -110,6 +110,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="none"
+                android:enabled="false"
                 android:drawableEnd="@drawable/arrow_drop_down"
                 android:hint="Select your district" />
         </com.google.android.material.textfield.TextInputLayout>
