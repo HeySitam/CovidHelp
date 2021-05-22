@@ -8,17 +8,23 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.google.android.gms.tasks.OnFailureListener
+import com.google.android.gms.tasks.OnSuccessListener
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
+import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.gson.Gson
 import com.sitamadex11.covidhelp.R
 import com.sitamadex11.covidhelp.model.District
 import com.sitamadex11.covidhelp.model.State
 import com.sitamadex11.covidhelp.util.Constants
+
 
 class AddVolunteerFragment : Fragment(), View.OnClickListener {
     lateinit var etVolName: TextInputEditText
@@ -39,11 +45,13 @@ class AddVolunteerFragment : Fragment(), View.OnClickListener {
         val view = inflater.inflate(R.layout.fragment_add_volunteer, container, false)
         init(view)
         stateJsonParse()
+        callBack()
+        btnVolAddFB.setOnClickListener(this)
         return view
     }
 
     private fun stateJsonParse() {
-        val url = "https://cdn-api.co-vin.in/api/v2/admin/location/states"
+        val url = Constants.STATE_URL
         val stateString = StringRequest(url, { str ->
             val state_class = Gson().fromJson(str, State::class.java)
             for (i in state_class.states.indices) {
@@ -52,11 +60,12 @@ class AddVolunteerFragment : Fragment(), View.OnClickListener {
             val stateAdapter =
                 ArrayAdapter(requireContext(), R.layout.dropdown_item, state_list)
             etVolState.setAdapter(stateAdapter)
-            etVolState.setOnItemClickListener { parent, view, position, id ->
+            etVolState.setOnItemClickListener { _, _, position, _ ->
                 Toast.makeText(context, state_list[position], Toast.LENGTH_SHORT).show()
                 etVolDistrict.isEnabled = true
                 district_list.clear()
                 districtJsonParse(position)
+                etVolState.error=null
             }
 
             Log.d("chk_state", str)
@@ -77,7 +86,12 @@ class AddVolunteerFragment : Fragment(), View.OnClickListener {
             }
             val stateAdapter =
                 ArrayAdapter(requireContext(), R.layout.dropdown_item, district_list)
-            etVolDistrict.setAdapter(stateAdapter)
+            etVolDistrict.apply {
+                setAdapter(stateAdapter)
+                setOnItemClickListener { _, _, _, _ ->
+                    etVolDistrict.error=null
+                }
+            }
             Log.d("chk_state", str)
         }, {
             Toast.makeText(context, "something went wrong", Toast.LENGTH_SHORT).show()
@@ -98,7 +112,86 @@ class AddVolunteerFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v!!.id) {
-
+            R.id.btnVolAddFB -> {
+             dataCheckAndAdd()
+            }
         }
+    }
+
+    private fun dataCheckAndAdd() {
+        var chk = false
+        if(etVolName.text.isNullOrEmpty()) {
+            etVolName.apply {
+                error = "Volunteer's name can't be empty"
+            }
+            chk=true
+        }
+        if(etVolPh.text.isNullOrEmpty()){
+            etVolPh.apply {
+                error="Volunteer's phone no. can't be empty"
+            }
+        chk=true
+    }
+        if(etVolState.text.isNullOrEmpty()){
+            etVolState.apply {
+                error="Volunteer's state can't be empty"
+            }
+        chk=true
+    }
+        if(etVolDistrict.text.isNullOrEmpty()){
+            etVolDistrict.apply{
+                error="Volunteer's District can't be empty"
+            }
+        chk=true
+    }
+        if(!chk){
+            dataAdd()
+            val item=arrayOf(etVolName,etVolPh,etVolState,etVolDistrict,etVolOrg,etVolDesc)
+            for(i in item.indices)
+                item[i].setText("")
+        }
+    }
+
+    private fun fragmentTransaction() {
+        requireActivity()
+            .supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.flVolunteer,ViewVolunteerFragment())
+            .commit()
+    }
+    private fun callBack(){
+        val callBack=object :OnBackPressedCallback(true){
+            override fun handleOnBackPressed() {
+                fragmentTransaction()
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(callBack)
+    }
+    private fun dataAdd(){
+        val user: MutableMap<String, Any> = HashMap()
+        user["name"] = etVolName.text.toString()
+        user["phone"] = etVolPh.text.toString()
+        user["state"] = etVolState.text.toString()
+        user["district"] = etVolDistrict.text.toString()
+        user["organization"] = etVolOrg.text.toString()
+        user["description"] = etVolDesc.text.toString()
+
+        FirebaseFirestore.getInstance().collection("volunteers")
+            .add(user)
+            .addOnSuccessListener(OnSuccessListener<DocumentReference> { documentReference ->
+                Toast.makeText(
+                    context,
+                    "${etVolName.text.toString()} is added as volunteer successfully !!",
+                    Toast.LENGTH_SHORT
+                ).show()
+            })
+            .addOnFailureListener(OnFailureListener { e ->
+                Log.w("FireStoreError", "Error adding document", e)
+                Toast.makeText(
+                    context,
+                    "Sorry!! Something is went wrong",
+                    Toast.LENGTH_SHORT
+                ).show()
+            })
     }
 }
