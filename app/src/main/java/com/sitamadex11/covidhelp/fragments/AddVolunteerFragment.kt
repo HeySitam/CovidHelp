@@ -43,7 +43,7 @@ class AddVolunteerFragment : Fragment(), View.OnClickListener {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_add_volunteer, container, false)
-        init(view)
+        init(view!!)
         stateJsonParse()
         callBack()
         btnVolAddFB.setOnClickListener(this)
@@ -99,8 +99,8 @@ class AddVolunteerFragment : Fragment(), View.OnClickListener {
         requestOueue.add(districtString)
     }
 
-    private fun init(view: View?) {
-        etVolName = view!!.findViewById(R.id.etVolName)
+    private fun init(view: View) {
+        etVolName = view.findViewById(R.id.etVolName)!!
         etVolPh = view.findViewById(R.id.etVolPh)
         etVolState = view.findViewById(R.id.etVolState)
         etVolDistrict = view.findViewById(R.id.etVolDistrict)
