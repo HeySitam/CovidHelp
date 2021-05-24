@@ -48,7 +48,7 @@ class ViewVolunteerFragment : Fragment(), View.OnClickListener, VLAdapter {
         btnAddVolunteer = view.findViewById(R.id.btnAddVolunteer)
         rvVol = view.findViewById(R.id.rvVolunteer)
         rvVol.layoutManager = LinearLayoutManager(context)
-        adapter = VolunteerListAdapter(context!!, this)
+        adapter = VolunteerListAdapter(requireContext(), this)
     }
 
     override fun onClick(v: View?) {

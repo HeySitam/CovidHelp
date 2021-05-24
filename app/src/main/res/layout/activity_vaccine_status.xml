@@ -4,7 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/custom_background"
     tools:context=".activity.VaccineStatusActivity">
+    <TextView
+        android:id="@+id/txtStateId"
+        android:layout_width="1dp"
+        android:layout_height="1dp"/>
     <LinearLayout
         android:id="@+id/llVac"
         android:orientation="horizontal"
@@ -69,33 +74,23 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etVacDate"
             android:layout_width="match_parent"
+            android:clickable="true"
+            android:cursorVisible="false"
+            android:focusable="false"
             android:layout_height="wrap_content"
             android:inputType="none"
-            android:drawableEnd="@drawable/ic_baseline_access_time_24"
+            android:drawableEnd="@drawable/ic_baseline_calendar_today_24"
             android:hint="Select Date" />
     </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            app:cardCornerRadius="8dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#c2c2c2"
-            app:strokeColor="@color/black"
-            app:strokeWidth="1dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="2dp"
-            android:layout_height="match_parent">
-            <ImageView
-                android:background="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                android:layout_gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="10dp"
-                android:src="@drawable/ic_baseline_search_24"/>
-        </com.google.android.material.card.MaterialCardView>
+       <com.google.android.material.button.MaterialButton
+           android:id="@+id/btnSearchCenter"
+           android:layout_width="0dp"
+           android:layout_weight="1"
+           android:layout_marginTop="5dp"
+           android:layout_marginEnd="5dp"
+           android:drawableEnd="@drawable/ic_baseline_search_24"
+           android:paddingEnd="15dp"
+           android:layout_height="match_parent"/>
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvVaccineCenter"

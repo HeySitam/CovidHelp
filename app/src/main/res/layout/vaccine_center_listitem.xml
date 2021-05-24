@@ -2,7 +2,8 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="190dp"
+    android:layout_margin="7dp"
+    android:layout_height="wrap_content"
     app:cardCornerRadius="8dp">
 
     <RelativeLayout
@@ -11,13 +12,15 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_toStartOf="@id/slotBody">
 
             <LinearLayout
                 android:id="@+id/llDetailsBody"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
                 android:orientation="vertical">
@@ -27,8 +30,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="UPHC-116"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-                    android:textStyle="bold" />
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
 
                 <TextView
                     android:id="@+id/txtCenterAddress"
@@ -109,6 +111,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/llDetailsBody"
+                android:layout_marginBottom="10dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp">
 
@@ -116,6 +119,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    app:strokeColor="#d3d3d3"
+                    app:strokeWidth="1dp"
                     android:backgroundTint="#f5f5f5"
                     app:cardCornerRadius="5dp">
 
@@ -187,17 +192,20 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/slotBody"
             android:layout_width="140dp"
-            android:layout_height="match_parent"
+            android:layout_height="200dp"
             android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="5dp"
             android:layout_marginBottom="5dp"
+            app:strokeColor="#d3d3d3"
+            app:strokeWidth="1dp"
             android:backgroundTint="#f5f5f5"
             app:cardCornerRadius="5dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="200dp"
                 android:orientation="vertical"
                 android:padding="10dp">
 
@@ -214,6 +222,7 @@
                     android:id="@+id/txtSlot1"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="10:00AM-11:00AM" />
@@ -233,6 +242,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
                     android:text="11:00AM-12:00AM" />
 
                 <TextView
@@ -250,6 +260,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
                     android:text="12:00AM-01:00AM" />
 
                 <TextView
@@ -266,6 +277,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
                     android:gravity="center"
                     android:text="10:00AM-11:00AM" />
 

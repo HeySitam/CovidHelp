@@ -13,7 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CovidHelp">
-        <activity android:name=".activity.VaccineStatusActivity"></activity>
+        <activity
+            android:name=".activity.VaccineStatusActivity"
+            android:theme="@style/NoActionBar" />
         <activity android:name=".activity.VolunteerActivity" />
         <activity android:name=".activity.DemoTestingActivity">
 

@@ -54,7 +54,7 @@ class VaccineCenterListAdapter(val context: Context) :
         return centerList.size
     }
 
-    fun updateList(newList: ArrayList<CenterItem>) {
+    fun updateList(newList: List<CenterItem>) {
         centerList.clear()
         centerList.addAll(newList)
         notifyDataSetChanged()
