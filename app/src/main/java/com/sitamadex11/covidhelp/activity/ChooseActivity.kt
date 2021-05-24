@@ -22,5 +22,9 @@ class ChooseActivity : AppCompatActivity() {
             val intent = Intent(this, VolunteerActivity::class.java)
             startActivity(intent)
         }
+        cvCowin.setOnClickListener {
+            val intent = Intent(this, VaccineStatusActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
