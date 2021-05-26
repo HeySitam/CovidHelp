@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.sitamadex11.covidhelp.R
-import com.sitamadex11.covidhelp.model.CenterDetail
 import com.sitamadex11.covidhelp.model.CenterItem
 import java.util.*
 
@@ -43,21 +42,21 @@ class VaccineCenterListAdapter(val context: Context) :
         holder.txtVaccineName.text = centerList[position].sessions[0].vaccine
         holder.txtVaccineFee.text = centerList[position].feeType
         holder.txtAgeLimit.text = "${centerList[position].sessions[0].minAgeLimit}+"
-        if(centerList[position].sessions[0].dose1.toString()=="0") {
+        if (centerList[position].sessions[0].dose1.toString() == "0") {
             holder.txtDose1.text = "booked"
             holder.txtDose1.setTextColor(Color.parseColor("#FF0000"))
-        }else {
+        } else {
             holder.txtDose1.text = centerList[position].sessions[0].dose1.toString()
             holder.txtDose1.setTextColor(Color.parseColor("#2e7d32"))
         }
-        if(centerList[position].sessions[0].dose2.toString()=="0") {
+        if (centerList[position].sessions[0].dose2.toString() == "0") {
             holder.txtDose2.text = "booked"
             holder.txtDose2.setTextColor(Color.parseColor("#FF0000"))
-        }else {
+        } else {
             holder.txtDose2.text = centerList[position].sessions[0].dose2.toString()
             holder.txtDose2.setTextColor(Color.parseColor("#2e7d32"))
         }
-    //    holder.txtDose2.text = centerList[position].sessions[0].dose2.toString()
+        //    holder.txtDose2.text = centerList[position].sessions[0].dose2.toString()
         holder.txtSlot1.text = centerList[position].sessions[0].slots[0]
         holder.txtSlot2.text = centerList[position].sessions[0].slots[1]
         holder.txtSlot3.text = centerList[position].sessions[0].slots[2]

@@ -41,6 +41,8 @@ class VaccineStatusActivity : AppCompatActivity(), View.OnClickListener {
     val district_list = ArrayList<DistrictItems>()
     val district_name_list = ArrayList<String>()
     val adapter = VaccineCenterListAdapter(this)
+    val centerList=ArrayList<CenterItem>()
+    val centerSpecifiedList=ArrayList<CenterItem>()
     val filterItems = arrayOf("All","Available Only","Age 45+","Age 18+","Free","Paid","Covishield","Covaxin","Sputnik V")
     lateinit var rvVac: RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,11 +53,90 @@ class VaccineStatusActivity : AppCompatActivity(), View.OnClickListener {
         stateJsonParse()
         filterSetUp()
     }
+    private fun notFoundShow(){
+        if(centerSpecifiedList.isEmpty()){
+            imgNoResult.visibility=View.VISIBLE
+        }else{
+            imgNoResult.visibility=View.GONE
+        }
+    }
 
     private fun filterSetUp() {
         val filterAdapter =
             ArrayAdapter(this, R.layout.dropdown_item, filterItems)
         etVacFilter.setAdapter(filterAdapter)
+        etVacFilter.setOnItemClickListener { parent, view, position, id ->
+            if(filterItems[position]=="All"){
+                adapter.updateList(centerList)
+            }else if(filterItems[position]=="Available Only"){
+                for(i in centerList.indices){
+                    if(centerList[i].sessions[0].dose1>0 || centerList[i].sessions[0].dose2>0){
+                        centerSpecifiedList.add(centerList[i])
+                    }
+                }
+                adapter.updateList(centerSpecifiedList)
+                centerSpecifiedList.clear()
+            }else if(filterItems[position]=="Age 45+"){
+                for(i in centerList.indices){
+                    if(centerList[i].sessions[0].minAgeLimit==45){
+                        centerSpecifiedList.add(centerList[i])
+                    }
+
+                }
+                adapter.updateList(centerSpecifiedList)
+                centerSpecifiedList.clear()
+            }else if(filterItems[position]=="Age 18+"){
+                for(i in centerList.indices){
+                    if(centerList[i].sessions[0].minAgeLimit==18){
+                        centerSpecifiedList.add(centerList[i])
+                    }
+
+                }
+                adapter.updateList(centerSpecifiedList)
+                centerSpecifiedList.clear()
+            }else if(filterItems[position]=="Free"){
+                for(i in centerList.indices){
+                    if(centerList[i].feeType=="Free"){
+                        centerSpecifiedList.add(centerList[i])
+                    }
+
+                }
+                adapter.updateList(centerSpecifiedList)
+                centerSpecifiedList.clear()
+            }else if(filterItems[position]=="Paid"){
+                for(i in centerList.indices){
+                    if(centerList[i].feeType=="Paid"){
+                        centerSpecifiedList.add(centerList[i])
+                    }
+                }
+                adapter.updateList(centerSpecifiedList)
+                centerSpecifiedList.clear()
+            }else if(filterItems[position]=="Covishield"){
+                for(i in centerList.indices){
+                    if(centerList[i].sessions[0].vaccine=="COVISHIELD"){
+                        centerSpecifiedList.add(centerList[i])
+                    }
+                }
+                adapter.updateList(centerSpecifiedList)
+                centerSpecifiedList.clear()
+            }else if(filterItems[position]=="Covaxin"){
+                for(i in centerList.indices){
+                    if(centerList[i].sessions[0].vaccine=="COVAXIN"){
+                        centerSpecifiedList.add(centerList[i])
+                    }
+                }
+                adapter.updateList(centerSpecifiedList)
+                centerSpecifiedList.clear()
+            }else if(filterItems[position]=="Sputnik V"){
+                for(i in centerList.indices){
+                    if(centerList[i].sessions[0].vaccine=="SPUTNIK V"){
+                        centerSpecifiedList.add(centerList[i])
+                    }
+                }
+                adapter.updateList(centerSpecifiedList)
+                centerSpecifiedList.clear()
+            }
+        }
     }
 
     private fun setClick() {
@@ -80,7 +161,6 @@ class VaccineStatusActivity : AppCompatActivity(), View.OnClickListener {
                 setDateListener()
             }
             R.id.btnSearchCenter->{
-                val centerList=ArrayList<CenterItem>()
                 if(!dataCheck()) {
                     val stringRequest =
                         viewModel.jsonParse(txtStateId.text.toString(), etVacDate.text.toString())
