@@ -13,10 +13,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.gson.Gson
 import com.sitamadex11.covidhelp.R
 import com.sitamadex11.covidhelp.adapter.VaccineCenterListAdapter
+import com.sitamadex11.covidhelp.model.CenterItem
 import com.sitamadex11.covidhelp.model.District
 import com.sitamadex11.covidhelp.model.DistrictItems
 import com.sitamadex11.covidhelp.model.State
@@ -34,12 +36,12 @@ class VaccineStatusActivity : AppCompatActivity(), View.OnClickListener {
     lateinit var requestOueue: RequestQueue
     lateinit var viewModelFactory: StateViewModelFactory
     lateinit var viewModel: StateViewModel
-
-    //    lateinit var cvSearch:MaterialCardView
+    lateinit var btnSearchCenter:MaterialButton
     val state_list = ArrayList<String>()
     val district_list = ArrayList<DistrictItems>()
     val district_name_list = ArrayList<String>()
     val adapter = VaccineCenterListAdapter(this)
+    val filterItems = arrayOf("All","Available Only","Age 45+","Age 18+","Free","Paid","Covishield","Covaxin","Sputnik V")
     lateinit var rvVac: RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,26 +49,23 @@ class VaccineStatusActivity : AppCompatActivity(), View.OnClickListener {
         init()
         setClick()
         stateJsonParse()
-        btnSearchCenter.setOnClickListener {
-            Toast.makeText(this, "Let Search", Toast.LENGTH_SHORT).show()
-            val stringRequest =
-                viewModel.jsonParse(txtStateId.text.toString(), etVacDate.text.toString())
-            viewModel.myResponse.observe(this, androidx.lifecycle.Observer {
-                adapter.updateList(it.centers)
-                rvVac.adapter = adapter
-            })
-            requestOueue.add(stringRequest)
-        }
+        filterSetUp()
+    }
+
+    private fun filterSetUp() {
+        val filterAdapter =
+            ArrayAdapter(this, R.layout.dropdown_item, filterItems)
+        etVacFilter.setAdapter(filterAdapter)
     }
 
     private fun setClick() {
         etVacDate.setOnClickListener(this)
-//        cvSearch.setOnClickListener(this)
+        btnSearchCenter.setOnClickListener(this)
     }
 
     private fun init() {
         etVacDate = findViewById(R.id.etVacDate)
-//        cvSearch=findViewById(R.id.cvSearch)
+        btnSearchCenter=findViewById(R.id.btnSearchCenter)
         rvVac = findViewById(R.id.rvVaccineCenter)
         rvVac.layoutManager = LinearLayoutManager(this)
         requestOueue = Volley.newRequestQueue(this)
@@ -77,17 +76,43 @@ class VaccineStatusActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v!!.id) {
             R.id.etVacDate -> {
+                etVacDate.error=null
                 setDateListener()
             }
-//            R.id.cvSearch->{
-//                Toast.makeText(this,"Let Search",Toast.LENGTH_SHORT).show()
-//               val stringRequest= viewModel.jsonParse(txtStateId.text.toString(),etVacDate.text.toString())
-//                viewModel.myResponse.observe(this, androidx.lifecycle.Observer {
-//                    adapter.updateList(it.centers)
-//                    rvVac.adapter=adapter
-//                })
-//                requestOueue.add(stringRequest)
-//            }
+            R.id.btnSearchCenter->{
+                val centerList=ArrayList<CenterItem>()
+                if(!dataCheck()) {
+                    val stringRequest =
+                        viewModel.jsonParse(txtStateId.text.toString(), etVacDate.text.toString())
+                    viewModel.myResponse.observe(this, androidx.lifecycle.Observer {
+                        if(it.centers.isNotEmpty()) {
+                            centerList.clear()
+                            centerList.addAll(it.centers)
+                            adapter.updateList(centerList)
+                            rvVac.adapter = adapter
+                            imgNoResult.visibility=View.GONE
+                        }else{
+                            centerList.clear()
+                            adapter.updateList(centerList)
+                            imgNoResult.visibility=View.VISIBLE
+                        }
+                    })
+                    requestOueue.add(stringRequest)
+                }else{
+                    if(etVacDate.text.isNullOrEmpty())
+                    etVacDate.apply {
+                        error="Select a valid date."
+                    }
+                    if(etVacState.text.isNullOrEmpty())
+                    etVacState.apply {
+                        error="State can't be empty"
+                    }
+                    if(etVacState.text.isNullOrEmpty())
+                    etVacDistrict.apply{
+                        error="District can't be empty"
+                    }
+                }
+            }
         }
     }
 
@@ -128,6 +153,7 @@ class VaccineStatusActivity : AppCompatActivity(), View.OnClickListener {
                 Toast.makeText(this, state_list[position], Toast.LENGTH_SHORT).show()
                 etVacDistrict.isEnabled = true
                 district_list.clear()
+                district_name_list.clear()
                 districtJsonParse(position)
                 etVacState.error = null
             }
@@ -147,7 +173,7 @@ class VaccineStatusActivity : AppCompatActivity(), View.OnClickListener {
             val district_class = Gson().fromJson(str, District::class.java)
             for (i in district_class.districts!!.indices) {
                 district_list.add(district_class.districts[i]!!)
-                district_name_list.add(district_list[i].district_name!!)
+                district_name_list.add(district_class.districts[i]!!.district_name!!)
             }
             val stateAdapter =
                 ArrayAdapter(this, R.layout.dropdown_item, district_name_list)
@@ -163,5 +189,18 @@ class VaccineStatusActivity : AppCompatActivity(), View.OnClickListener {
             Toast.makeText(this, "something went wrong", Toast.LENGTH_SHORT).show()
         })
         requestOueue.add(districtString)
+    }
+    private fun dataCheck():Boolean{
+        var chk = false
+        if(etVacDate.text.isNullOrEmpty()){
+            chk=true
+        }
+        if(etVacState.text.isNullOrEmpty()){
+            chk=true
+        }
+        if(etVacDistrict.text.isNullOrEmpty()){
+            chk=true
+        }
+        return chk
     }
 }

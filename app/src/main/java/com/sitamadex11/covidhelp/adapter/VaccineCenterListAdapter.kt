@@ -1,6 +1,7 @@
 package com.sitamadex11.covidhelp.adapter
 
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,6 +28,7 @@ class VaccineCenterListAdapter(val context: Context) :
         val txtSlot2: TextView = itemView.findViewById<TextView>(R.id.txtSlot2)
         val txtSlot3: TextView = itemView.findViewById<TextView>(R.id.txtSlot3)
         val txtSlot4: TextView = itemView.findViewById<TextView>(R.id.txtSlot4)
+        val txtPinCode: TextView = itemView.findViewById<TextView>(R.id.txtPinCode)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VaccineCenterViewHolder {
@@ -41,12 +43,26 @@ class VaccineCenterListAdapter(val context: Context) :
         holder.txtVaccineName.text = centerList[position].sessions[0].vaccine
         holder.txtVaccineFee.text = centerList[position].feeType
         holder.txtAgeLimit.text = "${centerList[position].sessions[0].minAgeLimit}+"
-        holder.txtDose1.text = centerList[position].sessions[0].dose1.toString()
-        holder.txtDose2.text = centerList[position].sessions[0].dose2.toString()
+        if(centerList[position].sessions[0].dose1.toString()=="0") {
+            holder.txtDose1.text = "booked"
+            holder.txtDose1.setTextColor(Color.parseColor("#FF0000"))
+        }else {
+            holder.txtDose1.text = centerList[position].sessions[0].dose1.toString()
+            holder.txtDose1.setTextColor(Color.parseColor("#2e7d32"))
+        }
+        if(centerList[position].sessions[0].dose2.toString()=="0") {
+            holder.txtDose2.text = "booked"
+            holder.txtDose2.setTextColor(Color.parseColor("#FF0000"))
+        }else {
+            holder.txtDose2.text = centerList[position].sessions[0].dose2.toString()
+            holder.txtDose2.setTextColor(Color.parseColor("#2e7d32"))
+        }
+    //    holder.txtDose2.text = centerList[position].sessions[0].dose2.toString()
         holder.txtSlot1.text = centerList[position].sessions[0].slots[0]
         holder.txtSlot2.text = centerList[position].sessions[0].slots[1]
         holder.txtSlot3.text = centerList[position].sessions[0].slots[2]
         holder.txtSlot4.text = centerList[position].sessions[0].slots[3]
+        holder.txtPinCode.text = centerList[position].pinCode.toString()
 
     }
 
@@ -54,7 +70,7 @@ class VaccineCenterListAdapter(val context: Context) :
         return centerList.size
     }
 
-    fun updateList(newList: List<CenterItem>) {
+    fun updateList(newList: ArrayList<CenterItem>) {
         centerList.clear()
         centerList.addAll(newList)
         notifyDataSetChanged()
