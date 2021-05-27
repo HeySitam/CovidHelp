@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -12,8 +13,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CovidHelp">
-        <activity android:name=".activity.VolunteerActivity"></activity>
-        <activity android:name=".activity.DemoTestingActivity"></activity>
+        <activity
+            android:name=".activity.VaccineStatusActivity"
+            android:theme="@style/NoActionBar" />
+        <activity android:name=".activity.VolunteerActivity" />
+        <activity android:name=".activity.DemoTestingActivity">
+
+        </activity>
         <activity
             android:name=".activity.HelpActivity"
             android:theme="@style/helpActivity" />

@@ -1,11 +1,12 @@
 package com.sitamadex11.covidhelp.viewModel
 
+
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.sitamadex11.covidhelp.repositories.StateRepository
 
-class StateViewModelFactory(val repository: StateRepository): ViewModelProvider.Factory {
+class StateViewModelFactory(val context: Context) : ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return StateViewModel(repository) as T
+        return StateViewModel(context) as T
     }
 }
