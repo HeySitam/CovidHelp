@@ -66,76 +66,90 @@ class VaccineStatusActivity : AppCompatActivity(), View.OnClickListener {
             ArrayAdapter(this, R.layout.dropdown_item, filterItems)
         etVacFilter.setAdapter(filterAdapter)
         etVacFilter.setOnItemClickListener { parent, view, position, id ->
-            if(filterItems[position]=="All"){
-                adapter.updateList(centerList)
-            }else if(filterItems[position]=="Available Only"){
-                for(i in centerList.indices){
-                    if(centerList[i].sessions[0].dose1>0 || centerList[i].sessions[0].dose2>0){
-                        centerSpecifiedList.add(centerList[i])
-                    }
-                }
-                adapter.updateList(centerSpecifiedList)
-                centerSpecifiedList.clear()
-            }else if(filterItems[position]=="Age 45+"){
-                for(i in centerList.indices){
-                    if(centerList[i].sessions[0].minAgeLimit==45){
-                        centerSpecifiedList.add(centerList[i])
-                    }
+            val filterItem = filterItems[position]
+            filterCheck(filterItem)
+        }
+    }
 
+    private fun filterCheck(filterItem: String) {
+        if(filterItem=="All"){
+            adapter.updateList(centerList)
+            imgNoResult.visibility=View.GONE
+        }else if(filterItem=="Available Only"){
+            for(i in centerList.indices){
+                if(centerList[i].sessions[0].dose1>0 || centerList[i].sessions[0].dose2>0){
+                    centerSpecifiedList.add(centerList[i])
                 }
-                adapter.updateList(centerSpecifiedList)
-                centerSpecifiedList.clear()
-            }else if(filterItems[position]=="Age 18+"){
-                for(i in centerList.indices){
-                    if(centerList[i].sessions[0].minAgeLimit==18){
-                        centerSpecifiedList.add(centerList[i])
-                    }
-
-                }
-                adapter.updateList(centerSpecifiedList)
-                centerSpecifiedList.clear()
-            }else if(filterItems[position]=="Free"){
-                for(i in centerList.indices){
-                    if(centerList[i].feeType=="Free"){
-                        centerSpecifiedList.add(centerList[i])
-                    }
-
-                }
-                adapter.updateList(centerSpecifiedList)
-                centerSpecifiedList.clear()
-            }else if(filterItems[position]=="Paid"){
-                for(i in centerList.indices){
-                    if(centerList[i].feeType=="Paid"){
-                        centerSpecifiedList.add(centerList[i])
-                    }
-                }
-                adapter.updateList(centerSpecifiedList)
-                centerSpecifiedList.clear()
-            }else if(filterItems[position]=="Covishield"){
-                for(i in centerList.indices){
-                    if(centerList[i].sessions[0].vaccine=="COVISHIELD"){
-                        centerSpecifiedList.add(centerList[i])
-                    }
-                }
-                adapter.updateList(centerSpecifiedList)
-                centerSpecifiedList.clear()
-            }else if(filterItems[position]=="Covaxin"){
-                for(i in centerList.indices){
-                    if(centerList[i].sessions[0].vaccine=="COVAXIN"){
-                        centerSpecifiedList.add(centerList[i])
-                    }
-                }
-                adapter.updateList(centerSpecifiedList)
-                centerSpecifiedList.clear()
-            }else if(filterItems[position]=="Sputnik V"){
-                for(i in centerList.indices){
-                    if(centerList[i].sessions[0].vaccine=="SPUTNIK V"){
-                        centerSpecifiedList.add(centerList[i])
-                    }
-                }
-                adapter.updateList(centerSpecifiedList)
-                centerSpecifiedList.clear()
             }
+            adapter.updateList(centerSpecifiedList)
+            notFoundShow()
+            centerSpecifiedList.clear()
+        }else if(filterItem=="Age 45+"){
+            for(i in centerList.indices){
+                if(centerList[i].sessions[0].minAgeLimit==45){
+                    centerSpecifiedList.add(centerList[i])
+                }
+
+            }
+            adapter.updateList(centerSpecifiedList)
+            notFoundShow()
+            centerSpecifiedList.clear()
+        }else if(filterItem=="Age 18+"){
+            for(i in centerList.indices){
+                if(centerList[i].sessions[0].minAgeLimit==18){
+                    centerSpecifiedList.add(centerList[i])
+                }
+
+            }
+            adapter.updateList(centerSpecifiedList)
+            notFoundShow()
+            centerSpecifiedList.clear()
+        }else if(filterItem=="Free"){
+            for(i in centerList.indices){
+                if(centerList[i].feeType=="Free"){
+                    centerSpecifiedList.add(centerList[i])
+                }
+
+            }
+            adapter.updateList(centerSpecifiedList)
+            notFoundShow()
+            centerSpecifiedList.clear()
+        }else if(filterItem=="Paid"){
+            for(i in centerList.indices){
+                if(centerList[i].feeType=="Paid"){
+                    centerSpecifiedList.add(centerList[i])
+                }
+            }
+            adapter.updateList(centerSpecifiedList)
+            notFoundShow()
+            centerSpecifiedList.clear()
+        }else if(filterItem=="Covishield"){
+            for(i in centerList.indices){
+                if(centerList[i].sessions[0].vaccine=="COVISHIELD"){
+                    centerSpecifiedList.add(centerList[i])
+                }
+            }
+            adapter.updateList(centerSpecifiedList)
+            notFoundShow()
+            centerSpecifiedList.clear()
+        }else if(filterItem=="Covaxin"){
+            for(i in centerList.indices){
+                if(centerList[i].sessions[0].vaccine=="COVAXIN"){
+                    centerSpecifiedList.add(centerList[i])
+                }
+            }
+            adapter.updateList(centerSpecifiedList)
+            notFoundShow()
+            centerSpecifiedList.clear()
+        }else if(filterItem=="Sputnik V"){
+            for(i in centerList.indices){
+                if(centerList[i].sessions[0].vaccine=="SPUTNIK V"){
+                    centerSpecifiedList.add(centerList[i])
+                }
+            }
+            adapter.updateList(centerSpecifiedList)
+            notFoundShow()
+            centerSpecifiedList.clear()
         }
     }
 
@@ -168,8 +182,11 @@ class VaccineStatusActivity : AppCompatActivity(), View.OnClickListener {
                         if(it.centers.isNotEmpty()) {
                             centerList.clear()
                             centerList.addAll(it.centers)
-                            adapter.updateList(centerList)
+                          //  adapter.updateList(centerList)
+                            val filterItem =etVacFilter.text.toString()
+                            filterCheck(filterItem)
                             rvVac.adapter = adapter
+                            tilVacFilter.isEnabled=true
                             imgNoResult.visibility=View.GONE
                         }else{
                             centerList.clear()
