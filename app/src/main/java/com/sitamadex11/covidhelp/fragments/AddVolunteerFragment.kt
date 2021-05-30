@@ -152,17 +152,18 @@ class AddVolunteerFragment : Fragment(), View.OnClickListener {
         }
     }
 
-    private fun fragmentTransaction() {
+    private fun fragmentTransaction(fragment : Fragment) {
         requireActivity()
             .supportFragmentManager
             .beginTransaction()
-            .replace(R.id.flVolunteer,ViewVolunteerFragment())
+            .addToBackStack(fragment.javaClass.name)
+            .replace(R.id.flVolunteer,fragment)
             .commit()
     }
     private fun callBack(){
         val callBack=object :OnBackPressedCallback(true){
             override fun handleOnBackPressed() {
-                fragmentTransaction()
+                fragmentTransaction(ViewVolunteerFragment())
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(callBack)

@@ -36,5 +36,4 @@
         <activity android:name=".activity.WebActivity" />
         <activity android:name=".activity.MainActivity" />
     </application>
-
 </manifest>
