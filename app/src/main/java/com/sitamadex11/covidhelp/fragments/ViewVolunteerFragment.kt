@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -18,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.firestore.FirebaseFirestore
 import com.sitamadex11.covidhelp.R
+import com.sitamadex11.covidhelp.activity.ChooseActivity
 import com.sitamadex11.covidhelp.adapter.VLAdapter
 import com.sitamadex11.covidhelp.adapter.VolunteerListAdapter
 import com.sitamadex11.covidhelp.model.VolunteerDetailsModel
@@ -37,9 +39,17 @@ class ViewVolunteerFragment : Fragment(), View.OnClickListener, VLAdapter {
         init(view)
         click()
         addItemToList()
+        callBack()
         return view
     }
-
+    private fun callBack(){
+        val callBack=object : OnBackPressedCallback(true){
+            override fun handleOnBackPressed() {
+                startActivity(Intent(requireContext(),ChooseActivity::class.java))
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(callBack)
+    }
     private fun click() {
         btnAddVolunteer.setOnClickListener(this)
     }

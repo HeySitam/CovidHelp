@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/custom_background"
+    android:background="#fffffb"
     tools:context=".activity.VaccineStatusActivity">
     <TextView
         android:id="@+id/txtStateId"
@@ -114,6 +114,7 @@
            android:layout_weight="0.7"
            android:layout_marginTop="5dp"
            android:layout_marginEnd="5dp"
+           app:backgroundTint="#3e2723"
            android:drawableEnd="@drawable/ic_baseline_search_24"
            android:paddingEnd="15dp"
            android:layout_height="match_parent"/>
