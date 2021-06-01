@@ -13,10 +13,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CovidHelp">
-        <activity android:name=".activity.LoginActivity"
+        <activity android:name=".activity.CovidTrackerActivity"></activity>
+        <activity
+            android:name=".activity.LoginActivity"
             android:theme="@style/NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -24,17 +27,16 @@
             android:name=".activity.VaccineStatusActivity"
             android:theme="@style/NoActionBar" />
         <activity android:name=".activity.VolunteerActivity" />
-        <activity android:name=".activity.DemoTestingActivity"></activity>
+        <activity android:name=".activity.DemoTestingActivity" />
         <activity
             android:name=".activity.HelpActivity"
             android:theme="@style/helpActivity" />
         <activity android:name=".activity.DonationListActivity" />
         <activity
             android:name=".activity.ChooseActivity"
-            android:theme="@style/NoActionBar">
-
-        </activity>
+            android:theme="@style/NoActionBar"></activity>
         <activity android:name=".activity.WebActivity" />
         <activity android:name=".activity.MainActivity" />
     </application>
+
 </manifest>

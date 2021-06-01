@@ -33,7 +33,7 @@
                     android:layout_marginBottom="20dp"
                     android:text="Covid Help"
                     android:textColor="#191970"
-                    android:textSize="25dp"
+                    android:textSize="30dp"
                     android:textStyle="bold"
                     tools:ignore="MissingConstraints" />
 
@@ -48,7 +48,7 @@
                 android:rowCount="5">
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/tt"
+                    android:id="@+id/cvNeedHelp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_rowWeight="1"
@@ -69,7 +69,7 @@
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:src="@drawable/timetable" />
+                            android:src="@drawable/help" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -84,7 +84,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/sb"
+                    android:id="@+id/cvVolunteer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_rowWeight="1"
@@ -104,12 +104,12 @@
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:src="@drawable/syllabus" />
+                            android:src="@drawable/volunteers" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
-                            android:text="Donate"
+                            android:text="Volunteers"
                             android:textColor="#191970"
                             android:textSize="18dp" />
 
@@ -119,7 +119,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/fac"
+                    android:id="@+id/cvCovidTracker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_rowWeight="1"
@@ -141,13 +141,13 @@
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:src="@drawable/faculty" />
+                            android:src="@drawable/corona_virus" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
-                            android:text="Volunteer"
+                            android:text="Covid Tracker"
                             android:textColor="#191970"
                             android:textSize="18dp" />
 
@@ -156,7 +156,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/ho"
+                    android:id="@+id/cvVaccine"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_rowWeight="1"
@@ -177,7 +177,7 @@
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="93dp"
-                            android:src="@drawable/holiday" />
+                            android:src="@drawable/vaccine" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -192,153 +192,9 @@
                 </androidx.cardview.widget.CardView>
 
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/ln"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="12dp"
-                    android:background="@drawable/main_bg"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="6dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/main_bg"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="16dp">
-
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:src="@drawable/notes" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
-                            android:text="Lecture Notes"
-                            android:textColor="#191970"
-                            android:textSize="18dp" />
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/btnTodo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="12dp"
-                    android:background="@drawable/main_bg"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="6dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/main_bg"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="16dp">
-
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:src="@drawable/ic_todolist" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
-                            android:text="Open TodoList"
-                            android:textColor="#191970"
-                            android:textSize="18dp" />
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/logout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="12dp"
-                    android:background="@drawable/main_bg"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="6dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/main_bg"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="16dp">
-
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:src="@drawable/logout" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
-                            android:text="Logout"
-                            android:textColor="#191970"
-                            android:textSize="18dp" />
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/btncontact"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="12dp"
-                    android:background="@drawable/main_bg"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="6dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/main_bg"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="16dp">
-
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:src="@drawable/contact" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
-                            android:text="Contact us"
-                            android:textColor="#191970"
-                            android:textSize="18dp" />
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
             </GridLayout>
             <androidx.cardview.widget.CardView
-                android:id="@+id/btnPdfReader"
+                android:id="@+id/cvDonate"
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
@@ -360,20 +216,17 @@
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:src="@drawable/pdf_file" />
+                        android:src="@drawable/donation" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:text="Read Pdf"
+                        android:text="Donate"
                         android:textColor="#191970"
                         android:textSize="18dp" />
-
                 </LinearLayout>
-
             </androidx.cardview.widget.CardView>
         </LinearLayout>
-
     </ScrollView>
 </RelativeLayout>
