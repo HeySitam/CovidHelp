@@ -176,4 +176,6 @@
   ],
   "ttl": 24
   }</string>
+    <string name="open">Open</string>
+  <string name="close">Close</string>
 </resources>
