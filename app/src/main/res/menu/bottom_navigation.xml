@@ -6,10 +6,6 @@
         android:icon="@drawable/city"/>
     <item
         android:id="@+id/cityWise"
-        android:title="City Wise"
+        android:title="Twitter Help"
         android:icon="@drawable/city_bottom"/>
-    <item
-        android:id="@+id/covidTracker"
-        android:title="Covid Tracker"
-        android:icon="@drawable/corona_virus"/>
 </menu>

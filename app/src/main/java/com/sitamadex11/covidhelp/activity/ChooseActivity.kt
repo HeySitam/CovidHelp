@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -22,6 +21,7 @@ class ChooseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
     lateinit var navDrawer: NavigationView
     lateinit var firebaseAuth: FirebaseAuth
     lateinit var txtUserName: TextView
+    lateinit var fragmentManager: FragmentManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_choose)
@@ -41,11 +41,12 @@ class ChooseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
 
         navDrawer.setNavigationItemSelectedListener(this)
         firebaseAuth = FirebaseAuth.getInstance()
+        fragmentManager=supportFragmentManager
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.homeItem ->{
+            R.id.homeItem -> {
                 fragmentTransaction(HomeFragment())
                 drawerLayout.closeDrawer(GravityCompat.START)
             }
@@ -65,17 +66,21 @@ class ChooseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
     override fun onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START)
-        } else {
+        } else if(fragmentManager.backStackEntryCount>0){
+            fragmentTransaction(HomeFragment())
+            fragmentManager.popBackStack()
+        }else {
             super.onBackPressed()
         }
     }
-    private fun fragmentTransaction(fragment: Fragment){
-        if (supportFragmentManager.backStackEntryCount == 0) {
-            supportFragmentManager.beginTransaction()
-                .addToBackStack(fragment.id.toString())
+
+    private fun fragmentTransaction(fragment: Fragment) {
+        if (fragmentManager.backStackEntryCount == 0) {
+            fragmentManager.beginTransaction()
+                .addToBackStack(null)
                 .replace(R.id.frameBody, fragment).commit()
         } else {
-            supportFragmentManager.beginTransaction()
+            fragmentManager.beginTransaction()
                 .replace(R.id.frameBody, fragment).commit()
         }
     }

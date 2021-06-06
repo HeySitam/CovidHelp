@@ -2,11 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/homeItem"
-        android:title="Home"/>
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Home" />
     <item
         android:id="@+id/viewUserProfile"
+        android:icon="@drawable/ic_baseline_person_24"
         android:title="View Profile" />
     <item
         android:id="@+id/logout"
+        android:icon="@drawable/ic_baseline_logout_24"
         android:title="Logout" />
 </menu>

@@ -24,9 +24,6 @@ class HelpActivity : AppCompatActivity() {
                 R.id.cityWise->{
                     fragment= CityWiseFragment()
                 }
-                R.id.covidTracker->{
-                    fragment= CovidTrackerFragment()
-                }
             }
             fragmentTransaction(fragment)
         }
