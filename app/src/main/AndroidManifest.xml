@@ -13,7 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CovidHelp">
-        <activity android:name=".activity.CovidTrackerActivity"></activity>
+        <activity
+            android:name=".activity.CovidTrackerActivity"
+            android:theme="@style/NoActionBar" />
         <activity
             android:name=".activity.LoginActivity"
             android:theme="@style/NoActionBar">
@@ -34,7 +36,7 @@
         <activity android:name=".activity.DonationListActivity" />
         <activity
             android:name=".activity.ChooseActivity"
-            android:theme="@style/NoActionBar"></activity>
+            android:theme="@style/NoActionBar" />
         <activity android:name=".activity.WebActivity" />
         <activity android:name=".activity.MainActivity" />
     </application>

@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import androidx.work.*
 import com.sitamadex11.covidhelp.R
 import com.sitamadex11.covidhelp.covidTrackerApi.CovidData
 import com.sitamadex11.covidhelp.covidTrackerApi.Data
 import com.sitamadex11.covidhelp.covidTrackerApi.Regional
 import com.sitamadex11.covidhelp.util.ApiUtilities
+import com.sitamadex11.covidhelp.worker.CovidTrackerWorker
 import org.eazegraph.lib.charts.BarChart
 import org.eazegraph.lib.charts.PieChart
 import org.eazegraph.lib.models.BarModel
@@ -18,6 +20,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.ArrayList
+import java.util.concurrent.TimeUnit
 
 class CovidTrackerActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     private var mRecovered: TextView? = null
@@ -30,7 +33,7 @@ class CovidTrackerActivity : AppCompatActivity(), AdapterView.OnItemSelectedList
     private var mBarChart: BarChart? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_covid_tracker)
+        setContentView(R.layout.covid_tracker_activity)
         init()
         val mState_names = resources.getStringArray(R.array.states_name)
         mSelectState!!.onItemSelectedListener = this
@@ -48,6 +51,7 @@ class CovidTrackerActivity : AppCompatActivity(), AdapterView.OnItemSelectedList
                 Toast.makeText(applicationContext, "Error : " + t.message, Toast.LENGTH_SHORT).show()
             }
         })
+        initWorker()
     }
     private fun init(){
             mRecovered = findViewById(R.id.total_recover)
@@ -99,13 +103,24 @@ class CovidTrackerActivity : AppCompatActivity(), AdapterView.OnItemSelectedList
         mpieChart!!.addPieSlice(PieModel("Active", total.toFloat(), Color.parseColor("#FF3700B3")))
         mpieChart!!.addPieSlice(PieModel("Death", deaths.toFloat(), Color.parseColor("#F44336")))
         mpieChart!!.startAnimation()
-
         mBarChart!!.clearChart()
         mBarChart!!.addBar(BarModel("Death", deaths.toFloat(), Color.parseColor("#F44336")))
         mBarChart!!.addBar(BarModel("Recovered",discharged.toFloat(), Color.parseColor("#FFFF00")))
         mBarChart!!.addBar(BarModel("Active", total.toFloat(), Color.parseColor("#FF3700B3")))
-
         mBarChart!!.startAnimation()
+    }
+    private fun initWorker() {
+        val constraints = Constraints.Builder()
+            .setRequiredNetworkType(NetworkType.CONNECTED)
+            .build()
 
+        val notificationWorkRequest =
+            PeriodicWorkRequestBuilder<CovidTrackerWorker>(1, TimeUnit.HOURS)
+                .setConstraints(constraints)
+                .build()
+
+        WorkManager.getInstance(applicationContext).enqueue(
+            notificationWorkRequest
+        )
     }
 }
