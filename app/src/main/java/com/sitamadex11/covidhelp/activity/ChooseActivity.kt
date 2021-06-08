@@ -9,12 +9,18 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.work.Constraints
+import androidx.work.NetworkType
+import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.WorkManager
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.sitamadex11.covidhelp.R
 import com.sitamadex11.covidhelp.fragments.HomeFragment
 import com.sitamadex11.covidhelp.fragments.ViewProfileFragment
+import com.sitamadex11.covidhelp.worker.CovidTrackerWorker
 import kotlinx.android.synthetic.main.activity_choose.*
+import java.util.concurrent.TimeUnit
 
 class ChooseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     lateinit var drawerLayout: DrawerLayout
@@ -26,6 +32,7 @@ class ChooseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_choose)
         init()
+        initWorker()
         fragmentTransaction(HomeFragment())
         txtUserName.text = firebaseAuth.currentUser!!.displayName
     }
@@ -83,5 +90,19 @@ class ChooseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
             fragmentManager.beginTransaction()
                 .replace(R.id.frameBody, fragment).commit()
         }
+    }
+    private fun initWorker() {
+        val constraints = Constraints.Builder()
+            .setRequiredNetworkType(NetworkType.CONNECTED)
+            .build()
+
+        val notificationWorkRequest =
+            PeriodicWorkRequestBuilder<CovidTrackerWorker>(6, TimeUnit.HOURS)
+                .setConstraints(constraints)
+                .build()
+
+        WorkManager.getInstance(applicationContext).enqueue(
+            notificationWorkRequest
+        )
     }
 }

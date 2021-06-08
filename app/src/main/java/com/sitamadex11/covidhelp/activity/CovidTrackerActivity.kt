@@ -115,7 +115,7 @@ class CovidTrackerActivity : AppCompatActivity(), AdapterView.OnItemSelectedList
             .build()
 
         val notificationWorkRequest =
-            PeriodicWorkRequestBuilder<CovidTrackerWorker>(1, TimeUnit.HOURS)
+            OneTimeWorkRequestBuilder<CovidTrackerWorker>()
                 .setConstraints(constraints)
                 .build()
 
