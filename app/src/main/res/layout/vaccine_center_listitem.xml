@@ -255,7 +255,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="10:00AM-11:00AM"
+                    android:text="No Slot Found"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
 
                 <TextView
@@ -273,7 +273,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="11:00AM-12:00AM"
+                    android:text="No Slot Found"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
 
                 <TextView
@@ -291,7 +291,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="12:00AM-01:00AM"
+                    android:text="No Slot Found"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
 
                 <TextView
@@ -309,7 +309,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="10:00AM-11:00AM"
+                    android:text="No Slot Found"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
 
             </LinearLayout>

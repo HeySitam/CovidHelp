@@ -2,6 +2,7 @@ package com.sitamadex11.covidhelp.adapter
 
 import android.content.Context
 import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -57,10 +58,33 @@ class VaccineCenterListAdapter(val context: Context) :
             holder.txtDose2.setTextColor(Color.parseColor("#2e7d32"))
         }
         //    holder.txtDose2.text = centerList[position].sessions[0].dose2.toString()
-        holder.txtSlot1.text = centerList[position].sessions[0].slots[0]
-        holder.txtSlot2.text = centerList[position].sessions[0].slots[1]
-        holder.txtSlot3.text = centerList[position].sessions[0].slots[2]
-        holder.txtSlot4.text = centerList[position].sessions[0].slots[3]
+        val slotSize = centerList[position].sessions[0].slots.size
+        when(slotSize){
+            1 ->{
+                holder.txtSlot1.text = centerList[position].sessions[0].slots[0]
+                holder.txtSlot2.text = "No Slot Found"
+                holder.txtSlot3.text = "No Slot Found"
+                holder.txtSlot4.text = "No Slot Found"
+            }
+            2->{
+                holder.txtSlot1.text = centerList[position].sessions[0].slots[0]
+                holder.txtSlot2.text = centerList[position].sessions[0].slots[1]
+                holder.txtSlot3.text = "No Slot Found"
+                holder.txtSlot4.text = "No Slot Found"
+            }
+            3 ->{
+                holder.txtSlot1.text = centerList[position].sessions[0].slots[0]
+                holder.txtSlot2.text = centerList[position].sessions[0].slots[1]
+                holder.txtSlot3.text = centerList[position].sessions[0].slots[2]
+                holder.txtSlot4.text = "No Slot Found"
+            }
+            4 ->{
+                holder.txtSlot1.text = centerList[position].sessions[0].slots[0]
+                holder.txtSlot2.text = centerList[position].sessions[0].slots[1]
+                holder.txtSlot3.text = centerList[position].sessions[0].slots[2]
+                holder.txtSlot4.text = centerList[position].sessions[0].slots[3]
+            }
+        }
         holder.txtPinCode.text = centerList[position].pinCode.toString()
 
     }

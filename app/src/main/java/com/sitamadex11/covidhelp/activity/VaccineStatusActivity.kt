@@ -28,6 +28,7 @@ import com.sitamadex11.covidhelp.viewModel.StateViewModelFactory
 import kotlinx.android.synthetic.main.activity_vaccine_status.*
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 class VaccineStatusActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var dateSetListener: DatePickerDialog.OnDateSetListener
@@ -184,8 +185,8 @@ class VaccineStatusActivity : AppCompatActivity(), View.OnClickListener {
                             centerList.addAll(it.centers)
                           //  adapter.updateList(centerList)
                             val filterItem =etVacFilter.text.toString()
-                            filterCheck(filterItem)
                             rvVac.adapter = adapter
+                            filterCheck(filterItem)
                             tilVacFilter.isEnabled=true
                             imgNoResult.visibility=View.GONE
                         }else{

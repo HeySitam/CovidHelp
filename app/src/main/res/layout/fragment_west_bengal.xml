@@ -6,125 +6,255 @@
     android:layout_height="match_parent"
     tools:context=".fragments.WestBengalFragment">
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cvWB"
-        android:layout_centerHorizontal="true"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:cardCornerRadius="10dp"
-        app:strokeWidth="1dp"
-        app:strokeColor="@android:color/darker_gray"
-        app:cardElevation="2dp">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:background="@drawable/custom_background"
+            android:orientation="vertical"
             android:layout_height="match_parent">
 
-            <com.mikhaellopez.circularimageview.CircularImageView
-                android:id="@+id/imgDonate"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="15dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/biswa_bangla"
-                app:civ_border="true"
-                app:civ_border_color="@color/black"
-                app:civ_border_width="2dp" />
-
-            <TextView
-                android:id="@+id/txtOrgName"
-                android:layout_width="wrap_content"
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvWB"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/imgDonate"
-                android:layout_centerHorizontal="true"
-                android:text="WB-ICMS"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@android:color/darker_gray"
+                app:strokeWidth="1dp">
 
-            <LinearLayout
-                android:id="@+id/llOrg"
-                android:layout_width="match_parent"
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/custom_background">
+
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:id="@+id/imgDonate"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="15dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/biswa_bangla"
+                        app:civ_border="true"
+                        app:civ_border_color="@color/black"
+                        app:civ_border_width="2dp" />
+
+                    <TextView
+                        android:id="@+id/txtOrgName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/imgDonate"
+                        android:layout_centerHorizontal="true"
+                        android:text="WB-ICMS"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:id="@+id/llOrg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/txtOrgName"
+                        android:layout_marginTop="5dp">
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0.1dp"
+                            android:layout_gravity="start"
+                            android:layout_weight="1.5"
+                            android:background="@color/black" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0.1dp"
+                            android:layout_weight="1" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0.1dp"
+                            android:layout_gravity="end"
+                            android:layout_weight="1.5"
+                            android:background="@color/black" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/txtOrgDetail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/llOrg"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="5dp"
+                        android:text="@string/wb_gov_help"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
+
+                    <LinearLayout
+                        android:id="@+id/llOrgs"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/txtOrgDetail"
+                        android:layout_marginTop="8dp">
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0.1dp"
+                            android:layout_gravity="start"
+                            android:layout_weight="1.5"
+                            android:background="@color/black" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0.1dp"
+                            android:layout_weight="1" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0.1dp"
+                            android:layout_gravity="end"
+                            android:layout_weight="1.5"
+                            android:background="@color/black" />
+                    </LinearLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnEServce"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/llOrgs"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="E-SERVICES"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        app:cornerRadius="8dp" />
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvProjectOxygen"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/txtOrgName"
-                android:layout_marginTop="5dp">
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@android:color/darker_gray"
+                app:strokeWidth="1dp">
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="0.1dp"
-                    android:layout_gravity="start"
-                    android:layout_weight="1.5"
-                    android:background="@color/black" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/custom_background">
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="0.1dp"
-                    android:layout_weight="1" />
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:id="@+id/imgDonate1"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="15dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/somonnoyi_logo"
+                        app:civ_border="true"
+                        app:civ_border_color="@color/black"
+                        app:civ_border_width="2dp" />
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="0.1dp"
-                    android:layout_gravity="end"
-                    android:layout_weight="1.5"
-                    android:background="@color/black" />
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/txtOrgName1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/imgDonate1"
+                        android:layout_centerHorizontal="true"
+                        android:text="Someannoying"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/txtOrgDetail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/llOrg"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="8dp"
-                android:text="@string/wb_gov_help"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
+                    <LinearLayout
+                        android:id="@+id/llOrg1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/txtOrgName1"
+                        android:layout_marginTop="5dp">
 
-            <LinearLayout
-                android:id="@+id/llOrgs"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/txtOrgDetail"
-                android:layout_marginTop="8dp">
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0.1dp"
+                            android:layout_gravity="start"
+                            android:layout_weight="1.5"
+                            android:background="@color/black" />
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="0.1dp"
-                    android:layout_gravity="start"
-                    android:layout_weight="1.5"
-                    android:background="@color/black" />
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0.1dp"
+                            android:layout_weight="1" />
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="0.1dp"
-                    android:layout_weight="1" />
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0.1dp"
+                            android:layout_gravity="end"
+                            android:layout_weight="1.5"
+                            android:background="@color/black" />
+                    </LinearLayout>
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="0.1dp"
-                    android:layout_gravity="end"
-                    android:layout_weight="1.5"
-                    android:background="@color/black" />
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/txtOrgDetail1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/llOrg1"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="5dp"
+                        android:text="@string/someannoying_help"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnEServce"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/llOrgs"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:text="E-SERVICES"
-                android:textSize="12sp"
-                android:textColor="@color/white"
-                app:cornerRadius="8dp" />
-        </RelativeLayout>
-    </com.google.android.material.card.MaterialCardView>
+                    <LinearLayout
+                        android:id="@+id/llOrgs1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/txtOrgDetail1"
+                        android:layout_marginTop="8dp">
 
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0.1dp"
+                            android:layout_gravity="start"
+                            android:layout_weight="1.5"
+                            android:background="@color/black" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0.1dp"
+                            android:layout_weight="1" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0.1dp"
+                            android:layout_gravity="end"
+                            android:layout_weight="1.5"
+                            android:background="@color/black" />
+                    </LinearLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnResources"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/llOrgs1"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="RESOURCES"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        app:cornerRadius="8dp" />
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>
