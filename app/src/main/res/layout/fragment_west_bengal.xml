@@ -80,7 +80,8 @@
                                 android:id="@+id/txtAvailBed"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="25259"
+                                android:text="Fetching"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
                                 android:textColor="#005005"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -384,7 +385,8 @@
                                 android:id="@+id/txtAvailCylinder"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="25"
+                                android:text="Fetching"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
                                 android:textColor="#005005"
                                 android:textStyle="bold" />
                         </LinearLayout>

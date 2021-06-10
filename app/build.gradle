@@ -71,7 +71,9 @@ dependencies {
     implementation 'com.github.blackfizz:eazegraph:1.2.2@aar'
     implementation 'com.nineoldandroids:library:2.4.0'
     // workManager
-    implementation "androidx.work:work-runtime-ktx:2.6.0-alpha02"
+    implementation "androidx.work:work-runtime-ktx:2.6.0-beta01"
     // FireBase Auth
     implementation 'com.google.firebase:firebase-auth-ktx'
+    // Web Scrapping
+    implementation 'org.jsoup:jsoup:1.13.1'
 }

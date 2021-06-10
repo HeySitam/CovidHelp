@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
@@ -16,6 +17,12 @@ import com.google.android.material.card.MaterialCardView
 import com.sitamadex11.covidhelp.R
 import com.sitamadex11.covidhelp.adapter.SomeannoyingDialogAdapter
 import com.sitamadex11.covidhelp.model.SomeannoynigDialogItems
+import com.sitamadex11.covidhelp.util.Constants
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import org.jsoup.Jsoup
 
 
 class WestBengalFragment : Fragment(), View.OnClickListener {
@@ -32,6 +39,8 @@ class WestBengalFragment : Fragment(), View.OnClickListener {
     lateinit var btnResources: MaterialButton
     lateinit var btnGetCylinder: MaterialButton
     lateinit var btnChatBot: MaterialButton
+    lateinit var txtAvailBed: TextView
+    lateinit var txtAvailCylinder: TextView
     lateinit var url: String
     lateinit var intent: Intent
     private val listName = arrayListOf(
@@ -76,11 +85,29 @@ class WestBengalFragment : Fragment(), View.OnClickListener {
         btnResources = view!!.findViewById(R.id.btnResources)
         btnGetCylinder = view!!.findViewById(R.id.btnGetCylinder)
         btnChatBot = view!!.findViewById(R.id.btnChatBot)
+        txtAvailBed = view.findViewById(R.id.txtAvailBed)
+        txtAvailCylinder = view.findViewById(R.id.txtAvailCylinder)
+        fetchBedCylinderCount()
         btnEService.setOnClickListener(this)
         btnResources.setOnClickListener(this)
         btnGetCylinder.setOnClickListener(this)
         btnChatBot.setOnClickListener(this)
         return view
+    }
+
+    private fun fetchBedCylinderCount() {
+        val someUrl = Constants.someUrl
+        val wbUrl = Constants.wbUrl
+        CoroutineScope(Dispatchers.IO).launch {
+            val docSome = Jsoup.connect(someUrl).get()
+            val docWb = Jsoup.connect(wbUrl).get()
+            val cylinderCnt = docSome.select("#content [class='badge badge-pill badge-success']")
+            val bedCnt = docWb.select("#counter2")
+            withContext(Dispatchers.Main) {
+                txtAvailBed.text = bedCnt.text()
+                txtAvailCylinder.text = cylinderCnt.text().replace("Cylinders Available:","")
+            }
+        }
     }
 
     private fun init(customLayout: View) {
