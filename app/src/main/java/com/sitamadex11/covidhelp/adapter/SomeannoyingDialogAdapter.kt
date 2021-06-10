@@ -1,6 +1,8 @@
 package com.sitamadex11.covidhelp.adapter
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,10 +12,11 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.card.MaterialCardView
 import com.sitamadex11.covidhelp.R
+import com.sitamadex11.covidhelp.model.SomeannoynigDialogItems
 
 class SomeannoyingDialogAdapter(val context: Context) :
     RecyclerView.Adapter<SomeannoyingDialogAdapter.SomeannoyingViewHolder>() {
-    val list = ArrayList<String>()
+    val list = ArrayList<SomeannoynigDialogItems>()
 
     inner class SomeannoyingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imgDialogItem = itemView.findViewById<ImageView>(R.id.imgDialogItem)
@@ -28,10 +31,13 @@ class SomeannoyingDialogAdapter(val context: Context) :
     }
 
     override fun onBindViewHolder(holder: SomeannoyingViewHolder, position: Int) {
-        holder.imgDialogItem.setImageResource(R.drawable.app_logo)
-        holder.txtDialogItem.text = list[position]
+        holder.imgDialogItem.setImageResource(list[position].img)
+        holder.txtDialogItem.text = list[position].name
         holder.cvDialogItem.setOnClickListener {
-            Toast.makeText(context, "${list[position]} clicked", Toast.LENGTH_SHORT).show()
+            val intent= Intent()
+            intent.action= Intent.ACTION_VIEW
+            intent.data= Uri.parse(list[position].url)
+            context.startActivity(intent)
         }
     }
 
@@ -39,7 +45,7 @@ class SomeannoyingDialogAdapter(val context: Context) :
         return list.size
     }
 
-    fun updateList(newList: java.util.ArrayList<String>) {
+    fun updateList(newList: java.util.ArrayList<SomeannoynigDialogItems>) {
         list.clear()
         list.addAll(newList)
         notifyDataSetChanged()
