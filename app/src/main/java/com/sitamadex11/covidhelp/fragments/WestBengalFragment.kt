@@ -41,6 +41,7 @@ class WestBengalFragment : Fragment(), View.OnClickListener {
     lateinit var btnChatBot: MaterialButton
     lateinit var txtAvailBed: TextView
     lateinit var txtAvailCylinder: TextView
+    lateinit var txtAskHelp: TextView
     lateinit var url: String
     lateinit var intent: Intent
     private val listName = arrayListOf(
@@ -87,11 +88,13 @@ class WestBengalFragment : Fragment(), View.OnClickListener {
         btnChatBot = view!!.findViewById(R.id.btnChatBot)
         txtAvailBed = view.findViewById(R.id.txtAvailBed)
         txtAvailCylinder = view.findViewById(R.id.txtAvailCylinder)
+        txtAskHelp = view.findViewById(R.id.txtAskHelp)
         fetchBedCylinderCount()
         btnEService.setOnClickListener(this)
         btnResources.setOnClickListener(this)
         btnGetCylinder.setOnClickListener(this)
         btnChatBot.setOnClickListener(this)
+        txtAskHelp.setOnClickListener(this)
         return view
     }
 
@@ -105,7 +108,7 @@ class WestBengalFragment : Fragment(), View.OnClickListener {
             val bedCnt = docWb.select("#counter2")
             withContext(Dispatchers.Main) {
                 txtAvailBed.text = bedCnt.text()
-                txtAvailCylinder.text = cylinderCnt.text().replace("Cylinders Available:","")
+                txtAvailCylinder.text = cylinderCnt.text().replace("Cylinders Available:", "")
             }
         }
     }
@@ -196,6 +199,10 @@ class WestBengalFragment : Fragment(), View.OnClickListener {
             R.id.btnChatBot -> {
                 openWhatsapp("+917596056446")
             }
+            R.id.txtAskHelp ->{
+                url = "https://covid.someannoying.com/ask.html"
+                intentBrowse()
+            }
         }
     }
 
@@ -224,7 +231,7 @@ class WestBengalFragment : Fragment(), View.OnClickListener {
     private fun openWhatsapp(num: String) {
         val intent = Intent(Intent.ACTION_VIEW)
         intent.`package` = "com.whatsapp"
-        intent.data = Uri.parse("https://api.whatsapp.com/send?phone=$num&text=hi")
+        intent.data = Uri.parse("https://api.whatsapp.com/send?phone=$num&text=Help Me")
         if (requireActivity().packageManager.resolveActivity(intent, 0) != null) {
             startActivity(intent)
         } else {
