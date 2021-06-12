@@ -21,10 +21,10 @@ import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.gson.Gson
 import com.sitamadex11.covidhelp.R
-import com.sitamadex11.covidhelp.activity.ChooseActivity
 import com.sitamadex11.covidhelp.adapter.VLAdapter
 import com.sitamadex11.covidhelp.adapter.VolunteerListAdapter
 import com.sitamadex11.covidhelp.model.District
@@ -40,6 +40,8 @@ class ViewVolunteerFragment : Fragment(), View.OnClickListener, VLAdapter {
     lateinit var rvVol: RecyclerView
     lateinit var adapter: VolunteerListAdapter
     lateinit var requestOueue: RequestQueue
+    lateinit var firebaseFirestore: FirebaseFirestore
+    lateinit var firebaseAuth: FirebaseAuth
     val allVolunteers = ArrayList<VolunteerDetailsModel>()
     val state_list = java.util.ArrayList<String>()
     val district_list = java.util.ArrayList<DistrictItems>()
@@ -76,12 +78,33 @@ class ViewVolunteerFragment : Fragment(), View.OnClickListener, VLAdapter {
         rvVol.layoutManager = LinearLayoutManager(context)
         adapter = VolunteerListAdapter(requireContext(), this)
         requestOueue = Volley.newRequestQueue(requireContext())
+        firebaseFirestore = FirebaseFirestore.getInstance()
+        firebaseAuth = FirebaseAuth.getInstance()
     }
 
     override fun onClick(v: View?) {
         when (v!!.id) {
             R.id.btnAddVolunteer -> {
-                fragmentTransition(AddVolunteerFragment())
+                firebaseFirestore.collection("users").get()
+                    .addOnSuccessListener { queryDocumentSnapshots ->
+                        for (snapshot in queryDocumentSnapshots) {
+                            val userId = snapshot.getString("uid")
+                            if (userId == firebaseAuth.currentUser!!.uid) {
+                                Log.d("chk_id1", userId.toString())
+                                Log.d("chk_id2", firebaseAuth.currentUser!!.uid)
+                                val isVol = snapshot.getString("isVol")
+                                Log.d("chk_vol", isVol.toString())
+                                if (isVol == "0")
+                                    fragmentTransition(AddVolunteerFragment())
+                                else
+                                    Toast.makeText(
+                                        requireContext(),
+                                        "you are already a Volunteer",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                            }
+                        }
+                    }
             }
 
         }
@@ -97,7 +120,7 @@ class ViewVolunteerFragment : Fragment(), View.OnClickListener, VLAdapter {
 
     private fun addItemToList() {
         allVolunteers.clear()
-        FirebaseFirestore.getInstance().collection("volunteers").get()
+        firebaseFirestore.collection("volunteers").get()
             .addOnSuccessListener { queryDocumentSnapshots ->
                 for (snapshot in queryDocumentSnapshots) {
                     val name = snapshot.getString("name")

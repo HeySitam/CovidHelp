@@ -44,18 +44,6 @@ class WestBengalFragment : Fragment(), View.OnClickListener {
     lateinit var txtAskHelp: TextView
     lateinit var url: String
     lateinit var intent: Intent
-    private val listName = arrayListOf(
-        "Oxygen",
-        "Ambulance",
-        "Test Resources",
-        "Medicines",
-        "Helpdesk",
-        "Plasma/Blood",
-        "Doctor",
-        "Home Services",
-        "Meal Services",
-        "Others"
-    )
     private val itemList = ArrayList<SomeannoynigDialogItems>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

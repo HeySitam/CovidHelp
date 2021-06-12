@@ -123,6 +123,10 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         user["uid"] = auth.currentUser!!.uid
         user["UserName"] = etUserName.text.toString()
         user["Email"] = etUserEmail.text.toString()
+        user["isVol"] = "0"
+        user["address"] = "Not Provided"
+        user["state"] = "Not Provided"
+        user["district"] = "Not Provided"
 
         FirebaseFirestore.getInstance().collection("users")
             .add(user)
