@@ -56,6 +56,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                     cvUserName.visibility = View.VISIBLE
                     btnLogin.text = "Sign Up"
                     txtForgotPassword.visibility = View.GONE
+                    cvPhone.visibility = View.VISIBLE
                     txtMember.text = "Already a member?"
                     txtSignUpNow.text = "Sign in now"
                     chk = false
@@ -63,6 +64,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                     txtLogin.text = "Sign In"
                     cvUserName.visibility = View.GONE
                     btnLogin.text = "Log In"
+                    cvPhone.visibility = View.GONE
                     txtForgotPassword.visibility = View.VISIBLE
                     txtMember.text = "Not a member?"
                     txtSignUpNow.text = "Sign up now"

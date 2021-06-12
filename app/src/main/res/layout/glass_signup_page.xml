@@ -111,12 +111,105 @@
                             android:textSize="15sp" />
                     </RelativeLayout>
                 </com.google.android.material.card.MaterialCardView>
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_below="@+id/cvEmail"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="50dp"
+                    android:visibility="visible"
+                    android:backgroundTint="#ffffff"
+                    app:cardCornerRadius="25dp">
 
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/imgPhone"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_baseline_local_phone_24" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etUserPhone"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:layout_toRightOf="@+id/imgPhone"
+                            android:background="@null"
+                            android:hint="Your Phone Number"
+                            android:inputType="textEmailAddress"
+                            android:textAlignment="textStart"
+                            android:textColor="#000000"
+                            android:textColorHint="#D3D3D3"
+                            android:textSize="15sp" />
+                    </RelativeLayout>
+                </com.google.android.material.card.MaterialCardView>
+                <LinearLayout
+                    android:id="@+id/llUser"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginEnd="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_below="@id/cvPassword"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilUserState"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp"
+                        app:boxStrokeWidth="2dp"
+                        android:layout_marginEnd="5dp">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/etUserState"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="none"
+                            android:drawableEnd="@drawable/arrow_drop_down"
+                            android:hint="State" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilUserDistrict"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5dp"
+                        app:boxStrokeWidth="2dp"
+                        app:backgroundTint="#f5f5f5">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/etUserDistrict"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="none"
+                            android:enabled="false"
+                            android:drawableEnd="@drawable/arrow_drop_down"
+                            android:hint="District" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cvPassword"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
-                    android:layout_below="@+id/cvEmail"
+                    android:layout_below="@+id/cvPhone"
                     android:layout_marginStart="50dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="50dp"
