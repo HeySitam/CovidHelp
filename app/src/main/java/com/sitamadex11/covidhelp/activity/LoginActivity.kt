@@ -91,7 +91,12 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.btnLogin -> {
                 if (!chk) {
-                    if(etUserName.text!!.isNotEmpty() && etUserEmail.text!!.isNotEmpty() && etUserPhone.text!!.isNotEmpty() && etUserPassword.text!!.isNotEmpty()) {
+                    if(etUserName.text!!.isNotEmpty()
+                        && etUserEmail.text!!.isNotEmpty()
+                        && etUserPhone.text!!.isNotEmpty()
+                        && etUserPassword.text!!.isNotEmpty()
+                        && etUserState.text!!.isNotEmpty()
+                        && etUserDistrict.text!!.isNotEmpty()) {
                         auth.createUserWithEmailAndPassword(
                             etUserEmail.text.toString(),
                             etUserPassword.text.toString()
