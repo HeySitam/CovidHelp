@@ -111,6 +111,7 @@
                             android:textSize="15sp" />
                     </RelativeLayout>
                 </com.google.android.material.card.MaterialCardView>
+
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cvPhone"
                     android:layout_width="match_parent"
@@ -119,8 +120,8 @@
                     android:layout_marginStart="50dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="50dp"
-                    android:visibility="visible"
                     android:backgroundTint="#ffffff"
+                    android:visibility="visible"
                     app:cardCornerRadius="25dp">
 
                     <RelativeLayout
@@ -154,57 +155,61 @@
                             android:textSize="15sp" />
                     </RelativeLayout>
                 </com.google.android.material.card.MaterialCardView>
+
                 <LinearLayout
                     android:id="@+id/llUser"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginEnd="20dp"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_below="@id/cvPassword"
-                    android:layout_height="wrap_content">
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:orientation="horizontal">
+
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/tilUserState"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                         android:layout_width="0dp"
-                        android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="5dp"
-                        app:boxStrokeWidth="2dp"
-                        android:layout_marginEnd="5dp">
+                        android:layout_marginEnd="5dp"
+                        android:layout_weight="1"
+                        app:boxStrokeWidth="2dp">
 
                         <AutoCompleteTextView
                             android:id="@+id/etUserState"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="none"
                             android:drawableEnd="@drawable/arrow_drop_down"
-                            android:hint="State" />
+                            android:hint="State"
+                            android:inputType="none" />
                     </com.google.android.material.textfield.TextInputLayout>
+
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/tilUserDistrict"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                         android:layout_width="0dp"
-                        android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="5dp"
-                        app:boxStrokeWidth="2dp"
-                        app:backgroundTint="#f5f5f5">
+                        android:layout_weight="1"
+                        app:backgroundTint="#f5f5f5"
+                        app:boxStrokeWidth="2dp">
 
                         <AutoCompleteTextView
                             android:id="@+id/etUserDistrict"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="none"
-                            android:enabled="false"
                             android:drawableEnd="@drawable/arrow_drop_down"
-                            android:hint="District" />
+                            android:enabled="false"
+                            android:hint="District"
+                            android:inputType="none" />
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
+
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cvPassword"
                     android:layout_width="match_parent"
@@ -293,13 +298,13 @@
             android:text="Forget Password?"
             android:textSize="18sp" />
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_below="@id/txtForgotPassword"
-            android:orientation="vertical"
-            android:layout_marginTop="40dp">
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/txtMember"
@@ -311,18 +316,29 @@
                 android:textColor="#FF0000"
                 android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/txtSignUpNow"
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:background="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                android:text="Sign up now"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-        </LinearLayout>
+                app:cardCornerRadius="8dp"
+                android:layout_below="@id/txtMember"
+                android:elevation="0dp"
+                app:strokeColor="#d3d3d3"
+                android:layout_centerHorizontal="true"
+                app:strokeWidth="2dp">
+
+                <TextView
+                    android:id="@+id/txtSignUpNow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="10dp"
+                    android:text="Sign up now"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </com.google.android.material.card.MaterialCardView>
+        </RelativeLayout>
     </RelativeLayout>
 </ScrollView>
