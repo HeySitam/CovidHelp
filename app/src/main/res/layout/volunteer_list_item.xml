@@ -9,30 +9,25 @@
     android:layout_marginEnd="15dp"
     android:layout_marginBottom="7.5dp"
     app:cardCornerRadius="5dp"
-    app:strokeColor="#d3d3d3"
-    app:strokeWidth="0.5dp">
+    app:cardElevation="5dp"
+    app:cardMaxElevation="5dp"
+    app:strokeColor="@color/black"
+    app:strokeWidth="1dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/custom_card"
         android:padding="5dp">
 
-        <com.mikhaellopez.circularimageview.CircularImageView
-            android:id="@+id/imgLogoP"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_centerVertical="true"
-            android:layout_margin="15dp"
-            android:src="@drawable/volunteers"
-            app:civ_border="true"
-            app:civ_border_color="#d3d3d3"
-            app:civ_border_width="2dp" />
-
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:id="@+id/llVolDetails"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toEndOf="@+id/imgLogoP"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_toStartOf="@+id/llBtnSet"
+            android:layout_marginEnd="5dp"
             android:orientation="vertical">
 
             <TextView
@@ -40,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
-                android:textSize="22sp"
+                android:textSize="25sp"
                 tools:text="Sitam Sardar" />
 
             <LinearLayout
@@ -108,13 +103,115 @@
                     android:text="Covid Help" />
             </LinearLayout>
         </LinearLayout>
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btnVolCall"
+        <LinearLayout
+            android:id="@+id/llBtnSet"
             android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_alignParentTop="true"
+            android:layout_alignBottom="@+id/llOrg"
+            android:layout_alignParentEnd="true">
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnVolCall"
+                android:layout_width="80dp"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="8dp"
+                android:backgroundTint="#f5f5f5"
+                app:strokeColor="@color/black"
+                app:strokeWidth="1dp">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_gravity="center"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_baseline_local_phone_24"
+                    android:scaleType="fitCenter"/>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnVolMessage"
+                android:layout_width="80dp"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="8dp"
+                android:backgroundTint="#f5f5f5"
+                app:strokeColor="@color/black"
+                app:strokeWidth="1dp">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_gravity="center"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_baseline_message_24"
+                    android:scaleType="fitCenter"/>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llOrg"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:src="@drawable/phone"
-            android:layout_centerVertical="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_below="@id/llVolDetails"
+            android:layout_marginTop="5dp">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0.1dp"
+                android:layout_gravity="start"
+                android:layout_weight="1.5"
+                android:background="@color/black" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0.1dp"
+                android:layout_weight="1" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0.1dp"
+                android:layout_gravity="end"
+                android:layout_weight="1.5"
+                android:background="@color/black" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtVolDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_below="@id/llOrg"
+            android:textStyle="bold"
+            android:text="I want to help" />
+
+        <LinearLayout
+            android:id="@+id/llOrg2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_below="@id/txtVolDesc"
+            >
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0.1dp"
+                android:layout_gravity="start"
+                android:layout_weight="1.5"
+                android:background="@color/black" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0.1dp"
+                android:layout_weight="1" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0.1dp"
+                android:layout_gravity="end"
+                android:layout_weight="1.5"
+                android:background="@color/black" />
+        </LinearLayout>
     </RelativeLayout>
 </com.google.android.material.card.MaterialCardView>

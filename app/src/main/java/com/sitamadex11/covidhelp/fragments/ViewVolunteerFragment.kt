@@ -1,10 +1,12 @@
 package com.sitamadex11.covidhelp.fragments
 
 import android.Manifest.permission.CALL_PHONE
+import android.Manifest.permission.SEND_SMS
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
+import android.telephony.SmsManager
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -13,6 +15,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -21,6 +24,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.gson.Gson
@@ -37,13 +42,17 @@ import io.github.yavski.fabspeeddial.SimpleMenuListenerAdapter
 import kotlinx.android.synthetic.main.fragment_view_volunteer.*
 
 
-class ViewVolunteerFragment : Fragment(), View.OnClickListener, VLAdapter {
+class ViewVolunteerFragment : Fragment(), VLAdapter,View.OnClickListener {
     lateinit var fabBtn: FabSpeedDial
     lateinit var rvVol: RecyclerView
     lateinit var adapter: VolunteerListAdapter
     lateinit var requestOueue: RequestQueue
     lateinit var firebaseFirestore: FirebaseFirestore
     lateinit var firebaseAuth: FirebaseAuth
+    lateinit var dialog: AlertDialog
+    lateinit var etSendMessage:TextInputEditText
+    lateinit var btnSend:MaterialButton
+    lateinit var btnCancel:MaterialButton
     val allVolunteers = ArrayList<VolunteerDetailsModel>()
     val state_list = java.util.ArrayList<String>()
     val district_list = java.util.ArrayList<DistrictItems>()
@@ -142,33 +151,6 @@ class ViewVolunteerFragment : Fragment(), View.OnClickListener, VLAdapter {
         firebaseAuth = FirebaseAuth.getInstance()
     }
 
-    override fun onClick(v: View?) {
-        when (v!!.id) {
-//            R.id.btnAddVolunteer -> {
-//                firebaseFirestore.collection("users").get()
-//                    .addOnSuccessListener { queryDocumentSnapshots ->
-//                        for (snapshot in queryDocumentSnapshots) {
-//                            val userId = snapshot.getString("uid")
-//                            if (userId == firebaseAuth.currentUser!!.uid) {
-//                                Log.d("chk_id1", userId.toString())
-//                                Log.d("chk_id2", firebaseAuth.currentUser!!.uid)
-//                                val isVol = snapshot.getString("isVol")
-//                                Log.d("chk_vol", isVol.toString())
-//                                if (isVol == "0")
-//                                    fragmentTransition(AddVolunteerFragment())
-//                                else
-//                                    Toast.makeText(
-//                                        requireContext(),
-//                                        "you are already a Volunteer",
-//                                        Toast.LENGTH_SHORT
-//                                    ).show()
-//                            }
-//                        }
-//                    }
-//            }
-
-        }
-    }
 
     private fun fragmentTransition(fragment: Fragment) {
         requireActivity()
@@ -188,9 +170,10 @@ class ViewVolunteerFragment : Fragment(), View.OnClickListener, VLAdapter {
                     val district = snapshot.getString("district")
                     val phoneS: String? = snapshot.getString("phone")
                     val org = snapshot.getString("organization")
+                    val desc = snapshot.getString("description")
                     // val phone=Integer.parseInt(phoneS!!)
                     if (etVolState.text.toString() == state && etVolDistrict.text.toString() == district) {
-                        allVolunteers.add(VolunteerDetailsModel(name, phoneS, state, district, org))
+                        allVolunteers.add(VolunteerDetailsModel(name, phoneS, state, district, org, desc))
                     }
                     // Log.d("ref_check", img.toString())
                 }
@@ -209,30 +192,88 @@ class ViewVolunteerFragment : Fragment(), View.OnClickListener, VLAdapter {
             }
     }
 
-    private fun checkPermission(): Boolean {
+    private fun checkCallPermission(): Boolean {
         val callPermission = ContextCompat.checkSelfPermission(
             requireActivity().applicationContext,
             CALL_PHONE
         )
         return callPermission == PackageManager.PERMISSION_GRANTED
     }
+    private fun checkSmsPermission(): Boolean {
+        val smsPermission = ContextCompat.checkSelfPermission(
+            requireActivity().applicationContext,
+            SEND_SMS
+        )
+        return smsPermission == PackageManager.PERMISSION_GRANTED
+    }
 
-    private fun requestPermission() {
+
+    private fun requestCallPermission() {
         ActivityCompat.requestPermissions(
             requireActivity(), arrayOf(CALL_PHONE),
             200
         )
     }
-
+    private fun requestSmsPermission() {
+        ActivityCompat.requestPermissions(
+            requireActivity(), arrayOf(SEND_SMS),
+            200
+        )
+    }
 
     override fun onCallBtnClicked(phone: String) {
-        if (!checkPermission()) {
-            requestPermission()
+        if (!checkCallPermission()) {
+            requestCallPermission()
         } else {
-            val callIntent = Intent(Intent.ACTION_CALL)
-            callIntent.data = Uri.parse("tel:$phone")
-            startActivity(callIntent)
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setTitle("⚠ Alert ⚠")
+            builder.setMessage("Are you want to make a call?")
+            builder.setCancelable(true)
+            builder.setPositiveButton(
+                "Yes"
+            ) { dialog, id ->
+                val callIntent = Intent(Intent.ACTION_CALL)
+                callIntent.data = Uri.parse("tel:$phone")
+                startActivity(callIntent)
+            }
+            builder.setNegativeButton(
+                "No"
+            ) { dialog, id -> dialog.cancel() }
+            val alert1 = builder.create()
+            alert1.show()
         }
+    }
+
+    override fun onMessageBtnClicked(phone: String) {
+        if (!checkSmsPermission()) {
+            requestSmsPermission()
+        } else {
+            val customLayout = layoutInflater
+                .inflate(
+                    R.layout.dialog_message, null
+                )
+            msgInit(customLayout)
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setView(customLayout)
+            dialog = builder.create()
+            btnCancel.setOnClickListener(this)
+            dialog.show()
+            btnSend.setOnClickListener {
+                if(etSendMessage.text.isNullOrEmpty()){
+                   etSendMessage.error = "Please enter some text message"
+                }else{
+                    val sms = SmsManager.getDefault()
+                    sms.sendTextMessage(phone, null, etSendMessage.text.toString(), null, null)
+                    etSendMessage.error = null
+                }
+            }
+        }
+    }
+
+    private fun msgInit(v: View?) {
+       etSendMessage = v!!.findViewById(R.id.etSendMessage)
+        btnCancel = v.findViewById(R.id.btnCancel)
+        btnSend = v.findViewById(R.id.btnSend)
     }
 
     private fun stateJsonParse() {
@@ -252,13 +293,11 @@ class ViewVolunteerFragment : Fragment(), View.OnClickListener, VLAdapter {
                 district_name_list.clear()
                 districtJsonParse(position)
             }
-
             Log.d("chk_state", str)
         }, {
             Toast.makeText(requireContext(), "something went wrong", Toast.LENGTH_SHORT).show()
         })
         requestOueue.add(stateString)
-
     }
 
     private fun districtJsonParse(position: Int) {
@@ -286,14 +325,11 @@ class ViewVolunteerFragment : Fragment(), View.OnClickListener, VLAdapter {
         })
         requestOueue.add(districtString)
     }
-    private fun isVolUpdate(value:String){
-        firebaseFirestore.collection("users").get().addOnSuccessListener {
-            for(snapshot in it){
-                val uid = snapshot.getString("uid")
-                if (uid == firebaseAuth.currentUser!!.uid){
-                    Log.d("chk_isVol","working")
-                    firebaseFirestore.collection("users").document(snapshot.id).update("isVol",value)
-                }
+
+    override fun onClick(v: View?) {
+        when(v!!.id){
+            R.id.btnCancel ->{
+                dialog.hide()
             }
         }
     }

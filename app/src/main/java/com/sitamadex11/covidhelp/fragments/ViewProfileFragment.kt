@@ -37,8 +37,6 @@ class ViewProfileFragment : Fragment(), View.OnClickListener {
     lateinit var firestore: FirebaseFirestore
     lateinit var firebaseAuth: FirebaseAuth
     lateinit var etEditName: TextInputEditText
-   // lateinit var etEditEmail: TextInputEditText
-    // lateinit var etEditPhone: TextInputEditText
     lateinit var etEditAddress: TextInputEditText
     lateinit var etEditState: AutoCompleteTextView
     lateinit var etEditDistrict: AutoCompleteTextView
@@ -116,8 +114,6 @@ class ViewProfileFragment : Fragment(), View.OnClickListener {
             }
             R.id.btnEdit -> {
                 if (etEditName.text!!.isNotEmpty()
-                 //   && etEditEmail.text!!.isNotEmpty()
-                 //   && etEditPhone.text!!.isNotEmpty()
                     && etEditAddress.text!!.isNotEmpty()
                     && etEditState.text!!.isNotEmpty()
                     && etEditDistrict.text!!.isNotEmpty()
@@ -129,9 +125,7 @@ class ViewProfileFragment : Fragment(), View.OnClickListener {
                                 val docRef = firestore.collection("users").document(snapshot.id)
                                 docRef.update(
                                     mapOf(
-                                        //"Email" to etEditEmail.text.toString(),
                                         "UserName" to etEditName.text.toString(),
-                                        //"phone" to etEditPhone.text.toString(),
                                         "address" to etEditAddress.text.toString(),
                                         "state" to etEditState.text.toString(),
                                         "district" to etEditDistrict.text.toString()
@@ -159,12 +153,6 @@ class ViewProfileFragment : Fragment(), View.OnClickListener {
                 if (etEditName.text.isNullOrEmpty()) {
                     etEditName.error = "Your name can't be empty."
                 }
-//                if (etEditEmail.text.isNullOrEmpty()) {
-//                    etEditEmail.error = "Your email can't be empty."
-//                }
-//                if (etEditPhone.text.isNullOrEmpty()) {
-//                    etEditPhone.error = "Your phone number can't be empty."
-             //   }
                 if (etEditAddress.text.isNullOrEmpty()) {
                     etEditAddress.error = "Your Address can't be empty."
                 }

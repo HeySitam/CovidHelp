@@ -24,7 +24,6 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.jsoup.Jsoup
 
-
 class WestBengalFragment : Fragment(), View.OnClickListener {
     lateinit var btnEService: MaterialButton
     lateinit var cvBed: MaterialCardView
@@ -96,7 +95,7 @@ class WestBengalFragment : Fragment(), View.OnClickListener {
             val bedCnt = docWb.select("#counter2")
             withContext(Dispatchers.Main) {
                 txtAvailBed.text = bedCnt.text()
-                txtAvailCylinder.text = cylinderCnt.text().replace("Cylinders Available:", "")
+                txtAvailCylinder.text = cylinderCnt.text().substring(cylinderCnt.text().length-2,cylinderCnt.text().length)
             }
         }
     }
