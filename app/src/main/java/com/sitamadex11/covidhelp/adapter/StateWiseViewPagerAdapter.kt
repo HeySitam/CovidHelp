@@ -21,7 +21,7 @@ class StateWiseViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) 
     override fun getPageTitle(position: Int): CharSequence? {
         lateinit var title:String
         if(position==0) title="West Bengal"
-        else title="All States"
+        else title="Other States"
         return title
     }
 

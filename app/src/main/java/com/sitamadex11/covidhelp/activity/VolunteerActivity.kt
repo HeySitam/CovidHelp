@@ -18,26 +18,6 @@ class VolunteerActivity : AppCompatActivity() {
         setContentView(R.layout.activity_volunteer)
         val fragment=ViewVolunteerFragment()
         fragmentTransaction(fragment)
-        sendStateDistInfo()
-    }
-
-    private fun sendStateDistInfo() {
-        FirebaseFirestore
-            .getInstance()
-            .collection("json")
-            .get().addOnSuccessListener { queryDocumentSnapshots ->
-                for (snapshot in queryDocumentSnapshots) {
-                     json = snapshot.getString("state")!!
-                    Log.d("state",json)
-                }
-                val bundle = Bundle()
-                bundle.putString("state", json)
-                val fragobj = AddVolunteerFragment()
-                fragobj.arguments = bundle
-            }.addOnFailureListener { e ->
-                Log.d("EXPLOREFRAGMENT", "onFailure: " + e.message)
-                Toast.makeText(this, "Something went wrong...", Toast.LENGTH_SHORT).show()
-            }
     }
 
     private fun fragmentTransaction(fragment: Fragment) {

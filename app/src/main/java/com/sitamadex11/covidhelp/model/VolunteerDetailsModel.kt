@@ -5,5 +5,6 @@ data class VolunteerDetailsModel(
     val phone:String?,
     val state:String?,
     val district:String?,
-    val organization:String?
+    val organization:String?,
+    val description:String?
 )

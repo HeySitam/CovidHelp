@@ -1,201 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
-    android:background="#10000000"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".activity.ChooseActivity">
-    <ImageView
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:scaleType="fitCenter"
-        android:layout_centerHorizontal="true"
-        android:layout_above="@id/cvNeedHelp"
-        android:layout_marginBottom="50dp"
-        android:src="@drawable/help"/>
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cvNeedHelp"
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_above="@+id/llORChoose"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="5dp"
-        android:background="?android:attr/selectableItemBackground"
-        android:clickable="true"
-        android:focusable="true"
-        app:cardCornerRadius="8dp"
-        app:strokeWidth="2dp"
-        app:strokeColor="#d3d3d3"
-        android:layout_centerHorizontal="true">
-        <TextView
+        android:layout_height="match_parent"
+        android:overScrollMode="never">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="💕Need Help ?"
-            android:fontFamily="cursive"
-            android:textSize="40sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:padding="10dp"/>
-    </com.google.android.material.card.MaterialCardView>
-    <LinearLayout
-        android:id="@+id/llORChoose"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp">
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0.1dp"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:background="@android:color/black" />
-
-        <TextView
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="   OR   "
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
+            android:orientation="vertical">
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0.1dp"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:background="@android:color/black" />
-    </LinearLayout>
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cvDonate"
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imgHamburger"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/hamburger"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="Covid Help"
+                    android:textColor="#191970"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    tools:ignore="MissingConstraints" />
+            </RelativeLayout>
+
+           <FrameLayout
+               android:id="@+id/frameBody"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"/>
+        </LinearLayout>
+    </ScrollView>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navDrawer"
+        android:layout_gravity="start"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
-        app:cardCornerRadius="8dp"
-        android:layout_marginTop="5dp"
-        android:layout_below="@+id/llORChoose"
-        android:background="?android:attr/selectableItemBackground"
-        android:clickable="true"
-        android:focusable="true"
-        app:strokeWidth="2dp"
-        app:strokeColor="#d3d3d3"
-        android:layout_centerHorizontal="true">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Donate🎁"
-            android:fontFamily="cursive"
-            android:textSize="40sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:padding="10dp"/>
-    </com.google.android.material.card.MaterialCardView>
-    <LinearLayout
-        android:id="@+id/llOR2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-       android:layout_below="@id/cvDonate"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp">
+        app:itemTextAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+        app:headerLayout="@layout/nav_header_layout"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/viewBelowName"
+        android:layout_marginTop="10dp"
+        app:menu="@menu/navigation_menu" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0.1dp"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:background="@android:color/black" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="   OR   "
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0.1dp"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:background="@android:color/black" />
-    </LinearLayout>
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cvVolunteer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
-        app:cardCornerRadius="8dp"
-        android:layout_marginTop="5dp"
-        android:layout_below="@+id/llOR2"
-        android:background="?android:attr/selectableItemBackground"
-        android:clickable="true"
-        android:focusable="true"
-        app:strokeWidth="2dp"
-        app:strokeColor="#d3d3d3"
-        android:layout_centerHorizontal="true">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="👥Volunteer"
-            android:fontFamily="cursive"
-            android:textSize="40sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:padding="10dp"/>
-    </com.google.android.material.card.MaterialCardView>
-    <LinearLayout
-        android:id="@+id/llOR3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/cvVolunteer"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp">
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0.1dp"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:background="@android:color/black" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="   OR   "
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0.1dp"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:background="@android:color/black" />
-    </LinearLayout>
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cvCowin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
-        app:cardCornerRadius="8dp"
-        android:layout_marginTop="5dp"
-        android:layout_below="@+id/llOR3"
-        android:background="?android:attr/selectableItemBackground"
-        android:clickable="true"
-        android:focusable="true"
-        app:strokeWidth="2dp"
-        app:strokeColor="#d3d3d3"
-        android:layout_centerHorizontal="true">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="💉Vaccine-Status"
-            android:fontFamily="cursive"
-            android:textSize="38sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:padding="10dp"/>
-    </com.google.android.material.card.MaterialCardView>
-</RelativeLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

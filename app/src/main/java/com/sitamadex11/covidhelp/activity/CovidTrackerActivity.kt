@@ -1,19 +1,17 @@
-package com.sitamadex11.covidhelp.fragments
+package com.sitamadex11.covidhelp.activity
 
-import android.content.Context
 import android.graphics.Color
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.*
+import androidx.work.*
 import com.sitamadex11.covidhelp.R
-import com.sitamadex11.covidhelp.activity.MainActivity
 import com.sitamadex11.covidhelp.covidTrackerApi.CovidData
 import com.sitamadex11.covidhelp.covidTrackerApi.Data
 import com.sitamadex11.covidhelp.covidTrackerApi.Regional
 import com.sitamadex11.covidhelp.util.ApiUtilities
+import com.sitamadex11.covidhelp.worker.CovidTrackerWorker
 import org.eazegraph.lib.charts.BarChart
 import org.eazegraph.lib.charts.PieChart
 import org.eazegraph.lib.models.BarModel
@@ -21,10 +19,10 @@ import org.eazegraph.lib.models.PieModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.text.NumberFormat
 import java.util.ArrayList
+import java.util.concurrent.TimeUnit
 
-class CovidTrackerFragment : Fragment(), AdapterView.OnItemSelectedListener {
+class CovidTrackerActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     private var mRecovered: TextView? = null
     private var mDeath: TextView? = null
     private var mActive: TextView? = null
@@ -33,17 +31,13 @@ class CovidTrackerFragment : Fragment(), AdapterView.OnItemSelectedListener {
     private var mSelectedStateName: String? = null
     private var mData: Data? = null
     private var mBarChart: BarChart? = null
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        val view=inflater.inflate(R.layout.fragment_covid_tracker, container, false)
-        init(view)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.covid_tracker_activity)
+        init()
         val mState_names = resources.getStringArray(R.array.states_name)
         mSelectState!!.onItemSelectedListener = this
-        val adapter: ArrayAdapter<*> = ArrayAdapter<Any?>(view.context, R.layout.spinner_item, mState_names)
+        val adapter: ArrayAdapter<*> = ArrayAdapter<Any?>(this, R.layout.spinner_item, mState_names)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         mSelectState!!.adapter = adapter
         ApiUtilities.apiInterface.covidData!!.enqueue(object : Callback<CovidData?> {
@@ -54,22 +48,18 @@ class CovidTrackerFragment : Fragment(), AdapterView.OnItemSelectedListener {
             }
 
             override fun onFailure(call: Call<CovidData?>, t: Throwable) {
-                Toast.makeText(view.context, "Error : " + t.message, Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "Error : " + t.message, Toast.LENGTH_SHORT).show()
             }
         })
-
-        return view
+        initWorker()
     }
-    private fun init(view: View?) {
-
-        if (view != null) {
-            mRecovered = view.findViewById(R.id.total_recover)
-            mActive = view.findViewById(R.id.total_active)
-            mDeath = view.findViewById(R.id.total_death)
-            mpieChart = view.findViewById(R.id.piechart)
-            mSelectState = view.findViewById(R.id.spinnerSelectState)
-            mBarChart = view.findViewById(R.id.barchart)
-        }
+    private fun init(){
+            mRecovered = findViewById(R.id.total_recover)
+            mActive = findViewById(R.id.total_active)
+            mDeath = findViewById(R.id.total_death)
+            mpieChart = findViewById(R.id.piechart)
+            mSelectState = findViewById(R.id.spinnerSelectState)
+            mBarChart = findViewById(R.id.barchart)
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -113,13 +103,24 @@ class CovidTrackerFragment : Fragment(), AdapterView.OnItemSelectedListener {
         mpieChart!!.addPieSlice(PieModel("Active", total.toFloat(), Color.parseColor("#FF3700B3")))
         mpieChart!!.addPieSlice(PieModel("Death", deaths.toFloat(), Color.parseColor("#F44336")))
         mpieChart!!.startAnimation()
-
         mBarChart!!.clearChart()
         mBarChart!!.addBar(BarModel("Death", deaths.toFloat(), Color.parseColor("#F44336")))
-        mBarChart!!.addBar(BarModel("Recovered",discharged.toFloat(),Color.parseColor("#FFFF00")))
+        mBarChart!!.addBar(BarModel("Recovered",discharged.toFloat(), Color.parseColor("#FFFF00")))
         mBarChart!!.addBar(BarModel("Active", total.toFloat(), Color.parseColor("#FF3700B3")))
-
         mBarChart!!.startAnimation()
+    }
+    private fun initWorker() {
+        val constraints = Constraints.Builder()
+            .setRequiredNetworkType(NetworkType.CONNECTED)
+            .build()
 
+        val notificationWorkRequest =
+            OneTimeWorkRequestBuilder<CovidTrackerWorker>()
+                .setConstraints(constraints)
+                .build()
+
+        WorkManager.getInstance(applicationContext).enqueue(
+            notificationWorkRequest
+        )
     }
 }

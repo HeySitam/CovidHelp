@@ -22,10 +22,10 @@ lateinit var tabs: TabLayout
         // Inflate the layout for this fragment
         val view=inflater.inflate(R.layout.fragment_state_wise, container, false)
         viewPager=view.findViewById(R.id.viewPager)
-        viewPagerAdapter = StateWiseViewPagerAdapter(childFragmentManager);
-        viewPager.adapter = viewPagerAdapter;
-        tabs = view.findViewById(R.id.tabs);
-        tabs.setupWithViewPager(viewPager);
+        viewPagerAdapter = StateWiseViewPagerAdapter(childFragmentManager)
+        viewPager.adapter = viewPagerAdapter
+        tabs = view.findViewById(R.id.tabs)
+        tabs.setupWithViewPager(viewPager)
         return view
     }
 }

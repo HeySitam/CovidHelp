@@ -1,205 +1,344 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:background="@drawable/glass_backgroung_png">
+
         <TextView
             android:id="@+id/txtLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SignUp"
-            android:textSize="46sp"
-            android:textColor="#000000"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="150dp"/>
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/rlInfo"
-        android:layout_below="@+id/txtLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cvUserName"
-            android:layout_width="match_parent"
-            android:layout_marginTop="35dp"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="50dp"
-            android:backgroundTint="#ffffff"
-            app:cardCornerRadius="25dp"
-            android:layout_height="55dp">
+            android:layout_marginTop="150dp"
+            android:text="SignUp"
+            android:textColor="#000000"
+            android:textSize="46sp" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/rlInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtLogin">
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <ImageView
-                    android:id="@+id/imgUserName"
-                    android:layout_centerVertical="true"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginStart="10dp"
-                    android:src="@drawable/ic_baseline_person_24"/>
-                <com.google.android.material.textfield.TextInputEditText
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvUserName"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginEnd="5dp"
-                    android:background="@null"
-                    android:hint="Your Name"
-                    android:textColorHint="#D3D3D3"
-                    android:textSize="15sp"
-                    android:textColor="#000000"
-                    android:inputType="textEmailAddress"
-                    android:textAlignment="textStart"
-                    android:layout_toRightOf="@+id/imgUserName"/>
-            </RelativeLayout>
-        </com.google.android.material.card.MaterialCardView>
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cvEmail"
-            android:layout_width="match_parent"
-            android:layout_marginTop="20dp"
-            android:layout_below="@+id/cvUserName"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="50dp"
-            android:backgroundTint="#ffffff"
-            app:cardCornerRadius="25dp"
-            android:layout_height="55dp">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:id="@+id/imgEmail"
-                    android:layout_centerVertical="true"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginStart="10dp"
-                    android:src="@drawable/ic_baseline_email_24"/>
-                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_height="55dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginEnd="50dp"
+                    android:backgroundTint="#ffffff"
+                    app:cardCornerRadius="25dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/imgUserName"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_baseline_person_24" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etUserName"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:layout_toRightOf="@+id/imgUserName"
+                            android:background="@null"
+                            android:hint="Your Name"
+                            android:inputType="textEmailAddress"
+                            android:textAlignment="textStart"
+                            android:textColor="#000000"
+                            android:textColorHint="#D3D3D3"
+                            android:textSize="15sp" />
+                    </RelativeLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvEmail"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginEnd="5dp"
-                    android:background="@null"
-                    android:hint="Your Email address"
-                    android:textColorHint="#D3D3D3"
-                    android:textSize="15sp"
-                    android:textColor="#000000"
-                    android:inputType="textEmailAddress"
-                    android:textAlignment="textStart"
-                    android:layout_toRightOf="@+id/imgEmail"/>
-            </RelativeLayout>
-        </com.google.android.material.card.MaterialCardView>
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cvPassword"
-            android:layout_width="match_parent"
-            android:layout_marginTop="20dp"
-            android:layout_below="@+id/cvEmail"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="50dp"
-            android:backgroundTint="#ffffff"
-            app:cardCornerRadius="25dp"
-            android:layout_height="55dp">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:id="@+id/imgPassword"
-                    android:layout_centerVertical="true"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginStart="10dp"
-                    android:src="@drawable/ic_baseline_lock_24"/>
-                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_height="55dp"
+                    android:layout_below="@+id/cvUserName"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="50dp"
+                    android:backgroundTint="#ffffff"
+                    app:cardCornerRadius="25dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/imgEmail"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_baseline_email_24" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etUserEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:layout_toRightOf="@+id/imgEmail"
+                            android:background="@null"
+                            android:hint="Your Email Address"
+                            android:inputType="textEmailAddress"
+                            android:textAlignment="textStart"
+                            android:textColor="#000000"
+                            android:textColorHint="#D3D3D3"
+                            android:textSize="15sp" />
+                    </RelativeLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvPhone"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginEnd="5dp"
-                    android:background="@null"
-                    android:hint="Password"
-                    android:textColorHint="#D3D3D3"
-                    android:textSize="15sp"
-                    android:textColor="#000000"
-                    android:inputType="textPassword"
-                    android:textAlignment="textStart"
-                    android:layout_toRightOf="@+id/imgPassword"
-                    />
+                    android:layout_height="55dp"
+                    android:layout_below="@+id/cvEmail"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="50dp"
+                    android:backgroundTint="#ffffff"
+                    android:visibility="visible"
+                    app:cardCornerRadius="25dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/imgPhone"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_baseline_local_phone_24" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etUserPhone"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:layout_toRightOf="@+id/imgPhone"
+                            android:background="@null"
+                            android:hint="Your Phone Number"
+                            android:inputType="textEmailAddress"
+                            android:textAlignment="textStart"
+                            android:textColor="#000000"
+                            android:textColorHint="#D3D3D3"
+                            android:textSize="15sp" />
+                    </RelativeLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <LinearLayout
+                    android:id="@+id/llUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/cvPassword"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilUserState"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_weight="1"
+                        app:boxStrokeWidth="2dp">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/etUserState"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableEnd="@drawable/arrow_drop_down"
+                            android:hint="State"
+                            android:inputType="none" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilUserDistrict"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_weight="1"
+                        app:backgroundTint="#f5f5f5"
+                        app:boxStrokeWidth="2dp">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/etUserDistrict"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableEnd="@drawable/arrow_drop_down"
+                            android:enabled="false"
+                            android:hint="District"
+                            android:inputType="none" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_below="@+id/cvPhone"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="50dp"
+                    android:backgroundTint="#ffffff"
+                    app:cardCornerRadius="25dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/imgPassword"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_baseline_lock_24" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etUserPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:layout_toRightOf="@+id/imgPassword"
+                            android:background="@null"
+                            android:hint="Password"
+                            android:inputType="textPassword"
+                            android:textAlignment="textStart"
+                            android:textColor="#000000"
+                            android:textColorHint="#D3D3D3"
+                            android:textSize="15sp" />
+                    </RelativeLayout>
+                </com.google.android.material.card.MaterialCardView>
             </RelativeLayout>
-        </com.google.android.material.card.MaterialCardView>
-    </RelativeLayout>
-    </androidx.core.widget.NestedScrollView>
+        </androidx.core.widget.NestedScrollView>
+
         <CheckBox
             android:id="@+id/chkRemember"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/rlInfo"
-            android:text="Remember me"
-            android:visibility="gone"
-            android:layout_marginTop="5dp"
             android:layout_marginStart="50dp"
+            android:layout_marginTop="5dp"
             android:backgroundTint="#000000"
+            android:text="Remember me"
             android:textColor="#90000000"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:visibility="gone" />
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/chkRemember"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:paddingStart="35dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="35dp"
+            android:paddingBottom="10dp"
             android:text="Log In"
+            android:textAllCaps="false"
             android:textColor="#ffffff"
             android:textSize="18sp"
-            android:paddingStart="35dp"
-            android:paddingEnd="35dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:textAllCaps="false"
-            android:layout_marginTop="10dp"
-            app:cornerRadius="20dp"
-            app:backgroundTint="#000000"/>
+            app:backgroundTint="#000000"
+            app:cornerRadius="20dp" />
+
         <TextView
             android:id="@+id/txtForgotPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/btnLogin"
-            android:text="Forget Password?"
             android:layout_centerHorizontal="true"
-            android:textSize="18sp"
+            android:layout_marginTop="5dp"
             android:background="?android:attr/selectableItemBackground"
-            android:focusable="true"
             android:clickable="true"
-            android:layout_marginTop="5dp"/>
-        <LinearLayout
-            android:layout_marginTop="40dp"
-            android:layout_width="match_parent"
+            android:focusable="true"
+            android:text="Forget Password?"
+            android:textSize="18sp" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@id/txtForgotPassword"
-            android:layout_height="wrap_content">
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:orientation="vertical">
+
             <TextView
-                android:layout_width="0dp"
+                android:id="@+id/txtMember"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="18sp"
-                android:textColor="#ffffff"
+                android:layout_gravity="center"
                 android:gravity="end"
-                android:text="Not a member?"/>
-            <TextView
-                android:layout_width="0dp"
+                android:text="Not a member?"
+                android:textColor="#FF0000"
+                android:textSize="18sp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="#000000"
-                android:background="?android:attr/selectableItemBackground"
-                android:focusable="true"
-                android:clickable="true"
-                android:layout_marginStart="10dp"
-                android:text="Sign up now"/>
-        </LinearLayout>
+                app:cardCornerRadius="8dp"
+                android:layout_below="@id/txtMember"
+                android:elevation="0dp"
+                app:strokeColor="#d3d3d3"
+                android:layout_centerHorizontal="true"
+                app:strokeWidth="2dp">
+
+                <TextView
+                    android:id="@+id/txtSignUpNow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="10dp"
+                    android:text="Sign up now"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </com.google.android.material.card.MaterialCardView>
+        </RelativeLayout>
     </RelativeLayout>
+</ScrollView>

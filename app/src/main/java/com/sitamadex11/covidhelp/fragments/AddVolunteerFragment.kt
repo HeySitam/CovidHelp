@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.gson.Gson
@@ -35,6 +36,8 @@ class AddVolunteerFragment : Fragment(), View.OnClickListener {
     lateinit var etVolDesc: TextInputEditText
     lateinit var btnVolAddFB: MaterialButton
     lateinit var requestOueue: RequestQueue
+    lateinit var firestore: FirebaseFirestore
+    lateinit var firebaseAuth: FirebaseAuth
     val state_list = ArrayList<String>()
     val district_list = ArrayList<String>()
     override fun onCreateView(
@@ -46,8 +49,22 @@ class AddVolunteerFragment : Fragment(), View.OnClickListener {
         init(view!!)
         stateJsonParse()
         callBack()
+        phoneNoGet()
         btnVolAddFB.setOnClickListener(this)
         return view
+    }
+
+    private fun phoneNoGet() {
+        firestore.collection("users").get().addOnSuccessListener {
+            for(snapshot in it){
+                val uid = snapshot.getString("uid")
+                if(uid==firebaseAuth.currentUser!!.uid){
+                    val phone = snapshot.getString("phone")
+                    etVolPh.setText(phone)
+                    etVolPh.isEnabled = false
+                }
+            }
+        }
     }
 
     private fun stateJsonParse() {
@@ -108,12 +125,26 @@ class AddVolunteerFragment : Fragment(), View.OnClickListener {
         etVolDesc = view.findViewById(R.id.etVolDesc)
         btnVolAddFB = view.findViewById(R.id.btnVolAddFB)
         requestOueue = Volley.newRequestQueue(requireContext())
+        firestore= FirebaseFirestore.getInstance()
+        firebaseAuth= FirebaseAuth.getInstance()
     }
 
     override fun onClick(v: View?) {
         when (v!!.id) {
             R.id.btnVolAddFB -> {
              dataCheckAndAdd()
+
+            }
+        }
+    }
+    private fun isVolUpdate(value:String){
+        firestore.collection("users").get().addOnSuccessListener {
+            for(snapshot in it){
+                val uid = snapshot.getString("uid")
+                if (uid == firebaseAuth.currentUser!!.uid){
+                    Log.d("chk_isVol","working")
+                    firestore.collection("users").document(snapshot.id).update("isVol",value)
+                }
             }
         }
     }
@@ -182,9 +213,13 @@ class AddVolunteerFragment : Fragment(), View.OnClickListener {
             .addOnSuccessListener(OnSuccessListener<DocumentReference> { documentReference ->
                 Toast.makeText(
                     context,
-                    "${etVolName.text.toString()} is added as volunteer successfully !!",
+                    "You are now a Volunteer",
                     Toast.LENGTH_SHORT
                 ).show()
+                isVolUpdate("1")
+                requireActivity().supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.flVolunteer,ViewVolunteerFragment()).commit()
             })
             .addOnFailureListener(OnFailureListener { e ->
                 Log.w("FireStoreError", "Error adding document", e)

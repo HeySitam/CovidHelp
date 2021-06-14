@@ -11,19 +11,22 @@
     <string name="paytm_foundation">Paytm Foundation is raising ₹10 crore to donate Oxygen Concentrators across India. They will match the contributions received through this initiative.</string>
     <string name="mission_oxygen">This campaign started as a self-funded mission to help hospitals across the country get immediate access to oxygen concentrators. We assumed a requirement of 100 pieces that we could manage.</string>
     <string name="who">The World Health Organization (WHO) is leading and coordinating the global effort, supporting countries to prevent, detect, and respond to the pandemic.</string>
-    <string name="wb_gov_help">This online portal is made by Government of WestBengal which provides crucial information like list and contact details of dedicated COVID-19 hospitals, availability of beds, ambulance, etc. through various modes.</string>
+    <string name="wb_gov_help">This online portal is made by Government of WestBengal.</string>
+    <string name="project_oxygen">A project for supplying "Oxygen Cylinder" in your home.</string>
+    <string name="someannoying_help">This online portal is made by Someannoying Community.</string>
+    <string name="chatbot_help">A whatsapp chat bot service from West Bengal Government.</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-      <string name="covid_tracker">Covid Tracker</string>
-      <string name="recover">Recover</string>
-      <string name="total_death">Total Death</string>
-      <string name="total_active">Total Active</string>
-      <string name="_1234567">1234567</string>
-      <string name="deaths">Deaths</string>
-      <string name="recovered">Recovered</string>
-      <string name="active">Active</string>
-      <string name="Inida">India</string>
-      <string name="state_json">{
+    <string name="covid_tracker">Covid Tracker</string>
+    <string name="recover">Recover</string>
+    <string name="total_death">Total Death</string>
+    <string name="total_active">Total Active</string>
+    <string name="_1234567">1234567</string>
+    <string name="deaths">Deaths</string>
+    <string name="recovered">Recovered</string>
+    <string name="active">Active</string>
+    <string name="Inida">India</string>
+    <string name="state_json">{
   \"states\": [
   {
   \"state_id\": 1,
@@ -176,4 +179,6 @@
   ],
   "ttl": 24
   }</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 </resources>

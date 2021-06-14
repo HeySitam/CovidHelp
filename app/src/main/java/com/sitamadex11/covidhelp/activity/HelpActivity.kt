@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.sitamadex11.covidhelp.R
 import com.sitamadex11.covidhelp.fragments.CityWiseFragment
-import com.sitamadex11.covidhelp.fragments.CovidTrackerFragment
 import com.sitamadex11.covidhelp.fragments.StateWiseFragment
 import kotlinx.android.synthetic.main.help_activity.*
 
@@ -23,9 +22,6 @@ class HelpActivity : AppCompatActivity() {
                 }
                 R.id.cityWise->{
                     fragment= CityWiseFragment()
-                }
-                R.id.covidTracker->{
-                    fragment= CovidTrackerFragment()
                 }
             }
             fragmentTransaction(fragment)
