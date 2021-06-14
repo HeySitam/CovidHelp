@@ -13,7 +13,7 @@
         android:layout_marginTop="80dp"
         android:text="Edit Profile"
         android:textColor="#000000"
-        android:textSize="46sp" />
+        android:textSize="40sp" />
     <androidx.core.widget.NestedScrollView
         android:id="@+id/rlInfo"
         android:layout_width="wrap_content"
@@ -58,92 +58,6 @@
                         android:background="@null"
                         android:hint="Your Name"
                         android:inputType="text"
-                        android:textAlignment="textStart"
-                        android:textColor="#000000"
-                        android:textColorHint="#D3D3D3"
-                        android:textSize="15sp" />
-                </RelativeLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cvEmail"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_below="@+id/cvUserName"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="50dp"
-                android:backgroundTint="#ffffff"
-                app:cardCornerRadius="25dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:id="@+id/imgEmail"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginEnd="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:src="@drawable/ic_baseline_email_24" />
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etEditEmail"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginEnd="5dp"
-                        android:layout_toRightOf="@+id/imgEmail"
-                        android:background="@null"
-                        android:hint="Your Email Address"
-                        android:inputType="textEmailAddress"
-                        android:textAlignment="textStart"
-                        android:textColor="#000000"
-                        android:textColorHint="#D3D3D3"
-                        android:textSize="15sp" />
-                </RelativeLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cvPhone"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_below="@+id/cvEmail"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="50dp"
-                android:backgroundTint="#ffffff"
-                android:visibility="visible"
-                app:cardCornerRadius="25dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:id="@+id/imgPhone"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginEnd="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/ic_baseline_local_phone_24" />
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etEditPhone"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginEnd="5dp"
-                        android:layout_toRightOf="@+id/imgPhone"
-                        android:background="@null"
-                        android:hint="Your Phone Number"
-                        android:inputType="phone"
                         android:textAlignment="textStart"
                         android:textColor="#000000"
                         android:textColorHint="#D3D3D3"
@@ -209,7 +123,7 @@
                 android:id="@+id/cvPassword"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:layout_below="@+id/cvPhone"
+                android:layout_below="@+id/cvUserName"
                 android:layout_marginStart="50dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="50dp"

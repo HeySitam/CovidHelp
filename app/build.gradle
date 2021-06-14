@@ -76,4 +76,6 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx'
     // Web Scrapping
     implementation 'org.jsoup:jsoup:1.13.1'
+    // Fab speed dial
+    implementation 'io.github.yavski:fab-speed-dial:1.0.6'
 }

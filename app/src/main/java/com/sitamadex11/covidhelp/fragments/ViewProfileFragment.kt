@@ -25,7 +25,6 @@ import com.sitamadex11.covidhelp.model.District
 import com.sitamadex11.covidhelp.model.DistrictItems
 import com.sitamadex11.covidhelp.model.State
 import com.sitamadex11.covidhelp.util.Constants
-import kotlinx.android.synthetic.main.glass_signup_page.*
 
 class ViewProfileFragment : Fragment(), View.OnClickListener {
     lateinit var txtProfileName: TextView
@@ -38,8 +37,8 @@ class ViewProfileFragment : Fragment(), View.OnClickListener {
     lateinit var firestore: FirebaseFirestore
     lateinit var firebaseAuth: FirebaseAuth
     lateinit var etEditName: TextInputEditText
-    lateinit var etEditEmail: TextInputEditText
-    lateinit var etEditPhone: TextInputEditText
+   // lateinit var etEditEmail: TextInputEditText
+    // lateinit var etEditPhone: TextInputEditText
     lateinit var etEditAddress: TextInputEditText
     lateinit var etEditState: AutoCompleteTextView
     lateinit var etEditDistrict: AutoCompleteTextView
@@ -115,56 +114,64 @@ class ViewProfileFragment : Fragment(), View.OnClickListener {
                 btnEdit.setOnClickListener(this)
                 stateJsonParse()
             }
-            R.id.btnEdit->{
-                if(etEditName.text!!.isNotEmpty()
-                    && etEditEmail.text!!.isNotEmpty()
-                    && etEditPhone.text!!.isNotEmpty()
+            R.id.btnEdit -> {
+                if (etEditName.text!!.isNotEmpty()
+                 //   && etEditEmail.text!!.isNotEmpty()
+                 //   && etEditPhone.text!!.isNotEmpty()
                     && etEditAddress.text!!.isNotEmpty()
                     && etEditState.text!!.isNotEmpty()
-                    && etEditDistrict.text!!.isNotEmpty()) {
+                    && etEditDistrict.text!!.isNotEmpty()
+                ) {
                     firestore.collection("users").get().addOnSuccessListener { querySnapShots ->
                         for (snapshot in querySnapShots) {
                             val uid = snapshot.getString("uid")
                             if (firebaseAuth.currentUser!!.uid == uid) {
-                              val docRef= firestore.collection("users").document(snapshot.id)
-                                docRef.update(mapOf(
-                                    "Email" to etEditEmail.text.toString(),
-                                    "UserName" to etEditName.text.toString(),
-                                    "phone" to etEditPhone.text.toString(),
-                                    "address" to etEditAddress.text.toString(),
-                                    "state" to etEditState.text.toString(),
-                                    "district" to etEditDistrict.text.toString()
-                                )).addOnSuccessListener {
-                                    Toast.makeText(requireContext(),
+                                val docRef = firestore.collection("users").document(snapshot.id)
+                                docRef.update(
+                                    mapOf(
+                                        //"Email" to etEditEmail.text.toString(),
+                                        "UserName" to etEditName.text.toString(),
+                                        //"phone" to etEditPhone.text.toString(),
+                                        "address" to etEditAddress.text.toString(),
+                                        "state" to etEditState.text.toString(),
+                                        "district" to etEditDistrict.text.toString()
+                                    )
+                                ).addOnSuccessListener {
+                                    Toast.makeText(
+                                        requireContext(),
                                         "🤩 Your Profile updated successfully",
-                                        Toast.LENGTH_SHORT).show()
-                                    requireActivity().supportFragmentManager.beginTransaction().replace(R.id.frameBody,ViewProfileFragment()).commit()
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                    requireActivity().supportFragmentManager.beginTransaction()
+                                        .replace(R.id.frameBody, ViewProfileFragment()).commit()
                                     dialog.hide()
                                 }.addOnFailureListener {
-                                    Toast.makeText(requireContext(),
+                                    Toast.makeText(
+                                        requireContext(),
                                         "Sorry!! Something went wrong.",
-                                        Toast.LENGTH_SHORT).show()
+                                        Toast.LENGTH_SHORT
+                                    ).show()
                                 }
                             }
                         }
                     }
                 }
-                if(etEditName.text.isNullOrEmpty()){
+                if (etEditName.text.isNullOrEmpty()) {
                     etEditName.error = "Your name can't be empty."
                 }
-                if(etEditEmail.text.isNullOrEmpty()){
-                    etEditEmail.error = "Your email can't be empty."
-                }
-                if(etEditPhone.text.isNullOrEmpty()){
-                    etEditPhone.error = "Your phone number can't be empty."
-                }
-                if(etEditAddress.text.isNullOrEmpty()){
+//                if (etEditEmail.text.isNullOrEmpty()) {
+//                    etEditEmail.error = "Your email can't be empty."
+//                }
+//                if (etEditPhone.text.isNullOrEmpty()) {
+//                    etEditPhone.error = "Your phone number can't be empty."
+             //   }
+                if (etEditAddress.text.isNullOrEmpty()) {
                     etEditAddress.error = "Your Address can't be empty."
                 }
-                if(etEditState.text.isNullOrEmpty()){
+                if (etEditState.text.isNullOrEmpty()) {
                     etEditState.error = "Your State can't be empty."
                 }
-                if(etEditDistrict.text.isNullOrEmpty()){
+                if (etEditDistrict.text.isNullOrEmpty()) {
                     etEditDistrict.error = "Your district can't be empty."
                 }
             }
@@ -173,13 +180,12 @@ class ViewProfileFragment : Fragment(), View.OnClickListener {
 
     private fun editInit(v: View?) {
         etEditName = v!!.findViewById(R.id.etEditName)
-        etEditEmail = v.findViewById(R.id.etEditEmail)
-        etEditPhone = v.findViewById(R.id.etEditPhone)
         etEditAddress = v.findViewById(R.id.etEditAddress)
         etEditState = v.findViewById(R.id.etEditState)
         etEditDistrict = v.findViewById(R.id.etEditDistrict)
         btnEdit = v.findViewById(R.id.btnEdit)
     }
+
     private fun stateJsonParse() {
         val url = Constants.STATE_URL
         val stateString = StringRequest(url, { str ->

@@ -7,6 +7,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
@@ -20,7 +21,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.gson.Gson
@@ -32,11 +32,13 @@ import com.sitamadex11.covidhelp.model.DistrictItems
 import com.sitamadex11.covidhelp.model.State
 import com.sitamadex11.covidhelp.model.VolunteerDetailsModel
 import com.sitamadex11.covidhelp.util.Constants
+import io.github.yavski.fabspeeddial.FabSpeedDial
+import io.github.yavski.fabspeeddial.SimpleMenuListenerAdapter
 import kotlinx.android.synthetic.main.fragment_view_volunteer.*
 
 
 class ViewVolunteerFragment : Fragment(), View.OnClickListener, VLAdapter {
-    lateinit var btnAddVolunteer: FloatingActionButton
+    lateinit var fabBtn: FabSpeedDial
     lateinit var rvVol: RecyclerView
     lateinit var adapter: VolunteerListAdapter
     lateinit var requestOueue: RequestQueue
@@ -69,29 +71,50 @@ class ViewVolunteerFragment : Fragment(), View.OnClickListener, VLAdapter {
     }
 
     private fun click() {
-        btnAddVolunteer.setOnClickListener(this)
+        fabBtn.setMenuListener(object : SimpleMenuListenerAdapter() {
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                onNavigationItemSelected(menuItem)
+                return true
+            }
+        })
     }
 
-    private fun init(view: View) {
-        btnAddVolunteer = view.findViewById(R.id.btnAddVolunteer)
-        rvVol = view.findViewById(R.id.rvVolunteer)
-        rvVol.layoutManager = LinearLayoutManager(context)
-        adapter = VolunteerListAdapter(requireContext(), this)
-        requestOueue = Volley.newRequestQueue(requireContext())
-        firebaseFirestore = FirebaseFirestore.getInstance()
-        firebaseAuth = FirebaseAuth.getInstance()
-    }
-
-    override fun onClick(v: View?) {
-        when (v!!.id) {
-            R.id.btnAddVolunteer -> {
+    private fun onNavigationItemSelected(menuItem: MenuItem) {
+        when (menuItem.itemId) {
+            R.id.removeVol -> {
                 firebaseFirestore.collection("users").get()
                     .addOnSuccessListener { queryDocumentSnapshots ->
                         for (snapshot in queryDocumentSnapshots) {
                             val userId = snapshot.getString("uid")
                             if (userId == firebaseAuth.currentUser!!.uid) {
-                                Log.d("chk_id1", userId.toString())
-                                Log.d("chk_id2", firebaseAuth.currentUser!!.uid)
+                                val phone = snapshot.getString("phone")
+                                firebaseFirestore.collection("volunteers").get()
+                                    .addOnSuccessListener {
+                                        for(volSnapShot in it){
+                                            val volPhone =volSnapShot.getString("phone")
+                                            if(volPhone==phone){
+                                                firebaseFirestore.collection("volunteers")
+                                                    .document(volSnapShot.id)
+                                                    .delete()
+                                                    .addOnSuccessListener {
+                                                        Toast.makeText(requireContext()
+                                                            ,"You are no more volunteer"
+                                                            ,Toast.LENGTH_SHORT).show()
+                                                    }
+                                                firebaseFirestore.collection("users").document(snapshot.id).update("isVol","0")
+                                            }
+                                        }
+                                    }
+                            }
+                        }
+                    }
+            }
+            R.id.addVol -> {
+                firebaseFirestore.collection("users").get()
+                    .addOnSuccessListener { queryDocumentSnapshots ->
+                        for (snapshot in queryDocumentSnapshots) {
+                            val userId = snapshot.getString("uid")
+                            if (userId == firebaseAuth.currentUser!!.uid) {
                                 val isVol = snapshot.getString("isVol")
                                 Log.d("chk_vol", isVol.toString())
                                 if (isVol == "0")
@@ -106,6 +129,43 @@ class ViewVolunteerFragment : Fragment(), View.OnClickListener, VLAdapter {
                         }
                     }
             }
+        }
+    }
+
+    private fun init(view: View) {
+        fabBtn = view.findViewById(R.id.fab_speed_dial)
+        rvVol = view.findViewById(R.id.rvVolunteer)
+        rvVol.layoutManager = LinearLayoutManager(context)
+        adapter = VolunteerListAdapter(requireContext(), this)
+        requestOueue = Volley.newRequestQueue(requireContext())
+        firebaseFirestore = FirebaseFirestore.getInstance()
+        firebaseAuth = FirebaseAuth.getInstance()
+    }
+
+    override fun onClick(v: View?) {
+        when (v!!.id) {
+//            R.id.btnAddVolunteer -> {
+//                firebaseFirestore.collection("users").get()
+//                    .addOnSuccessListener { queryDocumentSnapshots ->
+//                        for (snapshot in queryDocumentSnapshots) {
+//                            val userId = snapshot.getString("uid")
+//                            if (userId == firebaseAuth.currentUser!!.uid) {
+//                                Log.d("chk_id1", userId.toString())
+//                                Log.d("chk_id2", firebaseAuth.currentUser!!.uid)
+//                                val isVol = snapshot.getString("isVol")
+//                                Log.d("chk_vol", isVol.toString())
+//                                if (isVol == "0")
+//                                    fragmentTransition(AddVolunteerFragment())
+//                                else
+//                                    Toast.makeText(
+//                                        requireContext(),
+//                                        "you are already a Volunteer",
+//                                        Toast.LENGTH_SHORT
+//                                    ).show()
+//                            }
+//                        }
+//                    }
+//            }
 
         }
     }
@@ -225,5 +285,16 @@ class ViewVolunteerFragment : Fragment(), View.OnClickListener, VLAdapter {
             Toast.makeText(requireContext(), "something went wrong", Toast.LENGTH_SHORT).show()
         })
         requestOueue.add(districtString)
+    }
+    private fun isVolUpdate(value:String){
+        firebaseFirestore.collection("users").get().addOnSuccessListener {
+            for(snapshot in it){
+                val uid = snapshot.getString("uid")
+                if (uid == firebaseAuth.currentUser!!.uid){
+                    Log.d("chk_isVol","working")
+                    firebaseFirestore.collection("users").document(snapshot.id).update("isVol",value)
+                }
+            }
+        }
     }
 }

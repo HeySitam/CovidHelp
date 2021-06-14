@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/removeVol"
+        android:icon="@drawable/ic_baseline_person_remove_24"
+        android:title="Remove Yourself as Volunteer" />
+    <item
+        android:id="@+id/addVol"
+        android:icon="@drawable/add_volunteer"
+        android:title="Add Yourself as Volunteer" />
+</menu>
