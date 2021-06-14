@@ -29,7 +29,8 @@
         <activity
             android:name=".activity.VaccineStatusActivity"
             android:theme="@style/NoActionBar" />
-        <activity android:name=".activity.VolunteerActivity" />
+        <activity android:name=".activity.VolunteerActivity"
+            android:theme="@style/NoActionBar"/>
         <activity android:name=".activity.DemoTestingActivity" />
         <activity
             android:name=".activity.HelpActivity"

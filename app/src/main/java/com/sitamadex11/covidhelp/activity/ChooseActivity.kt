@@ -61,6 +61,10 @@ class ChooseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
                 fragmentTransaction(ViewProfileFragment())
                 drawerLayout.closeDrawer(GravityCompat.START)
             }
+            R.id.addVol->{
+                val intent =  Intent(this,VolunteerActivity::class.java)
+                startActivity(intent)
+            }
             R.id.logout -> {
                 drawerLayout.closeDrawer(GravityCompat.START)
                 firebaseAuth.signOut()

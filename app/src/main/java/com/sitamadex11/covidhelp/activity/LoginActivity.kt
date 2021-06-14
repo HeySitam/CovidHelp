@@ -21,8 +21,8 @@ import com.sitamadex11.covidhelp.model.District
 import com.sitamadex11.covidhelp.model.DistrictItems
 import com.sitamadex11.covidhelp.model.State
 import com.sitamadex11.covidhelp.util.Constants
-import kotlinx.android.synthetic.main.fragment_view_volunteer.*
 import kotlinx.android.synthetic.main.glass_signup_page.*
+
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
     var chk: Boolean = true
@@ -62,6 +62,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     private fun clickHandle() {
         txtSignUpNow.setOnClickListener(this)
         btnLogin.setOnClickListener(this)
+        txtForgotPassword.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -148,23 +149,54 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                     etUserPassword.error = null
                     etUserState.error = null
                     etUserDistrict.error = null
-                    auth.signInWithEmailAndPassword(etUserEmail.text.toString(), etUserPassword.text.toString())
-                        .addOnCompleteListener(this) { task ->
+                    if(etUserEmail.text!!.isNotEmpty()
+                        && etUserPassword.text!!.isNotEmpty()) {
+                        etUserEmail.error = null
+                        etUserPassword.error = null
+                        auth.signInWithEmailAndPassword(
+                            etUserEmail.text.toString(),
+                            etUserPassword.text.toString()
+                        )
+                            .addOnCompleteListener(this) { task ->
+                                if (task.isSuccessful) {
+                                    // Sign in success, update UI with the signed-in user's information
+                                    Log.d(TAG, "signInWithEmail:success")
+                                    val user = auth.currentUser
+                                    startActivity(Intent(this, ChooseActivity::class.java))
+                                    Toast.makeText(this, "Welcome Back", Toast.LENGTH_SHORT).show()
+                                    finish()
+                                } else {
+                                    // If sign in fails, display a message to the user.
+                                    Log.w(TAG, "signInWithEmail:failure", task.exception)
+                                    Toast.makeText(
+                                        this, "Authentication failed.",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+                            }
+                    }
+                    if(etUserEmail.text.isNullOrEmpty()){
+                        etUserEmail.error = "Your email can't be empty."
+                    }
+                    if(etUserPassword.text.isNullOrEmpty()){
+                        etUserPassword.error = "Your password can't be empty."
+                    }
+                }
+            }
+            R.id.txtForgotPassword -> {
+                if(etUserEmail.text.isNullOrEmpty()){
+                    etUserEmail.error = "Please enter a valid email"
+                }else {
+                    FirebaseAuth.getInstance().sendPasswordResetEmail(etUserEmail.text.toString())
+                        .addOnCompleteListener { task ->
                             if (task.isSuccessful) {
-                                // Sign in success, update UI with the signed-in user's information
-                                Log.d(TAG, "signInWithEmail:success")
-                                val user = auth.currentUser
-                                startActivity(Intent(this, ChooseActivity::class.java))
-                                Toast.makeText(this,"Welcome Back",Toast.LENGTH_SHORT).show()
-                                finish()
-                            } else {
-                                // If sign in fails, display a message to the user.
-                                Log.w(TAG, "signInWithEmail:failure", task.exception)
-                                Toast.makeText(this, "Authentication failed.",
+                                Toast.makeText(this, "an Verification Mail has been sent",
                                     Toast.LENGTH_SHORT).show()
                             }
+                        }.addOnFailureListener {
+                            Toast.makeText(this, "can't send an Verification Mail",
+                                Toast.LENGTH_SHORT).show()
                         }
-
                 }
             }
         }
@@ -183,15 +215,15 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         user["Email"] = etUserEmail.text.toString()
         user["isVol"] = "0"
         user["address"] = "Not Provided"
-        user["state"] = "Not Provided"
-        user["district"] = "Not Provided"
-        user["phone"] = "Not Provided"
+        user["state"] = etUserState.text.toString()
+        user["district"] = etUserDistrict.text.toString()
+        user["phone"] = etUserPhone.text.toString()
 
         FirebaseFirestore.getInstance().collection("users")
             .add(user)
             .addOnCompleteListener {
                 if (it.isSuccessful) {
-                    Toast.makeText(this, "Data Inserted", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Your account is created successfully.", Toast.LENGTH_SHORT).show()
                     startActivity(Intent(this, ChooseActivity::class.java))
                     finish()
                 } else {

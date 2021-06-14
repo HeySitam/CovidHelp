@@ -214,6 +214,7 @@ class VaccineStatusActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+
     private fun setDateListener() {
         myCalendar = Calendar.getInstance()
         dateSetListener = DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->

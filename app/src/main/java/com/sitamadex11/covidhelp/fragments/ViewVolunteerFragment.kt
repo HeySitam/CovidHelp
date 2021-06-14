@@ -42,7 +42,7 @@ import io.github.yavski.fabspeeddial.SimpleMenuListenerAdapter
 import kotlinx.android.synthetic.main.fragment_view_volunteer.*
 
 
-class ViewVolunteerFragment : Fragment(), VLAdapter,View.OnClickListener {
+class ViewVolunteerFragment : Fragment(), VLAdapter, View.OnClickListener {
     lateinit var fabBtn: FabSpeedDial
     lateinit var rvVol: RecyclerView
     lateinit var adapter: VolunteerListAdapter
@@ -50,9 +50,9 @@ class ViewVolunteerFragment : Fragment(), VLAdapter,View.OnClickListener {
     lateinit var firebaseFirestore: FirebaseFirestore
     lateinit var firebaseAuth: FirebaseAuth
     lateinit var dialog: AlertDialog
-    lateinit var etSendMessage:TextInputEditText
-    lateinit var btnSend:MaterialButton
-    lateinit var btnCancel:MaterialButton
+    lateinit var etSendMessage: TextInputEditText
+    lateinit var btnSend: MaterialButton
+    lateinit var btnCancel: MaterialButton
     val allVolunteers = ArrayList<VolunteerDetailsModel>()
     val state_list = java.util.ArrayList<String>()
     val district_list = java.util.ArrayList<DistrictItems>()
@@ -96,24 +96,36 @@ class ViewVolunteerFragment : Fragment(), VLAdapter,View.OnClickListener {
                         for (snapshot in queryDocumentSnapshots) {
                             val userId = snapshot.getString("uid")
                             if (userId == firebaseAuth.currentUser!!.uid) {
-                                val phone = snapshot.getString("phone")
-                                firebaseFirestore.collection("volunteers").get()
-                                    .addOnSuccessListener {
-                                        for(volSnapShot in it){
-                                            val volPhone =volSnapShot.getString("phone")
-                                            if(volPhone==phone){
-                                                firebaseFirestore.collection("volunteers")
-                                                    .document(volSnapShot.id)
-                                                    .delete()
-                                                    .addOnSuccessListener {
-                                                        Toast.makeText(requireContext()
-                                                            ,"You are no more volunteer"
-                                                            ,Toast.LENGTH_SHORT).show()
-                                                    }
-                                                firebaseFirestore.collection("users").document(snapshot.id).update("isVol","0")
+                                val isVol = snapshot.getString("isVol")
+                                if (isVol == "0") {
+                                    Toast.makeText(
+                                        requireContext(),
+                                        "You are not a volunteer.",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                } else {
+                                    val phone = snapshot.getString("phone")
+                                    firebaseFirestore.collection("volunteers").get()
+                                        .addOnSuccessListener {
+                                            for (volSnapShot in it) {
+                                                val volPhone = volSnapShot.getString("phone")
+                                                if (volPhone == phone) {
+                                                    firebaseFirestore.collection("volunteers")
+                                                        .document(volSnapShot.id)
+                                                        .delete()
+                                                        .addOnSuccessListener {
+                                                            Toast.makeText(
+                                                                requireContext(),
+                                                                "You are no more volunteer",
+                                                                Toast.LENGTH_SHORT
+                                                            ).show()
+                                                        }
+                                                    firebaseFirestore.collection("users")
+                                                        .document(snapshot.id).update("isVol", "0")
+                                                }
                                             }
                                         }
-                                    }
+                                }
                             }
                         }
                     }
@@ -173,7 +185,16 @@ class ViewVolunteerFragment : Fragment(), VLAdapter,View.OnClickListener {
                     val desc = snapshot.getString("description")
                     // val phone=Integer.parseInt(phoneS!!)
                     if (etVolState.text.toString() == state && etVolDistrict.text.toString() == district) {
-                        allVolunteers.add(VolunteerDetailsModel(name, phoneS, state, district, org, desc))
+                        allVolunteers.add(
+                            VolunteerDetailsModel(
+                                name,
+                                phoneS,
+                                state,
+                                district,
+                                org,
+                                desc
+                            )
+                        )
                     }
                     // Log.d("ref_check", img.toString())
                 }
@@ -199,6 +220,7 @@ class ViewVolunteerFragment : Fragment(), VLAdapter,View.OnClickListener {
         )
         return callPermission == PackageManager.PERMISSION_GRANTED
     }
+
     private fun checkSmsPermission(): Boolean {
         val smsPermission = ContextCompat.checkSelfPermission(
             requireActivity().applicationContext,
@@ -214,6 +236,7 @@ class ViewVolunteerFragment : Fragment(), VLAdapter,View.OnClickListener {
             200
         )
     }
+
     private fun requestSmsPermission() {
         ActivityCompat.requestPermissions(
             requireActivity(), arrayOf(SEND_SMS),
@@ -259,9 +282,9 @@ class ViewVolunteerFragment : Fragment(), VLAdapter,View.OnClickListener {
             btnCancel.setOnClickListener(this)
             dialog.show()
             btnSend.setOnClickListener {
-                if(etSendMessage.text.isNullOrEmpty()){
-                   etSendMessage.error = "Please enter some text message"
-                }else{
+                if (etSendMessage.text.isNullOrEmpty()) {
+                    etSendMessage.error = "Please enter some text message"
+                } else {
                     val sms = SmsManager.getDefault()
                     sms.sendTextMessage(phone, null, etSendMessage.text.toString(), null, null)
                     etSendMessage.error = null
@@ -271,7 +294,7 @@ class ViewVolunteerFragment : Fragment(), VLAdapter,View.OnClickListener {
     }
 
     private fun msgInit(v: View?) {
-       etSendMessage = v!!.findViewById(R.id.etSendMessage)
+        etSendMessage = v!!.findViewById(R.id.etSendMessage)
         btnCancel = v.findViewById(R.id.btnCancel)
         btnSend = v.findViewById(R.id.btnSend)
     }
@@ -327,8 +350,8 @@ class ViewVolunteerFragment : Fragment(), VLAdapter,View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        when(v!!.id){
-            R.id.btnCancel ->{
+        when (v!!.id) {
+            R.id.btnCancel -> {
                 dialog.hide()
             }
         }

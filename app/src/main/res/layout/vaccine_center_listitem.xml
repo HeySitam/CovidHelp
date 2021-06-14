@@ -139,12 +139,13 @@
             </LinearLayout>
 
             <RelativeLayout
+                android:id="@+id/rlDose"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/llDetailsBody"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp">
+                android:layout_marginBottom="5dp">
 
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="wrap_content"
@@ -218,6 +219,17 @@
                         android:textColor="@color/white" />
                 </com.google.android.material.card.MaterialCardView>
             </RelativeLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBookVac"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Book Now"
+                app:backgroundTint="#1b0000"
+                app:cornerRadius="8dp"
+                android:layout_marginBottom="5dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/rlDose"
+                android:padding="10dp"/>
         </RelativeLayout>
 
         <com.google.android.material.card.MaterialCardView

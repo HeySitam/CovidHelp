@@ -9,6 +9,10 @@
         android:icon="@drawable/ic_baseline_person_24"
         android:title="View Profile" />
     <item
+        android:id="@+id/addVol"
+        android:icon="@drawable/add_volunteer"
+        android:title="Add Yourself as Volunteer" />
+    <item
         android:id="@+id/logout"
         android:icon="@drawable/ic_baseline_logout_24"
         android:title="Logout" />
