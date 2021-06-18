@@ -2,8 +2,11 @@ package com.sitamadex11.covidhelp.fragments
 
 import android.Manifest.permission.CALL_PHONE
 import android.Manifest.permission.SEND_SMS
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import android.net.Uri
 import android.os.Bundle
 import android.telephony.SmsManager
@@ -53,6 +56,8 @@ class ViewVolunteerFragment : Fragment(), VLAdapter, View.OnClickListener {
     lateinit var etSendMessage: TextInputEditText
     lateinit var btnSend: MaterialButton
     lateinit var btnCancel: MaterialButton
+    lateinit var btnRetry: MaterialButton
+    lateinit var btnExit: MaterialButton
     val allVolunteers = ArrayList<VolunteerDetailsModel>()
     val state_list = java.util.ArrayList<String>()
     val district_list = java.util.ArrayList<DistrictItems>()
@@ -63,10 +68,40 @@ class ViewVolunteerFragment : Fragment(), VLAdapter, View.OnClickListener {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_view_volunteer, container, false)
-        init(view)
-        click()
-        callBack()
-        stateJsonParse()
+        val isConnected = checkConnectivity(requireContext())
+        if (!isConnected) {
+            val customLayout = layoutInflater
+                .inflate(
+                    R.layout.network_check_dialog, null
+                )
+            netInit(customLayout)
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setView(customLayout)
+            builder.setCancelable(false)
+            val dialog = builder.create()
+            btnExit.setOnClickListener{
+                requireActivity().finish()
+            }
+            btnRetry.setOnClickListener{
+                if(checkConnectivity(requireContext())){
+                    //Do some thing
+                    dialog.hide()
+                    init(view)
+                    click()
+                    callBack()
+                    stateJsonParse()
+                }else{
+                    Toast.makeText(requireContext(),"Sorry!! No Internet connection found",Toast.LENGTH_SHORT).show()
+                }
+            }
+            dialog.show()
+        } else {
+            //Do some thing
+            init(view)
+            click()
+            callBack()
+            stateJsonParse()
+        }
         return view
     }
 
@@ -287,6 +322,8 @@ class ViewVolunteerFragment : Fragment(), VLAdapter, View.OnClickListener {
                 } else {
                     val sms = SmsManager.getDefault()
                     sms.sendTextMessage(phone, null, etSendMessage.text.toString(), null, null)
+                    Toast.makeText(requireContext(),"Your Message has been sent",Toast.LENGTH_SHORT).show()
+                    dialog.hide()
                     etSendMessage.error = null
                 }
             }
@@ -354,6 +391,22 @@ class ViewVolunteerFragment : Fragment(), VLAdapter, View.OnClickListener {
             R.id.btnCancel -> {
                 dialog.hide()
             }
+        }
+    }
+    private fun netInit(v: View?) {
+        btnExit = v!!.findViewById(R.id.btnExit)
+        btnRetry = v.findViewById(R.id.btnRetry)
+    }
+
+
+    fun checkConnectivity(context: Context): Boolean {
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork: NetworkInfo? = connectivityManager.activeNetworkInfo
+        if (activeNetwork?.isConnected != null) {
+            return activeNetwork.isConnected
+        } else {
+            return false
         }
     }
 }

@@ -1,6 +1,10 @@
 package com.sitamadex11.covidhelp.activity
 
+import android.app.AlertDialog
 import android.app.DatePickerDialog
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -10,6 +14,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.work.Constraints
+import androidx.work.NetworkType
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
@@ -25,6 +33,8 @@ import com.sitamadex11.covidhelp.model.State
 import com.sitamadex11.covidhelp.util.Constants
 import com.sitamadex11.covidhelp.viewModel.StateViewModel
 import com.sitamadex11.covidhelp.viewModel.StateViewModelFactory
+import com.sitamadex11.covidhelp.worker.CovidTrackerWorker
+import com.sitamadex11.covidhelp.worker.VaccineStatusWorker
 import kotlinx.android.synthetic.main.activity_vaccine_status.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -38,6 +48,8 @@ class VaccineStatusActivity : AppCompatActivity(), View.OnClickListener {
     lateinit var viewModelFactory: StateViewModelFactory
     lateinit var viewModel: StateViewModel
     lateinit var btnSearchCenter:MaterialButton
+    lateinit var btnRetry: MaterialButton
+    lateinit var btnExit: MaterialButton
     val state_list = ArrayList<String>()
     val district_list = ArrayList<DistrictItems>()
     val district_name_list = ArrayList<String>()
@@ -48,11 +60,44 @@ class VaccineStatusActivity : AppCompatActivity(), View.OnClickListener {
     lateinit var rvVac: RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_vaccine_status)
-        init()
-        setClick()
-        stateJsonParse()
-        filterSetUp()
+        val isConnected = checkConnectivity(this)
+        if (!isConnected) {
+            val customLayout = layoutInflater
+                .inflate(
+                    R.layout.network_check_dialog, null
+                )
+            msgInit(customLayout)
+            val builder = AlertDialog.Builder(this)
+            builder.setView(customLayout)
+            builder.setCancelable(false)
+            val dialog = builder.create()
+            btnExit.setOnClickListener{
+                finish()
+            }
+            btnRetry.setOnClickListener{
+                if(checkConnectivity(this)){
+                    //Do some thing
+                    dialog.hide()
+                    setContentView(R.layout.activity_vaccine_status)
+                    init()
+                    setClick()
+                    stateJsonParse()
+                    filterSetUp()
+                    initWorker()
+                }else{
+                    Toast.makeText(this,"Sorry!! No Internet connection found",Toast.LENGTH_SHORT).show()
+                }
+            }
+            dialog.show()
+        } else {
+            //Do some thing
+            setContentView(R.layout.activity_vaccine_status)
+            init()
+            setClick()
+            stateJsonParse()
+            filterSetUp()
+            initWorker()
+        }
     }
     private fun notFoundShow(){
         if(centerSpecifiedList.isEmpty()){
@@ -301,5 +346,35 @@ class VaccineStatusActivity : AppCompatActivity(), View.OnClickListener {
             chk=true
         }
         return chk
+    }
+    private fun initWorker() {
+        val constraints = Constraints.Builder()
+            .setRequiredNetworkType(NetworkType.CONNECTED)
+            .build()
+        Log.d("chk_count","Working_sp")
+        val notificationWorkRequest =
+            OneTimeWorkRequestBuilder<VaccineStatusWorker>()
+                .setConstraints(constraints)
+                .build()
+
+        WorkManager.getInstance(applicationContext).enqueue(
+            notificationWorkRequest
+        )
+    }
+    private fun msgInit(v: View?) {
+        btnExit = v!!.findViewById(R.id.btnExit)
+        btnRetry = v.findViewById(R.id.btnRetry)
+    }
+
+
+    fun checkConnectivity(context: Context): Boolean {
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork: NetworkInfo? = connectivityManager.activeNetworkInfo
+        if (activeNetwork?.isConnected != null) {
+            return activeNetwork.isConnected
+        } else {
+            return false
+        }
     }
 }

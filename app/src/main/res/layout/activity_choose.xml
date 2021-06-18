@@ -8,12 +8,13 @@
     android:fitsSystemWindows="true"
     tools:context=".activity.ChooseActivity">
 
-    <ScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:overScrollMode="never">
 
         <LinearLayout
+            android:id="@+id/llHomeTest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -26,9 +27,10 @@
                     android:id="@+id/imgHamburger"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
-                    android:src="@drawable/hamburger"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="10dp"/>
+                    android:layout_marginStart="10dp"
+                    android:src="@drawable/hamburger" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -41,22 +43,24 @@
                     android:textStyle="bold"
                     tools:ignore="MissingConstraints" />
             </RelativeLayout>
-
-           <FrameLayout
-               android:id="@+id/frameBody"
-               android:layout_width="match_parent"
-               android:layout_height="match_parent"/>
         </LinearLayout>
-    </ScrollView>
+
+        <FrameLayout
+            android:id="@+id/frameBody"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/llHomeTest" />
+    </RelativeLayout>
+
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navDrawer"
-        android:layout_gravity="start"
         android:layout_width="match_parent"
-        app:itemTextAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-        app:headerLayout="@layout/nav_header_layout"
         android:layout_height="match_parent"
         android:layout_below="@+id/viewBelowName"
+        android:layout_gravity="start"
         android:layout_marginTop="10dp"
+        app:headerLayout="@layout/nav_header_layout"
+        app:itemTextAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
         app:menu="@menu/navigation_menu" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

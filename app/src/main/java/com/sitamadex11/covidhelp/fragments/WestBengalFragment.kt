@@ -1,6 +1,9 @@
 package com.sitamadex11.covidhelp.fragments
 
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -43,6 +46,8 @@ class WestBengalFragment : Fragment(), View.OnClickListener {
     lateinit var txtAskHelp: TextView
     lateinit var url: String
     lateinit var intent: Intent
+    lateinit var btnRetry: MaterialButton
+    lateinit var btnExit: MaterialButton
     private val itemList = ArrayList<SomeannoynigDialogItems>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,38 +55,96 @@ class WestBengalFragment : Fragment(), View.OnClickListener {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_west_bengal, container, false)
-        itemListAdder(R.drawable.oxygen_tank, "Oxygen", "https://covid.someannoying.com/oxy.php")
-        itemListAdder(R.drawable.ambulance, "Ambulance", "https://covid.someannoying.com/amb.php")
-        itemListAdder(
-            R.drawable.app_logo,
-            "Test Resources",
-            "https://covid.someannoying.com/tests.php"
-        )
-        itemListAdder(R.drawable.app_logo, "Medicines", "https://covid.someannoying.com/med.php")
-        itemListAdder(R.drawable.help_desk, "Helpdesk", "https://covid.someannoying.com/help.php")
-        itemListAdder(
-            R.drawable.app_logo,
-            "Plasma/Blood",
-            "https://covid.someannoying.com/plasma.php"
-        )
-        itemListAdder(R.drawable.app_logo, "Doctor", "https://covid.someannoying.com/doc.php")
-        itemListAdder(R.drawable.home, "Home Services", "https://covid.someannoying.com/homes.php")
-        itemListAdder(R.drawable.app_logo, "Meal Services", "https://covid.someannoying.com/food/")
-        itemListAdder(R.drawable.app_logo, "Others", "https://covid.someannoying.com/others.php")
+        val isConnected = checkConnectivity(requireContext())
+        if (!isConnected) {
+            val customLayout = layoutInflater
+                .inflate(
+                    R.layout.network_check_dialog, null
+                )
+            msgInit(customLayout)
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setView(customLayout)
+            builder.setCancelable(false)
+            val dialog = builder.create()
+            btnExit.setOnClickListener{
+                requireActivity().finish()
+            }
+            btnRetry.setOnClickListener{
+                if(checkConnectivity(requireContext())){
+                    //Do some thing
+                    dialog.hide()
+                    itemListAdder(R.drawable.oxygen_tank, "Oxygen", "https://covid.someannoying.com/oxy.php")
+                    itemListAdder(R.drawable.ambulance, "Ambulance", "https://covid.someannoying.com/amb.php")
+                    itemListAdder(
+                        R.drawable.app_logo,
+                        "Test Resources",
+                        "https://covid.someannoying.com/tests.php"
+                    )
+                    itemListAdder(R.drawable.app_logo, "Medicines", "https://covid.someannoying.com/med.php")
+                    itemListAdder(R.drawable.help_desk, "Helpdesk", "https://covid.someannoying.com/help.php")
+                    itemListAdder(
+                        R.drawable.app_logo,
+                        "Plasma/Blood",
+                        "https://covid.someannoying.com/plasma.php"
+                    )
+                    itemListAdder(R.drawable.app_logo, "Doctor", "https://covid.someannoying.com/doc.php")
+                    itemListAdder(R.drawable.home, "Home Services", "https://covid.someannoying.com/homes.php")
+                    itemListAdder(R.drawable.app_logo, "Meal Services", "https://covid.someannoying.com/food/")
+                    itemListAdder(R.drawable.app_logo, "Others", "https://covid.someannoying.com/others.php")
 
-        btnEService = view!!.findViewById(R.id.btnEServce)
-        btnResources = view!!.findViewById(R.id.btnResources)
-        btnGetCylinder = view!!.findViewById(R.id.btnGetCylinder)
-        btnChatBot = view!!.findViewById(R.id.btnChatBot)
-        txtAvailBed = view.findViewById(R.id.txtAvailBed)
-        txtAvailCylinder = view.findViewById(R.id.txtAvailCylinder)
-        txtAskHelp = view.findViewById(R.id.txtAskHelp)
-        fetchBedCylinderCount()
-        btnEService.setOnClickListener(this)
-        btnResources.setOnClickListener(this)
-        btnGetCylinder.setOnClickListener(this)
-        btnChatBot.setOnClickListener(this)
-        txtAskHelp.setOnClickListener(this)
+                    btnEService = view!!.findViewById(R.id.btnEServce)
+                    btnResources = view!!.findViewById(R.id.btnResources)
+                    btnGetCylinder = view!!.findViewById(R.id.btnGetCylinder)
+                    btnChatBot = view!!.findViewById(R.id.btnChatBot)
+                    txtAvailBed = view.findViewById(R.id.txtAvailBed)
+                    txtAvailCylinder = view.findViewById(R.id.txtAvailCylinder)
+                    txtAskHelp = view.findViewById(R.id.txtAskHelp)
+                    fetchBedCylinderCount()
+                    btnEService.setOnClickListener(this)
+                    btnResources.setOnClickListener(this)
+                    btnGetCylinder.setOnClickListener(this)
+                    btnChatBot.setOnClickListener(this)
+                    txtAskHelp.setOnClickListener(this)
+                }else{
+                    Toast.makeText(requireContext(),"Sorry!! No Internet connection found",Toast.LENGTH_SHORT).show()
+                }
+            }
+            dialog.show()
+        } else {
+            //Do some thing
+            itemListAdder(R.drawable.oxygen_tank, "Oxygen", "https://covid.someannoying.com/oxy.php")
+            itemListAdder(R.drawable.ambulance, "Ambulance", "https://covid.someannoying.com/amb.php")
+            itemListAdder(
+                R.drawable.app_logo,
+                "Test Resources",
+                "https://covid.someannoying.com/tests.php"
+            )
+            itemListAdder(R.drawable.app_logo, "Medicines", "https://covid.someannoying.com/med.php")
+            itemListAdder(R.drawable.help_desk, "Helpdesk", "https://covid.someannoying.com/help.php")
+            itemListAdder(
+                R.drawable.app_logo,
+                "Plasma/Blood",
+                "https://covid.someannoying.com/plasma.php"
+            )
+            itemListAdder(R.drawable.app_logo, "Doctor", "https://covid.someannoying.com/doc.php")
+            itemListAdder(R.drawable.home, "Home Services", "https://covid.someannoying.com/homes.php")
+            itemListAdder(R.drawable.app_logo, "Meal Services", "https://covid.someannoying.com/food/")
+            itemListAdder(R.drawable.app_logo, "Others", "https://covid.someannoying.com/others.php")
+
+            btnEService = view!!.findViewById(R.id.btnEServce)
+            btnResources = view!!.findViewById(R.id.btnResources)
+            btnGetCylinder = view!!.findViewById(R.id.btnGetCylinder)
+            btnChatBot = view!!.findViewById(R.id.btnChatBot)
+            txtAvailBed = view.findViewById(R.id.txtAvailBed)
+            txtAvailCylinder = view.findViewById(R.id.txtAvailCylinder)
+            txtAskHelp = view.findViewById(R.id.txtAskHelp)
+            fetchBedCylinderCount()
+            btnEService.setOnClickListener(this)
+            btnResources.setOnClickListener(this)
+            btnGetCylinder.setOnClickListener(this)
+            btnChatBot.setOnClickListener(this)
+            txtAskHelp.setOnClickListener(this)
+        }
         return view
     }
 
@@ -223,6 +286,22 @@ class WestBengalFragment : Fragment(), View.OnClickListener {
             startActivity(intent)
         } else {
             Toast.makeText(requireContext(), "Please install whatsapp", Toast.LENGTH_SHORT).show()
+        }
+    }
+    private fun msgInit(v: View?) {
+        btnExit = v!!.findViewById(R.id.btnExit)
+        btnRetry = v.findViewById(R.id.btnRetry)
+    }
+
+
+    fun checkConnectivity(context: Context): Boolean {
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork: NetworkInfo? = connectivityManager.activeNetworkInfo
+        if (activeNetwork?.isConnected != null) {
+            return activeNetwork.isConnected
+        } else {
+            return false
         }
     }
 }

@@ -20,4 +20,21 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         tools:listitem="@layout/donation_list_item" />
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/custom_textview"
+        android:layout_alignParentBottom="true"
+        android:textAlignment="center"
+        android:padding="8dp"
+        android:layout_marginBottom="100dp"
+        android:text="😇Our small help can save a life😇"/>
 </RelativeLayout>

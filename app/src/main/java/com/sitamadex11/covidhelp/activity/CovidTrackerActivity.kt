@@ -1,11 +1,16 @@
 package com.sitamadex11.covidhelp.activity
 
+import android.content.Context
 import android.graphics.Color
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import androidx.work.*
+import com.google.android.material.button.MaterialButton
 import com.sitamadex11.covidhelp.R
 import com.sitamadex11.covidhelp.covidTrackerApi.CovidData
 import com.sitamadex11.covidhelp.covidTrackerApi.Data
@@ -31,27 +36,74 @@ class CovidTrackerActivity : AppCompatActivity(), AdapterView.OnItemSelectedList
     private var mSelectedStateName: String? = null
     private var mData: Data? = null
     private var mBarChart: BarChart? = null
+    lateinit var btnRetry: MaterialButton
+    lateinit var btnExit: MaterialButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.covid_tracker_activity)
-        init()
-        val mState_names = resources.getStringArray(R.array.states_name)
-        mSelectState!!.onItemSelectedListener = this
-        val adapter: ArrayAdapter<*> = ArrayAdapter<Any?>(this, R.layout.spinner_item, mState_names)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        mSelectState!!.adapter = adapter
-        ApiUtilities.apiInterface.covidData!!.enqueue(object : Callback<CovidData?> {
-            override fun onResponse(call: Call<CovidData?>, response: Response<CovidData?>) {
-                val covidData = response.body()
-                mData = covidData!!.data
-                UpdateUI(mData)
+        val isConnected = checkConnectivity(this)
+        if (!isConnected) {
+            val customLayout = layoutInflater
+                .inflate(
+                    R.layout.network_check_dialog, null
+                )
+            msgInit(customLayout)
+            val builder = AlertDialog.Builder(this)
+            builder.setView(customLayout)
+            builder.setCancelable(false)
+            val dialog = builder.create()
+            btnExit.setOnClickListener{
+                finish()
             }
+            btnRetry.setOnClickListener{
+                if(checkConnectivity(this)){
+                    //Do some thing
+                    dialog.hide()
+                    setContentView(R.layout.covid_tracker_activity)
+                    init()
+                    val mState_names = resources.getStringArray(R.array.states_name)
+                    mSelectState!!.onItemSelectedListener = this
+                    val adapter: ArrayAdapter<*> = ArrayAdapter<Any?>(this, R.layout.spinner_item, mState_names)
+                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                    mSelectState!!.adapter = adapter
+                    ApiUtilities.apiInterface.covidData!!.enqueue(object : Callback<CovidData?> {
+                        override fun onResponse(call: Call<CovidData?>, response: Response<CovidData?>) {
+                            val covidData = response.body()
+                            mData = covidData!!.data
+                            UpdateUI(mData)
+                        }
 
-            override fun onFailure(call: Call<CovidData?>, t: Throwable) {
-                Toast.makeText(applicationContext, "Error : " + t.message, Toast.LENGTH_SHORT).show()
+                        override fun onFailure(call: Call<CovidData?>, t: Throwable) {
+                            Toast.makeText(applicationContext, "Error : " + t.message, Toast.LENGTH_SHORT).show()
+                        }
+                    })
+                    initWorker()
+                }else{
+                    Toast.makeText(this,"Sorry!! No Internet connection found",Toast.LENGTH_SHORT).show()
+                }
             }
-        })
-        initWorker()
+            dialog.show()
+        } else {
+            //Do some thing
+            setContentView(R.layout.covid_tracker_activity)
+            init()
+            val mState_names = resources.getStringArray(R.array.states_name)
+            mSelectState!!.onItemSelectedListener = this
+            val adapter: ArrayAdapter<*> = ArrayAdapter<Any?>(this, R.layout.spinner_item, mState_names)
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            mSelectState!!.adapter = adapter
+            ApiUtilities.apiInterface.covidData!!.enqueue(object : Callback<CovidData?> {
+                override fun onResponse(call: Call<CovidData?>, response: Response<CovidData?>) {
+                    val covidData = response.body()
+                    mData = covidData!!.data
+                    UpdateUI(mData)
+                }
+
+                override fun onFailure(call: Call<CovidData?>, t: Throwable) {
+                    Toast.makeText(applicationContext, "Error : " + t.message, Toast.LENGTH_SHORT).show()
+                }
+            })
+            initWorker()
+        }
     }
     private fun init(){
             mRecovered = findViewById(R.id.total_recover)
@@ -122,5 +174,21 @@ class CovidTrackerActivity : AppCompatActivity(), AdapterView.OnItemSelectedList
         WorkManager.getInstance(applicationContext).enqueue(
             notificationWorkRequest
         )
+    }
+    private fun msgInit(v: View?) {
+        btnExit = v!!.findViewById(R.id.btnExit)
+        btnRetry = v.findViewById(R.id.btnRetry)
+    }
+
+
+    fun checkConnectivity(context: Context): Boolean {
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork: NetworkInfo? = connectivityManager.activeNetworkInfo
+        if (activeNetwork?.isConnected != null) {
+            return activeNetwork.isConnected
+        } else {
+            return false
+        }
     }
 }

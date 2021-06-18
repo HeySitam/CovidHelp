@@ -1,6 +1,10 @@
 package com.sitamadex11.covidhelp.fragments
 
+import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -13,6 +17,7 @@ import androidx.cardview.widget.CardView
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.sitamadex11.covidhelp.R
@@ -26,14 +31,44 @@ class HomeFragment : Fragment(),
     lateinit var cvVolunteer: CardView
     lateinit var cvVaccine: CardView
     lateinit var cvCovidTracker: CardView
+    lateinit var btnRetry: MaterialButton
+    lateinit var btnExit: MaterialButton
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
-        init(view)
-        click()
+        val isConnected = checkConnectivity(requireContext())
+        if (!isConnected) {
+            val customLayout = layoutInflater
+                .inflate(
+                    R.layout.network_check_dialog, null
+                )
+            msgInit(customLayout)
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setView(customLayout)
+            builder.setCancelable(false)
+            val dialog = builder.create()
+            btnExit.setOnClickListener{
+                requireActivity().finish()
+            }
+            btnRetry.setOnClickListener{
+                if(checkConnectivity(requireContext())){
+                    //Do some thing
+                    dialog.hide()
+                    init(view)
+                    click()
+                }else{
+                    Toast.makeText(requireContext(),"Sorry!! No Internet connection found",Toast.LENGTH_SHORT).show()
+                }
+            }
+            dialog.show()
+        } else {
+            //Do some thing
+            init(view)
+            click()
+        }
         return view
     }
 
@@ -74,6 +109,22 @@ class HomeFragment : Fragment(),
                 val intent = Intent(requireContext(), CovidTrackerActivity::class.java)
                 startActivity(intent)
             }
+        }
+    }
+    private fun msgInit(v: View?) {
+        btnExit = v!!.findViewById(R.id.btnExit)
+        btnRetry = v.findViewById(R.id.btnRetry)
+    }
+
+
+    fun checkConnectivity(context: Context): Boolean {
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork: NetworkInfo? = connectivityManager.activeNetworkInfo
+        if (activeNetwork?.isConnected != null) {
+            return activeNetwork.isConnected
+        } else {
+            return false
         }
     }
 }

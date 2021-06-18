@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".activity.SplashScreenActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/imgSplashLogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="cursive"
+        android:textColor="@color/black"
+        android:text="Covid Help"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/imgSplashLogo"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerInParent="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/app_logo"
+        app:civ_border="true"
+        app:civ_border_color="@color/black"
+        app:civ_border_width="2dp" />
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imgSplashLogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="💕Here You Find Everything💕"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+</RelativeLayout>

@@ -1,5 +1,9 @@
 package com.sitamadex11.covidhelp.fragments
 
+import android.app.AlertDialog
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -38,6 +42,9 @@ class AddVolunteerFragment : Fragment(), View.OnClickListener {
     lateinit var requestOueue: RequestQueue
     lateinit var firestore: FirebaseFirestore
     lateinit var firebaseAuth: FirebaseAuth
+    lateinit var btnRetry: MaterialButton
+    lateinit var btnExit: MaterialButton
+
     val state_list = ArrayList<String>()
     val district_list = ArrayList<String>()
     override fun onCreateView(
@@ -46,11 +53,42 @@ class AddVolunteerFragment : Fragment(), View.OnClickListener {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_add_volunteer, container, false)
-        init(view!!)
-        stateJsonParse()
-        callBack()
-        phoneNoGet()
-        btnVolAddFB.setOnClickListener(this)
+        val isConnected = checkConnectivity(requireContext())
+        if (!isConnected) {
+            val customLayout = layoutInflater
+                .inflate(
+                    R.layout.network_check_dialog, null
+                )
+            msgInit(customLayout)
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setView(customLayout)
+            builder.setCancelable(false)
+            val dialog = builder.create()
+            btnExit.setOnClickListener{
+                requireActivity().finish()
+            }
+            btnRetry.setOnClickListener{
+                if(checkConnectivity(requireContext())){
+                    //Do some thing
+                    dialog.hide()
+                    init(view!!)
+                    stateJsonParse()
+                    callBack()
+                    phoneNoGet()
+                    btnVolAddFB.setOnClickListener(this)
+                }else{
+                    Toast.makeText(requireContext(),"Sorry!! No Internet connection found",Toast.LENGTH_SHORT).show()
+                }
+            }
+            dialog.show()
+        } else {
+            //Do some thing
+            init(view!!)
+            stateJsonParse()
+            callBack()
+            phoneNoGet()
+            btnVolAddFB.setOnClickListener(this)
+        }
         return view
     }
 
@@ -229,5 +267,21 @@ class AddVolunteerFragment : Fragment(), View.OnClickListener {
                     Toast.LENGTH_SHORT
                 ).show()
             })
+    }
+    private fun msgInit(v: View?) {
+        btnExit = v!!.findViewById(R.id.btnExit)
+        btnRetry = v.findViewById(R.id.btnRetry)
+    }
+
+
+    fun checkConnectivity(context: Context): Boolean {
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork: NetworkInfo? = connectivityManager.activeNetworkInfo
+        if (activeNetwork?.isConnected != null) {
+            return activeNetwork.isConnected
+        } else {
+            return false
+        }
     }
 }
