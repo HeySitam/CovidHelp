@@ -13,6 +13,14 @@
         android:icon="@drawable/add_volunteer"
         android:title="Add Yourself as Volunteer" />
     <item
+        android:id="@+id/aboutUs"
+        android:icon="@drawable/ic_baseline_person_pin_24"
+        android:title="About App" />
+    <item
+        android:id="@+id/contactUs"
+        android:icon="@drawable/ic_baseline_email_24"
+        android:title="Contact Us" />
+    <item
         android:id="@+id/logout"
         android:icon="@drawable/ic_baseline_logout_24"
         android:title="Logout" />

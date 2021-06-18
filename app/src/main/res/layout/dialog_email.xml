@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilSendEmail"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etSendEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="3"
+            android:gravity="start"
+            android:hint="Enter your queries or feedback" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <LinearLayout
+        android:layout_below="@+id/tilSendEmail"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSendEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send"
+            android:textColor="@color/white"
+            android:layout_marginEnd="10dp"
+            android:textStyle="bold"
+            android:padding="10dp"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCancelEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="cancel"
+            android:textColor="@color/white"
+            android:layout_marginStart="10dp"
+            android:textStyle="bold"
+            android:padding="10dp"/>
+    </LinearLayout>
+</RelativeLayout>
