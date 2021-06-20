@@ -11,8 +11,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener {
     var list = ArrayList<String>()
-    var otherItem:String?=null
-    var verify:String?=null
+    var otherItem: String? = null
+    var verify: String? = null
     var url = "https://twitter.com/search?q=verified%20"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,16 +21,16 @@ class MainActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
 
     override fun onResume() {
         super.onResume()
-        if(!chkOther.isChecked){
-            tilOthers.visibility=View.GONE
+        if (!chkOther.isChecked) {
+            tilOthers.visibility = View.GONE
         }
-        if(!stwVerification.isChecked){
-            stwVerification.text="All "
-            verify="\"not%20verified\"%20-\"unverified\"%20-"
+        if (!stwVerification.isChecked) {
+            stwVerification.text = "All "
+            verify = "\"not%20verified\"%20-\"unverified\"%20-"
         }
         val city = intent.getStringExtra("city")
-        if(!city.equals("other")){
-            cvCityName.visibility= View.GONE
+        if (!city.equals("other")) {
+            cvCityName.visibility = View.GONE
         }
         beds.setOnCheckedChangeListener(this)
         icu.setOnCheckedChangeListener(this)
@@ -45,26 +45,26 @@ class MainActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
         food.setOnCheckedChangeListener(this)
         ambulance.setOnCheckedChangeListener(this)
         chkOther.setOnCheckedChangeListener(this)
-        if(stwVerification.isChecked){
-            verify=""
-        }else{
-            verify="\"not%20verified\"%20-\"unverified\"%20-"
+        if (stwVerification.isChecked) {
+            verify = ""
+        } else {
+            verify = "\"not%20verified\"%20-\"unverified\"%20-"
         }
         stwVerification.setOnCheckedChangeListener { buttonView, isChecked ->
-            if(isChecked){
-                stwVerification.text="Verified Only "
-                verify=""
-            }else{
-                stwVerification.text="All "
-                verify="\"not%20verified\"%20-\"unverified\"%20-"
+            if (isChecked) {
+                stwVerification.text = "Verified Only "
+                verify = ""
+            } else {
+                stwVerification.text = "All "
+                verify = "\"not%20verified\"%20-\"unverified\"%20-"
             }
         }
         btnSearch.setOnClickListener {
-            if(etOthers.text.toString().isNotEmpty()) {
+            if (etOthers.text.toString().isNotEmpty()) {
                 otherItem = etOthers.text.toString()
                 list.add(otherItem!!)
             }
-            if(city.equals("other")) {
+            if (city.equals("other")) {
                 if (list.isNotEmpty() && !etCityName.text.toString().isNullOrEmpty()) {
                     var item = list[0]
                     for (i in 1 until list.size) item += "%20OR%20${list[i]}"
@@ -82,11 +82,11 @@ class MainActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
                     etCityName.error = "City-Name missing"
                     Toast.makeText(this, "Enter a valid City-Name", Toast.LENGTH_SHORT).show()
                 }
-            }else{
-                if(list.isEmpty()){
+            } else {
+                if (list.isEmpty()) {
                     Toast.makeText(this, "Select at least one required field", Toast.LENGTH_SHORT)
                         .show()
-                }else{
+                } else {
                     var item = list[0]
                     for (i in 1 until list.size) item += "%20OR%20${list[i]}"
                     url =
@@ -106,20 +106,20 @@ class MainActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
         otherItem = null
         verify = null
         url = "https://twitter.com/search?q=verified%20"
-        beds.isChecked=false
-        icu.isChecked=false
-        oxygen.isChecked=false
-        ventilator.isChecked=false
-        tests.isChecked=false
-        fabiflu.isChecked=false
-        remdesivir.isChecked=false
-        favipiravir.isChecked=false
-        tocilizumab.isChecked=false
-        plasma.isChecked=false
-        food.isChecked=false
-        ambulance.isChecked=false
-        chkOther.isChecked=false
-        stwVerification.isChecked=false
+        beds.isChecked = false
+        icu.isChecked = false
+        oxygen.isChecked = false
+        ventilator.isChecked = false
+        tests.isChecked = false
+        fabiflu.isChecked = false
+        remdesivir.isChecked = false
+        favipiravir.isChecked = false
+        tocilizumab.isChecked = false
+        plasma.isChecked = false
+        food.isChecked = false
+        ambulance.isChecked = false
+        chkOther.isChecked = false
+        stwVerification.isChecked = false
     }
 
     override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
@@ -226,11 +226,11 @@ class MainActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
                     list.remove("ambulance")
                 }
             }
-            R.id.chkOther ->{
-                if(isChecked)
-                tilOthers.visibility=View.VISIBLE
+            R.id.chkOther -> {
+                if (isChecked)
+                    tilOthers.visibility = View.VISIBLE
                 else
-                    tilOthers.visibility=View.GONE
+                    tilOthers.visibility = View.GONE
             }
         }
     }

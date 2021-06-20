@@ -312,8 +312,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="end"
+                android:textColor="#1b0000"
                 android:text="Not a member?"
-                android:textColor="#FF0000"
                 android:textSize="18sp" />
 
             <com.google.android.material.card.MaterialCardView

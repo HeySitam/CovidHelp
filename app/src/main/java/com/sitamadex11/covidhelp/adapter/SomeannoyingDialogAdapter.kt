@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.card.MaterialCardView
 import com.sitamadex11.covidhelp.R
@@ -34,9 +33,9 @@ class SomeannoyingDialogAdapter(val context: Context) :
         holder.imgDialogItem.setImageResource(list[position].img)
         holder.txtDialogItem.text = list[position].name
         holder.cvDialogItem.setOnClickListener {
-            val intent= Intent()
-            intent.action= Intent.ACTION_VIEW
-            intent.data= Uri.parse(list[position].url)
+            val intent = Intent()
+            intent.action = Intent.ACTION_VIEW
+            intent.data = Uri.parse(list[position].url)
             context.startActivity(intent)
         }
     }

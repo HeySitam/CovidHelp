@@ -9,7 +9,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
-import com.royrodriguez.transitionbutton.TransitionButton
 import com.sitamadex11.covidhelp.R
 import com.sitamadex11.covidhelp.activity.MainActivity
 
@@ -58,80 +57,80 @@ class CityWiseFragment : Fragment(), View.OnClickListener {
 
     private fun init(view: View) {
         btnSearchCity = view.findViewById(R.id.btnSearchCity)
-        mdKolkata=view.findViewById(R.id.mdKolkata)
-        mdDelhi=view.findViewById(R.id.mdDelhi)
-        mdPune=view.findViewById(R.id.mdPune)
-        mdMumbai=view.findViewById(R.id.mdMumbai)
-        mdBangalore=view.findViewById(R.id.mdBangalore)
-        mdThane=view.findViewById(R.id.mdThane)
-        mdHyderbad=view.findViewById(R.id.mdHyderbad)
-        mdNagpur=view.findViewById(R.id.mdNagpur)
-        mdLucknow=view.findViewById(R.id.mdLucknow)
-        mdAhmedabad=view.findViewById(R.id.mdAhmedabad)
-        mdChennai=view.findViewById(R.id.mdChennai)
-        mdGoa=view.findViewById(R.id.mdGoa)
+        mdKolkata = view.findViewById(R.id.mdKolkata)
+        mdDelhi = view.findViewById(R.id.mdDelhi)
+        mdPune = view.findViewById(R.id.mdPune)
+        mdMumbai = view.findViewById(R.id.mdMumbai)
+        mdBangalore = view.findViewById(R.id.mdBangalore)
+        mdThane = view.findViewById(R.id.mdThane)
+        mdHyderbad = view.findViewById(R.id.mdHyderbad)
+        mdNagpur = view.findViewById(R.id.mdNagpur)
+        mdLucknow = view.findViewById(R.id.mdLucknow)
+        mdAhmedabad = view.findViewById(R.id.mdAhmedabad)
+        mdChennai = view.findViewById(R.id.mdChennai)
+        mdGoa = view.findViewById(R.id.mdGoa)
     }
 
     override fun onClick(v: View?) {
-        when(v!!.id){
-            R.id.mdKolkata ->{
-                val intent=Intent(context, MainActivity::class.java)
-                intent.putExtra("city","kolkata")
+        when (v!!.id) {
+            R.id.mdKolkata -> {
+                val intent = Intent(context, MainActivity::class.java)
+                intent.putExtra("city", "kolkata")
                 startActivity(intent)
             }
-            R.id.mdDelhi ->{
-                val intent=Intent(context, MainActivity::class.java)
-                intent.putExtra("city","delhi")
+            R.id.mdDelhi -> {
+                val intent = Intent(context, MainActivity::class.java)
+                intent.putExtra("city", "delhi")
                 startActivity(intent)
             }
-            R.id.mdPune ->{
-                val intent=Intent(context, MainActivity::class.java)
-                intent.putExtra("city","pune")
+            R.id.mdPune -> {
+                val intent = Intent(context, MainActivity::class.java)
+                intent.putExtra("city", "pune")
                 startActivity(intent)
             }
-            R.id.mdMumbai ->{
-                val intent=Intent(context, MainActivity::class.java)
-                intent.putExtra("city","mumbai")
+            R.id.mdMumbai -> {
+                val intent = Intent(context, MainActivity::class.java)
+                intent.putExtra("city", "mumbai")
                 startActivity(intent)
             }
-            R.id.mdBangalore ->{
-                val intent=Intent(context, MainActivity::class.java)
-                intent.putExtra("city","bangalore")
+            R.id.mdBangalore -> {
+                val intent = Intent(context, MainActivity::class.java)
+                intent.putExtra("city", "bangalore")
                 startActivity(intent)
             }
-            R.id.mdThane ->{
-                val intent=Intent(context, MainActivity::class.java)
-                intent.putExtra("city","thane")
+            R.id.mdThane -> {
+                val intent = Intent(context, MainActivity::class.java)
+                intent.putExtra("city", "thane")
                 startActivity(intent)
             }
-            R.id.mdHyderbad ->{
-                val intent=Intent(context, MainActivity::class.java)
-                intent.putExtra("city","hyderbad")
+            R.id.mdHyderbad -> {
+                val intent = Intent(context, MainActivity::class.java)
+                intent.putExtra("city", "hyderbad")
                 startActivity(intent)
             }
-            R.id.mdNagpur ->{
-                val intent=Intent(context, MainActivity::class.java)
-                intent.putExtra("city","nagpur")
+            R.id.mdNagpur -> {
+                val intent = Intent(context, MainActivity::class.java)
+                intent.putExtra("city", "nagpur")
                 startActivity(intent)
             }
-            R.id.mdLucknow ->{
-                val intent=Intent(context, MainActivity::class.java)
-                intent.putExtra("city","lucknow")
+            R.id.mdLucknow -> {
+                val intent = Intent(context, MainActivity::class.java)
+                intent.putExtra("city", "lucknow")
                 startActivity(intent)
             }
-            R.id.mdAhmedabad ->{
-                val intent=Intent(context, MainActivity::class.java)
-                intent.putExtra("city","ahmedabad")
+            R.id.mdAhmedabad -> {
+                val intent = Intent(context, MainActivity::class.java)
+                intent.putExtra("city", "ahmedabad")
                 startActivity(intent)
             }
-            R.id.mdChennai ->{
-                val intent=Intent(context, MainActivity::class.java)
-                intent.putExtra("city","chennai")
+            R.id.mdChennai -> {
+                val intent = Intent(context, MainActivity::class.java)
+                intent.putExtra("city", "chennai")
                 startActivity(intent)
             }
-            R.id.mdGoa ->{
-                val intent=Intent(context, MainActivity::class.java)
-                intent.putExtra("city","goa")
+            R.id.mdGoa -> {
+                val intent = Intent(context, MainActivity::class.java)
+                intent.putExtra("city", "goa")
                 startActivity(intent)
             }
         }

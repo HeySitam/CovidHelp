@@ -1,13 +1,16 @@
 package com.sitamadex11.covidhelp.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
-import android.util.Log
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.button.MaterialButton
 import com.sitamadex11.covidhelp.R
 import com.sitamadex11.covidhelp.model.CenterItem
 import java.util.*
@@ -29,6 +32,7 @@ class VaccineCenterListAdapter(val context: Context) :
         val txtSlot3: TextView = itemView.findViewById<TextView>(R.id.txtSlot3)
         val txtSlot4: TextView = itemView.findViewById<TextView>(R.id.txtSlot4)
         val txtPinCode: TextView = itemView.findViewById<TextView>(R.id.txtPinCode)
+        val btnBookVac: MaterialButton = itemView.findViewById(R.id.btnBookVac)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VaccineCenterViewHolder {
@@ -59,26 +63,26 @@ class VaccineCenterListAdapter(val context: Context) :
         }
         //    holder.txtDose2.text = centerList[position].sessions[0].dose2.toString()
         val slotSize = centerList[position].sessions[0].slots.size
-        when(slotSize){
-            1 ->{
+        when (slotSize) {
+            1 -> {
                 holder.txtSlot1.text = centerList[position].sessions[0].slots[0]
                 holder.txtSlot2.text = "No Slot Found"
                 holder.txtSlot3.text = "No Slot Found"
                 holder.txtSlot4.text = "No Slot Found"
             }
-            2->{
+            2 -> {
                 holder.txtSlot1.text = centerList[position].sessions[0].slots[0]
                 holder.txtSlot2.text = centerList[position].sessions[0].slots[1]
                 holder.txtSlot3.text = "No Slot Found"
                 holder.txtSlot4.text = "No Slot Found"
             }
-            3 ->{
+            3 -> {
                 holder.txtSlot1.text = centerList[position].sessions[0].slots[0]
                 holder.txtSlot2.text = centerList[position].sessions[0].slots[1]
                 holder.txtSlot3.text = centerList[position].sessions[0].slots[2]
                 holder.txtSlot4.text = "No Slot Found"
             }
-            4 ->{
+            4 -> {
                 holder.txtSlot1.text = centerList[position].sessions[0].slots[0]
                 holder.txtSlot2.text = centerList[position].sessions[0].slots[1]
                 holder.txtSlot3.text = centerList[position].sessions[0].slots[2]
@@ -86,6 +90,19 @@ class VaccineCenterListAdapter(val context: Context) :
             }
         }
         holder.txtPinCode.text = centerList[position].pinCode.toString()
+        holder.btnBookVac.setOnClickListener {
+            if (centerList[position].sessions[0].dose2.toString() == "0"
+                && centerList[position].sessions[0].dose1.toString() == "0"
+            ) {
+                Toast.makeText(context, "Sorry! No slot Available here", Toast.LENGTH_SHORT).show()
+            } else {
+                val url = "https://selfregistration.cowin.gov.in/"
+                val intent = Intent()
+                intent.action = Intent.ACTION_VIEW
+                intent.data = Uri.parse(url)
+                context.startActivity(intent)
+            }
+        }
 
     }
 

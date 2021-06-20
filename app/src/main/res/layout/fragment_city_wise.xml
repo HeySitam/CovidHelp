@@ -42,7 +42,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 app:cardCornerRadius="10dp"
-                app:strokeColor="@android:color/darker_gray"
+                app:strokeColor="#4db6ac"
                 app:strokeWidth="2dp">
 
                 <LinearLayout
@@ -57,7 +57,7 @@
                         android:layout_height="60dp"
                         android:layout_gravity="center"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/kolkata"
+                        android:src="@drawable/city_all_one"
                         app:civ_border="true"
                         app:civ_border_color="@color/black"
                         app:civ_border_width="2dp" />
@@ -68,6 +68,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="5dp"
                         android:text="Kolkata"
+                        android:textColor="#003d33"
                         android:textSize="12sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -83,7 +84,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 app:cardCornerRadius="10dp"
-                app:strokeColor="@android:color/darker_gray"
+                app:strokeColor="#4db6ac"
                 app:strokeWidth="2dp">
 
                 <LinearLayout
@@ -97,7 +98,7 @@
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/delhi"
+                        android:src="@drawable/city_all_one"
                         app:civ_border="true"
                         app:civ_border_color="@color/black"
                         app:civ_border_width="2dp" />
@@ -108,6 +109,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="5dp"
                         android:text="Delhi"
+                        android:textColor="#003d33"
                         android:textSize="12sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -123,7 +125,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 app:cardCornerRadius="10dp"
-                app:strokeColor="@android:color/darker_gray"
+                app:strokeColor="#4db6ac"
                 app:strokeWidth="2dp">
 
                 <LinearLayout
@@ -137,7 +139,7 @@
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/pune"
+                        android:src="@drawable/city_all_one"
                         app:civ_border="true"
                         app:civ_border_color="@color/black"
                         app:civ_border_width="2dp" />
@@ -148,6 +150,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="5dp"
                         android:text="Pune"
+                        android:textColor="#003d33"
                         android:textSize="12sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -163,7 +166,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 app:cardCornerRadius="10dp"
-                app:strokeColor="@android:color/darker_gray"
+                app:strokeColor="#4db6ac"
                 app:strokeWidth="2dp">
 
                 <LinearLayout
@@ -177,7 +180,7 @@
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/mumbai"
+                        android:src="@drawable/city_all_one"
                         app:civ_border="true"
                         app:civ_border_color="@color/black"
                         app:civ_border_width="2dp" />
@@ -188,6 +191,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="5dp"
                         android:text="Mumbai"
+                        android:textColor="#003d33"
                         android:textSize="12sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -208,7 +212,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 app:cardCornerRadius="10dp"
-                app:strokeColor="@android:color/darker_gray"
+                app:strokeColor="#4db6ac"
                 app:strokeWidth="2dp">
 
                 <LinearLayout
@@ -222,7 +226,7 @@
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/bangalore"
+                        android:src="@drawable/city_all_one"
                         app:civ_border="true"
                         app:civ_border_color="@color/black"
                         app:civ_border_width="2dp" />
@@ -233,6 +237,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="5dp"
                         android:text="Bangalore"
+                        android:textColor="#003d33"
                         android:textSize="12sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -248,7 +253,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 app:cardCornerRadius="10dp"
-                app:strokeColor="@android:color/darker_gray"
+                app:strokeColor="#4db6ac"
                 app:strokeWidth="2dp">
 
                 <LinearLayout
@@ -262,7 +267,7 @@
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/thane"
+                        android:src="@drawable/city_all_one"
                         app:civ_border="true"
                         app:civ_border_color="@color/black"
                         app:civ_border_width="2dp" />
@@ -273,6 +278,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="5dp"
                         android:text="Thane"
+                        android:textColor="#003d33"
                         android:textSize="12sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -288,7 +294,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 app:cardCornerRadius="10dp"
-                app:strokeColor="@android:color/darker_gray"
+                app:strokeColor="#4db6ac"
                 app:strokeWidth="2dp">
 
                 <LinearLayout
@@ -302,7 +308,7 @@
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/hyderabad"
+                        android:src="@drawable/city_all_one"
                         app:civ_border="true"
                         app:civ_border_color="@color/black"
                         app:civ_border_width="2dp" />
@@ -313,6 +319,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="5dp"
                         android:text="Hyderbad"
+                        android:textColor="#003d33"
                         android:textSize="12sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -328,7 +335,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 app:cardCornerRadius="10dp"
-                app:strokeColor="@android:color/darker_gray"
+                app:strokeColor="#4db6ac"
                 app:strokeWidth="2dp">
 
                 <LinearLayout
@@ -342,7 +349,7 @@
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/nagpur"
+                        android:src="@drawable/city_all_one"
                         app:civ_border="true"
                         app:civ_border_color="@color/black"
                         app:civ_border_width="2dp" />
@@ -353,6 +360,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="5dp"
                         android:text="Nagpur"
+                        android:textColor="#003d33"
                         android:textSize="12sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -373,7 +381,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 app:cardCornerRadius="10dp"
-                app:strokeColor="@android:color/darker_gray"
+                app:strokeColor="#4db6ac"
                 app:strokeWidth="2dp">
 
                 <LinearLayout
@@ -387,7 +395,7 @@
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/lucknow"
+                        android:src="@drawable/city_all_one"
                         app:civ_border="true"
                         app:civ_border_color="@color/black"
                         app:civ_border_width="2dp" />
@@ -398,6 +406,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="5dp"
                         android:text="Lucknow"
+                        android:textColor="#003d33"
                         android:textSize="12sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -413,7 +422,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 app:cardCornerRadius="10dp"
-                app:strokeColor="@android:color/darker_gray"
+                app:strokeColor="#4db6ac"
                 app:strokeWidth="2dp">
 
                 <LinearLayout
@@ -427,7 +436,7 @@
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/ahmedabad"
+                        android:src="@drawable/city_all_one"
                         app:civ_border="true"
                         app:civ_border_color="@color/black"
                         app:civ_border_width="2dp" />
@@ -438,6 +447,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="7dp"
                         android:text="Ahmedabad"
+                        android:textColor="#003d33"
                         android:textSize="12sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -453,7 +463,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 app:cardCornerRadius="10dp"
-                app:strokeColor="@android:color/darker_gray"
+                app:strokeColor="#4db6ac"
                 app:strokeWidth="2dp">
 
                 <LinearLayout
@@ -468,7 +478,7 @@
                         android:layout_height="60dp"
                         android:layout_gravity="center"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/chennai"
+                        android:src="@drawable/city_all_one"
                         app:civ_border="true"
                         app:civ_border_color="@color/black"
                         app:civ_border_width="2dp" />
@@ -479,6 +489,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="5dp"
                         android:text="Chennai"
+                        android:textColor="#003d33"
                         android:textSize="12sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -494,7 +505,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 app:cardCornerRadius="10dp"
-                app:strokeColor="@android:color/darker_gray"
+                app:strokeColor="#4db6ac"
                 app:strokeWidth="2dp">
 
                 <LinearLayout
@@ -508,7 +519,7 @@
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/goa"
+                        android:src="@drawable/city_all_one"
                         app:civ_border="true"
                         app:civ_border_color="@color/black"
                         app:civ_border_width="2dp" />
@@ -519,6 +530,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="5dp"
                         android:text="Goa"
+                        android:textColor="#003d33"
                         android:textSize="12sp"
                         android:textStyle="bold" />
                 </LinearLayout>

@@ -1,5 +1,9 @@
 package com.sitamadex11.covidhelp.fragments
 
+import android.app.AlertDialog
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -38,6 +42,9 @@ class AddVolunteerFragment : Fragment(), View.OnClickListener {
     lateinit var requestOueue: RequestQueue
     lateinit var firestore: FirebaseFirestore
     lateinit var firebaseAuth: FirebaseAuth
+    lateinit var btnRetry: MaterialButton
+    lateinit var btnExit: MaterialButton
+
     val state_list = ArrayList<String>()
     val district_list = ArrayList<String>()
     override fun onCreateView(
@@ -46,19 +53,54 @@ class AddVolunteerFragment : Fragment(), View.OnClickListener {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_add_volunteer, container, false)
-        init(view!!)
-        stateJsonParse()
-        callBack()
-        phoneNoGet()
-        btnVolAddFB.setOnClickListener(this)
+        val isConnected = checkConnectivity(requireContext())
+        if (!isConnected) {
+            val customLayout = layoutInflater
+                .inflate(
+                    R.layout.network_check_dialog, null
+                )
+            msgInit(customLayout)
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setView(customLayout)
+            builder.setCancelable(false)
+            val dialog = builder.create()
+            btnExit.setOnClickListener {
+                requireActivity().finish()
+            }
+            btnRetry.setOnClickListener {
+                if (checkConnectivity(requireContext())) {
+                    //Do some thing
+                    dialog.hide()
+                    init(view!!)
+                    stateJsonParse()
+                    callBack()
+                    phoneNoGet()
+                    btnVolAddFB.setOnClickListener(this)
+                } else {
+                    Toast.makeText(
+                        requireContext(),
+                        "Sorry!! No Internet connection found",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+            dialog.show()
+        } else {
+            //Do some thing
+            init(view!!)
+            stateJsonParse()
+            callBack()
+            phoneNoGet()
+            btnVolAddFB.setOnClickListener(this)
+        }
         return view
     }
 
     private fun phoneNoGet() {
         firestore.collection("users").get().addOnSuccessListener {
-            for(snapshot in it){
+            for (snapshot in it) {
                 val uid = snapshot.getString("uid")
-                if(uid==firebaseAuth.currentUser!!.uid){
+                if (uid == firebaseAuth.currentUser!!.uid) {
                     val phone = snapshot.getString("phone")
                     etVolPh.setText(phone)
                     etVolPh.isEnabled = false
@@ -82,7 +124,7 @@ class AddVolunteerFragment : Fragment(), View.OnClickListener {
                 etVolDistrict.isEnabled = true
                 district_list.clear()
                 districtJsonParse(position)
-                etVolState.error=null
+                etVolState.error = null
             }
 
             Log.d("chk_state", str)
@@ -106,7 +148,7 @@ class AddVolunteerFragment : Fragment(), View.OnClickListener {
             etVolDistrict.apply {
                 setAdapter(stateAdapter)
                 setOnItemClickListener { _, _, _, _ ->
-                    etVolDistrict.error=null
+                    etVolDistrict.error = null
                 }
             }
             Log.d("chk_state", str)
@@ -125,25 +167,26 @@ class AddVolunteerFragment : Fragment(), View.OnClickListener {
         etVolDesc = view.findViewById(R.id.etVolDesc)
         btnVolAddFB = view.findViewById(R.id.btnVolAddFB)
         requestOueue = Volley.newRequestQueue(requireContext())
-        firestore= FirebaseFirestore.getInstance()
-        firebaseAuth= FirebaseAuth.getInstance()
+        firestore = FirebaseFirestore.getInstance()
+        firebaseAuth = FirebaseAuth.getInstance()
     }
 
     override fun onClick(v: View?) {
         when (v!!.id) {
             R.id.btnVolAddFB -> {
-             dataCheckAndAdd()
+                dataCheckAndAdd()
 
             }
         }
     }
-    private fun isVolUpdate(value:String){
+
+    private fun isVolUpdate(value: String) {
         firestore.collection("users").get().addOnSuccessListener {
-            for(snapshot in it){
+            for (snapshot in it) {
                 val uid = snapshot.getString("uid")
-                if (uid == firebaseAuth.currentUser!!.uid){
-                    Log.d("chk_isVol","working")
-                    firestore.collection("users").document(snapshot.id).update("isVol",value)
+                if (uid == firebaseAuth.currentUser!!.uid) {
+                    Log.d("chk_isVol", "working")
+                    firestore.collection("users").document(snapshot.id).update("isVol", value)
                 }
             }
         }
@@ -151,55 +194,57 @@ class AddVolunteerFragment : Fragment(), View.OnClickListener {
 
     private fun dataCheckAndAdd() {
         var chk = false
-        if(etVolName.text.isNullOrEmpty()) {
+        if (etVolName.text.isNullOrEmpty()) {
             etVolName.apply {
                 error = "Volunteer's name can't be empty"
             }
-            chk=true
+            chk = true
         }
-        if(etVolPh.text.isNullOrEmpty()){
+        if (etVolPh.text.isNullOrEmpty()) {
             etVolPh.apply {
-                error="Volunteer's phone no. can't be empty"
+                error = "Volunteer's phone no. can't be empty"
             }
-        chk=true
-    }
-        if(etVolState.text.isNullOrEmpty()){
+            chk = true
+        }
+        if (etVolState.text.isNullOrEmpty()) {
             etVolState.apply {
-                error="Volunteer's state can't be empty"
+                error = "Volunteer's state can't be empty"
             }
-        chk=true
-    }
-        if(etVolDistrict.text.isNullOrEmpty()){
-            etVolDistrict.apply{
-                error="Volunteer's District can't be empty"
+            chk = true
+        }
+        if (etVolDistrict.text.isNullOrEmpty()) {
+            etVolDistrict.apply {
+                error = "Volunteer's District can't be empty"
             }
-        chk=true
-    }
-        if(!chk){
+            chk = true
+        }
+        if (!chk) {
             dataAdd()
-            val item=arrayOf(etVolName,etVolPh,etVolState,etVolDistrict,etVolOrg,etVolDesc)
-            for(i in item.indices)
+            val item = arrayOf(etVolName, etVolPh, etVolState, etVolDistrict, etVolOrg, etVolDesc)
+            for (i in item.indices)
                 item[i].setText("")
         }
     }
 
-    private fun fragmentTransaction(fragment : Fragment) {
+    private fun fragmentTransaction(fragment: Fragment) {
         requireActivity()
             .supportFragmentManager
             .beginTransaction()
             .addToBackStack(fragment.javaClass.name)
-            .replace(R.id.flVolunteer,fragment)
+            .replace(R.id.flVolunteer, fragment)
             .commit()
     }
-    private fun callBack(){
-        val callBack=object :OnBackPressedCallback(true){
+
+    private fun callBack() {
+        val callBack = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 fragmentTransaction(ViewVolunteerFragment())
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(callBack)
     }
-    private fun dataAdd(){
+
+    private fun dataAdd() {
         val user: MutableMap<String, Any> = HashMap()
         user["name"] = etVolName.text.toString()
         user["phone"] = etVolPh.text.toString()
@@ -219,7 +264,7 @@ class AddVolunteerFragment : Fragment(), View.OnClickListener {
                 isVolUpdate("1")
                 requireActivity().supportFragmentManager
                     .beginTransaction()
-                    .replace(R.id.flVolunteer,ViewVolunteerFragment()).commit()
+                    .replace(R.id.flVolunteer, ViewVolunteerFragment()).commit()
             })
             .addOnFailureListener(OnFailureListener { e ->
                 Log.w("FireStoreError", "Error adding document", e)
@@ -229,5 +274,22 @@ class AddVolunteerFragment : Fragment(), View.OnClickListener {
                     Toast.LENGTH_SHORT
                 ).show()
             })
+    }
+
+    private fun msgInit(v: View?) {
+        btnExit = v!!.findViewById(R.id.btnExit)
+        btnRetry = v.findViewById(R.id.btnRetry)
+    }
+
+
+    fun checkConnectivity(context: Context): Boolean {
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork: NetworkInfo? = connectivityManager.activeNetworkInfo
+        if (activeNetwork?.isConnected != null) {
+            return activeNetwork.isConnected
+        } else {
+            return false
+        }
     }
 }
