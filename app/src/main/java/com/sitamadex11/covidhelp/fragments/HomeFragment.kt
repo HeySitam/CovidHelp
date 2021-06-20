@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -108,6 +109,13 @@ class HomeFragment : Fragment(),
             R.id.cvCovidTracker -> {
                 val intent = Intent(requireContext(), CovidTrackerActivity::class.java)
                 startActivity(intent)
+            }
+            R.id.cvVaccineBook -> {
+                val url = "https://selfregistration.cowin.gov.in/"
+                val intent = Intent()
+                intent.action = Intent.ACTION_VIEW
+                intent.data = Uri.parse(url)
+                context?.startActivity(intent) ?: Toast.makeText(requireContext(),"Sorry Can't proceed",Toast.LENGTH_SHORT).show()
             }
         }
     }

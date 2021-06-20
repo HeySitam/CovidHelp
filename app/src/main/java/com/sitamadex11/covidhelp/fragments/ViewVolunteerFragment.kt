@@ -247,42 +247,7 @@ class ViewVolunteerFragment : Fragment(), VLAdapter, View.OnClickListener {
                 Toast.makeText(context, "Something went wrong...", Toast.LENGTH_SHORT).show()
             }
     }
-
-    private fun checkCallPermission(): Boolean {
-        val callPermission = ContextCompat.checkSelfPermission(
-            requireActivity().applicationContext,
-            CALL_PHONE
-        )
-        return callPermission == PackageManager.PERMISSION_GRANTED
-    }
-
-    private fun checkSmsPermission(): Boolean {
-        val smsPermission = ContextCompat.checkSelfPermission(
-            requireActivity().applicationContext,
-            SEND_SMS
-        )
-        return smsPermission == PackageManager.PERMISSION_GRANTED
-    }
-
-
-    private fun requestCallPermission() {
-        ActivityCompat.requestPermissions(
-            requireActivity(), arrayOf(CALL_PHONE),
-            200
-        )
-    }
-
-    private fun requestSmsPermission() {
-        ActivityCompat.requestPermissions(
-            requireActivity(), arrayOf(SEND_SMS),
-            200
-        )
-    }
-
     override fun onCallBtnClicked(phone: String) {
-        if (!checkCallPermission()) {
-            requestCallPermission()
-        } else {
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle("⚠ Alert ⚠")
             builder.setMessage("Are you want to make a call?")
@@ -291,7 +256,7 @@ class ViewVolunteerFragment : Fragment(), VLAdapter, View.OnClickListener {
                 "Yes"
             ) { dialog, id ->
                 val callIntent = Intent(Intent.ACTION_CALL)
-                callIntent.data = Uri.parse("tel:$phone")
+                callIntent.data = Uri.parse("tel:$phone") //change the number
                 startActivity(callIntent)
             }
             builder.setNegativeButton(
@@ -299,13 +264,9 @@ class ViewVolunteerFragment : Fragment(), VLAdapter, View.OnClickListener {
             ) { dialog, id -> dialog.cancel() }
             val alert1 = builder.create()
             alert1.show()
-        }
     }
 
     override fun onMessageBtnClicked(phone: String) {
-        if (!checkSmsPermission()) {
-            requestSmsPermission()
-        } else {
             val customLayout = layoutInflater
                 .inflate(
                     R.layout.dialog_message, null
@@ -320,14 +281,17 @@ class ViewVolunteerFragment : Fragment(), VLAdapter, View.OnClickListener {
                 if (etSendMessage.text.isNullOrEmpty()) {
                     etSendMessage.error = "Please enter some text message"
                 } else {
-                    val sms = SmsManager.getDefault()
-                    sms.sendTextMessage(phone, null, etSendMessage.text.toString(), null, null)
-                    Toast.makeText(requireContext(),"Your Message has been sent",Toast.LENGTH_SHORT).show()
+                    val msg=etSendMessage.text.toString()
+                    val sms_uri = Uri.parse("smsto:$phone")
+                    val sms_intent = Intent(Intent.ACTION_VIEW, sms_uri)
+                    sms_intent.setData(sms_uri)
+                    sms_intent.putExtra("sms_body", msg)
+                    startActivity(sms_intent);
                     dialog.hide()
                     etSendMessage.error = null
                 }
             }
-        }
+
     }
 
     private fun msgInit(v: View?) {
