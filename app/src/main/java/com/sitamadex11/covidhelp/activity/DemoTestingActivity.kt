@@ -11,7 +11,6 @@ import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.gson.Gson
 import com.sitamadex11.covidhelp.model.CenterDetail
-import com.sitamadex11.covidhelp.model.District
 
 
 class DemoTestingActivity : AppCompatActivity() {
@@ -25,10 +24,11 @@ class DemoTestingActivity : AppCompatActivity() {
     }
 
     private fun jsonParse(): StringRequest {
-        val url = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=725&date=23-05-2021"
+        val url =
+            "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=725&date=23-05-2021"
         return StringRequest(url, {
             val chk_class = Gson().fromJson(it, CenterDetail::class.java)
-            Log.d("chk_json",chk_class.toString())
+            Log.d("chk_json", chk_class.toString())
         }, {
             Toast.makeText(this, "something went wrong", Toast.LENGTH_SHORT).show()
         })

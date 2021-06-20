@@ -51,7 +51,7 @@ class DonationListActivity : AppCompatActivity() {
                     setContentView(R.layout.donation_list_activity)
                     firestore = FirebaseFirestore.getInstance()
                     reference = firestore.collection("donations")
-                     spinner = findViewById(R.id.progressBar1)
+                    spinner = findViewById(R.id.progressBar1)
                     addItemToList()
                     Log.d("list_check", list.toString())
 

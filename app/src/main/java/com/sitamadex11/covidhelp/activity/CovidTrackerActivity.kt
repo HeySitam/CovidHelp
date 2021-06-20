@@ -4,12 +4,15 @@ import android.content.Context
 import android.graphics.Color
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
-import androidx.work.*
+import androidx.appcompat.app.AppCompatActivity
+import androidx.work.Constraints
+import androidx.work.NetworkType
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
 import com.google.android.material.button.MaterialButton
 import com.sitamadex11.covidhelp.R
 import com.sitamadex11.covidhelp.covidTrackerApi.CovidData
@@ -24,8 +27,7 @@ import org.eazegraph.lib.models.PieModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.ArrayList
-import java.util.concurrent.TimeUnit
+import java.util.*
 
 class CovidTrackerActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     private var mRecovered: TextView? = null
@@ -51,34 +53,43 @@ class CovidTrackerActivity : AppCompatActivity(), AdapterView.OnItemSelectedList
             builder.setView(customLayout)
             builder.setCancelable(false)
             val dialog = builder.create()
-            btnExit.setOnClickListener{
+            btnExit.setOnClickListener {
                 finish()
             }
-            btnRetry.setOnClickListener{
-                if(checkConnectivity(this)){
+            btnRetry.setOnClickListener {
+                if (checkConnectivity(this)) {
                     //Do some thing
                     dialog.hide()
                     setContentView(R.layout.covid_tracker_activity)
                     init()
                     val mState_names = resources.getStringArray(R.array.states_name)
                     mSelectState!!.onItemSelectedListener = this
-                    val adapter: ArrayAdapter<*> = ArrayAdapter<Any?>(this, R.layout.spinner_item, mState_names)
+                    val adapter: ArrayAdapter<*> =
+                        ArrayAdapter<Any?>(this, R.layout.spinner_item, mState_names)
                     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                     mSelectState!!.adapter = adapter
                     ApiUtilities.apiInterface.covidData!!.enqueue(object : Callback<CovidData?> {
-                        override fun onResponse(call: Call<CovidData?>, response: Response<CovidData?>) {
+                        override fun onResponse(
+                            call: Call<CovidData?>,
+                            response: Response<CovidData?>
+                        ) {
                             val covidData = response.body()
                             mData = covidData!!.data
                             UpdateUI(mData)
                         }
 
                         override fun onFailure(call: Call<CovidData?>, t: Throwable) {
-                            Toast.makeText(applicationContext, "Error : " + t.message, Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                applicationContext,
+                                "Error : " + t.message,
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     })
                     initWorker()
-                }else{
-                    Toast.makeText(this,"Sorry!! No Internet connection found",Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Sorry!! No Internet connection found", Toast.LENGTH_SHORT)
+                        .show()
                 }
             }
             dialog.show()
@@ -88,7 +99,8 @@ class CovidTrackerActivity : AppCompatActivity(), AdapterView.OnItemSelectedList
             init()
             val mState_names = resources.getStringArray(R.array.states_name)
             mSelectState!!.onItemSelectedListener = this
-            val adapter: ArrayAdapter<*> = ArrayAdapter<Any?>(this, R.layout.spinner_item, mState_names)
+            val adapter: ArrayAdapter<*> =
+                ArrayAdapter<Any?>(this, R.layout.spinner_item, mState_names)
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             mSelectState!!.adapter = adapter
             ApiUtilities.apiInterface.covidData!!.enqueue(object : Callback<CovidData?> {
@@ -99,19 +111,21 @@ class CovidTrackerActivity : AppCompatActivity(), AdapterView.OnItemSelectedList
                 }
 
                 override fun onFailure(call: Call<CovidData?>, t: Throwable) {
-                    Toast.makeText(applicationContext, "Error : " + t.message, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, "Error : " + t.message, Toast.LENGTH_SHORT)
+                        .show()
                 }
             })
             initWorker()
         }
     }
-    private fun init(){
-            mRecovered = findViewById(R.id.total_recover)
-            mActive = findViewById(R.id.total_active)
-            mDeath = findViewById(R.id.total_death)
-            mpieChart = findViewById(R.id.piechart)
-            mSelectState = findViewById(R.id.spinnerSelectState)
-            mBarChart = findViewById(R.id.barchart)
+
+    private fun init() {
+        mRecovered = findViewById(R.id.total_recover)
+        mActive = findViewById(R.id.total_active)
+        mDeath = findViewById(R.id.total_death)
+        mpieChart = findViewById(R.id.piechart)
+        mSelectState = findViewById(R.id.spinnerSelectState)
+        mBarChart = findViewById(R.id.barchart)
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -123,6 +137,7 @@ class CovidTrackerActivity : AppCompatActivity(), AdapterView.OnItemSelectedList
     override fun onNothingSelected(parent: AdapterView<*>?) {
         mSelectedStateName = getString(R.string.Inida)
     }
+
     private fun UpdateUI(data: Data?) {
         var total = 0
         var deaths = 0
@@ -151,16 +166,23 @@ class CovidTrackerActivity : AppCompatActivity(), AdapterView.OnItemSelectedList
         mDeath!!.text = deaths.toString()
         mRecovered!!.text = discharged.toString()
         mpieChart!!.clearChart()
-        mpieChart!!.addPieSlice(PieModel("Recoverd", discharged.toFloat(), Color.parseColor("#FFFF00")))
+        mpieChart!!.addPieSlice(
+            PieModel(
+                "Recoverd",
+                discharged.toFloat(),
+                Color.parseColor("#FFFF00")
+            )
+        )
         mpieChart!!.addPieSlice(PieModel("Active", total.toFloat(), Color.parseColor("#FF3700B3")))
         mpieChart!!.addPieSlice(PieModel("Death", deaths.toFloat(), Color.parseColor("#F44336")))
         mpieChart!!.startAnimation()
         mBarChart!!.clearChart()
         mBarChart!!.addBar(BarModel("Death", deaths.toFloat(), Color.parseColor("#F44336")))
-        mBarChart!!.addBar(BarModel("Recovered",discharged.toFloat(), Color.parseColor("#FFFF00")))
+        mBarChart!!.addBar(BarModel("Recovered", discharged.toFloat(), Color.parseColor("#FFFF00")))
         mBarChart!!.addBar(BarModel("Active", total.toFloat(), Color.parseColor("#FF3700B3")))
         mBarChart!!.startAnimation()
     }
+
     private fun initWorker() {
         val constraints = Constraints.Builder()
             .setRequiredNetworkType(NetworkType.CONNECTED)
@@ -175,6 +197,7 @@ class CovidTrackerActivity : AppCompatActivity(), AdapterView.OnItemSelectedList
             notificationWorkRequest
         )
     }
+
     private fun msgInit(v: View?) {
         btnExit = v!!.findViewById(R.id.btnExit)
         btnRetry = v.findViewById(R.id.btnRetry)

@@ -5,7 +5,6 @@ import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.os.Bundle
-import android.telephony.SmsManager
 import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
@@ -54,19 +53,20 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             builder.setView(customLayout)
             builder.setCancelable(false)
             val dialog = builder.create()
-            btnExit.setOnClickListener{
+            btnExit.setOnClickListener {
                 finish()
             }
-            btnRetry.setOnClickListener{
-                if(checkConnectivity(this)){
+            btnRetry.setOnClickListener {
+                if (checkConnectivity(this)) {
                     //Do some thing
                     dialog.hide()
                     setContentView(R.layout.glass_signup_page)
                     init()
                     clickHandle()
                     stateJsonParse()
-                }else{
-                    Toast.makeText(this,"Sorry!! No Internet connection found",Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Sorry!! No Internet connection found", Toast.LENGTH_SHORT)
+                        .show()
                 }
             }
             dialog.show()
@@ -82,11 +82,11 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     public override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
-            val currentUser = auth.currentUser
-            if (currentUser != null) {
-                startActivity(Intent(this, ChooseActivity::class.java))
-                finish()
-            }
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            startActivity(Intent(this, ChooseActivity::class.java))
+            finish()
+        }
     }
 
     private fun msgInit(v: View?) {
@@ -157,7 +157,8 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                                     // If sign in fails, display a message to the user.
                                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
                                     Toast.makeText(
-                                        baseContext, "Either User already exist or check your Internaet connection",
+                                        baseContext,
+                                        "Either User already exist or check your Internaet connection",
                                         Toast.LENGTH_LONG
                                     ).show()
                                 }
@@ -215,7 +216,8 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                                     // If sign in fails, display a message to the user.
                                     Log.w(TAG, "signInWithEmail:failure", task.exception)
                                     Toast.makeText(
-                                        this, "Failed!! Check your UserName, Password or Internet Connectivity",
+                                        this,
+                                        "Failed!! Check your UserName, Password or Internet Connectivity",
                                         Toast.LENGTH_SHORT
                                     ).show()
                                 }

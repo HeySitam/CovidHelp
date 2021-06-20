@@ -66,31 +66,63 @@ class WestBengalFragment : Fragment(), View.OnClickListener {
             builder.setView(customLayout)
             builder.setCancelable(false)
             val dialog = builder.create()
-            btnExit.setOnClickListener{
+            btnExit.setOnClickListener {
                 requireActivity().finish()
             }
-            btnRetry.setOnClickListener{
-                if(checkConnectivity(requireContext())){
+            btnRetry.setOnClickListener {
+                if (checkConnectivity(requireContext())) {
                     //Do some thing
                     dialog.hide()
-                    itemListAdder(R.drawable.oxygen_tank, "Oxygen", "https://covid.someannoying.com/oxy.php")
-                    itemListAdder(R.drawable.ambulance, "Ambulance", "https://covid.someannoying.com/amb.php")
+                    itemListAdder(
+                        R.drawable.oxygen_tank,
+                        "Oxygen",
+                        "https://covid.someannoying.com/oxy.php"
+                    )
+                    itemListAdder(
+                        R.drawable.ambulance,
+                        "Ambulance",
+                        "https://covid.someannoying.com/amb.php"
+                    )
                     itemListAdder(
                         R.drawable.app_logo,
                         "Test Resources",
                         "https://covid.someannoying.com/tests.php"
                     )
-                    itemListAdder(R.drawable.app_logo, "Medicines", "https://covid.someannoying.com/med.php")
-                    itemListAdder(R.drawable.help_desk, "Helpdesk", "https://covid.someannoying.com/help.php")
+                    itemListAdder(
+                        R.drawable.app_logo,
+                        "Medicines",
+                        "https://covid.someannoying.com/med.php"
+                    )
+                    itemListAdder(
+                        R.drawable.help_desk,
+                        "Helpdesk",
+                        "https://covid.someannoying.com/help.php"
+                    )
                     itemListAdder(
                         R.drawable.app_logo,
                         "Plasma/Blood",
                         "https://covid.someannoying.com/plasma.php"
                     )
-                    itemListAdder(R.drawable.app_logo, "Doctor", "https://covid.someannoying.com/doc.php")
-                    itemListAdder(R.drawable.home, "Home Services", "https://covid.someannoying.com/homes.php")
-                    itemListAdder(R.drawable.app_logo, "Meal Services", "https://covid.someannoying.com/food/")
-                    itemListAdder(R.drawable.app_logo, "Others", "https://covid.someannoying.com/others.php")
+                    itemListAdder(
+                        R.drawable.app_logo,
+                        "Doctor",
+                        "https://covid.someannoying.com/doc.php"
+                    )
+                    itemListAdder(
+                        R.drawable.home,
+                        "Home Services",
+                        "https://covid.someannoying.com/homes.php"
+                    )
+                    itemListAdder(
+                        R.drawable.app_logo,
+                        "Meal Services",
+                        "https://covid.someannoying.com/food/"
+                    )
+                    itemListAdder(
+                        R.drawable.app_logo,
+                        "Others",
+                        "https://covid.someannoying.com/others.php"
+                    )
 
                     btnEService = view!!.findViewById(R.id.btnEServce)
                     btnResources = view!!.findViewById(R.id.btnResources)
@@ -105,31 +137,63 @@ class WestBengalFragment : Fragment(), View.OnClickListener {
                     btnGetCylinder.setOnClickListener(this)
                     btnChatBot.setOnClickListener(this)
                     txtAskHelp.setOnClickListener(this)
-                }else{
-                    Toast.makeText(requireContext(),"Sorry!! No Internet connection found",Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(
+                        requireContext(),
+                        "Sorry!! No Internet connection found",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
             dialog.show()
         } else {
             //Do some thing
-            itemListAdder(R.drawable.oxygen_tank, "Oxygen", "https://covid.someannoying.com/oxy.php")
-            itemListAdder(R.drawable.ambulance, "Ambulance", "https://covid.someannoying.com/amb.php")
+            itemListAdder(
+                R.drawable.oxygen_tank,
+                "Oxygen",
+                "https://covid.someannoying.com/oxy.php"
+            )
+            itemListAdder(
+                R.drawable.ambulance,
+                "Ambulance",
+                "https://covid.someannoying.com/amb.php"
+            )
             itemListAdder(
                 R.drawable.app_logo,
                 "Test Resources",
                 "https://covid.someannoying.com/tests.php"
             )
-            itemListAdder(R.drawable.app_logo, "Medicines", "https://covid.someannoying.com/med.php")
-            itemListAdder(R.drawable.help_desk, "Helpdesk", "https://covid.someannoying.com/help.php")
+            itemListAdder(
+                R.drawable.app_logo,
+                "Medicines",
+                "https://covid.someannoying.com/med.php"
+            )
+            itemListAdder(
+                R.drawable.help_desk,
+                "Helpdesk",
+                "https://covid.someannoying.com/help.php"
+            )
             itemListAdder(
                 R.drawable.app_logo,
                 "Plasma/Blood",
                 "https://covid.someannoying.com/plasma.php"
             )
             itemListAdder(R.drawable.app_logo, "Doctor", "https://covid.someannoying.com/doc.php")
-            itemListAdder(R.drawable.home, "Home Services", "https://covid.someannoying.com/homes.php")
-            itemListAdder(R.drawable.app_logo, "Meal Services", "https://covid.someannoying.com/food/")
-            itemListAdder(R.drawable.app_logo, "Others", "https://covid.someannoying.com/others.php")
+            itemListAdder(
+                R.drawable.home,
+                "Home Services",
+                "https://covid.someannoying.com/homes.php"
+            )
+            itemListAdder(
+                R.drawable.app_logo,
+                "Meal Services",
+                "https://covid.someannoying.com/food/"
+            )
+            itemListAdder(
+                R.drawable.app_logo,
+                "Others",
+                "https://covid.someannoying.com/others.php"
+            )
 
             btnEService = view!!.findViewById(R.id.btnEServce)
             btnResources = view!!.findViewById(R.id.btnResources)
@@ -158,7 +222,8 @@ class WestBengalFragment : Fragment(), View.OnClickListener {
             val bedCnt = docWb.select("#counter2")
             withContext(Dispatchers.Main) {
                 txtAvailBed.text = bedCnt.text()
-                txtAvailCylinder.text = cylinderCnt.text().substring(cylinderCnt.text().length-2,cylinderCnt.text().length)
+                txtAvailCylinder.text = cylinderCnt.text()
+                    .substring(cylinderCnt.text().length - 2, cylinderCnt.text().length)
             }
         }
     }
@@ -249,7 +314,7 @@ class WestBengalFragment : Fragment(), View.OnClickListener {
             R.id.btnChatBot -> {
                 openWhatsapp("+917596056446")
             }
-            R.id.txtAskHelp ->{
+            R.id.txtAskHelp -> {
                 url = "https://covid.someannoying.com/ask.html"
                 intentBrowse()
             }
@@ -288,6 +353,7 @@ class WestBengalFragment : Fragment(), View.OnClickListener {
             Toast.makeText(requireContext(), "Please install whatsapp", Toast.LENGTH_SHORT).show()
         }
     }
+
     private fun msgInit(v: View?) {
         btnExit = v!!.findViewById(R.id.btnExit)
         btnRetry = v.findViewById(R.id.btnRetry)

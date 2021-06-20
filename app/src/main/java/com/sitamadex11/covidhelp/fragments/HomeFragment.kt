@@ -8,19 +8,13 @@ import android.net.NetworkInfo
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
-import androidx.core.view.GravityCompat
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.navigation.NavigationView
-import com.google.firebase.auth.FirebaseAuth
 import com.sitamadex11.covidhelp.R
 import com.sitamadex11.covidhelp.activity.*
 
@@ -32,6 +26,7 @@ class HomeFragment : Fragment(),
     lateinit var cvVolunteer: CardView
     lateinit var cvVaccine: CardView
     lateinit var cvCovidTracker: CardView
+    lateinit var cvVaccineBook: CardView
     lateinit var btnRetry: MaterialButton
     lateinit var btnExit: MaterialButton
     override fun onCreateView(
@@ -51,17 +46,21 @@ class HomeFragment : Fragment(),
             builder.setView(customLayout)
             builder.setCancelable(false)
             val dialog = builder.create()
-            btnExit.setOnClickListener{
+            btnExit.setOnClickListener {
                 requireActivity().finish()
             }
-            btnRetry.setOnClickListener{
-                if(checkConnectivity(requireContext())){
+            btnRetry.setOnClickListener {
+                if (checkConnectivity(requireContext())) {
                     //Do some thing
                     dialog.hide()
                     init(view)
                     click()
-                }else{
-                    Toast.makeText(requireContext(),"Sorry!! No Internet connection found",Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(
+                        requireContext(),
+                        "Sorry!! No Internet connection found",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
             dialog.show()
@@ -79,6 +78,7 @@ class HomeFragment : Fragment(),
         cvVolunteer = v.findViewById(R.id.cvVolunteer)
         cvVaccine = v.findViewById(R.id.cvVaccine)
         cvCovidTracker = v.findViewById(R.id.cvCovidTracker)
+        cvVaccineBook = v.findViewById(R.id.cvVaccineBook)
     }
 
     private fun click() {
@@ -87,7 +87,9 @@ class HomeFragment : Fragment(),
         cvVolunteer.setOnClickListener(this)
         cvVaccine.setOnClickListener(this)
         cvCovidTracker.setOnClickListener(this)
+        cvVaccineBook.setOnClickListener(this)
     }
+
     override fun onClick(v: View?) {
         when (v!!.id) {
             R.id.cvNeedHelp -> {
@@ -115,10 +117,15 @@ class HomeFragment : Fragment(),
                 val intent = Intent()
                 intent.action = Intent.ACTION_VIEW
                 intent.data = Uri.parse(url)
-                context?.startActivity(intent) ?: Toast.makeText(requireContext(),"Sorry Can't proceed",Toast.LENGTH_SHORT).show()
+                context?.startActivity(intent) ?: Toast.makeText(
+                    requireContext(),
+                    "Sorry Can't proceed",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }
+
     private fun msgInit(v: View?) {
         btnExit = v!!.findViewById(R.id.btnExit)
         btnRetry = v.findViewById(R.id.btnRetry)

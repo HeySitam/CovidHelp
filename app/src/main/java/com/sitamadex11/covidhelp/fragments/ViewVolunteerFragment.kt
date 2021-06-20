@@ -1,15 +1,11 @@
 package com.sitamadex11.covidhelp.fragments
 
-import android.Manifest.permission.CALL_PHONE
-import android.Manifest.permission.SEND_SMS
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.net.Uri
 import android.os.Bundle
-import android.telephony.SmsManager
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -19,8 +15,6 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -79,19 +73,23 @@ class ViewVolunteerFragment : Fragment(), VLAdapter, View.OnClickListener {
             builder.setView(customLayout)
             builder.setCancelable(false)
             val dialog = builder.create()
-            btnExit.setOnClickListener{
+            btnExit.setOnClickListener {
                 requireActivity().finish()
             }
-            btnRetry.setOnClickListener{
-                if(checkConnectivity(requireContext())){
+            btnRetry.setOnClickListener {
+                if (checkConnectivity(requireContext())) {
                     //Do some thing
                     dialog.hide()
                     init(view)
                     click()
                     callBack()
                     stateJsonParse()
-                }else{
-                    Toast.makeText(requireContext(),"Sorry!! No Internet connection found",Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(
+                        requireContext(),
+                        "Sorry!! No Internet connection found",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
             dialog.show()
@@ -247,50 +245,51 @@ class ViewVolunteerFragment : Fragment(), VLAdapter, View.OnClickListener {
                 Toast.makeText(context, "Something went wrong...", Toast.LENGTH_SHORT).show()
             }
     }
+
     override fun onCallBtnClicked(phone: String) {
-            val builder = AlertDialog.Builder(requireContext())
-            builder.setTitle("⚠ Alert ⚠")
-            builder.setMessage("Are you want to make a call?")
-            builder.setCancelable(true)
-            builder.setPositiveButton(
-                "Yes"
-            ) { dialog, id ->
-                val callIntent = Intent(Intent.ACTION_CALL)
-                callIntent.data = Uri.parse("tel:$phone") //change the number
-                startActivity(callIntent)
-            }
-            builder.setNegativeButton(
-                "No"
-            ) { dialog, id -> dialog.cancel() }
-            val alert1 = builder.create()
-            alert1.show()
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setTitle("⚠ Alert ⚠")
+        builder.setMessage("Are you want to make a call?")
+        builder.setCancelable(true)
+        builder.setPositiveButton(
+            "Yes"
+        ) { dialog, id ->
+            val callIntent = Intent(Intent.ACTION_DIAL)
+            callIntent.data = Uri.parse("tel:$phone") //change the number
+            startActivity(callIntent)
+        }
+        builder.setNegativeButton(
+            "No"
+        ) { dialog, id -> dialog.cancel() }
+        val alert1 = builder.create()
+        alert1.show()
     }
 
     override fun onMessageBtnClicked(phone: String) {
-            val customLayout = layoutInflater
-                .inflate(
-                    R.layout.dialog_message, null
-                )
-            msgInit(customLayout)
-            val builder = AlertDialog.Builder(requireContext())
-            builder.setView(customLayout)
-            dialog = builder.create()
-            btnCancel.setOnClickListener(this)
-            dialog.show()
-            btnSend.setOnClickListener {
-                if (etSendMessage.text.isNullOrEmpty()) {
-                    etSendMessage.error = "Please enter some text message"
-                } else {
-                    val msg=etSendMessage.text.toString()
-                    val sms_uri = Uri.parse("smsto:$phone")
-                    val sms_intent = Intent(Intent.ACTION_VIEW, sms_uri)
-                    sms_intent.setData(sms_uri)
-                    sms_intent.putExtra("sms_body", msg)
-                    startActivity(sms_intent);
-                    dialog.hide()
-                    etSendMessage.error = null
-                }
+        val customLayout = layoutInflater
+            .inflate(
+                R.layout.dialog_message, null
+            )
+        msgInit(customLayout)
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setView(customLayout)
+        dialog = builder.create()
+        btnCancel.setOnClickListener(this)
+        dialog.show()
+        btnSend.setOnClickListener {
+            if (etSendMessage.text.isNullOrEmpty()) {
+                etSendMessage.error = "Please enter some text message"
+            } else {
+                val msg = etSendMessage.text.toString()
+                val sms_uri = Uri.parse("smsto:$phone")
+                val sms_intent = Intent(Intent.ACTION_VIEW, sms_uri)
+                sms_intent.setData(sms_uri)
+                sms_intent.putExtra("sms_body", msg)
+                startActivity(sms_intent);
+                dialog.hide()
+                etSendMessage.error = null
             }
+        }
 
     }
 
@@ -357,6 +356,7 @@ class ViewVolunteerFragment : Fragment(), VLAdapter, View.OnClickListener {
             }
         }
     }
+
     private fun netInit(v: View?) {
         btnExit = v!!.findViewById(R.id.btnExit)
         btnRetry = v.findViewById(R.id.btnRetry)

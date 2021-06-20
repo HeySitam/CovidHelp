@@ -19,6 +19,7 @@ import kotlinx.android.synthetic.main.activity_web.*
 class WebActivity : AppCompatActivity() {
     lateinit var btnRetry: MaterialButton
     lateinit var btnExit: MaterialButton
+
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,45 +34,47 @@ class WebActivity : AppCompatActivity() {
             builder.setView(customLayout)
             builder.setCancelable(false)
             val dialog = builder.create()
-            btnExit.setOnClickListener{
+            btnExit.setOnClickListener {
                 finish()
             }
-            btnRetry.setOnClickListener{
-                if(checkConnectivity(this)){
+            btnRetry.setOnClickListener {
+                if (checkConnectivity(this)) {
                     //Do some thing
                     dialog.hide()
                     setContentView(R.layout.activity_web)
-                    val url=intent.getStringExtra("urlLink")
+                    val url = intent.getStringExtra("urlLink")
                     println(url)
-                    webView.webViewClient= WebViewClient()
+                    webView.webViewClient = WebViewClient()
                     webView.loadUrl(url!!)
-                    val webSetting=webView.settings
-                    webSetting.javaScriptEnabled=true
+                    val webSetting = webView.settings
+                    webSetting.javaScriptEnabled = true
                     webView.scrollBarStyle = WebView.SCROLLBARS_OUTSIDE_INSET;
-                }else{
-                    Toast.makeText(this,"Sorry!! No Internet connection found",Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Sorry!! No Internet connection found", Toast.LENGTH_SHORT)
+                        .show()
                 }
             }
             dialog.show()
         } else {
             //Do some thing
             setContentView(R.layout.activity_web)
-            val url=intent.getStringExtra("urlLink")
+            val url = intent.getStringExtra("urlLink")
             println(url)
-            webView.webViewClient= WebViewClient()
+            webView.webViewClient = WebViewClient()
             webView.loadUrl(url!!)
-            val webSetting=webView.settings
-            webSetting.javaScriptEnabled=true
+            val webSetting = webView.settings
+            webSetting.javaScriptEnabled = true
             webView.scrollBarStyle = WebView.SCROLLBARS_OUTSIDE_INSET;
         }
     }
 
     override fun onBackPressed() {
-        if(webView.canGoBack()) webView.goBack()
+        if (webView.canGoBack()) webView.goBack()
         else {
             super.onBackPressed()
         }
     }
+
     fun setDesktopMode(webView: WebView, enabled: Boolean) {
         var newUserAgent = webView.settings.userAgentString
         if (enabled) {
@@ -92,6 +95,7 @@ class WebActivity : AppCompatActivity() {
         webView.settings.loadWithOverviewMode = enabled
         webView.reload()
     }
+
     private fun msgInit(v: View?) {
         btnExit = v!!.findViewById(R.id.btnExit)
         btnRetry = v.findViewById(R.id.btnRetry)

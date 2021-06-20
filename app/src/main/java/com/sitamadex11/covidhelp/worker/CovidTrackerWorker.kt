@@ -13,8 +13,6 @@ import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import androidx.work.Worker
 import androidx.work.WorkerParameters
-import com.android.volley.toolbox.StringRequest
-import com.google.gson.Gson
 import com.sitamadex11.covidhelp.R
 import com.sitamadex11.covidhelp.activity.CovidTrackerActivity
 import com.sitamadex11.covidhelp.covidTrackerApi.CovidData
@@ -42,7 +40,7 @@ class CovidTrackerWorker(val context: Context, workerParams: WorkerParameters) :
                 Log.d("chk_worker", sdf.toString())
                 val totalCount = covidData!!.data.summary.total
                 val recovered = covidData!!.data.summary.discharged
-                showNotification(totalCount,recovered,getTimeAgo(sdf))
+                showNotification(totalCount, recovered, getTimeAgo(sdf))
             }
 
             override fun onFailure(call: Call<CovidData?>, t: Throwable) {
@@ -55,7 +53,7 @@ class CovidTrackerWorker(val context: Context, workerParams: WorkerParameters) :
         return Result.success()
     }
 
-    private fun showNotification(totalCount: String,recovered:String, time: String) {
+    private fun showNotification(totalCount: String, recovered: String, time: String) {
         val intent = Intent(context, CovidTrackerActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         val pendingIntent = PendingIntent.getActivity(
@@ -91,6 +89,7 @@ class CovidTrackerWorker(val context: Context, workerParams: WorkerParameters) :
 
         notificationManager.notify(0, notificationBuilder.build())
     }
+
     fun getTimeAgo(past: Date): String {
         val now = Date()
         val seconds = TimeUnit.MILLISECONDS.toSeconds(now.time - past.time)

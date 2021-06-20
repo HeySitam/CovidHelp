@@ -33,7 +33,6 @@ import com.sitamadex11.covidhelp.model.State
 import com.sitamadex11.covidhelp.util.Constants
 import com.sitamadex11.covidhelp.viewModel.StateViewModel
 import com.sitamadex11.covidhelp.viewModel.StateViewModelFactory
-import com.sitamadex11.covidhelp.worker.CovidTrackerWorker
 import com.sitamadex11.covidhelp.worker.VaccineStatusWorker
 import kotlinx.android.synthetic.main.activity_vaccine_status.*
 import java.text.SimpleDateFormat
@@ -47,16 +46,26 @@ class VaccineStatusActivity : AppCompatActivity(), View.OnClickListener {
     lateinit var requestOueue: RequestQueue
     lateinit var viewModelFactory: StateViewModelFactory
     lateinit var viewModel: StateViewModel
-    lateinit var btnSearchCenter:MaterialButton
+    lateinit var btnSearchCenter: MaterialButton
     lateinit var btnRetry: MaterialButton
     lateinit var btnExit: MaterialButton
     val state_list = ArrayList<String>()
     val district_list = ArrayList<DistrictItems>()
     val district_name_list = ArrayList<String>()
     val adapter = VaccineCenterListAdapter(this)
-    val centerList=ArrayList<CenterItem>()
-    val centerSpecifiedList=ArrayList<CenterItem>()
-    val filterItems = arrayOf("All","Available Only","Age 45+","Age 18+","Free","Paid","Covishield","Covaxin","Sputnik V")
+    val centerList = ArrayList<CenterItem>()
+    val centerSpecifiedList = ArrayList<CenterItem>()
+    val filterItems = arrayOf(
+        "All",
+        "Available Only",
+        "Age 45+",
+        "Age 18+",
+        "Free",
+        "Paid",
+        "Covishield",
+        "Covaxin",
+        "Sputnik V"
+    )
     lateinit var rvVac: RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,11 +80,11 @@ class VaccineStatusActivity : AppCompatActivity(), View.OnClickListener {
             builder.setView(customLayout)
             builder.setCancelable(false)
             val dialog = builder.create()
-            btnExit.setOnClickListener{
+            btnExit.setOnClickListener {
                 finish()
             }
-            btnRetry.setOnClickListener{
-                if(checkConnectivity(this)){
+            btnRetry.setOnClickListener {
+                if (checkConnectivity(this)) {
                     //Do some thing
                     dialog.hide()
                     setContentView(R.layout.activity_vaccine_status)
@@ -84,8 +93,9 @@ class VaccineStatusActivity : AppCompatActivity(), View.OnClickListener {
                     stateJsonParse()
                     filterSetUp()
                     initWorker()
-                }else{
-                    Toast.makeText(this,"Sorry!! No Internet connection found",Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Sorry!! No Internet connection found", Toast.LENGTH_SHORT)
+                        .show()
                 }
             }
             dialog.show()
@@ -99,11 +109,12 @@ class VaccineStatusActivity : AppCompatActivity(), View.OnClickListener {
             initWorker()
         }
     }
-    private fun notFoundShow(){
-        if(centerSpecifiedList.isEmpty()){
-            imgNoResult.visibility=View.VISIBLE
-        }else{
-            imgNoResult.visibility=View.GONE
+
+    private fun notFoundShow() {
+        if (centerSpecifiedList.isEmpty()) {
+            imgNoResult.visibility = View.VISIBLE
+        } else {
+            imgNoResult.visibility = View.GONE
         }
     }
 
@@ -118,31 +129,21 @@ class VaccineStatusActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun filterCheck(filterItem: String) {
-        if(filterItem=="All"){
+        if (filterItem == "All") {
             adapter.updateList(centerList)
-            imgNoResult.visibility=View.GONE
-        }else if(filterItem=="Available Only"){
-            for(i in centerList.indices){
-                if(centerList[i].sessions[0].dose1>0 || centerList[i].sessions[0].dose2>0){
+            imgNoResult.visibility = View.GONE
+        } else if (filterItem == "Available Only") {
+            for (i in centerList.indices) {
+                if (centerList[i].sessions[0].dose1 > 0 || centerList[i].sessions[0].dose2 > 0) {
                     centerSpecifiedList.add(centerList[i])
                 }
             }
             adapter.updateList(centerSpecifiedList)
             notFoundShow()
             centerSpecifiedList.clear()
-        }else if(filterItem=="Age 45+"){
-            for(i in centerList.indices){
-                if(centerList[i].sessions[0].minAgeLimit==45){
-                    centerSpecifiedList.add(centerList[i])
-                }
-
-            }
-            adapter.updateList(centerSpecifiedList)
-            notFoundShow()
-            centerSpecifiedList.clear()
-        }else if(filterItem=="Age 18+"){
-            for(i in centerList.indices){
-                if(centerList[i].sessions[0].minAgeLimit==18){
+        } else if (filterItem == "Age 45+") {
+            for (i in centerList.indices) {
+                if (centerList[i].sessions[0].minAgeLimit == 45) {
                     centerSpecifiedList.add(centerList[i])
                 }
 
@@ -150,9 +151,9 @@ class VaccineStatusActivity : AppCompatActivity(), View.OnClickListener {
             adapter.updateList(centerSpecifiedList)
             notFoundShow()
             centerSpecifiedList.clear()
-        }else if(filterItem=="Free"){
-            for(i in centerList.indices){
-                if(centerList[i].feeType=="Free"){
+        } else if (filterItem == "Age 18+") {
+            for (i in centerList.indices) {
+                if (centerList[i].sessions[0].minAgeLimit == 18) {
                     centerSpecifiedList.add(centerList[i])
                 }
 
@@ -160,36 +161,46 @@ class VaccineStatusActivity : AppCompatActivity(), View.OnClickListener {
             adapter.updateList(centerSpecifiedList)
             notFoundShow()
             centerSpecifiedList.clear()
-        }else if(filterItem=="Paid"){
-            for(i in centerList.indices){
-                if(centerList[i].feeType=="Paid"){
+        } else if (filterItem == "Free") {
+            for (i in centerList.indices) {
+                if (centerList[i].feeType == "Free") {
+                    centerSpecifiedList.add(centerList[i])
+                }
+
+            }
+            adapter.updateList(centerSpecifiedList)
+            notFoundShow()
+            centerSpecifiedList.clear()
+        } else if (filterItem == "Paid") {
+            for (i in centerList.indices) {
+                if (centerList[i].feeType == "Paid") {
                     centerSpecifiedList.add(centerList[i])
                 }
             }
             adapter.updateList(centerSpecifiedList)
             notFoundShow()
             centerSpecifiedList.clear()
-        }else if(filterItem=="Covishield"){
-            for(i in centerList.indices){
-                if(centerList[i].sessions[0].vaccine=="COVISHIELD"){
+        } else if (filterItem == "Covishield") {
+            for (i in centerList.indices) {
+                if (centerList[i].sessions[0].vaccine == "COVISHIELD") {
                     centerSpecifiedList.add(centerList[i])
                 }
             }
             adapter.updateList(centerSpecifiedList)
             notFoundShow()
             centerSpecifiedList.clear()
-        }else if(filterItem=="Covaxin"){
-            for(i in centerList.indices){
-                if(centerList[i].sessions[0].vaccine=="COVAXIN"){
+        } else if (filterItem == "Covaxin") {
+            for (i in centerList.indices) {
+                if (centerList[i].sessions[0].vaccine == "COVAXIN") {
                     centerSpecifiedList.add(centerList[i])
                 }
             }
             adapter.updateList(centerSpecifiedList)
             notFoundShow()
             centerSpecifiedList.clear()
-        }else if(filterItem=="Sputnik V"){
-            for(i in centerList.indices){
-                if(centerList[i].sessions[0].vaccine=="SPUTNIK V"){
+        } else if (filterItem == "Sputnik V") {
+            for (i in centerList.indices) {
+                if (centerList[i].sessions[0].vaccine == "SPUTNIK V") {
                     centerSpecifiedList.add(centerList[i])
                 }
             }
@@ -206,7 +217,7 @@ class VaccineStatusActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun init() {
         etVacDate = findViewById(R.id.etVacDate)
-        btnSearchCenter=findViewById(R.id.btnSearchCenter)
+        btnSearchCenter = findViewById(R.id.btnSearchCenter)
         rvVac = findViewById(R.id.rvVaccineCenter)
         rvVac.layoutManager = LinearLayoutManager(this)
         requestOueue = Volley.newRequestQueue(this)
@@ -217,43 +228,43 @@ class VaccineStatusActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v!!.id) {
             R.id.etVacDate -> {
-                etVacDate.error=null
+                etVacDate.error = null
                 setDateListener()
             }
-            R.id.btnSearchCenter->{
-                if(!dataCheck()) {
+            R.id.btnSearchCenter -> {
+                if (!dataCheck()) {
                     val stringRequest =
                         viewModel.jsonParse(txtStateId.text.toString(), etVacDate.text.toString())
                     viewModel.myResponse.observe(this, androidx.lifecycle.Observer {
-                        if(it.centers.isNotEmpty()) {
+                        if (it.centers.isNotEmpty()) {
                             centerList.clear()
                             centerList.addAll(it.centers)
-                          //  adapter.updateList(centerList)
-                            val filterItem =etVacFilter.text.toString()
+                            //  adapter.updateList(centerList)
+                            val filterItem = etVacFilter.text.toString()
                             rvVac.adapter = adapter
                             filterCheck(filterItem)
-                            tilVacFilter.isEnabled=true
-                            imgNoResult.visibility=View.GONE
-                        }else{
+                            tilVacFilter.isEnabled = true
+                            imgNoResult.visibility = View.GONE
+                        } else {
                             centerList.clear()
                             adapter.updateList(centerList)
-                            imgNoResult.visibility=View.VISIBLE
+                            imgNoResult.visibility = View.VISIBLE
                         }
                     })
                     requestOueue.add(stringRequest)
-                }else{
-                    if(etVacDate.text.isNullOrEmpty())
-                    etVacDate.apply {
-                        error="Select a valid date."
-                    }
-                    if(etVacState.text.isNullOrEmpty())
-                    etVacState.apply {
-                        error="State can't be empty"
-                    }
-                    if(etVacState.text.isNullOrEmpty())
-                    etVacDistrict.apply{
-                        error="District can't be empty"
-                    }
+                } else {
+                    if (etVacDate.text.isNullOrEmpty())
+                        etVacDate.apply {
+                            error = "Select a valid date."
+                        }
+                    if (etVacState.text.isNullOrEmpty())
+                        etVacState.apply {
+                            error = "State can't be empty"
+                        }
+                    if (etVacState.text.isNullOrEmpty())
+                        etVacDistrict.apply {
+                            error = "District can't be empty"
+                        }
                 }
             }
         }
@@ -334,24 +345,26 @@ class VaccineStatusActivity : AppCompatActivity(), View.OnClickListener {
         })
         requestOueue.add(districtString)
     }
-    private fun dataCheck():Boolean{
+
+    private fun dataCheck(): Boolean {
         var chk = false
-        if(etVacDate.text.isNullOrEmpty()){
-            chk=true
+        if (etVacDate.text.isNullOrEmpty()) {
+            chk = true
         }
-        if(etVacState.text.isNullOrEmpty()){
-            chk=true
+        if (etVacState.text.isNullOrEmpty()) {
+            chk = true
         }
-        if(etVacDistrict.text.isNullOrEmpty()){
-            chk=true
+        if (etVacDistrict.text.isNullOrEmpty()) {
+            chk = true
         }
         return chk
     }
+
     private fun initWorker() {
         val constraints = Constraints.Builder()
             .setRequiredNetworkType(NetworkType.CONNECTED)
             .build()
-        Log.d("chk_count","Working_sp")
+        Log.d("chk_count", "Working_sp")
         val notificationWorkRequest =
             OneTimeWorkRequestBuilder<VaccineStatusWorker>()
                 .setConstraints(constraints)
@@ -361,6 +374,7 @@ class VaccineStatusActivity : AppCompatActivity(), View.OnClickListener {
             notificationWorkRequest
         )
     }
+
     private fun msgInit(v: View?) {
         btnExit = v!!.findViewById(R.id.btnExit)
         btnRetry = v.findViewById(R.id.btnRetry)

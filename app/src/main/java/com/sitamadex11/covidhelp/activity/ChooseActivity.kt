@@ -58,7 +58,7 @@ class ChooseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
 
         navDrawer.setNavigationItemSelectedListener(this)
         firebaseAuth = FirebaseAuth.getInstance()
-        fragmentManager=supportFragmentManager
+        fragmentManager = supportFragmentManager
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -71,15 +71,15 @@ class ChooseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
                 fragmentTransaction(ViewProfileFragment())
                 drawerLayout.closeDrawer(GravityCompat.START)
             }
-            R.id.addVol->{
-                val intent =  Intent(this,VolunteerActivity::class.java)
+            R.id.addVol -> {
+                val intent = Intent(this, VolunteerActivity::class.java)
                 startActivity(intent)
             }
-            R.id.aboutUs ->{
+            R.id.aboutUs -> {
                 fragmentTransaction(AboutUsFragment())
                 drawerLayout.closeDrawer(GravityCompat.START)
             }
-            R.id.contactUs ->{
+            R.id.contactUs -> {
                 drawerLayout.closeDrawer(GravityCompat.START)
                 val customLayout = layoutInflater
                     .inflate(
@@ -89,7 +89,7 @@ class ChooseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
                 val builder = AlertDialog.Builder(this)
                 builder.setView(customLayout)
                 val dialog = builder.create()
-                btnCancel.setOnClickListener{
+                btnCancel.setOnClickListener {
                     dialog.hide()
                 }
                 dialog.show()
@@ -98,10 +98,10 @@ class ChooseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
                         etSendEmail.error = "Please enter some text message"
                     } else {
                         val email = Intent(Intent.ACTION_SENDTO)
-                        val to ="sitamadex11@gmail.com"
+                        val to = "sitamadex11@gmail.com"
                         val subject = "Covid-Help FeedBack"
                         val intent = Intent(Intent.ACTION_SENDTO)
-                         intent.data = Uri.parse("mailto:$to") // only email apps should handle this
+                        intent.data = Uri.parse("mailto:$to") // only email apps should handle this
                         intent.putExtra(Intent.EXTRA_EMAIL, to)
                         intent.putExtra(Intent.EXTRA_SUBJECT, subject)
                         intent.putExtra(Intent.EXTRA_TEXT, etSendEmail.text.toString())
@@ -122,18 +122,18 @@ class ChooseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
     }
 
     private fun msgInit(v: View?) {
-       btnSend =v!!.findViewById(R.id.btnSendEmail)
-       btnCancel =v.findViewById(R.id.btnCancelEmail)
-       etSendEmail =v.findViewById(R.id.etSendEmail)
+        btnSend = v!!.findViewById(R.id.btnSendEmail)
+        btnCancel = v.findViewById(R.id.btnCancelEmail)
+        etSendEmail = v.findViewById(R.id.etSendEmail)
     }
 
     override fun onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START)
-        } else if(fragmentManager.backStackEntryCount>0){
+        } else if (fragmentManager.backStackEntryCount > 0) {
             fragmentTransaction(HomeFragment())
             fragmentManager.popBackStack()
-        }else {
+        } else {
             super.onBackPressed()
         }
     }
@@ -148,6 +148,7 @@ class ChooseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
                 .replace(R.id.frameBody, fragment).commit()
         }
     }
+
     private fun initWorker() {
         val constraints = Constraints.Builder()
             .setRequiredNetworkType(NetworkType.CONNECTED)

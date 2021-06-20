@@ -4,33 +4,35 @@ import com.google.gson.annotations.SerializedName
 
 data class SessionItem(
     @SerializedName("date")
-    val date:String,
+    val date: String,
     @SerializedName("available_capacity")
-    val totalCapacity:Int,
+    val totalCapacity: Int,
     @SerializedName("min_age_limit")
-    val minAgeLimit:Int,
+    val minAgeLimit: Int,
     @SerializedName("vaccine")
-    val vaccine:String,
+    val vaccine: String,
     @SerializedName("slots")
-    val slots:List<String>,
+    val slots: List<String>,
     @SerializedName("available_capacity_dose1")
-    val dose1:Int,
+    val dose1: Int,
     @SerializedName("available_capacity_dose2")
-    val dose2:Int
+    val dose2: Int
 )
+
 data class CenterItem(
     @SerializedName("name")
-    val name:String,
+    val name: String,
     @SerializedName("address")
-    val address:String,
+    val address: String,
     @SerializedName("pincode")
-    val pinCode:Int,
+    val pinCode: Int,
     @SerializedName("fee_type")
-    val feeType:String,
+    val feeType: String,
     @SerializedName("sessions")
-    val sessions:List<SessionItem>
+    val sessions: List<SessionItem>
 )
+
 data class CenterDetail(
     @SerializedName("centers")
-    val centers:List<CenterItem>
+    val centers: List<CenterItem>
 )
