@@ -1,3 +1,4 @@
+![](https://github.com/sitamadex11/CovidHelp/blob/develop/Assets/design(1024x500).png)
 # CovidHelp 🤝
 
 The Covid-Help app is a treasure of all types of covid-resources like bed, oxygen, plasma/blood, test resources, medicine, doctors' information, vaccination information, and many many more. An android app to help people.
@@ -53,4 +54,17 @@ The Covid-Help app is a treasure of all types of covid-resources like bed, oxyge
 ![light_screenshot](https://github.com/sitamadex11/CovidHelp/blob/develop/Assets/AllScreenShots.png)
 
 ## Download 📥
-- Download latest APK from [here](https://drive.google.com/file/d/1OWIi9xcCLTTyZtJHTVzPAjbA3RiiVCal/view?usp=sharing)
+- Click [Here](https://drive.google.com/u/2/uc?id=1OWIi9xcCLTTyZtJHTVzPAjbA3RiiVCal&export=download) to download the latest apk.
+
+## Requirements 🎯 
+- Android 6.0 and Above
+- Min sdk version 23
+
+## Permissions 💻
+- Internet
+
+### If you liked the project don't forget to star 🌟 and fork 🍽 the project.
+![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)
+![ForTheBadge ANDROID](https://forthebadge.com/images/badges/built-for-android.svg)
+![ForTheBadge GIT](https://forthebadge.com/images/badges/uses-git.svg)
+
