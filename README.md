@@ -50,4 +50,7 @@ The Covid-Help app is a treasure of all types of covid-resources like bed, oxyge
   - [fab-speed-dial](https://github.com/yavski/fab-speed-dial) - A simple library marrying together [FAB]
 
 ## Screenshots 📷 
-![light_screenshot](https://drive.google.com/file/d/1lOj-fR4_EkN6YkYkEC3McI9_Gk6RFFHH/view?usp=sharing)
+![light_screenshot](https://github.com/sitamadex11/CovidHelp/blob/develop/Assets/AllScreenShots.png)
+
+## Download 📥
+- Download latest APK from [here](https://drive.google.com/file/d/1OWIi9xcCLTTyZtJHTVzPAjbA3RiiVCal/view?usp=sharing)
