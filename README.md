@@ -5,6 +5,7 @@ The Covid-Help app is a treasure of all types of covid-resources like bed, oxyge
 
 ![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
 ![Kotlin](https://img.shields.io/badge/Kotlin-0095D5?&style=for-the-badge&logo=kotlin&logoColor=white)
+<br>
 ![Minimum API Level](https://img.shields.io/badge/Min%20API%20Level-23-green)
 ![Maximum API Level](https://img.shields.io/badge/Max%20API%20Level-30-orange)
 ![GitHub repo size](https://img.shields.io/github/repo-size/sitamadex11/CovidHelp)
@@ -67,6 +68,16 @@ The Covid-Help app is a treasure of all types of covid-resources like bed, oxyge
 
 ## Permissions 💻
 - Internet
+
+## 😎Maintainers
+<table>
+  <tbody><tr>
+    <td align="center"><a href="https://github.com/sitamadex11"><img alt="" src="https://avatars.githubusercontent.com/sitamadex11" width="200px;"><br><sub><b> Sitam Sardar </b></sub></a><br></td> </a></td>
+
+     
+    
+  </tr>
+</tbody></table>
 
 ## License 
 
