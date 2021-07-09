@@ -109,3 +109,22 @@ SOFTWARE.
 ![ForTheBadge ANDROID](https://forthebadge.com/images/badges/built-for-android.svg)
 ![ForTheBadge GIT](https://forthebadge.com/images/badges/uses-git.svg)
 
+### Credits goes to these people:✨
+
+<table>
+	<tr>
+		<td>
+   <a href="https://github.com/sitamadex11/CovidHelp/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=sitamadex11/CovidHelp" />
+</a>
+		</td>
+	</tr>
+</table>
+
+
+
+<br>
+<br>
+<h2 align="center">❤ Our Aim to Help People ❤</h2>
+
+<br>
