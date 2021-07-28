@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.sitamadex11.covidhelp">
+    package="com.sitamadex11.NeedHelp">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CovidHelp">
         <activity
-            android:name=".activity.SplashScreenActivity"
+            android:name="com.sitamadex11.NeedHelp.activity.SplashScreenActivity"
             android:theme="@style/splashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,34 +24,34 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.CovidTrackerActivity"
+            android:name="com.sitamadex11.NeedHelp.activity.CovidTrackerActivity"
             android:theme="@style/NoActionBar" />
         <activity
-            android:name=".activity.LoginActivity"
+            android:name="com.sitamadex11.NeedHelp.activity.LoginActivity"
             android:theme="@style/NoActionBar">
 
         </activity>
         <activity
-            android:name=".activity.VaccineStatusActivity"
+            android:name="com.sitamadex11.NeedHelp.activity.VaccineStatusActivity"
             android:theme="@style/NoActionBar" />
         <activity
-            android:name=".activity.VolunteerActivity"
+            android:name="com.sitamadex11.NeedHelp.activity.VolunteerActivity"
             android:theme="@style/NoActionBar" />
-        <activity android:name=".activity.DemoTestingActivity" />
+        <activity android:name="com.sitamadex11.NeedHelp.activity.DemoTestingActivity" />
         <activity
-            android:name=".activity.HelpActivity"
+            android:name="com.sitamadex11.NeedHelp.activity.HelpActivity"
             android:theme="@style/helpActivity" />
         <activity
-            android:name=".activity.DonationListActivity"
+            android:name="com.sitamadex11.NeedHelp.activity.DonationListActivity"
             android:theme="@style/NoActionBar" />
         <activity
-            android:name=".activity.ChooseActivity"
+            android:name="com.sitamadex11.NeedHelp.activity.ChooseActivity"
             android:theme="@style/NoActionBar" />
         <activity
-            android:name=".activity.WebActivity"
+            android:name="com.sitamadex11.NeedHelp.activity.WebActivity"
             android:theme="@style/NoActionBar" />
         <activity
-            android:name=".activity.MainActivity"
+            android:name="com.sitamadex11.NeedHelp.activity.MainActivity"
             android:theme="@style/NoActionBar" />
     </application>
 

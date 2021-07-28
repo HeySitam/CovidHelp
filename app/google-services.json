@@ -1,10 +1,40 @@
 {
   "project_info": {
     "project_number": "752047402170",
+    "firebase_url": "https://covidhelp-387ab-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "covidhelp-387ab",
     "storage_bucket": "covidhelp-387ab.appspot.com"
   },
   "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:752047402170:android:3a635968c7f2bd88a6e683",
+        "android_client_info": {
+          "package_name": "com.sitamadex11.NeedHelp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "752047402170-j7ftkgg2ofjqgjhq1i968gb242e27hqp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMBATGf7y_VpPzs2j0BZm0Er9jHc4Ql_Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "752047402170-j7ftkgg2ofjqgjhq1i968gb242e27hqp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
     {
       "client_info": {
         "mobilesdk_app_id": "1:752047402170:android:28f6869697ac8b57a6e683",

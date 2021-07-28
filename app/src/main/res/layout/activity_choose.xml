@@ -37,7 +37,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
-                    android:text="Covid Help"
+                    android:text="Need Help?"
                     android:textColor="#191970"
                     android:textSize="30sp"
                     android:textStyle="bold"
