@@ -1,4 +1,4 @@
-![](https://github.com/sitamadex11/CovidHelp/blob/develop/Assets/Need help design (1).png)
+![](https://github.com/sitamadex11/CovidHelp/blob/develop/Assets/design.png)
 # Need Help? 🤝
 
 This application is a treasure of all types of covid-resources like bed, oxygen, plasma/blood, test resources, medicine, doctors' information, vaccination information, and many many more. An android app to help people.
