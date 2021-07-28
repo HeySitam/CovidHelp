@@ -5,9 +5,15 @@ The Covid-Help app is a treasure of all types of covid-resources like bed, oxyge
 
 ![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
 ![Kotlin](https://img.shields.io/badge/Kotlin-0095D5?&style=for-the-badge&logo=kotlin&logoColor=white)
+<br>
 ![Minimum API Level](https://img.shields.io/badge/Min%20API%20Level-23-green)
 ![Maximum API Level](https://img.shields.io/badge/Max%20API%20Level-30-orange)
 ![GitHub repo size](https://img.shields.io/github/repo-size/sitamadex11/CovidHelp)
+[![License](https://img.shields.io/badge/license-MIT-%2397ca00.svg)](https://github.com/sitamadex11/CovidHelp/blob/develop/LICENSE)
+[![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/) 
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) 
+![contributions welcome](https://img.shields.io/static/v1.svg?label=Contributions&message=Welcome&color=0059b3&style=flat-square) 
+![Maintenance](https://img.shields.io/maintenance/yes/2021)
 
 
 ## In this app, you will get the following sections ,
@@ -63,8 +69,62 @@ The Covid-Help app is a treasure of all types of covid-resources like bed, oxyge
 ## Permissions 💻
 - Internet
 
+## 😎Maintainers
+<table>
+  <tbody><tr>
+    <td align="center"><a href="https://github.com/sitamadex11"><img alt="" src="https://avatars.githubusercontent.com/sitamadex11" width="200px;"><br><sub><b> Sitam Sardar </b></sub></a><br></td> </a></td>
+
+     
+    
+  </tr>
+</tbody></table>
+
+## License 
+
+```
+MIT License
+
+Copyright (c) 2021 Sitam Sardar
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
 ### If you liked the project don't forget to star 🌟 and fork 🍽 the project.
 ![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)
 ![ForTheBadge ANDROID](https://forthebadge.com/images/badges/built-for-android.svg)
 ![ForTheBadge GIT](https://forthebadge.com/images/badges/uses-git.svg)
 
+### Credits goes to these people:✨
+
+<table>
+	<tr>
+		<td>
+   <a href="https://github.com/sitamadex11/CovidHelp/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=sitamadex11/CovidHelp" />
+</a>
+		</td>
+	</tr>
+</table>
+
+
+
+<br>
+<br>
+<h2 align="center">❤ Our Aim to Help People ❤</h2>
+
+<br>
