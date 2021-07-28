@@ -1,5 +1,5 @@
 ![](https://github.com/sitamadex11/CovidHelp/blob/develop/Assets/design(1024x500).png)
-# CovidHelp 🤝
+# Need Help? 🤝
 
 The Covid-Help app is a treasure of all types of covid-resources like bed, oxygen, plasma/blood, test resources, medicine, doctors' information, vaccination information, and many many more. An android app to help people.
 
