@@ -71,6 +71,7 @@ This application is a treasure of all types of covid-resources like bed, oxygen,
 
 ## Contributing Guideline ✍
 - Before start your contribution please go through our contribution guideline carefully. ([READ](https://github.com/sitamadex11/CovidHelp/blob/develop/Assets/Contributing.md))
+- You need to push your PR on [develop](https://github.com/sitamadex11/CovidHelp/tree/develop) branch only.
 
 ## 😎Maintainers
 <table>
