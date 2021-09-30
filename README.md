@@ -14,8 +14,6 @@ This application is a treasure of all types of covid-resources like bed, oxygen,
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) 
 ![contributions welcome](https://img.shields.io/static/v1.svg?label=Contributions&message=Welcome&color=0059b3&style=flat-square) 
 ![Maintenance](https://img.shields.io/maintenance/yes/2021)
-[![GitHub issues by-label][good-first-issue-badge]][good-first-issue-link]
-[![GitHub issues by-label][hacktoberfest-badge]][hacktoberfest-link]
 
 
 ## In this app, you will get the following sections ,
