@@ -69,7 +69,7 @@ This application is a treasure of all types of covid-resources like bed, oxygen,
 ## Permissions 💻
 - Internet
 
-## Contributing Guideline 💻
+## Contributing Guideline ✍
 - Before start your contribution please go through our contribution guideline carefully. ([READ](https://github.com/sitamadex11/CovidHelp/blob/develop/Assets/Contributing.md))
 
 ## 😎Maintainers
