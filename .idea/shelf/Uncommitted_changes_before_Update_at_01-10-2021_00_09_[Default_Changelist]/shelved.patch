@@ -1,0 +1,1248 @@
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    package=\"com.sitamadex11.NeedHelp\">\r\n\r\n    <uses-permission android:name=\"android.permission.INTERNET\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\" />\r\n    <queries>\r\n        <package android:name=\"com.whatsapp\" />\r\n    </queries>\r\n    <application\r\n        android:allowBackup=\"true\"\r\n        android:icon=\"@mipmap/ic_launcher\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/Theme.CovidHelp\">\r\n        <activity\r\n            android:name=\"com.sitamadex11.NeedHelp.activity.SplashScreenActivity\"\r\n            android:theme=\"@style/splashActivity\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n        <activity\r\n            android:name=\"com.sitamadex11.NeedHelp.activity.CovidTrackerActivity\"\r\n            android:theme=\"@style/NoActionBar\" />\r\n        <activity\r\n            android:name=\"com.sitamadex11.NeedHelp.activity.LoginActivity\"\r\n            android:theme=\"@style/NoActionBar\">\r\n\r\n        </activity>\r\n        <activity\r\n            android:name=\"com.sitamadex11.NeedHelp.activity.VaccineStatusActivity\"\r\n            android:theme=\"@style/NoActionBar\" />\r\n        <activity\r\n            android:name=\"com.sitamadex11.NeedHelp.activity.VolunteerActivity\"\r\n            android:theme=\"@style/NoActionBar\" />\r\n        <activity android:name=\"com.sitamadex11.NeedHelp.activity.DemoTestingActivity\" />\r\n        <activity\r\n            android:name=\"com.sitamadex11.NeedHelp.activity.HelpActivity\"\r\n            android:theme=\"@style/helpActivity\" />\r\n        <activity\r\n            android:name=\"com.sitamadex11.NeedHelp.activity.DonationListActivity\"\r\n            android:theme=\"@style/NoActionBar\" />\r\n        <activity\r\n            android:name=\"com.sitamadex11.NeedHelp.activity.ChooseActivity\"\r\n            android:theme=\"@style/NoActionBar\" />\r\n        <activity\r\n            android:name=\"com.sitamadex11.NeedHelp.activity.WebActivity\"\r\n            android:theme=\"@style/NoActionBar\" />\r\n        <activity\r\n            android:name=\"com.sitamadex11.NeedHelp.activity.MainActivity\"\r\n            android:theme=\"@style/NoActionBar\" />\r\n    </application>\r\n\r\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+--- a/app/src/main/AndroidManifest.xml	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/AndroidManifest.xml	(date 1633026444106)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+-    package="com.sitamadex11.NeedHelp">
++    package="com.sitamadex11.CovidHelp">
+ 
+     <uses-permission android:name="android.permission.INTERNET" />
+     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+@@ -15,7 +15,7 @@
+         android:supportsRtl="true"
+         android:theme="@style/Theme.CovidHelp">
+         <activity
+-            android:name="com.sitamadex11.NeedHelp.activity.SplashScreenActivity"
++            android:name="com.sitamadex11.CovidHelp.activity.SplashScreenActivity"
+             android:theme="@style/splashActivity">
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+@@ -24,34 +24,34 @@
+             </intent-filter>
+         </activity>
+         <activity
+-            android:name="com.sitamadex11.NeedHelp.activity.CovidTrackerActivity"
++            android:name="com.sitamadex11.CovidHelp.activity.CovidTrackerActivity"
+             android:theme="@style/NoActionBar" />
+         <activity
+-            android:name="com.sitamadex11.NeedHelp.activity.LoginActivity"
++            android:name="com.sitamadex11.CovidHelp.activity.LoginActivity"
+             android:theme="@style/NoActionBar">
+ 
+         </activity>
+         <activity
+-            android:name="com.sitamadex11.NeedHelp.activity.VaccineStatusActivity"
++            android:name="com.sitamadex11.CovidHelp.activity.VaccineStatusActivity"
+             android:theme="@style/NoActionBar" />
+         <activity
+-            android:name="com.sitamadex11.NeedHelp.activity.VolunteerActivity"
++            android:name="com.sitamadex11.CovidHelp.activity.VolunteerActivity"
+             android:theme="@style/NoActionBar" />
+-        <activity android:name="com.sitamadex11.NeedHelp.activity.DemoTestingActivity" />
++        <activity android:name="com.sitamadex11.CovidHelp.activity.DemoTestingActivity" />
+         <activity
+-            android:name="com.sitamadex11.NeedHelp.activity.HelpActivity"
++            android:name="com.sitamadex11.CovidHelp.activity.HelpActivity"
+             android:theme="@style/helpActivity" />
+         <activity
+-            android:name="com.sitamadex11.NeedHelp.activity.DonationListActivity"
++            android:name="com.sitamadex11.CovidHelp.activity.DonationListActivity"
+             android:theme="@style/NoActionBar" />
+         <activity
+-            android:name="com.sitamadex11.NeedHelp.activity.ChooseActivity"
++            android:name="com.sitamadex11.CovidHelp.activity.ChooseActivity"
+             android:theme="@style/NoActionBar" />
+         <activity
+-            android:name="com.sitamadex11.NeedHelp.activity.WebActivity"
++            android:name="com.sitamadex11.CovidHelp.activity.WebActivity"
+             android:theme="@style/NoActionBar" />
+         <activity
+-            android:name="com.sitamadex11.NeedHelp.activity.MainActivity"
++            android:name="com.sitamadex11.CovidHelp.activity.MainActivity"
+             android:theme="@style/NoActionBar" />
+     </application>
+ 
+Index: app/src/main/java/com/sitamadex11/NeedHelp/fragments/HomeFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/fragments/HomeFragment.kt b/app/src/main/java/com/sitamadex11/CovidHelp/fragments/HomeFragment.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/fragments/HomeFragment.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/fragments/HomeFragment.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/fragments/HomeFragment.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/fragments/HomeFragment.kt	(date 1633026444501)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp.fragments
++package com.sitamadex11.CovidHelp.fragments
+ 
+ import android.app.AlertDialog
+ import android.content.Context
+@@ -15,8 +15,8 @@
+ import androidx.fragment.app.Fragment
+ import com.google.android.material.button.MaterialButton
+ import com.google.android.material.navigation.NavigationView
+-import com.sitamadex11.NeedHelp.R
+-import com.sitamadex11.NeedHelp.activity.*
++import com.sitamadex11.CovidHelp.R
++import com.sitamadex11.CovidHelp.activity.*
+ 
+ class HomeFragment : Fragment(),
+     View.OnClickListener {
+Index: app/src/main/java/com/sitamadex11/NeedHelp/fragments/AboutUsFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/fragments/AboutUsFragment.kt b/app/src/main/java/com/sitamadex11/CovidHelp/fragments/AboutUsFragment.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/fragments/AboutUsFragment.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/fragments/AboutUsFragment.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/fragments/AboutUsFragment.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/fragments/AboutUsFragment.kt	(date 1633026445378)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp.fragments
++package com.sitamadex11.CovidHelp.fragments
+ 
+ import android.content.Intent
+ import android.net.Uri
+@@ -8,7 +8,7 @@
+ import android.view.ViewGroup
+ import androidx.fragment.app.Fragment
+ import com.google.android.material.button.MaterialButton
+-import com.sitamadex11.NeedHelp.R
++import com.sitamadex11.CovidHelp.R
+ 
+ class AboutUsFragment : Fragment() {
+     override fun onCreateView(
+Index: app/src/main/java/com/sitamadex11/NeedHelp/activity/HelpActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/activity/HelpActivity.kt b/app/src/main/java/com/sitamadex11/CovidHelp/activity/HelpActivity.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/activity/HelpActivity.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/activity/HelpActivity.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/activity/HelpActivity.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/activity/HelpActivity.kt	(date 1633026444681)
+@@ -1,11 +1,11 @@
+-package com.sitamadex11.NeedHelp.activity
++package com.sitamadex11.CovidHelp.activity
+ 
+ import android.os.Bundle
+ import androidx.appcompat.app.AppCompatActivity
+ import androidx.fragment.app.Fragment
+-import com.sitamadex11.NeedHelp.R
+-import com.sitamadex11.NeedHelp.fragments.CityWiseFragment
+-import com.sitamadex11.NeedHelp.fragments.StateWiseFragment
++import com.sitamadex11.CovidHelp.R
++import com.sitamadex11.CovidHelp.fragments.CityWiseFragment
++import com.sitamadex11.CovidHelp.fragments.StateWiseFragment
+ import kotlinx.android.synthetic.main.help_activity.*
+ 
+ class HelpActivity : AppCompatActivity() {
+Index: app/src/main/java/com/sitamadex11/NeedHelp/activity/LoginActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/activity/LoginActivity.kt b/app/src/main/java/com/sitamadex11/CovidHelp/activity/LoginActivity.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/activity/LoginActivity.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/activity/LoginActivity.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/activity/LoginActivity.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/activity/LoginActivity.kt	(date 1633026445313)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp.activity
++package com.sitamadex11.CovidHelp.activity
+ 
+ import android.content.Context
+ import android.content.Intent
+@@ -21,11 +21,11 @@
+ import com.google.firebase.firestore.FirebaseFirestore
+ import com.google.firebase.ktx.Firebase
+ import com.google.gson.Gson
+-import com.sitamadex11.NeedHelp.R
+-import com.sitamadex11.NeedHelp.model.District
+-import com.sitamadex11.NeedHelp.model.DistrictItems
+-import com.sitamadex11.NeedHelp.model.State
+-import com.sitamadex11.NeedHelp.util.Constants
++import com.sitamadex11.CovidHelp.R
++import com.sitamadex11.CovidHelp.model.District
++import com.sitamadex11.CovidHelp.model.DistrictItems
++import com.sitamadex11.CovidHelp.model.State
++import com.sitamadex11.CovidHelp.util.Constants
+ import kotlinx.android.synthetic.main.glass_signup_page.*
+ 
+ 
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources>\r\n    <string name=\"app_name\">Need Help?</string>\r\n    <string name=\"hemkunt_foundation\">Hemkunt Foundation has been helping out with Oxygen Cylinders. 80G donation receipts available.</string>\r\n    <string name=\"act_grants\">ACT grants has been helping with distribution of oxygen. Run by Indian startup ecosystem. International donations also accepted.</string>\r\n    <string name=\"give_india\">Give India are providing sanitary napkins for women affected by the Pandemic.</string>\r\n    <string name=\"feeding_from_far\">Feeding From Far has been feeding the poor and unemployed who are struggling to feed themselves during the lockdown. Accepts international payments.</string>\r\n    <string name=\"swasth\">Swasth along with ACT Grants is procuring oxygen concentrators and channeling them to hospitals in India.</string>\r\n    <string name=\"zomato_feeding_india\">Zomato Feeding India are providing hospitals and patients with oxygen and related supplies for free. Accepts international payments.</string>\r\n    <string name=\"goonj\">Goonj is providing essentials like ration and hygiene material, with dignity, to daily wagers, migrant workers and people struggling for the basics in the villages of India. Eligible for tax deduction of 50% u/s 80G.</string>\r\n    <string name=\"enrich_lives_foundation\">Enrich Lives Foundation is providing grocery kits and meals to the poor communities.</string>\r\n    <string name=\"paytm_foundation\">Paytm Foundation is raising ₹10 crore to donate Oxygen Concentrators across India. They will match the contributions received through this initiative.</string>\r\n    <string name=\"mission_oxygen\">This campaign started as a self-funded mission to help hospitals across the country get immediate access to oxygen concentrators. We assumed a requirement of 100 pieces that we could manage.</string>\r\n    <string name=\"who\">The World Health Organization (WHO) is leading and coordinating the global effort, supporting countries to prevent, detect, and respond to the pandemic.</string>\r\n    <string name=\"wb_gov_help\">This online portal is made by Government of WestBengal.</string>\r\n    <string name=\"project_oxygen\">A project for supplying \"Oxygen Cylinder\" in your home.</string>\r\n    <string name=\"someannoying_help\">This online portal is made by Someannoying Community.</string>\r\n    <string name=\"chatbot_help\">A whatsapp chat bot service from West Bengal Government.</string>\r\n    <!-- TODO: Remove or change this placeholder text -->\r\n    <string name=\"hello_blank_fragment\">Hello blank fragment</string>\r\n    <string name=\"covid_tracker\">Covid Tracker</string>\r\n    <string name=\"recover\">Recover</string>\r\n    <string name=\"total_death\">Total Death</string>\r\n    <string name=\"total_active\">Total Active</string>\r\n    <string name=\"_1234567\">1234567</string>\r\n    <string name=\"deaths\">Deaths</string>\r\n    <string name=\"recovered\">Recovered</string>\r\n    <string name=\"active\">Active</string>\r\n    <string name=\"Inida\">India</string>\r\n    <string name=\"state_json\">{\r\n  \\\"states\\\": [\r\n  {\r\n  \\\"state_id\\\": 1,\r\n  \"state_name\": \"Andaman and Nicobar Islands\"\r\n  },\r\n  {\r\n  \"state_id\": 2,\r\n  \"state_name\": \"Andhra Pradesh\"\r\n  },\r\n  {\r\n  \"state_id\": 3,\r\n  \"state_name\": \"Arunachal Pradesh\"\r\n  },\r\n  {\r\n  \"state_id\": 4,\r\n  \"state_name\": \"Assam\"\r\n  },\r\n  {\r\n  \"state_id\": 5,\r\n  \"state_name\": \"Bihar\"\r\n  },\r\n  {\r\n  \"state_id\": 6,\r\n  \"state_name\": \"Chandigarh\"\r\n  },\r\n  {\r\n  \"state_id\": 7,\r\n  \"state_name\": \"Chhattisgarh\"\r\n  },\r\n  {\r\n  \"state_id\": 8,\r\n  \"state_name\": \"Dadra and Nagar Haveli\"\r\n  },\r\n  {\r\n  \"state_id\": 37,\r\n  \"state_name\": \"Daman and Diu\"\r\n  },\r\n  {\r\n  \"state_id\": 9,\r\n  \"state_name\": \"Delhi\"\r\n  },\r\n  {\r\n  \"state_id\": 10,\r\n  \"state_name\": \"Goa\"\r\n  },\r\n  {\r\n  \"state_id\": 11,\r\n  \"state_name\": \"Gujarat\"\r\n  },\r\n  {\r\n  \"state_id\": 12,\r\n  \"state_name\": \"Haryana\"\r\n  },\r\n  {\r\n  \"state_id\": 13,\r\n  \"state_name\": \"Himachal Pradesh\"\r\n  },\r\n  {\r\n  \"state_id\": 14,\r\n  \"state_name\": \"Jammu and Kashmir\"\r\n  },\r\n  {\r\n  \"state_id\": 15,\r\n  \"state_name\": \"Jharkhand\"\r\n  },\r\n  {\r\n  \"state_id\": 16,\r\n  \"state_name\": \"Karnataka\"\r\n  },\r\n  {\r\n  \"state_id\": 17,\r\n  \"state_name\": \"Kerala\"\r\n  },\r\n  {\r\n  \"state_id\": 18,\r\n  \"state_name\": \"Ladakh\"\r\n  },\r\n  {\r\n  \"state_id\": 19,\r\n  \"state_name\": \"Lakshadweep\"\r\n  },\r\n  {\r\n  \"state_id\": 20,\r\n  \"state_name\": \"Madhya Pradesh\"\r\n  },\r\n  {\r\n  \"state_id\": 21,\r\n  \"state_name\": \"Maharashtra\"\r\n  },\r\n  {\r\n  \"state_id\": 22,\r\n  \"state_name\": \"Manipur\"\r\n  },\r\n  {\r\n  \"state_id\": 23,\r\n  \"state_name\": \"Meghalaya\"\r\n  },\r\n  {\r\n  \"state_id\": 24,\r\n  \"state_name\": \"Mizoram\"\r\n  },\r\n  {\r\n  \"state_id\": 25,\r\n  \"state_name\": \"Nagaland\"\r\n  },\r\n  {\r\n  \"state_id\": 26,\r\n  \"state_name\": \"Odisha\"\r\n  },\r\n  {\r\n  \"state_id\": 27,\r\n  \"state_name\": \"Puducherry\"\r\n  },\r\n  {\r\n  \"state_id\": 28,\r\n  \"state_name\": \"Punjab\"\r\n  },\r\n  {\r\n  \"state_id\": 29,\r\n  \"state_name\": \"Rajasthan\"\r\n  },\r\n  {\r\n  \"state_id\": 30,\r\n  \"state_name\": \"Sikkim\"\r\n  },\r\n  {\r\n  \"state_id\": 31,\r\n  \"state_name\": \"Tamil Nadu\"\r\n  },\r\n  {\r\n  \"state_id\": 32,\r\n  \"state_name\": \"Telangana\"\r\n  },\r\n  {\r\n  \"state_id\": 33,\r\n  \"state_name\": \"Tripura\"\r\n  },\r\n  {\r\n  \"state_id\": 34,\r\n  \"state_name\": \"Uttar Pradesh\"\r\n  },\r\n  {\r\n  \"state_id\": 35,\r\n  \"state_name\": \"Uttarakhand\"\r\n  },\r\n  {\r\n  \"state_id\": 36,\r\n  \"state_name\": \"West Bengal\"\r\n  }\r\n  ],\r\n  \"ttl\": 24\r\n  }</string>\r\n    <string name=\"open\">Open</string>\r\n    <string name=\"close\">Close</string>\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/strings.xml b/app/src/main/res/values/strings.xml
+--- a/app/src/main/res/values/strings.xml	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/res/values/strings.xml	(date 1633026444554)
+@@ -1,5 +1,5 @@
+ <resources>
+-    <string name="app_name">Need Help?</string>
++    <string name="app_name">CovidHelp</string>
+     <string name="hemkunt_foundation">Hemkunt Foundation has been helping out with Oxygen Cylinders. 80G donation receipts available.</string>
+     <string name="act_grants">ACT grants has been helping with distribution of oxygen. Run by Indian startup ecosystem. International donations also accepted.</string>
+     <string name="give_india">Give India are providing sanitary napkins for women affected by the Pandemic.</string>
+Index: app/src/main/java/com/sitamadex11/NeedHelp/activity/ChooseActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/activity/ChooseActivity.kt b/app/src/main/java/com/sitamadex11/CovidHelp/activity/ChooseActivity.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/activity/ChooseActivity.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/activity/ChooseActivity.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/activity/ChooseActivity.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/activity/ChooseActivity.kt	(date 1633026444193)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp.activity
++package com.sitamadex11.CovidHelp.activity
+ 
+ import android.content.Intent
+ import android.net.Uri
+@@ -20,11 +20,11 @@
+ import com.google.android.material.navigation.NavigationView
+ import com.google.android.material.textfield.TextInputEditText
+ import com.google.firebase.auth.FirebaseAuth
+-import com.sitamadex11.NeedHelp.R
+-import com.sitamadex11.NeedHelp.fragments.AboutUsFragment
+-import com.sitamadex11.NeedHelp.fragments.HomeFragment
+-import com.sitamadex11.NeedHelp.fragments.ViewProfileFragment
+-import com.sitamadex11.NeedHelp.worker.CovidTrackerWorker
++import com.sitamadex11.CovidHelp.R
++import com.sitamadex11.CovidHelp.fragments.AboutUsFragment
++import com.sitamadex11.CovidHelp.fragments.HomeFragment
++import com.sitamadex11.CovidHelp.fragments.ViewProfileFragment
++import com.sitamadex11.CovidHelp.worker.CovidTrackerWorker
+ import kotlinx.android.synthetic.main.activity_choose.*
+ import java.util.concurrent.TimeUnit
+ 
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\r\n    id 'com.android.application'\r\n    id 'kotlin-android'\r\n    id 'kotlin-android-extensions'\r\n    id 'com.google.gms.google-services'\r\n}\r\n\r\nandroid {\r\n    compileSdkVersion 30\r\n    buildToolsVersion \"30.0.3\"\r\n\r\n    defaultConfig {\r\n        applicationId \"com.sitamadex11.NeedHelp\"\r\n        minSdkVersion 23\r\n        targetSdkVersion 30\r\n        versionCode 1\r\n        versionName \"1.0\"\r\n\r\n        testInstrumentationRunner \"androidx.test.runner.AndroidJUnitRunner\"\r\n    }\r\n\r\n    buildTypes {\r\n        release {\r\n            minifyEnabled false\r\n            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'\r\n        }\r\n    }\r\n    compileOptions {\r\n        sourceCompatibility JavaVersion.VERSION_1_8\r\n        targetCompatibility JavaVersion.VERSION_1_8\r\n    }\r\n    kotlinOptions {\r\n        jvmTarget = '1.8'\r\n    }\r\n}\r\n\r\ndependencies {\r\n\r\n    implementation \"org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version\"\r\n    implementation 'androidx.core:core-ktx:1.5.0'\r\n    implementation 'androidx.appcompat:appcompat:1.3.0'\r\n    implementation 'com.google.android.material:material:1.3.0'\r\n    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'\r\n    implementation 'androidx.legacy:legacy-support-v4:1.0.0'\r\n    implementation 'com.google.firebase:firebase-analytics:19.0.0'\r\n    implementation 'com.google.firebase:firebase-firestore:23.0.1'\r\n    implementation 'com.google.firebase:firebase-storage:20.0.0'\r\n    testImplementation 'junit:junit:4.13.2'\r\n    androidTestImplementation 'androidx.test.ext:junit:1.1.2'\r\n    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'\r\n    implementation 'com.mikhaellopez:circularimageview:4.2.0'\r\n    implementation 'com.royrodriguez:transitionbutton:0.2.0'\r\n    implementation 'com.github.sparrow007:carouselrecyclerview:1.1.0'\r\n    implementation 'com.ismaeldivita.chipnavigation:chip-navigation-bar:1.3.4'\r\n    implementation platform('com.google.firebase:firebase-bom:28.0.1')\r\n    implementation 'com.google.firebase:firebase-analytics-ktx'\r\n    implementation(\"io.grpc:grpc-okhttp:1.32.2\")\r\n    // glide for image loading\r\n    implementation 'com.github.bumptech.glide:glide:4.12.0'\r\n    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'\r\n    // networking operation using Volley\r\n    implementation 'com.android.volley:volley:1.2.0'\r\n    //Json serialization\r\n    implementation 'com.google.code.gson:gson:2.8.6'\r\n    // Kotlin Coroutines\r\n    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3'\r\n    implementation \"androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1\"\r\n    //dependecy for GSon Library & Retrofit for covid tracker\r\n    implementation 'com.squareup.retrofit2:retrofit:2.9.0'\r\n    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'\r\n    // for graph\r\n    implementation 'com.github.blackfizz:eazegraph:1.2.2@aar'\r\n    implementation 'com.nineoldandroids:library:2.4.0'\r\n    // workManager\r\n    implementation \"androidx.work:work-runtime-ktx:2.6.0-beta01\"\r\n    // FireBase Auth\r\n    implementation 'com.google.firebase:firebase-auth-ktx'\r\n    // Web Scrapping\r\n    implementation 'org.jsoup:jsoup:1.13.1'\r\n    // Fab speed dial\r\n    implementation 'io.github.yavski:fab-speed-dial:1.0.6'\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/build.gradle b/app/build.gradle
+--- a/app/build.gradle	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/build.gradle	(date 1633026774188)
+@@ -10,7 +10,7 @@
+     buildToolsVersion "30.0.3"
+ 
+     defaultConfig {
+-        applicationId "com.sitamadex11.NeedHelp"
++        applicationId "com.sitamadex11.covidhelp"
+         minSdkVersion 23
+         targetSdkVersion 30
+         versionCode 1
+Index: app/src/test/java/com/sitamadex11/NeedHelp/ExampleUnitTest.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/test/java/com/sitamadex11/NeedHelp/ExampleUnitTest.kt b/app/src/test/java/com/sitamadex11/CovidHelp/ExampleUnitTest.kt
+rename from app/src/test/java/com/sitamadex11/NeedHelp/ExampleUnitTest.kt
+rename to app/src/test/java/com/sitamadex11/CovidHelp/ExampleUnitTest.kt
+--- a/app/src/test/java/com/sitamadex11/NeedHelp/ExampleUnitTest.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/test/java/com/sitamadex11/CovidHelp/ExampleUnitTest.kt	(date 1633026443618)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp
++package com.sitamadex11.CovidHelp
+ 
+ import org.junit.Test
+ 
+Index: app/src/androidTest/java/com/sitamadex11/NeedHelp/ExampleInstrumentedTest.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/androidTest/java/com/sitamadex11/NeedHelp/ExampleInstrumentedTest.kt b/app/src/androidTest/java/com/sitamadex11/CovidHelp/ExampleInstrumentedTest.kt
+rename from app/src/androidTest/java/com/sitamadex11/NeedHelp/ExampleInstrumentedTest.kt
+rename to app/src/androidTest/java/com/sitamadex11/CovidHelp/ExampleInstrumentedTest.kt
+--- a/app/src/androidTest/java/com/sitamadex11/NeedHelp/ExampleInstrumentedTest.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/androidTest/java/com/sitamadex11/CovidHelp/ExampleInstrumentedTest.kt	(date 1633026444355)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp
++package com.sitamadex11.CovidHelp
+ 
+ import androidx.test.platform.app.InstrumentationRegistry
+ import androidx.test.ext.junit.runners.AndroidJUnit4
+Index: app/src/main/java/com/sitamadex11/NeedHelp/fragments/CityWiseFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/fragments/CityWiseFragment.kt b/app/src/main/java/com/sitamadex11/CovidHelp/fragments/CityWiseFragment.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/fragments/CityWiseFragment.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/fragments/CityWiseFragment.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/fragments/CityWiseFragment.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/fragments/CityWiseFragment.kt	(date 1633026443433)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp.fragments
++package com.sitamadex11.CovidHelp.fragments
+ 
+ import android.content.Intent
+ import android.os.Bundle
+@@ -9,8 +9,8 @@
+ import androidx.fragment.app.Fragment
+ import com.google.android.material.button.MaterialButton
+ import com.google.android.material.card.MaterialCardView
+-import com.sitamadex11.NeedHelp.R
+-import com.sitamadex11.NeedHelp.activity.MainActivity
++import com.sitamadex11.CovidHelp.R
++import com.sitamadex11.CovidHelp.activity.MainActivity
+ 
+ class CityWiseFragment : Fragment(), View.OnClickListener {
+     lateinit var btnSearchCity: MaterialButton
+Index: app/src/main/java/com/sitamadex11/NeedHelp/fragments/ViewVolunteerFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/fragments/ViewVolunteerFragment.kt b/app/src/main/java/com/sitamadex11/CovidHelp/fragments/ViewVolunteerFragment.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/fragments/ViewVolunteerFragment.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/fragments/ViewVolunteerFragment.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/fragments/ViewVolunteerFragment.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/fragments/ViewVolunteerFragment.kt	(date 1633026445593)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp.fragments
++package com.sitamadex11.CovidHelp.fragments
+ 
+ import android.content.Context
+ import android.content.Intent
+@@ -26,14 +26,14 @@
+ import com.google.firebase.auth.FirebaseAuth
+ import com.google.firebase.firestore.FirebaseFirestore
+ import com.google.gson.Gson
+-import com.sitamadex11.NeedHelp.R
+-import com.sitamadex11.NeedHelp.adapter.VLAdapter
+-import com.sitamadex11.NeedHelp.adapter.VolunteerListAdapter
+-import com.sitamadex11.NeedHelp.model.District
+-import com.sitamadex11.NeedHelp.model.DistrictItems
+-import com.sitamadex11.NeedHelp.model.State
+-import com.sitamadex11.NeedHelp.model.VolunteerDetailsModel
+-import com.sitamadex11.NeedHelp.util.Constants
++import com.sitamadex11.CovidHelp.R
++import com.sitamadex11.CovidHelp.adapter.VLAdapter
++import com.sitamadex11.CovidHelp.adapter.VolunteerListAdapter
++import com.sitamadex11.CovidHelp.model.District
++import com.sitamadex11.CovidHelp.model.DistrictItems
++import com.sitamadex11.CovidHelp.model.State
++import com.sitamadex11.CovidHelp.model.VolunteerDetailsModel
++import com.sitamadex11.CovidHelp.util.Constants
+ import io.github.yavski.fabspeeddial.FabSpeedDial
+ import io.github.yavski.fabspeeddial.SimpleMenuListenerAdapter
+ import kotlinx.android.synthetic.main.fragment_view_volunteer.*
+Index: app/src/main/java/com/sitamadex11/NeedHelp/fragments/WestBengalFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/fragments/WestBengalFragment.kt b/app/src/main/java/com/sitamadex11/CovidHelp/fragments/WestBengalFragment.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/fragments/WestBengalFragment.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/fragments/WestBengalFragment.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/fragments/WestBengalFragment.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/fragments/WestBengalFragment.kt	(date 1633026444067)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp.fragments
++package com.sitamadex11.CovidHelp.fragments
+ 
+ import android.content.Context
+ import android.content.Intent
+@@ -17,10 +17,10 @@
+ import androidx.recyclerview.widget.RecyclerView
+ import com.google.android.material.button.MaterialButton
+ import com.google.android.material.card.MaterialCardView
+-import com.sitamadex11.NeedHelp.R
+-import com.sitamadex11.NeedHelp.adapter.SomeannoyingDialogAdapter
+-import com.sitamadex11.NeedHelp.model.SomeannoynigDialogItems
+-import com.sitamadex11.NeedHelp.util.Constants
++import com.sitamadex11.CovidHelp.R
++import com.sitamadex11.CovidHelp.adapter.SomeannoyingDialogAdapter
++import com.sitamadex11.CovidHelp.model.SomeannoynigDialogItems
++import com.sitamadex11.CovidHelp.util.Constants
+ import kotlinx.coroutines.CoroutineScope
+ import kotlinx.coroutines.Dispatchers
+ import kotlinx.coroutines.launch
+Index: app/src/main/java/com/sitamadex11/NeedHelp/fragments/ViewProfileFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/fragments/ViewProfileFragment.kt b/app/src/main/java/com/sitamadex11/CovidHelp/fragments/ViewProfileFragment.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/fragments/ViewProfileFragment.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/fragments/ViewProfileFragment.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/fragments/ViewProfileFragment.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/fragments/ViewProfileFragment.kt	(date 1633026444434)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp.fragments
++package com.sitamadex11.CovidHelp.fragments
+ 
+ import android.os.Bundle
+ import android.util.Log
+@@ -20,11 +20,11 @@
+ import com.google.firebase.auth.FirebaseAuth
+ import com.google.firebase.firestore.FirebaseFirestore
+ import com.google.gson.Gson
+-import com.sitamadex11.NeedHelp.R
+-import com.sitamadex11.NeedHelp.model.District
+-import com.sitamadex11.NeedHelp.model.DistrictItems
+-import com.sitamadex11.NeedHelp.model.State
+-import com.sitamadex11.NeedHelp.util.Constants
++import com.sitamadex11.CovidHelp.R
++import com.sitamadex11.CovidHelp.model.District
++import com.sitamadex11.CovidHelp.model.DistrictItems
++import com.sitamadex11.CovidHelp.model.State
++import com.sitamadex11.CovidHelp.util.Constants
+ 
+ class ViewProfileFragment : Fragment(), View.OnClickListener {
+     lateinit var txtProfileName: TextView
+Index: app/src/main/java/com/sitamadex11/NeedHelp/fragments/OtherStateFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/fragments/OtherStateFragment.kt b/app/src/main/java/com/sitamadex11/CovidHelp/fragments/OtherStateFragment.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/fragments/OtherStateFragment.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/fragments/OtherStateFragment.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/fragments/OtherStateFragment.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/fragments/OtherStateFragment.kt	(date 1633026444152)
+@@ -1,11 +1,11 @@
+-package com.sitamadex11.NeedHelp.fragments
++package com.sitamadex11.CovidHelp.fragments
+ 
+ import android.os.Bundle
+ import android.view.LayoutInflater
+ import android.view.View
+ import android.view.ViewGroup
+ import androidx.fragment.app.Fragment
+-import com.sitamadex11.NeedHelp.R
++import com.sitamadex11.CovidHelp.R
+ 
+ class OtherStateFragment : Fragment() {
+ 
+Index: app/src/main/java/com/sitamadex11/NeedHelp/fragments/StateWiseFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/fragments/StateWiseFragment.kt b/app/src/main/java/com/sitamadex11/CovidHelp/fragments/StateWiseFragment.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/fragments/StateWiseFragment.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/fragments/StateWiseFragment.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/fragments/StateWiseFragment.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/fragments/StateWiseFragment.kt	(date 1633026443562)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp.fragments
++package com.sitamadex11.CovidHelp.fragments
+ 
+ import android.os.Bundle
+ import android.view.LayoutInflater
+@@ -8,8 +8,8 @@
+ import androidx.fragment.app.FragmentPagerAdapter
+ import androidx.viewpager.widget.ViewPager
+ import com.google.android.material.tabs.TabLayout
+-import com.sitamadex11.NeedHelp.R
+-import com.sitamadex11.NeedHelp.adapter.StateWiseViewPagerAdapter
++import com.sitamadex11.CovidHelp.R
++import com.sitamadex11.CovidHelp.adapter.StateWiseViewPagerAdapter
+ 
+ class StateWiseFragment : Fragment() {
+     lateinit var viewPagerAdapter: FragmentPagerAdapter
+Index: app/src/main/java/com/sitamadex11/NeedHelp/adapter/DonationListAdapter.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/adapter/DonationListAdapter.kt b/app/src/main/java/com/sitamadex11/CovidHelp/adapter/DonationListAdapter.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/adapter/DonationListAdapter.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/adapter/DonationListAdapter.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/adapter/DonationListAdapter.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/adapter/DonationListAdapter.kt	(date 1633026445519)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp.adapter
++package com.sitamadex11.CovidHelp.adapter
+ 
+ import android.content.Context
+ import android.content.Intent
+@@ -11,8 +11,8 @@
+ import com.bumptech.glide.Glide
+ import com.google.android.material.button.MaterialButton
+ import com.mikhaellopez.circularimageview.CircularImageView
+-import com.sitamadex11.NeedHelp.R
+-import com.sitamadex11.NeedHelp.model.OrgDetails
++import com.sitamadex11.CovidHelp.R
++import com.sitamadex11.CovidHelp.model.OrgDetails
+ import java.util.*
+ 
+ class DonationListAdapter(val list: ArrayList<OrgDetails>, val context: Context) :
+Index: app/src/main/java/com/sitamadex11/NeedHelp/adapter/SomeannoyingDialogAdapter.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/adapter/SomeannoyingDialogAdapter.kt b/app/src/main/java/com/sitamadex11/CovidHelp/adapter/SomeannoyingDialogAdapter.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/adapter/SomeannoyingDialogAdapter.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/adapter/SomeannoyingDialogAdapter.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/adapter/SomeannoyingDialogAdapter.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/adapter/SomeannoyingDialogAdapter.kt	(date 1633026445475)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp.adapter
++package com.sitamadex11.CovidHelp.adapter
+ 
+ import android.content.Context
+ import android.content.Intent
+@@ -10,8 +10,8 @@
+ import android.widget.TextView
+ import androidx.recyclerview.widget.RecyclerView
+ import com.google.android.material.card.MaterialCardView
+-import com.sitamadex11.NeedHelp.R
+-import com.sitamadex11.NeedHelp.model.SomeannoynigDialogItems
++import com.sitamadex11.CovidHelp.R
++import com.sitamadex11.CovidHelp.model.SomeannoynigDialogItems
+ 
+ class SomeannoyingDialogAdapter(val context: Context) :
+     RecyclerView.Adapter<SomeannoyingDialogAdapter.SomeannoyingViewHolder>() {
+Index: app/src/main/java/com/sitamadex11/NeedHelp/covidTrackerApi/Summery.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/covidTrackerApi/Summery.kt b/app/src/main/java/com/sitamadex11/CovidHelp/covidTrackerApi/Summery.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/covidTrackerApi/Summery.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/covidTrackerApi/Summery.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/covidTrackerApi/Summery.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/covidTrackerApi/Summery.kt	(date 1633026444619)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp.covidTrackerApi
++package com.sitamadex11.CovidHelp.covidTrackerApi
+ 
+ import com.google.gson.annotations.SerializedName
+ 
+Index: app/src/main/java/com/sitamadex11/NeedHelp/adapter/VolunteerListAdapter.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/adapter/VolunteerListAdapter.kt b/app/src/main/java/com/sitamadex11/CovidHelp/adapter/VolunteerListAdapter.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/adapter/VolunteerListAdapter.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/adapter/VolunteerListAdapter.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/adapter/VolunteerListAdapter.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/adapter/VolunteerListAdapter.kt	(date 1633026444449)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp.adapter
++package com.sitamadex11.CovidHelp.adapter
+ 
+ import android.content.Context
+ import android.view.LayoutInflater
+@@ -8,8 +8,8 @@
+ import android.widget.Toast
+ import androidx.recyclerview.widget.RecyclerView
+ import com.google.android.material.card.MaterialCardView
+-import com.sitamadex11.NeedHelp.R
+-import com.sitamadex11.NeedHelp.model.VolunteerDetailsModel
++import com.sitamadex11.CovidHelp.R
++import com.sitamadex11.CovidHelp.model.VolunteerDetailsModel
+ import java.util.*
+ 
+ 
+Index: app/src/main/java/com/sitamadex11/NeedHelp/adapter/StateWiseViewPagerAdapter.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/adapter/StateWiseViewPagerAdapter.kt b/app/src/main/java/com/sitamadex11/CovidHelp/adapter/StateWiseViewPagerAdapter.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/adapter/StateWiseViewPagerAdapter.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/adapter/StateWiseViewPagerAdapter.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/adapter/StateWiseViewPagerAdapter.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/adapter/StateWiseViewPagerAdapter.kt	(date 1633026443980)
+@@ -1,10 +1,10 @@
+-package com.sitamadex11.NeedHelp.adapter
++package com.sitamadex11.CovidHelp.adapter
+ 
+ import androidx.fragment.app.Fragment
+ import androidx.fragment.app.FragmentManager
+ import androidx.fragment.app.FragmentPagerAdapter
+-import com.sitamadex11.NeedHelp.fragments.OtherStateFragment
+-import com.sitamadex11.NeedHelp.fragments.WestBengalFragment
++import com.sitamadex11.CovidHelp.fragments.OtherStateFragment
++import com.sitamadex11.CovidHelp.fragments.WestBengalFragment
+ 
+ class StateWiseViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+     override fun getCount(): Int {
+Index: app/src/main/java/com/sitamadex11/NeedHelp/adapter/VaccineCenterListAdapter.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/adapter/VaccineCenterListAdapter.kt b/app/src/main/java/com/sitamadex11/CovidHelp/adapter/VaccineCenterListAdapter.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/adapter/VaccineCenterListAdapter.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/adapter/VaccineCenterListAdapter.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/adapter/VaccineCenterListAdapter.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/adapter/VaccineCenterListAdapter.kt	(date 1633026443755)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp.adapter
++package com.sitamadex11.CovidHelp.adapter
+ 
+ import android.content.Context
+ import android.content.Intent
+@@ -11,8 +11,8 @@
+ import android.widget.Toast
+ import androidx.recyclerview.widget.RecyclerView
+ import com.google.android.material.button.MaterialButton
+-import com.sitamadex11.NeedHelp.R
+-import com.sitamadex11.NeedHelp.model.CenterItem
++import com.sitamadex11.CovidHelp.R
++import com.sitamadex11.CovidHelp.model.CenterItem
+ import java.util.*
+ 
+ class VaccineCenterListAdapter(val context: Context) :
+Index: app/src/main/java/com/sitamadex11/NeedHelp/activity/DemoTestingActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/activity/DemoTestingActivity.kt b/app/src/main/java/com/sitamadex11/CovidHelp/activity/DemoTestingActivity.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/activity/DemoTestingActivity.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/activity/DemoTestingActivity.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/activity/DemoTestingActivity.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/activity/DemoTestingActivity.kt	(date 1633026443480)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp.activity
++package com.sitamadex11.CovidHelp.activity
+ 
+ 
+ import android.os.Bundle
+@@ -10,7 +10,7 @@
+ import com.google.firebase.firestore.CollectionReference
+ import com.google.firebase.firestore.FirebaseFirestore
+ import com.google.gson.Gson
+-import com.sitamadex11.NeedHelp.model.CenterDetail
++import com.sitamadex11.CovidHelp.model.CenterDetail
+ 
+ 
+ class DemoTestingActivity : AppCompatActivity() {
+Index: app/src/main/java/com/sitamadex11/NeedHelp/activity/DonationListActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/activity/DonationListActivity.kt b/app/src/main/java/com/sitamadex11/CovidHelp/activity/DonationListActivity.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/activity/DonationListActivity.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/activity/DonationListActivity.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/activity/DonationListActivity.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/activity/DonationListActivity.kt	(date 1633026443236)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp.activity
++package com.sitamadex11.CovidHelp.activity
+ 
+ import android.content.Context
+ import android.net.ConnectivityManager
+@@ -13,9 +13,9 @@
+ import com.google.android.material.button.MaterialButton
+ import com.google.firebase.firestore.CollectionReference
+ import com.google.firebase.firestore.FirebaseFirestore
+-import com.sitamadex11.NeedHelp.R
+-import com.sitamadex11.NeedHelp.adapter.DonationListAdapter
+-import com.sitamadex11.NeedHelp.model.OrgDetails
++import com.sitamadex11.CovidHelp.R
++import com.sitamadex11.CovidHelp.adapter.DonationListAdapter
++import com.sitamadex11.CovidHelp.model.OrgDetails
+ import kotlinx.android.synthetic.main.donation_list_activity.*
+ import java.util.*
+ 
+Index: app/src/main/java/com/sitamadex11/NeedHelp/activity/VaccineStatusActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/activity/VaccineStatusActivity.kt b/app/src/main/java/com/sitamadex11/CovidHelp/activity/VaccineStatusActivity.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/activity/VaccineStatusActivity.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/activity/VaccineStatusActivity.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/activity/VaccineStatusActivity.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/activity/VaccineStatusActivity.kt	(date 1633026444903)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp.activity
++package com.sitamadex11.CovidHelp.activity
+ 
+ import android.app.AlertDialog
+ import android.app.DatePickerDialog
+@@ -24,16 +24,16 @@
+ import com.google.android.material.button.MaterialButton
+ import com.google.android.material.textfield.TextInputEditText
+ import com.google.gson.Gson
+-import com.sitamadex11.NeedHelp.R
+-import com.sitamadex11.NeedHelp.adapter.VaccineCenterListAdapter
+-import com.sitamadex11.NeedHelp.model.CenterItem
+-import com.sitamadex11.NeedHelp.model.District
+-import com.sitamadex11.NeedHelp.model.DistrictItems
+-import com.sitamadex11.NeedHelp.model.State
+-import com.sitamadex11.NeedHelp.util.Constants
+-import com.sitamadex11.NeedHelp.viewModel.StateViewModel
+-import com.sitamadex11.NeedHelp.viewModel.StateViewModelFactory
+-import com.sitamadex11.NeedHelp.worker.VaccineStatusWorker
++import com.sitamadex11.CovidHelp.R
++import com.sitamadex11.CovidHelp.adapter.VaccineCenterListAdapter
++import com.sitamadex11.CovidHelp.model.CenterItem
++import com.sitamadex11.CovidHelp.model.District
++import com.sitamadex11.CovidHelp.model.DistrictItems
++import com.sitamadex11.CovidHelp.model.State
++import com.sitamadex11.CovidHelp.util.Constants
++import com.sitamadex11.CovidHelp.viewModel.StateViewModel
++import com.sitamadex11.CovidHelp.viewModel.StateViewModelFactory
++import com.sitamadex11.CovidHelp.worker.VaccineStatusWorker
+ import kotlinx.android.synthetic.main.activity_vaccine_status.*
+ import java.text.SimpleDateFormat
+ import java.util.*
+Index: app/src/main/java/com/sitamadex11/NeedHelp/activity/VolunteerActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/activity/VolunteerActivity.kt b/app/src/main/java/com/sitamadex11/CovidHelp/activity/VolunteerActivity.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/activity/VolunteerActivity.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/activity/VolunteerActivity.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/activity/VolunteerActivity.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/activity/VolunteerActivity.kt	(date 1633026444074)
+@@ -1,10 +1,10 @@
+-package com.sitamadex11.NeedHelp.activity
++package com.sitamadex11.CovidHelp.activity
+ 
+ import android.os.Bundle
+ import androidx.appcompat.app.AppCompatActivity
+ import androidx.fragment.app.Fragment
+-import com.sitamadex11.NeedHelp.R
+-import com.sitamadex11.NeedHelp.fragments.ViewVolunteerFragment
++import com.sitamadex11.CovidHelp.R
++import com.sitamadex11.CovidHelp.fragments.ViewVolunteerFragment
+ 
+ class VolunteerActivity : AppCompatActivity() {
+     lateinit var json: String
+Index: app/src/main/java/com/sitamadex11/NeedHelp/activity/MainActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/activity/MainActivity.kt b/app/src/main/java/com/sitamadex11/CovidHelp/activity/MainActivity.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/activity/MainActivity.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/activity/MainActivity.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/activity/MainActivity.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/activity/MainActivity.kt	(date 1633026444469)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp.activity
++package com.sitamadex11.CovidHelp.activity
+ 
+ import android.content.Intent
+ import android.os.Bundle
+@@ -6,7 +6,7 @@
+ import android.widget.CompoundButton
+ import android.widget.Toast
+ import androidx.appcompat.app.AppCompatActivity
+-import com.sitamadex11.NeedHelp.R
++import com.sitamadex11.CovidHelp.R
+ import kotlinx.android.synthetic.main.activity_main.*
+ 
+ class MainActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener {
+Index: app/src/main/java/com/sitamadex11/NeedHelp/activity/SplashScreenActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/activity/SplashScreenActivity.kt b/app/src/main/java/com/sitamadex11/CovidHelp/activity/SplashScreenActivity.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/activity/SplashScreenActivity.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/activity/SplashScreenActivity.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/activity/SplashScreenActivity.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/activity/SplashScreenActivity.kt	(date 1633026445011)
+@@ -1,10 +1,10 @@
+-package com.sitamadex11.NeedHelp.activity
++package com.sitamadex11.CovidHelp.activity
+ 
+ import android.content.Intent
+ import android.os.Bundle
+ import android.os.Handler
+ import androidx.appcompat.app.AppCompatActivity
+-import com.sitamadex11.NeedHelp.R
++import com.sitamadex11.CovidHelp.R
+ 
+ 
+ class SplashScreenActivity : AppCompatActivity() {
+Index: app/src/main/java/com/sitamadex11/NeedHelp/interfaces/ApiInterface.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/interfaces/ApiInterface.kt b/app/src/main/java/com/sitamadex11/CovidHelp/interfaces/ApiInterface.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/interfaces/ApiInterface.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/interfaces/ApiInterface.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/interfaces/ApiInterface.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/interfaces/ApiInterface.kt	(date 1633026445244)
+@@ -1,6 +1,6 @@
+-package com.sitamadex11.NeedHelp.interfaces
++package com.sitamadex11.CovidHelp.interfaces
+ 
+-import com.sitamadex11.NeedHelp.covidTrackerApi.CovidData
++import com.sitamadex11.CovidHelp.covidTrackerApi.CovidData
+ import retrofit2.Call
+ import retrofit2.http.GET
+ 
+Index: app/src/main/java/com/sitamadex11/NeedHelp/interfaces/NetworkService.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/interfaces/NetworkService.kt b/app/src/main/java/com/sitamadex11/CovidHelp/interfaces/NetworkService.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/interfaces/NetworkService.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/interfaces/NetworkService.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/interfaces/NetworkService.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/interfaces/NetworkService.kt	(date 1633026443397)
+@@ -1,6 +1,6 @@
+-package com.sitamadex11.NeedHelp.interfaces
++package com.sitamadex11.CovidHelp.interfaces
+ 
+-import com.sitamadex11.NeedHelp.model.State
++import com.sitamadex11.CovidHelp.model.State
+ import retrofit2.Response
+ 
+ interface NetworkService {
+Index: app/src/main/java/com/sitamadex11/NeedHelp/activity/WebActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/activity/WebActivity.kt b/app/src/main/java/com/sitamadex11/CovidHelp/activity/WebActivity.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/activity/WebActivity.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/activity/WebActivity.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/activity/WebActivity.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/activity/WebActivity.kt	(date 1633026443828)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp.activity
++package com.sitamadex11.CovidHelp.activity
+ 
+ import android.annotation.SuppressLint
+ import android.content.Context
+@@ -12,7 +12,7 @@
+ import androidx.appcompat.app.AlertDialog
+ import androidx.appcompat.app.AppCompatActivity
+ import com.google.android.material.button.MaterialButton
+-import com.sitamadex11.NeedHelp.R
++import com.sitamadex11.CovidHelp.R
+ import kotlinx.android.synthetic.main.activity_web.*
+ 
+ 
+Index: app/src/main/java/com/sitamadex11/NeedHelp/model/OrgDetails.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/model/OrgDetails.kt b/app/src/main/java/com/sitamadex11/CovidHelp/model/OrgDetails.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/model/OrgDetails.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/model/OrgDetails.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/model/OrgDetails.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/model/OrgDetails.kt	(date 1633026444396)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp.model
++package com.sitamadex11.CovidHelp.model
+ 
+ data class OrgDetails(
+     val img: String?,
+Index: app/src/main/java/com/sitamadex11/NeedHelp/model/SomeannoynigDialogItems.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/model/SomeannoynigDialogItems.kt b/app/src/main/java/com/sitamadex11/CovidHelp/model/SomeannoynigDialogItems.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/model/SomeannoynigDialogItems.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/model/SomeannoynigDialogItems.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/model/SomeannoynigDialogItems.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/model/SomeannoynigDialogItems.kt	(date 1633026443529)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp.model
++package com.sitamadex11.CovidHelp.model
+ 
+ data class SomeannoynigDialogItems(
+     val img: Int,
+Index: app/src/main/java/com/sitamadex11/NeedHelp/model/DistrictNames.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/model/DistrictNames.kt b/app/src/main/java/com/sitamadex11/CovidHelp/model/DistrictNames.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/model/DistrictNames.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/model/DistrictNames.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/model/DistrictNames.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/model/DistrictNames.kt	(date 1633026445274)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp.model
++package com.sitamadex11.CovidHelp.model
+ 
+ data class DistrictItems(
+     val district_id: Int?,
+Index: app/src/main/java/com/sitamadex11/NeedHelp/model/VolunteerDetailsModel.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/model/VolunteerDetailsModel.kt b/app/src/main/java/com/sitamadex11/CovidHelp/model/VolunteerDetailsModel.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/model/VolunteerDetailsModel.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/model/VolunteerDetailsModel.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/model/VolunteerDetailsModel.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/model/VolunteerDetailsModel.kt	(date 1633026443696)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp.model
++package com.sitamadex11.CovidHelp.model
+ 
+ data class VolunteerDetailsModel(
+     val name: String?,
+Index: app/src/main/java/com/sitamadex11/NeedHelp/model/StateNames.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/model/StateNames.kt b/app/src/main/java/com/sitamadex11/CovidHelp/model/StateNames.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/model/StateNames.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/model/StateNames.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/model/StateNames.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/model/StateNames.kt	(date 1633026444641)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp.model
++package com.sitamadex11.CovidHelp.model
+ 
+ data class State(
+     val states: List<StateDetails>,
+Index: app/src/main/java/com/sitamadex11/NeedHelp/model/VaccineSlotsCowin.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/model/VaccineSlotsCowin.kt b/app/src/main/java/com/sitamadex11/CovidHelp/model/VaccineSlotsCowin.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/model/VaccineSlotsCowin.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/model/VaccineSlotsCowin.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/model/VaccineSlotsCowin.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/model/VaccineSlotsCowin.kt	(date 1633026444963)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp.model
++package com.sitamadex11.CovidHelp.model
+ 
+ import com.google.gson.annotations.SerializedName
+ 
+Index: app/src/main/java/com/sitamadex11/NeedHelp/util/ApiUtilities.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/util/ApiUtilities.kt b/app/src/main/java/com/sitamadex11/CovidHelp/util/ApiUtilities.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/util/ApiUtilities.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/util/ApiUtilities.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/util/ApiUtilities.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/util/ApiUtilities.kt	(date 1633026444036)
+@@ -1,6 +1,6 @@
+-package com.sitamadex11.NeedHelp.util
++package com.sitamadex11.CovidHelp.util
+ 
+-import com.sitamadex11.NeedHelp.interfaces.ApiInterface
++import com.sitamadex11.CovidHelp.interfaces.ApiInterface
+ import retrofit2.Retrofit
+ import retrofit2.converter.gson.GsonConverterFactory
+ 
+Index: app/src/main/java/com/sitamadex11/NeedHelp/util/Client.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/util/Client.kt b/app/src/main/java/com/sitamadex11/CovidHelp/util/Client.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/util/Client.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/util/Client.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/util/Client.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/util/Client.kt	(date 1633026443918)
+@@ -1,6 +1,6 @@
+-package com.sitamadex11.NeedHelp.util
++package com.sitamadex11.CovidHelp.util
+ 
+-import com.sitamadex11.NeedHelp.interfaces.NetworkService
++import com.sitamadex11.CovidHelp.interfaces.NetworkService
+ import retrofit2.Retrofit
+ import retrofit2.converter.gson.GsonConverterFactory
+ 
+Index: app/src/main/java/com/sitamadex11/NeedHelp/repositories/StateRepository.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/repositories/StateRepository.kt b/app/src/main/java/com/sitamadex11/CovidHelp/repositories/StateRepository.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/repositories/StateRepository.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/repositories/StateRepository.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/repositories/StateRepository.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/repositories/StateRepository.kt	(date 1633026445363)
+@@ -1,6 +1,6 @@
+-package com.sitamadex11.NeedHelp.repositories
++package com.sitamadex11.CovidHelp.repositories
+ 
+-import com.sitamadex11.NeedHelp.util.Client
++import com.sitamadex11.CovidHelp.util.Client
+ 
+ class StateRepository {
+     suspend fun getAllState() = Client.api.getStates()
+Index: app/src/main/java/com/sitamadex11/NeedHelp/viewModel/StateViewModelFactory.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/viewModel/StateViewModelFactory.kt b/app/src/main/java/com/sitamadex11/CovidHelp/viewModel/StateViewModelFactory.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/viewModel/StateViewModelFactory.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/viewModel/StateViewModelFactory.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/viewModel/StateViewModelFactory.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/viewModel/StateViewModelFactory.kt	(date 1633026444951)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp.viewModel
++package com.sitamadex11.CovidHelp.viewModel
+ 
+ 
+ import android.content.Context
+Index: app/src/main/java/com/sitamadex11/NeedHelp/util/Constants.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/util/Constants.kt b/app/src/main/java/com/sitamadex11/CovidHelp/util/Constants.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/util/Constants.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/util/Constants.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/util/Constants.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/util/Constants.kt	(date 1633026445440)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp.util
++package com.sitamadex11.CovidHelp.util
+ 
+ class Constants {
+     companion object {
+Index: app/src/main/java/com/sitamadex11/NeedHelp/fragments/AddVolunteerFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/fragments/AddVolunteerFragment.kt b/app/src/main/java/com/sitamadex11/CovidHelp/fragments/AddVolunteerFragment.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/fragments/AddVolunteerFragment.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/fragments/AddVolunteerFragment.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/fragments/AddVolunteerFragment.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/fragments/AddVolunteerFragment.kt	(date 1633026443875)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp.fragments
++package com.sitamadex11.CovidHelp.fragments
+ 
+ import android.app.AlertDialog
+ import android.content.Context
+@@ -25,10 +25,10 @@
+ import com.google.firebase.firestore.DocumentReference
+ import com.google.firebase.firestore.FirebaseFirestore
+ import com.google.gson.Gson
+-import com.sitamadex11.NeedHelp.R
+-import com.sitamadex11.NeedHelp.model.District
+-import com.sitamadex11.NeedHelp.model.State
+-import com.sitamadex11.NeedHelp.util.Constants
++import com.sitamadex11.CovidHelp.R
++import com.sitamadex11.CovidHelp.model.District
++import com.sitamadex11.CovidHelp.model.State
++import com.sitamadex11.CovidHelp.util.Constants
+ 
+ 
+ class AddVolunteerFragment : Fragment(), View.OnClickListener {
+Index: app/src/main/java/com/sitamadex11/NeedHelp/worker/CovidTrackerWorker.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/worker/CovidTrackerWorker.kt b/app/src/main/java/com/sitamadex11/CovidHelp/worker/CovidTrackerWorker.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/worker/CovidTrackerWorker.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/worker/CovidTrackerWorker.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/worker/CovidTrackerWorker.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/worker/CovidTrackerWorker.kt	(date 1633026443652)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp.worker
++package com.sitamadex11.CovidHelp.worker
+ 
+ import android.app.NotificationChannel
+ import android.app.NotificationManager
+@@ -13,10 +13,10 @@
+ import androidx.core.content.ContextCompat
+ import androidx.work.Worker
+ import androidx.work.WorkerParameters
+-import com.sitamadex11.NeedHelp.R
+-import com.sitamadex11.NeedHelp.activity.CovidTrackerActivity
+-import com.sitamadex11.NeedHelp.covidTrackerApi.CovidData
+-import com.sitamadex11.NeedHelp.util.ApiUtilities
++import com.sitamadex11.CovidHelp.R
++import com.sitamadex11.CovidHelp.activity.CovidTrackerActivity
++import com.sitamadex11.CovidHelp.covidTrackerApi.CovidData
++import com.sitamadex11.CovidHelp.util.ApiUtilities
+ import retrofit2.Call
+ import retrofit2.Callback
+ import retrofit2.Response
+Index: app/src/main/java/com/sitamadex11/NeedHelp/worker/VaccineStatusWorker.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/worker/VaccineStatusWorker.kt b/app/src/main/java/com/sitamadex11/CovidHelp/worker/VaccineStatusWorker.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/worker/VaccineStatusWorker.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/worker/VaccineStatusWorker.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/worker/VaccineStatusWorker.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/worker/VaccineStatusWorker.kt	(date 1633026443955)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp.worker
++package com.sitamadex11.CovidHelp.worker
+ 
+ import android.content.Context
+ import android.util.Log
+@@ -7,8 +7,8 @@
+ import androidx.work.WorkerParameters
+ import com.android.volley.toolbox.StringRequest
+ import com.google.gson.Gson
+-import com.sitamadex11.NeedHelp.model.CenterDetail
+-import com.sitamadex11.NeedHelp.util.Constants
++import com.sitamadex11.CovidHelp.model.CenterDetail
++import com.sitamadex11.CovidHelp.util.Constants
+ 
+ class VaccineStatusWorker(val context: Context, workerParams: WorkerParameters) : Worker(
+     context,
+Index: app/src/main/java/com/sitamadex11/NeedHelp/covidTrackerApi/Regional.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/covidTrackerApi/Regional.kt b/app/src/main/java/com/sitamadex11/CovidHelp/covidTrackerApi/Regional.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/covidTrackerApi/Regional.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/covidTrackerApi/Regional.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/covidTrackerApi/Regional.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/covidTrackerApi/Regional.kt	(date 1633026444985)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp.covidTrackerApi
++package com.sitamadex11.CovidHelp.covidTrackerApi
+ 
+ class Regional(
+     var loc: String,
+Index: app/src/main/java/com/sitamadex11/NeedHelp/activity/CovidTrackerActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/activity/CovidTrackerActivity.kt b/app/src/main/java/com/sitamadex11/CovidHelp/activity/CovidTrackerActivity.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/activity/CovidTrackerActivity.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/activity/CovidTrackerActivity.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/activity/CovidTrackerActivity.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/activity/CovidTrackerActivity.kt	(date 1633026445003)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp.activity
++package com.sitamadex11.CovidHelp.activity
+ 
+ import android.content.Context
+ import android.graphics.Color
+@@ -14,12 +14,12 @@
+ import androidx.work.OneTimeWorkRequestBuilder
+ import androidx.work.WorkManager
+ import com.google.android.material.button.MaterialButton
+-import com.sitamadex11.NeedHelp.R
+-import com.sitamadex11.NeedHelp.covidTrackerApi.CovidData
+-import com.sitamadex11.NeedHelp.covidTrackerApi.Data
+-import com.sitamadex11.NeedHelp.covidTrackerApi.Regional
+-import com.sitamadex11.NeedHelp.util.ApiUtilities
+-import com.sitamadex11.NeedHelp.worker.CovidTrackerWorker
++import com.sitamadex11.CovidHelp.R
++import com.sitamadex11.CovidHelp.covidTrackerApi.CovidData
++import com.sitamadex11.CovidHelp.covidTrackerApi.Data
++import com.sitamadex11.CovidHelp.covidTrackerApi.Regional
++import com.sitamadex11.CovidHelp.util.ApiUtilities
++import com.sitamadex11.CovidHelp.worker.CovidTrackerWorker
+ import org.eazegraph.lib.charts.BarChart
+ import org.eazegraph.lib.charts.PieChart
+ import org.eazegraph.lib.models.BarModel
+Index: app/src/main/java/com/sitamadex11/NeedHelp/covidTrackerApi/CovidData.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/covidTrackerApi/CovidData.kt b/app/src/main/java/com/sitamadex11/CovidHelp/covidTrackerApi/CovidData.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/covidTrackerApi/CovidData.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/covidTrackerApi/CovidData.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/covidTrackerApi/CovidData.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/covidTrackerApi/CovidData.kt	(date 1633026444865)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp.covidTrackerApi
++package com.sitamadex11.CovidHelp.covidTrackerApi
+ 
+ import com.google.gson.annotations.SerializedName
+ 
+Index: app/src/main/java/com/sitamadex11/NeedHelp/covidTrackerApi/Data.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/covidTrackerApi/Data.kt b/app/src/main/java/com/sitamadex11/CovidHelp/covidTrackerApi/Data.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/covidTrackerApi/Data.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/covidTrackerApi/Data.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/covidTrackerApi/Data.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/covidTrackerApi/Data.kt	(date 1633026444812)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp.covidTrackerApi
++package com.sitamadex11.CovidHelp.covidTrackerApi
+ 
+ import com.google.gson.annotations.SerializedName
+ 
+Index: app/src/main/java/com/sitamadex11/NeedHelp/viewModel/StateViewModel.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/sitamadex11/NeedHelp/viewModel/StateViewModel.kt b/app/src/main/java/com/sitamadex11/CovidHelp/viewModel/StateViewModel.kt
+rename from app/src/main/java/com/sitamadex11/NeedHelp/viewModel/StateViewModel.kt
+rename to app/src/main/java/com/sitamadex11/CovidHelp/viewModel/StateViewModel.kt
+--- a/app/src/main/java/com/sitamadex11/NeedHelp/viewModel/StateViewModel.kt	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/app/src/main/java/com/sitamadex11/CovidHelp/viewModel/StateViewModel.kt	(date 1633026443360)
+@@ -1,4 +1,4 @@
+-package com.sitamadex11.NeedHelp.viewModel
++package com.sitamadex11.CovidHelp.viewModel
+ 
+ import android.content.Context
+ import android.util.Log
+@@ -7,8 +7,8 @@
+ import androidx.lifecycle.ViewModel
+ import com.android.volley.toolbox.StringRequest
+ import com.google.gson.Gson
+-import com.sitamadex11.NeedHelp.model.CenterDetail
+-import com.sitamadex11.NeedHelp.util.Constants
++import com.sitamadex11.CovidHelp.model.CenterDetail
++import com.sitamadex11.CovidHelp.util.Constants
+ 
+ class StateViewModel(val context: Context) : ViewModel() {
+     val myResponse: MutableLiveData<CenterDetail> = MutableLiveData()
+Index: build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// Top-level build file where you can add configuration options common to all sub-projects/modules.\r\nbuildscript {\r\n    ext.kotlin_version = \"1.4.32\"\r\n    repositories {\r\n        google()\r\n        jcenter()\r\n    }\r\n    dependencies {\r\n        classpath 'com.android.tools.build:gradle:7.0.0'\r\n        classpath \"org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version\"\r\n        classpath 'com.google.gms:google-services:4.3.5'\r\n\r\n        // NOTE: Do not place your application dependencies here; they belong\r\n        // in the individual module build.gradle files\r\n    }\r\n}\r\n\r\nallprojects {\r\n    repositories {\r\n        google()\r\n        jcenter()\r\n        mavenCentral()\r\n        maven { url 'https://jitpack.io' }\r\n\r\n    }\r\n}\r\n\r\ntask clean(type: Delete) {\r\n    delete rootProject.buildDir\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/build.gradle b/build.gradle
+--- a/build.gradle	(revision 2bb64ba6e389daa8e3ef2174658eb68232401a71)
++++ b/build.gradle	(date 1633027004360)
+@@ -6,7 +6,7 @@
+         jcenter()
+     }
+     dependencies {
+-        classpath 'com.android.tools.build:gradle:7.0.0'
++        classpath 'com.android.tools.build:gradle:7.0.2'
+         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+         classpath 'com.google.gms:google-services:4.3.5'
+ 

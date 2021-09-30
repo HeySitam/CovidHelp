@@ -10,7 +10,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.sitamadex11.NeedHelp"
+        applicationId "com.sitamadex11.covidhelp"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
