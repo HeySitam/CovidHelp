@@ -3,9 +3,9 @@
     <item
         android:id="@+id/removeVol"
         android:icon="@drawable/ic_baseline_person_remove_24"
-        android:title="Remove Yourself as Volunteer" />
+        android:title="@string/remove_yourself_as_volunteer" />
     <item
         android:id="@+id/addVol"
         android:icon="@drawable/add_volunteer"
-        android:title="Add Yourself as Volunteer" />
+        android:title="@string/add_yourself_as_volunteer" />
 </menu>

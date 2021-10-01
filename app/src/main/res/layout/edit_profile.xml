@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
-        android:text="Edit Profile"
+        android:text="@string/edit_profile"
         android:textColor="#000000"
         android:textSize="40sp" />
     <androidx.core.widget.NestedScrollView
@@ -56,7 +56,7 @@
                         android:layout_marginEnd="5dp"
                         android:layout_toRightOf="@+id/imgUserName"
                         android:background="@null"
-                        android:hint="Your Name"
+                        android:hint="@string/your_name"
                         android:inputType="text"
                         android:textAlignment="textStart"
                         android:textColor="#000000"
@@ -92,7 +92,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:drawableEnd="@drawable/arrow_drop_down"
-                        android:hint="State"
+                        android:hint="@string/state"
                         android:inputType="none" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -114,7 +114,7 @@
                         android:layout_height="wrap_content"
                         android:drawableEnd="@drawable/arrow_drop_down"
                         android:enabled="false"
-                        android:hint="District"
+                        android:hint="@string/district"
                         android:inputType="none" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
@@ -152,7 +152,7 @@
                         android:layout_marginEnd="5dp"
                         android:layout_toRightOf="@+id/imgPassword"
                         android:background="@null"
-                        android:hint="Your Address"
+                        android:hint="@string/your_address"
                         android:inputType="text"
                         android:textAlignment="textStart"
                         android:textColor="#000000"
@@ -175,7 +175,7 @@
         android:paddingEnd="35dp"
         android:paddingBottom="10dp"
         android:layout_marginBottom="30dp"
-        android:text="Edit Profile"
+        android:text="@string/edit_profile"
         android:textAllCaps="false"
         android:textColor="#ffffff"
         android:textSize="18sp"

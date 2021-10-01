@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="10dp"
-            android:text="Name*"
+            android:text="@string/name"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
@@ -32,7 +32,7 @@
                 android:id="@+id/etVolName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter your name" />
+                android:hint="@string/enter_your_name" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="10dp"
-            android:text="Phone*"
+            android:text="@string/phone"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
@@ -56,7 +56,7 @@
                 android:id="@+id/etVolPh"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter your phone no."
+                android:hint="@string/enter_your_phone_no"
                 android:inputType="number"
                 android:maxLength="10" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -66,7 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="10dp"
-            android:text="State*"
+            android:text="@string/state"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
@@ -84,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="none"
                 android:drawableEnd="@drawable/arrow_drop_down"
-                android:hint="Select your state" />
+                android:hint="@string/select_your_state" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -92,7 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="10dp"
-            android:text="District*"
+            android:text="@string/district"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
@@ -112,7 +112,7 @@
                 android:inputType="none"
                 android:enabled="false"
                 android:drawableEnd="@drawable/arrow_drop_down"
-                android:hint="Select your district" />
+                android:hint="@string/select_your_district" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <RelativeLayout
@@ -125,7 +125,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Organization"
+                android:text="@string/organization"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
@@ -135,7 +135,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginEnd="5dp"
-                android:text="If Any"
+                android:text="@string/if_any"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
         </RelativeLayout>
 
@@ -151,7 +151,7 @@
                 android:id="@+id/etVolOrg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter your name" />
+                android:hint="@string/enter_your_name" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <RelativeLayout
@@ -164,7 +164,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Description"
+                android:text="@string/description"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
@@ -175,7 +175,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="5dp"
-                android:text="Optional"
+                android:text="@string/optional"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
         </RelativeLayout>
 
@@ -192,7 +192,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="start"
-                android:hint="A short description about your work"
+                android:hint="@string/a_short_description_about_your_work"
                 android:lines="3" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -202,7 +202,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:text="+ Add"
+            android:text="@string/add"
             android:textColor="#ffffff"
             app:cornerRadius="8dp" />
     </LinearLayout>

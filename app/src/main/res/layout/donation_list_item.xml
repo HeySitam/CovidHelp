@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/imgDonate"
             android:layout_centerHorizontal="true"
-            android:text="Hemkunt Foundation"
+            android:text="@string/hemkunt_foundation"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -116,7 +116,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:text="Donate"
+            android:text="@string/donate"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
             android:textColor="@color/white"
             app:cornerRadius="8dp" />

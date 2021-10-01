@@ -54,7 +54,7 @@
                         android:layout_below="@+id/imgBed"
                         android:layout_centerHorizontal="true"
                         android:layout_marginBottom="10dp"
-                        android:text="Bed Availability"
+                        android:text="@string/bed_availability"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
@@ -98,7 +98,7 @@
                         android:layout_below="@+id/imgHome"
                         android:layout_centerHorizontal="true"
                         android:layout_marginBottom="10dp"
-                        android:text="SafeHome Availability"
+                        android:text="@string/safehome_availability"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
@@ -150,7 +150,7 @@
                         android:layout_below="@+id/imgHelpDesk"
                         android:layout_centerHorizontal="true"
                         android:layout_marginBottom="10dp"
-                        android:text="Admission Cell Helpdesk"
+                        android:text="@string/admission_cell_helpdesk"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
@@ -194,7 +194,7 @@
                         android:layout_below="@+id/imgCenter"
                         android:layout_centerHorizontal="true"
                         android:layout_marginBottom="10dp"
-                        android:text="Co-Ordinate Center"
+                        android:text="@string/co_ordinate_center"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
@@ -246,7 +246,7 @@
                         android:layout_below="@+id/imgAmbulance"
                         android:layout_centerHorizontal="true"
                         android:layout_marginBottom="10dp"
-                        android:text="Ambulance Provider"
+                        android:text="@string/ambulance_provider"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
@@ -290,7 +290,7 @@
                         android:layout_below="@+id/imgHearse"
                         android:layout_centerHorizontal="true"
                         android:layout_marginBottom="10dp"
-                        android:text="Hearse van Availability"
+                        android:text="@string/hearse_van_availability"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
@@ -344,7 +344,7 @@
                         android:layout_marginBottom="10dp"
                         android:ellipsize="end"
                         android:maxLines="2"
-                        android:text="Nodal Officers for Burial and Cremation"
+                        android:text="@string/nodal_officers_for_burial_and_cremation"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
@@ -389,7 +389,7 @@
                         android:layout_marginBottom="10dp"
                         android:ellipsize="end"
                         android:maxLines="2"
-                        android:text="Burial and Cremation Related Information"
+                        android:text="@string/burial_and_cremation_related_information"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textStyle="bold" />

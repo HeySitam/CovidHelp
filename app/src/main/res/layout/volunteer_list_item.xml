@@ -54,7 +54,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" • "
+                    android:text="@string/x"
                     android:textStyle="bold" />
 
                 <TextView
@@ -84,7 +84,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:textStyle="bold"
-                    android:text="9062717912" />
+                    android:text="@string/_9062717912" />
             </LinearLayout>
 
             <LinearLayout
@@ -105,7 +105,7 @@
                     android:layout_gravity="center"
                     android:layout_marginStart="5dp"
                     android:textStyle="bold"
-                    android:text="Covid Help" />
+                    android:text="@string/covid_help" />
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -189,7 +189,7 @@
             android:layout_marginEnd="20dp"
             android:layout_below="@id/llOrg"
             android:textColor="@color/black"
-            android:text="I want to help" />
+            android:text="@string/i_want_to_help" />
 
         <LinearLayout
             android:id="@+id/llOrg2"
