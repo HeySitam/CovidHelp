@@ -181,4 +181,24 @@
   }</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="need_help">Need Help?</string>
+  <string name="bed_availability">Bed Availability</string>
+  <string name="safehome_availability">SafeHome Availability</string>
+  <string name="admission_cell_helpdesk">Admission Cell Helpdesk</string>
+  <string name="co_ordinate_center">Co-Ordinate Center</string>
+  <string name="ambulance_provider">Ambulance Provider</string>
+  <string name="hearse_van_availability">Hearse van Availability</string>
+  <string name="nodal_officers_for_burial_and_cremation">Nodal Officers for Burial and Cremation</string>
+  <string name="burial_and_cremation_related_information">Burial and Cremation Related Information</string>
+  <string name="enter_your_queries_or_feedback">Enter your queries or feedback</string>
+  <string name="send">Send</string>
+  <string name="cancel">cancel</string>
+  <string name="donate_here">Donate Here</string>
+  <string name="our_small_help_can_save_a_life">😇Our small help can save a life😇</string>
+  <string name="enter_your_message">Enter your message</string>
+  <string name="send">Send</string>
+  <string name="cancel">cancel</string>
+  <string name="hemkunt_foundations">Hemkunt Foundation</string>
+  <string name="donate">Donate</string>
+  <string name="state">State</string>
 </resources>

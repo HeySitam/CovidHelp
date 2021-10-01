@@ -2,6 +2,6 @@
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="State"
+    android:text="@string/state"
     android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
     android:padding="10dp"/>

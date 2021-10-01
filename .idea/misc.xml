@@ -3,12 +3,28 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/risha/AndroidStudioProjects/CovidHelp/app/src/main/res/layout/activity_choose.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/CovidHelp/app/src/main/res/layout/activity_demo_testing.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/CovidHelp/app/src/main/res/layout/activity_main.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/CovidHelp/app/src/main/res/layout/activity_splash_screen.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/CovidHelp/app/src/main/res/layout/activity_vaccine_status.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/CovidHelp/app/src/main/res/layout/activity_volunteer.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/CovidHelp/app/src/main/res/layout/activity_web.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/CovidHelp/app/src/main/res/layout/covid_tracker_activity.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/CovidHelp/app/src/main/res/layout/custom_dialog_item.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/CovidHelp/app/src/main/res/layout/custom_dialog_layout_someannoying.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/CovidHelp/app/src/main/res/layout/custom_dialog_layout_wb.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/CovidHelp/app/src/main/res/layout/dialog_email.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/CovidHelp/app/src/main/res/layout/dialog_message.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/CovidHelp/app/src/main/res/layout/donation_list_activity.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/CovidHelp/app/src/main/res/layout/donation_list_item.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/CovidHelp/app/src/main/res/layout/dropdown_item.xml" value="0.1793478260869565" />
         <entry key="..\:/android_project_folder/Big Projects/CovidHelp/app/src/main/res/layout/activity_choose.xml" value="0.14764492753623187" />
         <entry key="..\:/android_project_folder/Big Projects/CovidHelp/app/src/main/res/layout/fragment_home.xml" value="0.14764492753623187" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
