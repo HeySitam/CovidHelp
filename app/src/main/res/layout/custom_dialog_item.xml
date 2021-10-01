@@ -45,7 +45,7 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:text="Bed Availability"
+                android:text="@string/bed_availability"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textStyle="bold" />

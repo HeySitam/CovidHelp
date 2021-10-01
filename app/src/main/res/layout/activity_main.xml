@@ -38,7 +38,7 @@
                 android:layout_marginEnd="5dp"
                 android:layout_toRightOf="@+id/imgEmail"
                 android:background="@null"
-                android:hint="Enter City Name"
+                android:hint="@string/enter_city_name"
                 android:inputType="text"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -52,7 +52,7 @@
     android:layout_alignParentRight="true"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="All "
+    android:text="@string/all"
     android:layout_marginEnd="20dp"
     android:layout_marginTop="10dp"
     tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -76,7 +76,7 @@
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:textStyle="bold"
-            android:text="Beds" />
+            android:text="@string/beds" />
 
         <CheckBox
             android:id="@+id/icu"
@@ -85,7 +85,7 @@
             android:layout_rowWeight="1"
             android:textStyle="bold"
             android:layout_columnWeight="1"
-            android:text="ICU" />
+            android:text="@string/icu" />
 
         <CheckBox
             android:id="@+id/oxygen"
@@ -94,7 +94,7 @@
             android:layout_rowWeight="1"
             android:textStyle="bold"
             android:layout_columnWeight="1"
-            android:text="Oxygen" />
+            android:text="@string/oxygen" />
 
         <CheckBox
             android:id="@+id/ventilator"
@@ -103,7 +103,7 @@
             android:layout_rowWeight="1"
             android:textStyle="bold"
             android:layout_columnWeight="1"
-            android:text="Ventilator" />
+            android:text="@string/ventilator" />
 
         <CheckBox
             android:id="@+id/tests"
@@ -112,7 +112,7 @@
             android:layout_rowWeight="1"
             android:textStyle="bold"
             android:layout_columnWeight="1"
-            android:text="Tests" />
+            android:text="@string/tests" />
 
         <CheckBox
             android:id="@+id/fabiflu"
@@ -121,7 +121,7 @@
             android:layout_rowWeight="1"
             android:textStyle="bold"
             android:layout_columnWeight="1"
-            android:text="Fabiflu" />
+            android:text="@string/fabiflu" />
 
         <CheckBox
             android:id="@+id/remdesivir"
@@ -130,7 +130,7 @@
             android:layout_rowWeight="1"
             android:textStyle="bold"
             android:layout_columnWeight="1"
-            android:text="Remdesivir" />
+            android:text="@string/remdesivir" />
 
         <CheckBox
             android:id="@+id/favipiravir"
@@ -139,7 +139,7 @@
             android:layout_rowWeight="1"
             android:textStyle="bold"
             android:layout_columnWeight="1"
-            android:text="Favipiravir" />
+            android:text="@string/favipiravir" />
 
         <CheckBox
             android:id="@+id/tocilizumab"
@@ -148,7 +148,7 @@
             android:layout_rowWeight="1"
             android:textStyle="bold"
             android:layout_columnWeight="1"
-            android:text="Tocilizumab" />
+            android:text="@string/tocilizumab" />
 
         <CheckBox
             android:id="@+id/plasma"
@@ -157,7 +157,7 @@
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:textStyle="bold"
-            android:text="Plasma" />
+            android:text="@string/plasma" />
 
         <CheckBox
             android:id="@+id/food"
@@ -166,7 +166,7 @@
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:textStyle="bold"
-            android:text="Food" />
+            android:text="@string/food" />
 
         <CheckBox
             android:id="@+id/ambulance"
@@ -175,7 +175,7 @@
             android:layout_rowWeight="1"
             android:textStyle="bold"
             android:layout_columnWeight="1"
-            android:text="Ambulance" />
+            android:text="@string/ambulance" />
     </GridLayout>
 
     <CheckBox
@@ -184,7 +184,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/gvItems"
         android:layout_centerHorizontal="true"
-        android:text="Other Item" />
+        android:text="@string/other_item" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilOthers"
@@ -204,7 +204,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:hint="Enter Other Item" />
+            android:hint="@string/enter_other_item" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
@@ -216,7 +216,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="80dp"
         android:drawableStart="@drawable/ic_baseline_search_24"
-        android:text="Search"
+        android:text="@string/search"
         android:textColor="#ffffff"
         android:textSize="15sp"
         android:textStyle="bold"

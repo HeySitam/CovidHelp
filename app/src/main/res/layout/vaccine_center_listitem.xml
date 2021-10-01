@@ -32,14 +32,14 @@
                     android:id="@+id/txtCenterName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="UPHC-116"
+                    android:text="@string/uphc_116"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
 
                 <TextView
                     android:id="@+id/txtCenterAddress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="294 ROY BAHADUR ROAD, 700008" />
+                    android:text="@string/_294_roy_bahadur_road_700008" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -57,7 +57,7 @@
                         android:layout_gravity="center"
                         android:layout_marginStart="5dp"
                         android:layout_marginEnd="5dp"
-                        android:text="Pin :"
+                        android:text="@string/pin"
                         android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
                         android:textStyle="bold" />
 
@@ -66,7 +66,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="700008" />
+                        android:text="@string/_700008" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -87,7 +87,7 @@
                         android:layout_gravity="center"
                         android:layout_marginStart="5dp"
                         android:layout_marginEnd="5dp"
-                        android:text="COVISHIELD"
+                        android:text="@string/covishield"
                         android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
                         android:textStyle="bold" />
 
@@ -96,7 +96,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginEnd="5dp"
-                        android:text="•"
+                        android:text="@string/x"
                         android:textStyle="bold" />
 
                     <ImageView
@@ -112,7 +112,7 @@
                         android:layout_gravity="center"
                         android:layout_marginStart="5dp"
                         android:layout_marginEnd="5dp"
-                        android:text="Free"
+                        android:text="@string/free"
                         android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
                         android:textStyle="bold" />
 
@@ -121,7 +121,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginEnd="5dp"
-                        android:text="•"
+                        android:text="@string/x"
                         android:textStyle="bold" />
 
                     <TextView
@@ -131,7 +131,7 @@
                         android:layout_gravity="center"
                         android:layout_marginStart="5dp"
                         android:layout_marginEnd="5dp"
-                        android:text="45+"
+                        android:text="@string/_45"
                         android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
@@ -173,14 +173,14 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Dose1 : "
+                                android:text="@string/dose1"
                                 android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/txtDose1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="booked" />
+                                android:text="@string/booked" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -191,14 +191,14 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Dose2 : "
+                                android:text="@string/dose2"
                                 android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/txtDose2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="booked" />
+                                android:text="@string/booked" />
                         </LinearLayout>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
@@ -215,7 +215,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
                         android:layout_marginEnd="5dp"
-                        android:text="AVAILABILITY"
+                        android:text="@string/availability"
                         android:textColor="@color/white" />
                 </com.google.android.material.card.MaterialCardView>
             </RelativeLayout>
@@ -223,7 +223,7 @@
                 android:id="@+id/btnBookVac"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Book Now"
+                android:text="@string/book_now"
                 app:backgroundTint="#1b0000"
                 app:cornerRadius="8dp"
                 android:layout_marginBottom="5dp"
@@ -257,7 +257,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="-: Slot1 :-"
+                    android:text="@string/slot1"
                     android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
                     android:textStyle="bold" />
 
@@ -267,7 +267,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="No Slot Found"
+                    android:text="@string/no_slot_found"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
 
                 <TextView
@@ -275,7 +275,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="-: Slot2 :-"
+                    android:text="@string/slot2"
                     android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
                     android:textStyle="bold" />
 
@@ -285,7 +285,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="No Slot Found"
+                    android:text="@string/no_slot_found"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
 
                 <TextView
@@ -293,7 +293,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="-: Slot3 :-"
+                    android:text="@string/slot3"
                     android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
                     android:textStyle="bold" />
 
@@ -303,7 +303,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="No Slot Found"
+                    android:text="@string/no_slot_found"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
 
                 <TextView
@@ -311,7 +311,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="-: Slot4 :-"
+                    android:text="@string/slot4"
                     android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
                     android:textStyle="bold" />
 
@@ -321,7 +321,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="No Slot Found"
+                    android:text="@string/no_slot_found"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
 
             </LinearLayout>

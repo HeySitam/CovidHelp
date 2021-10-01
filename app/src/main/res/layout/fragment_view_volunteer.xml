@@ -36,7 +36,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:drawableEnd="@drawable/arrow_drop_down"
-                        android:hint="State"
+                        android:hint="@string/state"
                         android:inputType="none" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -57,7 +57,7 @@
                         android:layout_height="wrap_content"
                         android:drawableEnd="@drawable/arrow_drop_down"
                         android:enabled="false"
-                        android:hint="District"
+                        android:hint="@string/district"
                         android:inputType="none" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
@@ -70,7 +70,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:gravity="center"
-                android:text="Select Your State and District" />
+                android:text="@string/select_your_state_and_district" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvVolunteer"
