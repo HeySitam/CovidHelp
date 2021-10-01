@@ -29,32 +29,38 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@color/black">
-
-            <org.eazegraph.lib.charts.BarChart
-                android:id="@+id/barchart"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="10dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
-                app:egBarWidth="20dp"
-                app:egFixedBarWidth="true"
-                app:egLegendHeight="40dp" />
+            android:layout_height="wrap_content">
 
             <Spinner
                 android:id="@+id/spinnerSelectState"
-                android:layout_width="wrap_content"
+                android:paddingStart="5dp"
+                android:paddingEnd="2dp"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_height="25dp" />
-        </RelativeLayout>
+
+                android:background="@drawable/spanner"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <org.eazegraph.lib.charts.BarChart
+            android:id="@+id/barchart"
+            android:layout_width="346dp"
+            android:layout_height="312dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="30dp"
+            android:padding="10dp"
+            app:egBarWidth="20dp"
+            app:egFixedBarWidth="true"
+            app:egLegendHeight="40dp" />
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
