@@ -3,25 +3,25 @@
     <item
         android:id="@+id/homeItem"
         android:icon="@drawable/ic_baseline_home_24"
-        android:title="Home" />
+        android:title="@string/home" />
     <item
         android:id="@+id/viewUserProfile"
         android:icon="@drawable/ic_baseline_person_24"
-        android:title="View Profile" />
+        android:title="@string/view_profile" />
     <item
         android:id="@+id/addVol"
         android:icon="@drawable/add_volunteer"
-        android:title="Add Yourself as Volunteer" />
+        android:title="@string/add_yourself_as_volunteer" />
     <item
         android:id="@+id/aboutUs"
         android:icon="@drawable/ic_baseline_person_pin_24"
-        android:title="About App" />
+        android:title="@string/about_app" />
     <item
         android:id="@+id/contactUs"
         android:icon="@drawable/ic_baseline_email_24"
-        android:title="Contact Us" />
+        android:title="@string/contact_us" />
     <item
         android:id="@+id/logout"
         android:icon="@drawable/ic_baseline_logout_24"
-        android:title="Logout" />
+        android:title="@string/logout" />
 </menu>

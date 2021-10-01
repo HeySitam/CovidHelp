@@ -7,7 +7,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Donate Here"
+        android:text="@string/donate_here"
         android:textSize="45sp"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
@@ -36,5 +36,5 @@
         android:textAlignment="center"
         android:padding="8dp"
         android:layout_marginBottom="100dp"
-        android:text="😇Our small help can save a life😇"/>
+        android:text="@string/our_small_help_can_save_a_life"/>
 </RelativeLayout>

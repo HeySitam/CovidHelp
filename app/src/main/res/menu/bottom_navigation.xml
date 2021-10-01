@@ -2,10 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/stateWise"
-        android:title="State Wise"
+        android:title="@string/state_wise"
         android:icon="@drawable/city"/>
     <item
         android:id="@+id/cityWise"
-        android:title="Twitter Help"
+        android:title="@string/twitter_help"
         android:icon="@drawable/city_bottom"/>
 </menu>

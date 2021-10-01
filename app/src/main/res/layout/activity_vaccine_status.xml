@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:inputType="none"
             android:drawableEnd="@drawable/arrow_drop_down"
-            android:hint="State" />
+            android:hint="@string/state" />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilVacDistrict"
@@ -52,7 +52,7 @@
             android:inputType="none"
             android:enabled="false"
             android:drawableEnd="@drawable/arrow_drop_down"
-            android:hint="District" />
+            android:hint="@string/district" />
     </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
     <LinearLayout
@@ -83,8 +83,8 @@
                 android:inputType="none"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
-                android:hint="filter"
-                android:text="All" />
+                android:hint="@string/filter"
+                android:text="@string/all" />
         </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
     <com.google.android.material.textfield.TextInputLayout
@@ -107,7 +107,7 @@
             android:layout_height="wrap_content"
             android:inputType="none"
             android:drawableEnd="@drawable/ic_baseline_calendar_today_24"
-            android:hint="Select Date" />
+            android:hint="@string/select_date" />
     </com.google.android.material.textfield.TextInputLayout>
        <com.google.android.material.button.MaterialButton
            android:id="@+id/btnSearchCenter"
