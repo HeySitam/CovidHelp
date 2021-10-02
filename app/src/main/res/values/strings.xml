@@ -187,6 +187,7 @@
   <!--All the Hardcoded strings has been extracted as string resource-->
   <!--Done by:- GeorgeET15 -->
   <string name="need_help">Need Help?</string>
+  <string name="covid_help">Covid Help</string>
   <string name="enter_city_name">Enter City Name</string>
   <string name="all">All</string>
   <string name="beds">Beds</string>
