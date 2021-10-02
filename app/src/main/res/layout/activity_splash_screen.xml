@@ -15,7 +15,7 @@
         android:layout_marginBottom="30dp"
         android:fontFamily="cursive"
         android:textColor="@color/black"
-        android:text="@string/need_help"
+        android:text="@string/covid_help"
         android:textSize="50sp"
         android:textStyle="bold" />
 
