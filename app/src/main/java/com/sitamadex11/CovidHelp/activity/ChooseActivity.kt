@@ -45,7 +45,7 @@ class ChooseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
         init()
         initWorker()
         fragmentTransaction(HomeFragment())
-        txtUserName.text = "My Name"//firebaseAuth.currentUser!!.displayName
+        txtUserName.text = firebaseAuth.currentUser!!.displayName
     }
 
     private fun init() {

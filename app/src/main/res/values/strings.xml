@@ -1,32 +1,32 @@
 <resources>
-    <string name="app_name">CovidHelp</string>
-    <string name="hemkunt_foundation">Hemkunt Foundation has been helping out with Oxygen Cylinders. 80G donation receipts available.</string>
-    <string name="act_grants">ACT grants has been helping with distribution of oxygen. Run by Indian startup ecosystem. International donations also accepted.</string>
-    <string name="give_india">Give India are providing sanitary napkins for women affected by the Pandemic.</string>
-    <string name="feeding_from_far">Feeding From Far has been feeding the poor and unemployed who are struggling to feed themselves during the lockdown. Accepts international payments.</string>
-    <string name="swasth">Swasth along with ACT Grants is procuring oxygen concentrators and channeling them to hospitals in India.</string>
-    <string name="zomato_feeding_india">Zomato Feeding India are providing hospitals and patients with oxygen and related supplies for free. Accepts international payments.</string>
-    <string name="goonj">Goonj is providing essentials like ration and hygiene material, with dignity, to daily wagers, migrant workers and people struggling for the basics in the villages of India. Eligible for tax deduction of 50% u/s 80G.</string>
-    <string name="enrich_lives_foundation">Enrich Lives Foundation is providing grocery kits and meals to the poor communities.</string>
-    <string name="paytm_foundation">Paytm Foundation is raising ₹10 crore to donate Oxygen Concentrators across India. They will match the contributions received through this initiative.</string>
-    <string name="mission_oxygen">This campaign started as a self-funded mission to help hospitals across the country get immediate access to oxygen concentrators. We assumed a requirement of 100 pieces that we could manage.</string>
-    <string name="who">The World Health Organization (WHO) is leading and coordinating the global effort, supporting countries to prevent, detect, and respond to the pandemic.</string>
-    <string name="wb_gov_help">This online portal is made by Government of WestBengal.</string>
-    <string name="project_oxygen">A project for supplying "Oxygen Cylinder" in your home.</string>
-    <string name="someannoying_help">This online portal is made by Someannoying Community.</string>
-    <string name="chatbot_help">A whatsapp chat bot service from West Bengal Government.</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="covid_tracker">Covid Tracker</string>
-    <string name="recover">Recover</string>
-    <string name="total_death">Total Death</string>
-    <string name="total_active">Total Active</string>
-    <string name="_1234567">1234567</string>
-    <string name="deaths">Deaths</string>
-    <string name="recovered">Recovered</string>
-    <string name="active">Active</string>
-    <string name="Inida">India</string>
-    <string name="state_json">{
+  <string name="app_name">CovidHelp</string>
+  <string name="hemkunt_foundation">Hemkunt Foundation has been helping out with Oxygen Cylinders. 80G donation receipts available.</string>
+  <string name="act_grants">ACT grants has been helping with distribution of oxygen. Run by Indian startup ecosystem. International donations also accepted.</string>
+  <string name="give_india">Give India are providing sanitary napkins for women affected by the Pandemic.</string>
+  <string name="feeding_from_far">Feeding From Far has been feeding the poor and unemployed who are struggling to feed themselves during the lockdown. Accepts international payments.</string>
+  <string name="swasth">Swasth along with ACT Grants is procuring oxygen concentrators and channeling them to hospitals in India.</string>
+  <string name="zomato_feeding_india">Zomato Feeding India are providing hospitals and patients with oxygen and related supplies for free. Accepts international payments.</string>
+  <string name="goonj">Goonj is providing essentials like ration and hygiene material, with dignity, to daily wagers, migrant workers and people struggling for the basics in the villages of India. Eligible for tax deduction of 50% u/s 80G.</string>
+  <string name="enrich_lives_foundation">Enrich Lives Foundation is providing grocery kits and meals to the poor communities.</string>
+  <string name="paytm_foundation">Paytm Foundation is raising ₹10 crore to donate Oxygen Concentrators across India. They will match the contributions received through this initiative.</string>
+  <string name="mission_oxygen">This campaign started as a self-funded mission to help hospitals across the country get immediate access to oxygen concentrators. We assumed a requirement of 100 pieces that we could manage.</string>
+  <string name="who">The World Health Organization (WHO) is leading and coordinating the global effort, supporting countries to prevent, detect, and respond to the pandemic.</string>
+  <string name="wb_gov_help">This online portal is made by Government of WestBengal.</string>
+  <string name="project_oxygen">A project for supplying "Oxygen Cylinder" in your home.</string>
+  <string name="someannoying_help">This online portal is made by Someannoying Community.</string>
+  <string name="chatbot_help">A whatsapp chat bot service from West Bengal Government.</string>
+  <!-- TODO: Remove or change this placeholder text -->
+  <string name="hello_blank_fragment">Hello blank fragment</string>
+  <string name="covid_tracker">Covid Tracker</string>
+  <string name="recover">Recover</string>
+  <string name="total_death">Total Death</string>
+  <string name="total_active">Total Active</string>
+  <string name="_1234567">1234567</string>
+  <string name="deaths">Deaths</string>
+  <string name="recovered">Recovered</string>
+  <string name="active">Active</string>
+  <string name="Inida">India</string>
+  <string name="state_json">{
   \"states\": [
   {
   \"state_id\": 1,
@@ -179,8 +179,9 @@
   ],
   "ttl": 24
   }</string>
-    <string name="open">Open</string>
-    <string name="close">Close</string>
+  <string name="open">Open</string>
+  <string name="close">Close</string>
+
 
 
   <!--All the Hardcoded strings has been extracted as string resource-->
@@ -287,6 +288,7 @@
   <string name="exit">Exit</string>
   <string name="x">•</string>
   <string name="_9062717912">9062717912</string>
+  <string name="covid_help">Covid Help</string>
   <string name="i_want_to_help">I want to help</string>
   <string name="uphc_116">UPHC-116</string>
   <string name="_294_roy_bahadur_road_700008">294 ROY BAHADUR ROAD, 700008</string>
