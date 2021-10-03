@@ -8,5 +8,6 @@ class Constants {
             "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?"
         const val someUrl = "https://covid.someannoying.com/index.php"
         const val wbUrl = "https://excise.wb.gov.in/CHMS/Portal_Default.aspx"
+        const val PRIVACY_POLICY_URL = "https://covidhelp-3.flycricket.io/privacy.html"
     }
 }
