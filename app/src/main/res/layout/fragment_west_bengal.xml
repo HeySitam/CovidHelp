@@ -361,7 +361,7 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/imgDonate3"
                             android:layout_centerHorizontal="true"
-                            android:text="@string/project_oxygen"
+                            android:text="@string/Project_Oxygen"
                             android:textColor="@color/black"
                             android:textSize="18sp"
                             android:textStyle="bold" />
