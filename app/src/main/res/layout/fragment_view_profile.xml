@@ -30,6 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignTop="@id/llProfileBody"
+                android:backgroundTint="#E6E6E6"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="15dp"
@@ -40,6 +41,7 @@
                 android:id="@+id/llProfileBody"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingBottom="20dp"
                 android:layout_below="@+id/imgProfilePhoto"
                 android:layout_marginTop="10dp"
                 android:orientation="vertical">
@@ -52,9 +54,13 @@
                         android:id="@+id/txtProfileName"
                         android:layout_width='match_parent'
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_semibold"
                         android:gravity="center"
+                        android:includeFontPadding="false"
                         android:text="Fetching..."
+                        android:textAllCaps="true"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+                        android:textColor="@color/red_shade"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -63,8 +69,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:fontFamily="@font/product_sans_regular"
                     android:text="Fetching..."
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                    android:textColor="#939393" />
 
                 <TextView
                     android:id="@+id/txtISVol"
@@ -72,6 +80,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="5dp"
+                    android:fontFamily="@font/product_sans_regular"
                     android:text="😇 You are a Volunteer 😇"
                     android:textStyle="bold"
                     android:visibility="gone" />
@@ -79,105 +88,184 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:background="#f5f5f5"
-                    android:paddingStart="20dp"
-                    android:paddingTop="10dp"
-                    android:paddingEnd="20dp"
-                    android:paddingBottom="10dp">
+                    android:layout_gravity="center"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/view_profile_bg"
+                    android:elevation="5dp"
+                    app:cardCornerRadius="10dp">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:text="Address     :    "
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+                        android:layout_gravity="center"
+                        android:orientation="vertical"
+                        android:paddingStart="20dp"
+                        android:paddingTop="20dp"
+                        android:paddingEnd="20dp"
+                        android:paddingBottom="10dp">
 
-                    <TextView
-                        android:id="@+id/txtProfileAddress"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Fetching..."
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                            android:src="@drawable/ic_address"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text="Address     :"
+                                android:textColor="#408861"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:includeFontPadding="false"
+                                android:layout_marginStart="8dp"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:id="@+id/txtProfileAddress"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="10dp"
+                                android:text="Fetching..."
+                                android:textColor="#71CAC8"
+                                android:fontFamily="@font/product_sans_regular"
+                                android:includeFontPadding="false"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                                android:textSize="20sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_state"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="18dp"
+                                android:text="State           :"
+                                android:textColor="#408861"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:includeFontPadding="false"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:id="@+id/txtProfileState"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="10dp"
+                                android:text="Fetching..."
+                                android:textColor="#71CAC8"
+                                android:fontFamily="@font/product_sans_regular"
+                                android:includeFontPadding="false"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                                android:textSize="20sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_district"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="9dp"
+                                android:layout_gravity="center_vertical"
+                                android:text="District       :"
+                                android:textColor="#408861"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:includeFontPadding="false"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:id="@+id/txtProfileDistrict"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="10dp"
+                                android:text="Fetching..."
+                                android:textColor="#71CAC8"
+                                android:fontFamily="@font/product_sans_regular"
+                                android:includeFontPadding="false"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                                android:textSize="20sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_baseline_local_phone_24"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_gravity="center_vertical"
+                                android:text="Phone No   :"
+                                android:textColor="#408861"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:includeFontPadding="false"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:id="@+id/txtProfilePhone"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="10dp"
+                                android:text="Fetching..."
+                                android:textColor="#71CAC8"
+                                android:fontFamily="@font/product_sans_regular"
+                                android:includeFontPadding="false"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                                android:textSize="20sp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:background="#f5f5f5"
-                    android:paddingStart="20dp"
-                    android:paddingTop="10dp"
-                    android:paddingEnd="20dp"
-                    android:paddingBottom="10dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:text="State     :     "
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
-
-                    <TextView
-                        android:id="@+id/txtProfileState"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:text="Fetching..."
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:background="#f5f5f5"
-                    android:paddingStart="20dp"
-                    android:paddingTop="10dp"
-                    android:paddingEnd="20dp"
-                    android:paddingBottom="10dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:text="District      :      "
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
-
-                    <TextView
-                        android:id="@+id/txtProfileDistrict"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:text="Fetching..."
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:background="#f5f5f5"
-                    android:paddingStart="20dp"
-                    android:paddingTop="10dp"
-                    android:paddingEnd="20dp"
-                    android:paddingBottom="10dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:text="Phone      :      "
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
-
-                    <TextView
-                        android:id="@+id/txtProfilePhone"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:text="Fetching..."
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
             </LinearLayout>
         </RelativeLayout>
     </ScrollView>
