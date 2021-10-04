@@ -205,7 +205,7 @@
   <string name="search">Search</string>
   <string name="food">Food</string>
   <string name="enter_other_item">Enter Other Item</string>
-  <string name="here_you_find_everything">💕Here You Find Everything💕</string>
+  <string name="here_you_find_everything">Here You Find Everything</string>
   <string name="state">State</string>
   <string name="district">District</string>
   <string name="filter">filter</string>
@@ -325,4 +325,5 @@
   <string name="twitter_help">Twitter Help</string>
   <string name="Project_Oxygen">Project Oxygen</string>
   <string name="privacy_policy">Privacy Policy</string>
+    <string name="stay_safe_stay_healthy">Stay Safe. Stay Healthy.</string>
 </resources>
