@@ -1,41 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F4B185"
     android:fitsSystemWindows="true"
     tools:context=".activity.SplashScreenActivity">
 
     <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@id/imgSplashLogo"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
         android:fontFamily="cursive"
-        android:textColor="@color/black"
-        android:text="@string/need_help"
-        android:textSize="50sp"
-        android:textStyle="bold" />
+        android:text="@string/covid_help"
+        android:textColor="@color/white"
+        android:textSize="65sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgSplashLogo" />
 
     <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/imgSplashLogo"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="164dp"
+        android:layout_height="89dp"
         android:layout_centerInParent="true"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="161dp"
         android:scaleType="fitCenter"
         android:src="@drawable/app_logo"
         app:civ_border="true"
         app:civ_border_color="@color/black"
-        app:civ_border_width="2dp" />
+        app:civ_border_width="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieAnimationView"
+        android:layout_width="302dp"
+        android:layout_height="302dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.544"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/covid19_animation" />
+
     <TextView
-        android:layout_width="300dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="@string/stay_safe_stay_healthy"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lottieAnimationView"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/imgSplashLogo"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:fontFamily="@font/product_sans_regular"
         android:text="@string/here_you_find_everything"
         android:textAlignment="center"
-        android:textSize="18sp" />
-</RelativeLayout>
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgSplashLogo"
+        app:layout_constraintVertical_bias="0.913" />
+</androidx.constraintlayout.widget.ConstraintLayout>

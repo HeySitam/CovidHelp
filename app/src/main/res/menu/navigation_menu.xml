@@ -21,6 +21,10 @@
         android:icon="@drawable/ic_baseline_email_24"
         android:title="@string/contact_us" />
     <item
+        android:id="@+id/privacyPolicy"
+        android:icon="@drawable/ic_privacy_policy_24"
+        android:title="@string/privacy_policy" />
+    <item
         android:id="@+id/logout"
         android:icon="@drawable/ic_baseline_logout_24"
         android:title="@string/logout" />

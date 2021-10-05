@@ -23,7 +23,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.sitamadex11.CovidHelp.R
 import com.sitamadex11.CovidHelp.fragments.AboutUsFragment
 import com.sitamadex11.CovidHelp.fragments.HomeFragment
-import com.sitamadex11.CovidHelp.fragments.PrivacyPolicyFragment
 import com.sitamadex11.CovidHelp.fragments.ViewProfileFragment
 import com.sitamadex11.CovidHelp.worker.CovidTrackerWorker
 import kotlinx.android.synthetic.main.activity_choose.*
@@ -117,10 +116,6 @@ class ChooseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
                 drawerLayout.closeDrawer(GravityCompat.START)
                 firebaseAuth.signOut()
                 startActivity(Intent(this, LoginActivity::class.java))
-            }
-            R.id.privacyPolicy -> {
-                fragmentTransaction(PrivacyPolicyFragment())
-                drawerLayout.closeDrawer(GravityCompat.START)
             }
         }
         return true
