@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             app:cornerRadius="10dp"
             android:padding="10dp"
-            android:text="Retry" />
+            android:text="@string/retry" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnExit"
@@ -35,6 +35,6 @@
             android:layout_marginStart="10dp"
             app:cornerRadius="10dp"
             android:padding="10dp"
-            android:text="Exit" />
+            android:text="@string/exit" />
     </LinearLayout>
 </RelativeLayout>

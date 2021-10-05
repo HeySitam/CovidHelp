@@ -14,7 +14,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:fontFamily="cursive"
-        android:text="Cities"
+        android:text="@string/cities"
         android:textColor="@android:color/white"
         android:textSize="40sp"
         android:textStyle="bold" />
@@ -67,7 +67,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="5dp"
-                        android:text="Kolkata"
+                        android:text="@string/kolkata"
                         android:textColor="#003d33"
                         android:textSize="12sp"
                         android:textStyle="bold" />
@@ -108,7 +108,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="5dp"
-                        android:text="Delhi"
+                        android:text="@string/delhi"
                         android:textColor="#003d33"
                         android:textSize="12sp"
                         android:textStyle="bold" />
@@ -149,7 +149,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="5dp"
-                        android:text="Pune"
+                        android:text="@string/pune"
                         android:textColor="#003d33"
                         android:textSize="12sp"
                         android:textStyle="bold" />
@@ -190,7 +190,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="5dp"
-                        android:text="Mumbai"
+                        android:text="@string/mumbai"
                         android:textColor="#003d33"
                         android:textSize="12sp"
                         android:textStyle="bold" />
@@ -236,7 +236,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="5dp"
-                        android:text="Bangalore"
+                        android:text="@string/bangalore"
                         android:textColor="#003d33"
                         android:textSize="12sp"
                         android:textStyle="bold" />
@@ -277,7 +277,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="5dp"
-                        android:text="Thane"
+                        android:text="@string/thane"
                         android:textColor="#003d33"
                         android:textSize="12sp"
                         android:textStyle="bold" />
@@ -318,7 +318,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="5dp"
-                        android:text="Hyderbad"
+                        android:text="@string/hyderbad"
                         android:textColor="#003d33"
                         android:textSize="12sp"
                         android:textStyle="bold" />
@@ -359,7 +359,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="5dp"
-                        android:text="Nagpur"
+                        android:text="@string/nagpur"
                         android:textColor="#003d33"
                         android:textSize="12sp"
                         android:textStyle="bold" />
@@ -405,7 +405,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="5dp"
-                        android:text="Lucknow"
+                        android:text="@string/lucknow"
                         android:textColor="#003d33"
                         android:textSize="12sp"
                         android:textStyle="bold" />
@@ -446,7 +446,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="7dp"
-                        android:text="Ahmedabad"
+                        android:text="@string/ahmedabad"
                         android:textColor="#003d33"
                         android:textSize="12sp"
                         android:textStyle="bold" />
@@ -488,7 +488,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="5dp"
-                        android:text="Chennai"
+                        android:text="@string/chennai"
                         android:textColor="#003d33"
                         android:textSize="12sp"
                         android:textStyle="bold" />
@@ -529,7 +529,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="5dp"
-                        android:text="Goa"
+                        android:text="@string/goa"
                         android:textColor="#003d33"
                         android:textSize="12sp"
                         android:textStyle="bold" />
@@ -557,7 +557,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="   OR   "
+            android:text="@string/or"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
             android:textColor="@android:color/white" />
 
@@ -579,7 +579,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="60dp"
         android:background="@drawable/button"
-        android:text="Search Other Cities"
+        android:text="@string/search_other_cities"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="15sp"

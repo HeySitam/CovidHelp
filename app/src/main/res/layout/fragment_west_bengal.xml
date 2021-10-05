@@ -57,7 +57,7 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/imgDonate"
                             android:layout_centerHorizontal="true"
-                            android:text="WB-ICMS"
+                            android:text="@string/wb_icms"
                             android:textColor="@color/black"
                             android:textSize="18sp"
                             android:textStyle="bold" />
@@ -73,13 +73,13 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Bed Available : "
+                                android:text="@string/bed_available"
                                 android:textStyle="bold" />
                             <TextView
                                 android:id="@+id/txtAvailBed"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Fetching"
+                                android:text="@string/fetching"
                                 android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
                                 android:textColor="#005005"
                                 android:textStyle="bold" />
@@ -160,7 +160,7 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
                             android:layout_marginBottom="10dp"
-                            android:text="E-SERVICES"
+                            android:text="@string/e_services"
                             android:textColor="@color/white"
                             android:textSize="10sp"
                             app:cornerRadius="8dp" />
@@ -204,7 +204,7 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/imgDonate1"
                             android:layout_centerHorizontal="true"
-                            android:text="Someannoying"
+                            android:text="@string/someannoying"
                             android:textColor="@color/black"
                             android:textSize="18sp"
                             android:textStyle="bold" />
@@ -233,7 +233,7 @@
                                 android:clickable="true"
                                 android:elevation="5dp"
                                 android:focusable="true"
-                                android:text="Ask for Help"
+                                android:text="@string/ask_for_help"
                                 android:textStyle="bold" />
                         </LinearLayout>
 
@@ -312,7 +312,7 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
                             android:layout_marginBottom="10dp"
-                            android:text="RESOURCES"
+                            android:text="@string/resources"
                             android:textColor="@color/white"
                             android:textSize="10sp"
                             app:cornerRadius="8dp" />
@@ -361,7 +361,7 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/imgDonate3"
                             android:layout_centerHorizontal="true"
-                            android:text="PROJECT-OXYGEN"
+                            android:text="@string/project_oxygen"
                             android:textColor="@color/black"
                             android:textSize="18sp"
                             android:textStyle="bold" />
@@ -377,14 +377,14 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Cylinder Available : "
+                                android:text="@string/cylinder_available"
                                 android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/txtAvailCylinder"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Fetching"
+                                android:text="@string/fetching"
                                 android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
                                 android:textColor="#005005"
                                 android:textStyle="bold" />
@@ -465,7 +465,7 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
                             android:layout_marginBottom="10dp"
-                            android:text="Get Cylinder"
+                            android:text="@string/get_cylinder"
                             android:textColor="@color/white"
                             android:textSize="10sp"
                             app:cornerRadius="8dp" />
@@ -509,7 +509,7 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/imgDonate4"
                             android:layout_centerHorizontal="true"
-                            android:text="Whatsapp ChatBot"
+                            android:text="@string/whatsapp_chatbot"
                             android:textColor="@color/black"
                             android:textSize="18sp"
                             android:textStyle="bold" />
@@ -529,7 +529,7 @@
                                 android:background="?attr/selectableItemBackground"
                                 android:clickable="true"
                                 android:focusable="true"
-                                android:text="+917596056446"
+                                android:text="@string/_917596056446"
                                 android:textStyle="bold" />
                         </LinearLayout>
 
@@ -608,7 +608,7 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
                             android:layout_marginBottom="10dp"
-                            android:text="Open WhatsApp"
+                            android:text="@string/open_whatsapp"
                             android:textColor="@color/white"
                             android:textSize="10sp"
                             app:cornerRadius="8dp" />

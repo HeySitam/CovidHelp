@@ -15,7 +15,7 @@
         android:layout_marginBottom="30dp"
         android:fontFamily="cursive"
         android:textColor="@color/black"
-        android:text="Covid Help"
+        android:text="@string/need_help"
         android:textSize="50sp"
         android:textStyle="bold" />
 
@@ -35,7 +35,7 @@
         android:layout_below="@id/imgSplashLogo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:text="💕Here You Find Everything💕"
+        android:text="@string/here_you_find_everything"
         android:textAlignment="center"
         android:textSize="18sp" />
 </RelativeLayout>

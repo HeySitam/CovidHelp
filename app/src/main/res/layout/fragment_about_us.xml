@@ -22,7 +22,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
                 android:fontFamily="cursive"
-                android:text="-: About App :-"
+                android:text="@string/about_app"
                 android:textColor="@color/black"
                 android:textSize="40sp"
                 android:textStyle="bold" />
@@ -43,7 +43,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
-                android:text="The Covid-Help app is a treasure of all types of covid-resources like bed, oxygen, plasma/blood, test resources, medicine, doctors' information, vaccination information, and many many more...."
+                android:text="@string/the_covid_help_app_is_a_treasure_of_all_types_of_covid_resources_like_bed_oxygen_plasma_blood_test_resources_medicine_doctors_information_vaccination_information_and_many_many_more"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
                 android:textStyle="bold" />
@@ -62,7 +62,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
-                android:text="Need Help"
+                android:text="@string/need_help"
                 android:textAlignment="center"
                 android:textSize="20sp" />
 
@@ -72,7 +72,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
-                android:text="Here you will get all verified information about covid-resources from some verified websites also you can get advanced Twitter-Help support to find relevant resources in your city."
+                android:text="@string/here_you_will_get_all_verified_information_about_covid_resources_from_some_verified_websites_also_you_can_get_advanced_twitter_help_support_to_find_relevant_resources_in_your_city"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
 
@@ -82,7 +82,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
-                android:text="Volunteers"
+                android:text="@string/volunteers"
                 android:textAlignment="center"
                 android:textSize="20sp" />
 
@@ -92,7 +92,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
-                android:text="Here you will get verified and aspiring volunteers' information in your local area. You can search them by your state and district and also can contact them directly from the app through message and call. Also, you can add yourself as a volunteer."
+                android:text="@string/here_you_will_get_verified_and_aspiring_volunteers_information_in_your_local_area_you_can_search_them_by_your_state_and_district_and_also_can_contact_them_directly_from_the_app_through_message_and_call_also_you_can_add_yourself_as_a_volunteer"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
 
@@ -102,7 +102,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
-                android:text="Covid Tracker"
+                android:text="@string/covid_tracker"
                 android:textAlignment="center"
                 android:textSize="20sp" />
 
@@ -112,7 +112,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
-                android:text="Here you can track information about the latest covid cases of India and also you can get state-wise information. Also, you will be notified within every 6 hours about the latest cases in India."
+                android:text="@string/here_you_can_track_information_about_the_latest_covid_cases_of_india_and_also_you_can_get_state_wise_information_also_you_will_be_notified_within_every_6_hours_about_the_latest_cases_in_india"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
 
@@ -122,7 +122,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
-                android:text="Vaccine Status"
+                android:text="@string/vaccine_status"
                 android:textAlignment="center"
                 android:textSize="20sp" />
 
@@ -132,7 +132,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
-                android:text="You can check if there any vaccination slot available or not in your area and now no need to check the COWIN website anymore and also you will be redirected to the booking portal of COWIN if the slot remains available."
+                android:text="@string/you_can_check_if_there_any_vaccination_slot_available_or_not_in_your_area_and_now_no_need_to_check_the_cowin_website_anymore_and_also_you_will_be_redirected_to_the_booking_portal_of_cowin_if_the_slot_remains_available"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
 
@@ -142,7 +142,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
-                android:text="Donate"
+                android:text="@string/donate"
                 android:textAlignment="center"
                 android:textSize="20sp" />
 
@@ -152,7 +152,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
-                android:text="Some verified websites and portals to donate for helping people in this pandemic situation."
+                android:text="@string/some_verified_websites_and_portals_to_donate_for_helping_people_in_this_pandemic_situation"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
 
@@ -170,7 +170,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
-                android:text="Also Our app is an Open Source project.Welcome you all to contribute in our app."
+                android:text="@string/also_our_app_is_an_open_source_project_welcome_you_all_to_contribute_in_our_app"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
                 android:textStyle="bold" />
@@ -183,7 +183,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:padding="15dp"
-                android:text="View Repository"
+                android:text="@string/view_repository"
                 app:cornerRadius="10dp" />
 
             <TextView
@@ -193,7 +193,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="30dp"
-                android:text="VERSION : 1.0"
+                android:text="@string/version_1_0"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
                 android:textStyle="bold" />

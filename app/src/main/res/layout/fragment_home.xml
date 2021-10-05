@@ -49,7 +49,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:text="Need Help?"
+                        android:text="@string/resources"
                         android:textColor="#191970"
                         android:textSize="18dp"
                         android:textStyle="bold" />
@@ -126,7 +126,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:text="Covid Tracker"
+                        android:text="@string/covid_tracker"
                         android:textColor="#191970"
                         android:textSize="18dp"
                         android:textStyle="bold" />
@@ -164,7 +164,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:text="Vaccine Status"
+                        android:text="@string/vaccine_status"
                         android:textColor="#191970"
                         android:textSize="18dp"
                         android:textStyle="bold" />
@@ -202,7 +202,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:text="Donate Here"
+                        android:text="@string/donate_here"
                         android:textColor="#191970"
                         android:textSize="18dp"
                         android:textStyle="bold" />
@@ -237,7 +237,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:text="Book Vaccine"
+                        android:text="@string/book_vaccine"
                         android:textColor="#191970"
                         android:textSize="18dp"
                         android:textStyle="bold" />
@@ -251,7 +251,7 @@
            android:layout_gravity="center_horizontal"
             android:layout_marginBottom="30dp"
             android:layout_marginTop="50dp"
-            android:text="Made With 🤍"
+            android:text="@string/made_with"
             android:textColor="@color/white"
             android:textSize="15sp" />
     </LinearLayout>
