@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#10000000"
-    tools:context=".activity.CitySelectionActivity">
+    tools:context=".activity.ChooseActivity">
 
     <TextView
         android:id="@+id/txtCities"
@@ -244,7 +244,7 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/mdThane"
+                android:id="@+id/mdJaipur"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="1dp"
@@ -277,7 +277,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="5dp"
-                        android:text="@string/thane"
+                        android:text="@string/jaipur"
                         android:textColor="#003d33"
                         android:textSize="12sp"
                         android:textStyle="bold" />
@@ -326,7 +326,7 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/mdNagpur"
+                android:id="@+id/mdAgra"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="1dp"
@@ -359,7 +359,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="5dp"
-                        android:text="@string/nagpur"
+                        android:text="@string/agra"
                         android:textColor="#003d33"
                         android:textSize="12sp"
                         android:textStyle="bold" />
