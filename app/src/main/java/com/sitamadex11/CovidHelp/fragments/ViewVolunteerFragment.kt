@@ -7,6 +7,7 @@ import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.net.Uri
 import android.os.Bundle
+import android.telephony.SmsManager
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -40,7 +41,6 @@ import com.sitamadex11.CovidHelp.util.Constants
 import io.github.yavski.fabspeeddial.FabSpeedDial
 import io.github.yavski.fabspeeddial.SimpleMenuListenerAdapter
 import kotlinx.android.synthetic.main.fragment_view_volunteer.*
-import java.util.jar.Manifest
 
 
 class ViewVolunteerFragment : Fragment(), VLAdapter, View.OnClickListener {
@@ -61,6 +61,7 @@ class ViewVolunteerFragment : Fragment(), VLAdapter, View.OnClickListener {
     val district_list = java.util.ArrayList<DistrictItems>()
     val district_name_list = java.util.ArrayList<String>()
     val CALL_PERMISSION_CODE = 1497
+    val MESSAGE_PERMISSION_CODE=123
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -272,31 +273,29 @@ class ViewVolunteerFragment : Fragment(), VLAdapter, View.OnClickListener {
     }
 
     override fun onMessageBtnClicked(phone: String) {
-        val customLayout = layoutInflater
-            .inflate(
-                R.layout.dialog_message, null
-            )
-        msgInit(customLayout)
-        val builder = AlertDialog.Builder(requireContext())
-        builder.setView(customLayout)
-        dialog = builder.create()
-        btnCancel.setOnClickListener(this)
-        dialog.show()
-        btnSend.setOnClickListener {
-            if (etSendMessage.text.isNullOrEmpty()) {
-                etSendMessage.error = "Please enter some text message"
-            } else {
-                val msg = etSendMessage.text.toString()
-                val sms_uri = Uri.parse("smsto:$phone")
-                val sms_intent = Intent(Intent.ACTION_VIEW, sms_uri)
-                sms_intent.setData(sms_uri)
-                sms_intent.putExtra("sms_body", msg)
-                startActivity(sms_intent);
-                dialog.hide()
-                etSendMessage.error = null
-            }
-        }
-
+        checkPermission(android.Manifest.permission.SEND_SMS, MESSAGE_PERMISSION_CODE)
+            val customLayout = layoutInflater
+                .inflate(
+                    R.layout.dialog_message, null
+                )
+            msgInit(customLayout)
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setView(customLayout)
+            dialog = builder.create()
+            btnCancel.setOnClickListener(this)
+                dialog.show()
+                btnSend.setOnClickListener {
+                    if (etSendMessage.text.isNullOrEmpty()) {
+                        etSendMessage.error = "Please enter some text message"
+                    } else {
+                        val msg = etSendMessage.text.toString()
+                        val smsManager: SmsManager = SmsManager.getDefault()
+                        smsManager.sendTextMessage(phone, null, msg, null, null)
+                        dialog.hide()
+                        etSendMessage.error = null
+                        Toast.makeText(getActivity(), "Message Sent", Toast.LENGTH_SHORT).show()
+                    }
+                }
     }
 
     private fun msgInit(v: View?) {
@@ -405,6 +404,15 @@ class ViewVolunteerFragment : Fragment(), VLAdapter, View.OnClickListener {
                     .show()
             } else {
                 Toast.makeText(requireContext(), "Call Permission Denied", Toast.LENGTH_SHORT)
+                    .show()
+            }
+        }
+        if (requestCode == MESSAGE_PERMISSION_CODE) {
+            if (grantResults.isNotEmpty() && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(requireContext(), "Message Permission Granted", Toast.LENGTH_SHORT)
+                    .show()
+            } else {
+                Toast.makeText(requireContext(), "Message Permission Denied", Toast.LENGTH_SHORT)
                     .show()
             }
         }
