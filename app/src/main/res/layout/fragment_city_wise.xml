@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -26,7 +25,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/txtCities"
         android:layout_marginTop="20dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,16 +34,9 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/mdKolkata"
+                style="@style/CityCardViewStyle"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:background="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardCornerRadius="10dp"
-                app:strokeColor="#4db6ac"
-                app:strokeWidth="2dp">
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -53,39 +46,25 @@
                     android:padding="8dp">
 
                     <com.mikhaellopez.circularimageview.CircularImageView
+                        style="@style/CityCircularImageStyle"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/city_all_one"
-                        app:civ_border="true"
-                        app:civ_border_color="@color/black"
-                        app:civ_border_width="2dp" />
+                        android:src="@drawable/ic_kolkata" />
 
                     <TextView
+                        style="@style/CityTextTitleStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/kolkata"
-                        android:textColor="#003d33"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
+                        android:text="@string/kolkata" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/mdDelhi"
+                style="@style/CityCardViewStyle"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:background="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardCornerRadius="10dp"
-                app:strokeColor="#4db6ac"
-                app:strokeWidth="2dp">
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -95,38 +74,25 @@
                     android:padding="8dp">
 
                     <com.mikhaellopez.circularimageview.CircularImageView
+                        style="@style/CityCircularImageStyle"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/city_all_one"
-                        app:civ_border="true"
-                        app:civ_border_color="@color/black"
-                        app:civ_border_width="2dp" />
+                        android:src="@drawable/ic_delhi" />
 
                     <TextView
+                        style="@style/CityTextTitleStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/delhi"
-                        android:textColor="#003d33"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
+                        android:text="@string/delhi" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/mdPune"
+                style="@style/CityCardViewStyle"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:background="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardCornerRadius="10dp"
-                app:strokeColor="#4db6ac"
-                app:strokeWidth="2dp">
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -136,38 +102,25 @@
                     android:padding="8dp">
 
                     <com.mikhaellopez.circularimageview.CircularImageView
+                        style="@style/CityCircularImageStyle"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/city_all_one"
-                        app:civ_border="true"
-                        app:civ_border_color="@color/black"
-                        app:civ_border_width="2dp" />
+                        android:src="@drawable/ic_pune" />
 
                     <TextView
+                        style="@style/CityTextTitleStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/pune"
-                        android:textColor="#003d33"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
+                        android:text="@string/pune" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/mdMumbai"
+                style="@style/CityCardViewStyle"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:background="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardCornerRadius="10dp"
-                app:strokeColor="#4db6ac"
-                app:strokeWidth="2dp">
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -177,23 +130,17 @@
                     android:padding="8dp">
 
                     <com.mikhaellopez.circularimageview.CircularImageView
+                        style="@style/CityCircularImageStyle"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/city_all_one"
-                        app:civ_border="true"
-                        app:civ_border_color="@color/black"
-                        app:civ_border_width="2dp" />
+                        android:src="@drawable/ic_mumbai" />
 
                     <TextView
+                        style="@style/CityTextTitleStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/mumbai"
-                        android:textColor="#003d33"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
+                        android:text="@string/mumbai" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
@@ -204,16 +151,9 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/mdBangalore"
+                style="@style/CityCardViewStyle"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:background="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardCornerRadius="10dp"
-                app:strokeColor="#4db6ac"
-                app:strokeWidth="2dp">
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -223,38 +163,25 @@
                     android:padding="8dp">
 
                     <com.mikhaellopez.circularimageview.CircularImageView
+                        style="@style/CityCircularImageStyle"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/city_all_one"
-                        app:civ_border="true"
-                        app:civ_border_color="@color/black"
-                        app:civ_border_width="2dp" />
+                        android:src="@drawable/ic_bengaluru" />
 
                     <TextView
+                        style="@style/CityTextTitleStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/bangalore"
-                        android:textColor="#003d33"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
+                        android:text="@string/bangalore" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/mdJaipur"
+                style="@style/CityCardViewStyle"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:background="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardCornerRadius="10dp"
-                app:strokeColor="#4db6ac"
-                app:strokeWidth="2dp">
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -264,38 +191,25 @@
                     android:padding="8dp">
 
                     <com.mikhaellopez.circularimageview.CircularImageView
+                        style="@style/CityCircularImageStyle"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/city_all_one"
-                        app:civ_border="true"
-                        app:civ_border_color="@color/black"
-                        app:civ_border_width="2dp" />
+                        android:src="@drawable/ic_jaipur" />
 
                     <TextView
+                        style="@style/CityTextTitleStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/jaipur"
-                        android:textColor="#003d33"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
+                        android:text="@string/jaipur" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/mdHyderbad"
+                style="@style/CityCardViewStyle"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:background="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardCornerRadius="10dp"
-                app:strokeColor="#4db6ac"
-                app:strokeWidth="2dp">
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -305,38 +219,25 @@
                     android:padding="8dp">
 
                     <com.mikhaellopez.circularimageview.CircularImageView
+                        style="@style/CityCircularImageStyle"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/city_all_one"
-                        app:civ_border="true"
-                        app:civ_border_color="@color/black"
-                        app:civ_border_width="2dp" />
+                        android:src="@drawable/ic_hyderabad" />
 
                     <TextView
+                        style="@style/CityTextTitleStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/hyderbad"
-                        android:textColor="#003d33"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
+                        android:text="@string/hyderbad" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/mdAgra"
+                style="@style/CityCardViewStyle"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:background="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardCornerRadius="10dp"
-                app:strokeColor="#4db6ac"
-                app:strokeWidth="2dp">
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -346,23 +247,17 @@
                     android:padding="8dp">
 
                     <com.mikhaellopez.circularimageview.CircularImageView
+                        style="@style/CityCircularImageStyle"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/city_all_one"
-                        app:civ_border="true"
-                        app:civ_border_color="@color/black"
-                        app:civ_border_width="2dp" />
+                        android:src="@drawable/ic_agra" />
 
                     <TextView
+                        style="@style/CityTextTitleStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/agra"
-                        android:textColor="#003d33"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
+                        android:text="@string/agra" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
@@ -373,16 +268,9 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/mdLucknow"
+                style="@style/CityCardViewStyle"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:background="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardCornerRadius="10dp"
-                app:strokeColor="#4db6ac"
-                app:strokeWidth="2dp">
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -392,38 +280,25 @@
                     android:padding="8dp">
 
                     <com.mikhaellopez.circularimageview.CircularImageView
+                        style="@style/CityCircularImageStyle"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/city_all_one"
-                        app:civ_border="true"
-                        app:civ_border_color="@color/black"
-                        app:civ_border_width="2dp" />
+                        android:src="@drawable/ic_lucknow" />
 
                     <TextView
+                        style="@style/CityTextTitleStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/lucknow"
-                        android:textColor="#003d33"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
+                        android:text="@string/lucknow" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/mdAhmedabad"
+                style="@style/CityCardViewStyle"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:background="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardCornerRadius="10dp"
-                app:strokeColor="#4db6ac"
-                app:strokeWidth="2dp">
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -433,38 +308,25 @@
                     android:padding="8dp">
 
                     <com.mikhaellopez.circularimageview.CircularImageView
+                        style="@style/CityCircularImageStyle"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/city_all_one"
-                        app:civ_border="true"
-                        app:civ_border_color="@color/black"
-                        app:civ_border_width="2dp" />
+                        android:src="@drawable/ic_ahmedabad" />
 
                     <TextView
+                        style="@style/CityTextTitleStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="7dp"
-                        android:text="@string/ahmedabad"
-                        android:textColor="#003d33"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
+                        android:text="@string/ahmedabad" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/mdChennai"
+                style="@style/CityCardViewStyle"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:background="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardCornerRadius="10dp"
-                app:strokeColor="#4db6ac"
-                app:strokeWidth="2dp">
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -474,39 +336,25 @@
                     android:padding="8dp">
 
                     <com.mikhaellopez.circularimageview.CircularImageView
+                        style="@style/CityCircularImageStyle"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/city_all_one"
-                        app:civ_border="true"
-                        app:civ_border_color="@color/black"
-                        app:civ_border_width="2dp" />
+                        android:src="@drawable/ic_chennai" />
 
                     <TextView
+                        style="@style/CityTextTitleStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/chennai"
-                        android:textColor="#003d33"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
+                        android:text="@string/chennai" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/mdGoa"
+                style="@style/CityCardViewStyle"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:background="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardCornerRadius="10dp"
-                app:strokeColor="#4db6ac"
-                app:strokeWidth="2dp">
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -516,23 +364,17 @@
                     android:padding="8dp">
 
                     <com.mikhaellopez.circularimageview.CircularImageView
+                        style="@style/CityCircularImageStyle"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/city_all_one"
-                        app:civ_border="true"
-                        app:civ_border_color="@color/black"
-                        app:civ_border_width="2dp" />
+                        android:src="@drawable/ic_goa" />
 
                     <TextView
+                        style="@style/CityTextTitleStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/goa"
-                        android:textColor="#003d33"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
+                        android:text="@string/goa" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
