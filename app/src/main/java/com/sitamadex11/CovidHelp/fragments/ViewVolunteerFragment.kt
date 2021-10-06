@@ -2,6 +2,7 @@ package com.sitamadex11.CovidHelp.fragments
 
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.net.Uri
@@ -15,6 +16,8 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -37,6 +40,7 @@ import com.sitamadex11.CovidHelp.util.Constants
 import io.github.yavski.fabspeeddial.FabSpeedDial
 import io.github.yavski.fabspeeddial.SimpleMenuListenerAdapter
 import kotlinx.android.synthetic.main.fragment_view_volunteer.*
+import java.util.jar.Manifest
 
 
 class ViewVolunteerFragment : Fragment(), VLAdapter, View.OnClickListener {
@@ -56,6 +60,7 @@ class ViewVolunteerFragment : Fragment(), VLAdapter, View.OnClickListener {
     val state_list = java.util.ArrayList<String>()
     val district_list = java.util.ArrayList<DistrictItems>()
     val district_name_list = java.util.ArrayList<String>()
+    val CALL_PERMISSION_CODE = 1497
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -247,6 +252,7 @@ class ViewVolunteerFragment : Fragment(), VLAdapter, View.OnClickListener {
     }
 
     override fun onCallBtnClicked(phone: String) {
+        checkPermission(android.Manifest.permission.CALL_PHONE, CALL_PERMISSION_CODE)
         val builder = AlertDialog.Builder(requireContext())
         builder.setTitle("⚠ Alert ⚠")
         builder.setMessage("Are you want to make a call?")
@@ -371,6 +377,36 @@ class ViewVolunteerFragment : Fragment(), VLAdapter, View.OnClickListener {
             return activeNetwork.isConnected
         } else {
             return false
+        }
+    }
+
+    private fun checkPermission(permission: String, requestCode: Int) {
+        if (ContextCompat.checkSelfPermission(
+                requireContext(),
+                permission
+            ) == PackageManager.PERMISSION_DENIED
+        ) {
+            ActivityCompat.requestPermissions(requireActivity(), arrayOf(permission), requestCode)
+        } else {
+            Toast.makeText(requireContext(), "Permission Already Granted", Toast.LENGTH_SHORT)
+                .show()
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == CALL_PERMISSION_CODE) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(requireContext(), "Call Permission Granted", Toast.LENGTH_SHORT)
+                    .show()
+            } else {
+                Toast.makeText(requireContext(), "Call Permission Denied", Toast.LENGTH_SHORT)
+                    .show()
+            }
         }
     }
 }

@@ -7,7 +7,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/glass_backgroung_png">
+        android:background="@drawable/glass_background_png">
 
         <TextView
             android:id="@+id/txtLogin"
@@ -145,7 +145,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginEnd="5dp"
-                            android:layout_toRightOf="@+id/imgPhone"
+                            android:layout_toEndOf="@+id/imgPhone"
                             android:background="@null"
                             android:hint="@string/your_phone_number"
                             android:inputType="textEmailAddress"
@@ -236,20 +236,31 @@
                             android:layout_marginBottom="5dp"
                             android:src="@drawable/ic_baseline_lock_24" />
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/etUserPassword"
-                            android:layout_width="match_parent"
+                        <com.google.android.material.textfield.TextInputLayout
+
+                        android:id="@+id/layoutTextInput"
+                        android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginEnd="5dp"
-                            android:layout_toRightOf="@+id/imgPassword"
-                            android:background="@null"
-                            android:hint="@string/password"
-                            android:inputType="textPassword"
-                            android:textAlignment="textStart"
-                            android:textColor="#000000"
-                            android:textColorHint="#D3D3D3"
-                            android:textSize="15sp" />
+                            app:passwordToggleEnabled="true"
+                            app:passwordToggleDrawable="@drawable/ic_show_password_selector"
+                            android:layout_toEndOf="@+id/imgPassword">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etUserPassword"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="5dp"
+                                android:layout_toEndOf="@+id/imgPassword"
+                                android:background="@color/white"
+                                android:hint="@string/password"
+                                android:inputType="textPassword"
+                                android:textAlignment="textStart"
+                                android:textColor="#000000"
+                                android:textColorHint="#D3D3D3"
+                                android:textSize="15sp" />
+                        </com.google.android.material.textfield.TextInputLayout>
                     </RelativeLayout>
+
                 </com.google.android.material.card.MaterialCardView>
             </RelativeLayout>
         </androidx.core.widget.NestedScrollView>
