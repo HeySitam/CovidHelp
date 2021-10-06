@@ -84,4 +84,6 @@ dependencies {
     implementation 'io.github.yavski:fab-speed-dial:1.0.6'
     //Lottie animation
     implementation 'com.airbnb.android:lottie:3.6.1'
+
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
 }
