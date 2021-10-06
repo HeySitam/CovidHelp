@@ -1,124 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:layout_marginStart="16dp"
+  android:layout_marginEnd="16dp"
+  android:paddingTop="8dp">
+
+  <com.google.android.material.card.MaterialCardView
+    android:id="@+id/card_organization_logo"
     android:layout_width="300dp"
     android:layout_height="350dp"
-    android:layout_marginTop="20dp"
+    android:layout_marginTop="16dp"
     app:cardCornerRadius="10dp"
-    app:strokeWidth="1dp"
+    app:cardElevation="2dp"
+    app:layout_constraintBottom_toTopOf="@id/container_detail_donation"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_chainStyle="packed"
     app:strokeColor="@android:color/darker_gray"
-    app:cardElevation="2dp">
+    app:strokeWidth="1dp">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:background="@drawable/custom_background"
-        android:layout_height="match_parent">
+    <ImageView
+      android:id="@+id/imgDonate"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:adjustViewBounds="true"
+      android:scaleType="fitXY"
+      tools:background="@tools:sample/backgrounds/scenic" />
 
-        <com.mikhaellopez.circularimageview.CircularImageView
-            android:id="@+id/imgDonate"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
-            android:scaleType="fitCenter"
-            app:civ_border="true"
-            app:civ_border_color="@color/black"
-            app:civ_border_width="2dp" />
+  </com.google.android.material.card.MaterialCardView>
 
-        <TextView
-            android:id="@+id/txtOrgName"
-            android:layout_width="match_parent"
-            android:gravity="center"
-            android:textAlignment="center"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/imgDonate"
-            android:layout_centerHorizontal="true"
-            android:text="@string/hemkunt_foundation"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/container_detail_donation"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/card_organization_logo">
 
-        <LinearLayout
-            android:id="@+id/llOrg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txtOrgName"
-            android:layout_marginTop="5dp">
+    <TextView
+      android:id="@+id/txtOrgName"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:layout_marginTop="16dp"
+      android:layout_marginEnd="8dp"
+      android:ellipsize="end"
+      android:gravity="center"
+      android:maxLines="2"
+      android:text="@string/hemkunt_foundation"
+      android:textAlignment="center"
+      android:textColor="@color/black"
+      android:textSize="20sp"
+      android:textStyle="bold"
+      app:layout_constraintBottom_toTopOf="@id/txtOrgDetail"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0.1dp"
-                android:layout_gravity="start"
-                android:layout_weight="1.5"
-                android:background="@color/black" />
+    <TextView
+      android:id="@+id/txtOrgDetail"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:layout_marginTop="4dp"
+      android:layout_marginEnd="8dp"
+      android:ellipsize="end"
+      android:maxLines="5"
+      android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+      app:layout_constraintBottom_toTopOf="@id/btnDonate"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/txtOrgName"
+      tools:text="@tools:sample/lorem/random" />
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0.1dp"
-                android:layout_weight="1" />
+    <com.google.android.material.button.MaterialButton
+      android:id="@+id/btnDonate"
+      android:layout_width="0dp"
+      android:layout_height="64dp"
+      android:layout_marginTop="10dp"
+      android:layout_marginBottom="10dp"
+      android:backgroundTint="@color/teal_700"
+      android:text="@string/donate"
+      android:textAllCaps="false"
+      android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+      android:textColor="@color/white"
+      app:cornerRadius="10dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/txtOrgDetail"
+      app:layout_goneMarginBottom="4dp" />
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0.1dp"
-                android:layout_gravity="end"
-                android:layout_weight="1.5"
-                android:background="@color/black" />
-        </LinearLayout>
+  </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:id="@+id/txtOrgDetail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_below="@+id/llOrg"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="8dp"
-            android:text="@string/hemkunt_foundation"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
-
-        <LinearLayout
-            android:id="@+id/llOrgs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txtOrgDetail"
-            android:layout_marginTop="8dp">
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0.1dp"
-                android:layout_gravity="start"
-                android:layout_weight="1.5"
-                android:background="@color/black" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0.1dp"
-                android:layout_weight="1" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0.1dp"
-                android:layout_gravity="end"
-                android:layout_weight="1.5"
-                android:background="@color/black" />
-        </LinearLayout>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnDonate"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:text="@string/donate"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-            android:textColor="@color/white"
-            app:cornerRadius="8dp" />
-    </RelativeLayout>
-</com.google.android.material.card.MaterialCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -87,6 +87,7 @@ class DonationListActivity : AppCompatActivity() {
             spinner.visibility = View.GONE
             recycler.adapter = adapter
             recycler.set3DItem(true)
+            recycler.setIntervalRatio(0.69f)
             recycler.setAlpha(true)
         }.addOnFailureListener { e ->
             Log.d("EXPLOREFRAGMENT", "onFailure: " + e.message)

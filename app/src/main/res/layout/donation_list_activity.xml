@@ -1,40 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#10000000"
-    xmlns:tools="http://schemas.android.com/tools">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/donate_here"
-        android:textSize="45sp"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:fontFamily="cursive"/>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@android:color/white">
 
-    <com.jackandphantom.carouselrecyclerview.CarouselRecyclerview
-        android:id="@+id/recycler"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        tools:listitem="@layout/donation_list_item" />
-    <ProgressBar
-        android:id="@+id/progressBar1"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/custom_textview"
-        android:layout_alignParentBottom="true"
-        android:textAlignment="center"
-        android:padding="8dp"
-        android:layout_marginBottom="100dp"
-        android:text="@string/our_small_help_can_save_a_life"/>
-</RelativeLayout>
+  <androidx.appcompat.widget.AppCompatImageButton
+    android:id="@+id/button_back"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:adjustViewBounds="true"
+    android:background="@android:color/transparent"
+    android:padding="16dp"
+    android:src="@drawable/ic_back"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+  <com.jackandphantom.carouselrecyclerview.CarouselRecyclerview
+    android:id="@+id/recycler"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:overScrollMode="never"
+    android:paddingTop="8dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/button_back"
+    tools:listitem="@layout/donation_list_item" />
+
+  <ProgressBar
+    android:id="@+id/progressBar1"
+    style="?android:attr/progressBarStyleLarge"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintBottom_toBottomOf="@id/recycler"
+    app:layout_constraintEnd_toEndOf="@id/recycler"
+    app:layout_constraintStart_toStartOf="@id/recycler"
+    app:layout_constraintTop_toTopOf="@id/recycler" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,7 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -18,7 +19,7 @@ import java.util.*
 class DonationListAdapter(val list: ArrayList<OrgDetails>, val context: Context) :
     RecyclerView.Adapter<DonationListAdapter.DonationViewHolder>() {
     inner class DonationViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val imgDonate: CircularImageView = itemView.findViewById(R.id.imgDonate)
+        val imgDonate: ImageView = itemView.findViewById(R.id.imgDonate)
         val txtOrgName: TextView = itemView.findViewById(R.id.txtOrgName)
         val txtOrgDetail: TextView = itemView.findViewById(R.id.txtOrgDetail)
         val btnDonate: MaterialButton = itemView.findViewById(R.id.btnDonate)
