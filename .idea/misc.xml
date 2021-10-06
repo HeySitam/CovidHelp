@@ -3,6 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../../data/home/thefunnyintrovert/Desktop/HacktoberFEst/CovidHelp/app/src/main/res/drawable/custom_password_eye.xml" value="0.1" />
+        <entry key="../../../../../data/home/thefunnyintrovert/Desktop/HacktoberFEst/CovidHelp/app/src/main/res/drawable/ic_baseline_local_phone_24.xml" value="0.21927083333333333" />
+        <entry key="../../../../../data/home/thefunnyintrovert/Desktop/HacktoberFEst/CovidHelp/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.37864583333333335" />
+        <entry key="../../../../../data/home/thefunnyintrovert/Desktop/HacktoberFEst/CovidHelp/app/src/main/res/drawable/ic_visibility_black_18dp.xml" value="0.37864583333333335" />
+        <entry key="../../../../../data/home/thefunnyintrovert/Desktop/HacktoberFEst/CovidHelp/app/src/main/res/drawable/ic_visibility_off_black_18dp.xml" value="0.37864583333333335" />
+        <entry key="../../../../../data/home/thefunnyintrovert/Desktop/HacktoberFEst/CovidHelp/app/src/main/res/drawable/password_selector.xml" value="0.37864583333333335" />
+        <entry key="../../../../../data/home/thefunnyintrovert/Desktop/HacktoberFEst/CovidHelp/app/src/main/res/drawable/show_password_icon.xml" value="0.3728205128205128" />
+        <entry key="../../../../../data/home/thefunnyintrovert/Desktop/HacktoberFEst/CovidHelp/app/src/main/res/layout/glass_signup_page.xml" value="0.4785615491009682" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/CovidHelp/app/src/main/res/drawable/custom_card.xml" value="0.24512820512820513" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/CovidHelp/app/src/main/res/drawable/custom_edittext.xml" value="0.24512820512820513" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/CovidHelp/app/src/main/res/drawable/custom_textview.xml" value="0.24512820512820513" />
