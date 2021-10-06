@@ -269,7 +269,7 @@
   <string name="search_other_cities">Search Other Cities</string>
   <string name="resources">Resources</string>
   <string name="book_vaccine">Book Vaccine</string>
-  <string name="made_with">Made With 🤍</string>
+  <string name="made_with">Made With ❤️</string>
   <string name="coming_soon">Coming soon…</string>
   <string name="select_your_state_and_district">Select Your State and District</string>
   <string name="wb_icms">WB-ICMS</string>
@@ -326,4 +326,5 @@
   <string name="Project_Oxygen">Project Oxygen</string>
   <string name="privacy_policy">Privacy Policy</string>
     <string name="stay_safe_stay_healthy">Stay Safe. Stay Healthy.</string>
+  <string name="get_all_resources_on_a_simple_click">Get all resources on a simple click!</string>
 </resources>
