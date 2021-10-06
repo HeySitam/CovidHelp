@@ -82,4 +82,6 @@ dependencies {
     implementation 'org.jsoup:jsoup:1.14.3'
     // Fab speed dial
     implementation 'io.github.yavski:fab-speed-dial:1.0.6'
+    //Lottie animation
+    implementation 'com.airbnb.android:lottie:3.6.1'
 }
