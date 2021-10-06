@@ -49,6 +49,7 @@ class DonationListActivity : AppCompatActivity() {
                     //Do some thing
                     dialog.hide()
                     setContentView(R.layout.donation_list_activity)
+                    button_back.setOnClickListener { finish() }
                     firestore = FirebaseFirestore.getInstance()
                     reference = firestore.collection("donations")
                     loading = findViewById(R.id.shimmer_layout)
@@ -65,6 +66,7 @@ class DonationListActivity : AppCompatActivity() {
         } else {
             //Do some thing
             setContentView(R.layout.donation_list_activity)
+            button_back.setOnClickListener { finish() }
             firestore = FirebaseFirestore.getInstance()
             reference = firestore.collection("donations")
             loading = findViewById(R.id.shimmer_layout)
