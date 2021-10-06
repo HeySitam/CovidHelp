@@ -19,9 +19,9 @@ class CityWiseFragment : Fragment(), View.OnClickListener {
     lateinit var mdPune: MaterialCardView
     lateinit var mdMumbai: MaterialCardView
     lateinit var mdBangalore: MaterialCardView
-    lateinit var mdThane: MaterialCardView
+    lateinit var mdJaipur: MaterialCardView
     lateinit var mdHyderbad: MaterialCardView
-    lateinit var mdNagpur: MaterialCardView
+    lateinit var mdAgra: MaterialCardView
     lateinit var mdLucknow: MaterialCardView
     lateinit var mdAhmedabad: MaterialCardView
     lateinit var mdChennai: MaterialCardView
@@ -45,9 +45,9 @@ class CityWiseFragment : Fragment(), View.OnClickListener {
         mdPune.setOnClickListener(this)
         mdMumbai.setOnClickListener(this)
         mdBangalore.setOnClickListener(this)
-        mdThane.setOnClickListener(this)
+        mdJaipur.setOnClickListener(this)
         mdHyderbad.setOnClickListener(this)
-        mdNagpur.setOnClickListener(this)
+        mdAgra.setOnClickListener(this)
         mdLucknow.setOnClickListener(this)
         mdAhmedabad.setOnClickListener(this)
         mdChennai.setOnClickListener(this)
@@ -62,9 +62,9 @@ class CityWiseFragment : Fragment(), View.OnClickListener {
         mdPune = view.findViewById(R.id.mdPune)
         mdMumbai = view.findViewById(R.id.mdMumbai)
         mdBangalore = view.findViewById(R.id.mdBangalore)
-        mdThane = view.findViewById(R.id.mdThane)
+        mdJaipur = view.findViewById(R.id.mdJaipur)
         mdHyderbad = view.findViewById(R.id.mdHyderbad)
-        mdNagpur = view.findViewById(R.id.mdNagpur)
+        mdAgra = view.findViewById(R.id.mdAgra)
         mdLucknow = view.findViewById(R.id.mdLucknow)
         mdAhmedabad = view.findViewById(R.id.mdAhmedabad)
         mdChennai = view.findViewById(R.id.mdChennai)
@@ -98,7 +98,7 @@ class CityWiseFragment : Fragment(), View.OnClickListener {
                 intent.putExtra("city", "bangalore")
                 startActivity(intent)
             }
-            R.id.mdThane -> {
+            R.id.mdJaipur -> {
                 val intent = Intent(context, MainActivity::class.java)
                 intent.putExtra("city", "thane")
                 startActivity(intent)
@@ -108,7 +108,7 @@ class CityWiseFragment : Fragment(), View.OnClickListener {
                 intent.putExtra("city", "hyderbad")
                 startActivity(intent)
             }
-            R.id.mdNagpur -> {
+            R.id.mdAgra -> {
                 val intent = Intent(context, MainActivity::class.java)
                 intent.putExtra("city", "nagpur")
                 startActivity(intent)

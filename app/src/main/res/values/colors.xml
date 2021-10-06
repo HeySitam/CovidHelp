@@ -7,10 +7,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="light_black">#212121</color>
+    <color name="city_icon_black">#333</color>
     <color name="white">#FFFFFFFF</color>
     <color name="light_gray">#fafafa</color>
     <color name="red">#ff0000</color>
 
     <color name="red_shade">#E64556</color>
+    <color name="color_border_teal">#4db6ac</color>
 
 </resources>
