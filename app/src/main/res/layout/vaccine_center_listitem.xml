@@ -44,12 +44,14 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp">
+                    android:layout_marginTop="10dp">
+
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_gravity="center"
                         android:src="@drawable/ic_baseline_location_on_24" />
+
                     <TextView
                         android:id="@+id/txtPin"
                         android:layout_width="wrap_content"
@@ -67,6 +69,36 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="@string/_700008" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="5dp"
+                        android:text="@string/x"
+                        android:textStyle="bold" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="#bcaaa4"
+                        app:cardCornerRadius="5dp"
+                        app:strokeColor="@color/black"
+                        app:strokeWidth="1dp">
+
+                        <TextView
+                            android:id="@+id/txtAgeLimit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginEnd="2dp"
+                            android:text="@string/_45"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+                    </com.google.android.material.card.MaterialCardView>
                 </LinearLayout>
 
                 <LinearLayout
@@ -115,26 +147,6 @@
                         android:text="@string/free"
                         android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
                         android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginEnd="5dp"
-                        android:text="@string/x"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/txtAgeLimit"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginEnd="5dp"
-                        android:text="@string/_45"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -143,8 +155,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/llDetailsBody"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginBottom="5dp">
 
                 <com.google.android.material.card.MaterialCardView
@@ -180,6 +192,7 @@
                                 android:id="@+id/txtDose1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
                                 android:text="@string/booked" />
                         </LinearLayout>
 
@@ -198,6 +211,7 @@
                                 android:id="@+id/txtDose2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
                                 android:text="@string/booked" />
                         </LinearLayout>
                     </LinearLayout>
@@ -219,17 +233,17 @@
                         android:textColor="@color/white" />
                 </com.google.android.material.card.MaterialCardView>
             </RelativeLayout>
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnBookVac"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/rlDose"
+                android:layout_marginStart="10dp"
+                android:padding="10dp"
                 android:text="@string/book_now"
                 app:backgroundTint="#1b0000"
-                app:cornerRadius="8dp"
-                android:layout_marginBottom="5dp"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@id/rlDose"
-                android:padding="10dp"/>
+                app:cornerRadius="8dp" />
         </RelativeLayout>
 
         <com.google.android.material.card.MaterialCardView
@@ -257,6 +271,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:fontFamily="@font/poppins_semibold"
                     android:text="@string/slot1"
                     android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
                     android:textStyle="bold" />
@@ -267,6 +282,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:fontFamily="@font/poppins_semibold"
                     android:text="@string/no_slot_found"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
 
@@ -275,6 +291,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:fontFamily="@font/poppins_semibold"
                     android:text="@string/slot2"
                     android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
                     android:textStyle="bold" />
@@ -285,6 +302,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:fontFamily="@font/poppins_semibold"
                     android:text="@string/no_slot_found"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
 
@@ -293,6 +311,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:fontFamily="@font/poppins_semibold"
                     android:text="@string/slot3"
                     android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
                     android:textStyle="bold" />
@@ -303,6 +322,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:fontFamily="@font/poppins_semibold"
                     android:text="@string/no_slot_found"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
 
@@ -311,6 +331,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:fontFamily="@font/poppins_semibold"
                     android:text="@string/slot4"
                     android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
                     android:textStyle="bold" />
@@ -321,6 +342,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:fontFamily="@font/poppins_semibold"
                     android:text="@string/no_slot_found"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
 

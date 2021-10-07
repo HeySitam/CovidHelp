@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ![](https://github.com/sitamadex11/CovidHelp/blob/develop/Assets/HackOctoberFestBanner.png)
 # CovidHelp 🤝
 
@@ -132,3 +133,6 @@ SOFTWARE.
 <h2 align="center">❤ Our Aim to Help People ❤</h2>
 
 <br>
+=======
+# CovidHelp
+>>>>>>> 8a6ce48f0276104f0aabdab83859deb39d89fb0b
