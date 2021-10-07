@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     app:strokeWidth="0.5dp"
     app:strokeColor="@color/black"
-    android:backgroundTint="#efdcd5"
+    android:backgroundTint="#DDDDDD"
     android:layout_margin="7dp"
     app:cardCornerRadius="8dp">
 
@@ -33,13 +33,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/uphc_116"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:textColor="#191970" />
 
                 <TextView
                     android:id="@+id/txtCenterAddress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/_294_roy_bahadur_road_700008" />
+                    android:text="@string/_294_roy_bahadur_road_700008"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textColor="#191970" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -60,7 +64,9 @@
                         android:layout_marginStart="5dp"
                         android:layout_marginEnd="5dp"
                         android:text="@string/pin"
+                        android:fontFamily="@font/poppins_semibold"
                         android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
+                        android:textColor="#191970"
                         android:textStyle="bold" />
 
                     <TextView
@@ -68,7 +74,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="@string/_700008" />
+                        android:text="@string/_700008"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:textColor="#191970" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -82,7 +90,7 @@
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="#bcaaa4"
+                        android:backgroundTint="#ADADE3"
                         app:cardCornerRadius="5dp"
                         app:strokeColor="@color/black"
                         app:strokeWidth="1dp">
@@ -95,6 +103,7 @@
                             android:layout_marginStart="2dp"
                             android:layout_marginEnd="2dp"
                             android:text="@string/_45"
+                            android:fontFamily="@font/poppins_semibold"
                             android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
@@ -120,7 +129,9 @@
                         android:layout_marginStart="5dp"
                         android:layout_marginEnd="5dp"
                         android:text="@string/covishield"
+                        android:fontFamily="@font/poppins_semibold"
                         android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
+                        android:textColor="#191970"
                         android:textStyle="bold" />
 
                     <TextView
@@ -145,7 +156,9 @@
                         android:layout_marginStart="5dp"
                         android:layout_marginEnd="5dp"
                         android:text="@string/free"
+                        android:fontFamily="@font/poppins_semibold"
                         android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
+                        android:textColor="#191970"
                         android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
@@ -163,7 +176,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:backgroundTint="#bcaaa4"
+                    android:backgroundTint="#9E9EDC"
                     app:cardCornerRadius="5dp"
                     app:strokeColor="#d3d3d3"
                     app:strokeWidth="1dp">
@@ -185,7 +198,9 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_semibold"
                                 android:text="@string/dose1"
+                                android:textColor="@color/black"
                                 android:textStyle="bold" />
 
                             <TextView
@@ -204,7 +219,9 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_semibold"
                                 android:text="@string/dose2"
+                                android:textColor="@color/black"
                                 android:textStyle="bold" />
 
                             <TextView
@@ -221,7 +238,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:backgroundTint="#5f4339"
+                    android:backgroundTint="#191970"
                     app:cardCornerRadius="3dp">
 
                     <TextView
@@ -230,6 +247,7 @@
                         android:layout_marginStart="5dp"
                         android:layout_marginEnd="5dp"
                         android:text="@string/availability"
+                        android:fontFamily="@font/poppins_semibold"
                         android:textColor="@color/white" />
                 </com.google.android.material.card.MaterialCardView>
             </RelativeLayout>
@@ -242,7 +260,8 @@
                 android:layout_marginStart="10dp"
                 android:padding="10dp"
                 android:text="@string/book_now"
-                app:backgroundTint="#1b0000"
+                android:fontFamily="@font/poppins_semibold"
+                app:backgroundTint="@color/black"
                 app:cornerRadius="8dp" />
         </RelativeLayout>
 
@@ -255,7 +274,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginEnd="5dp"
             android:layout_marginBottom="5dp"
-            android:backgroundTint="#bcaaa4"
+            android:backgroundTint="#9B9BE4"
             app:cardCornerRadius="5dp"
             app:strokeColor="#d3d3d3"
             app:strokeWidth="1dp">
