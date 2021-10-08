@@ -18,6 +18,7 @@
             android:name="com.sitamadex11.CovidHelp.activity.SplashScreenActivity"
             android:theme="@style/splashActivity">
             <intent-filter>
+
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
