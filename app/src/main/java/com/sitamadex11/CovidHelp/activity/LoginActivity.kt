@@ -163,7 +163,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
                                     Toast.makeText(
                                         baseContext,
-                                        "Either User already exist or check your Internaet connection",
+                                        "Either User already exist or check your Internet connection",
                                         Toast.LENGTH_LONG
                                     ).show()
                                 }
