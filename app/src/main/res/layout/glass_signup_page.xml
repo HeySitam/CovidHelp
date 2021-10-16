@@ -238,12 +238,12 @@
 
                         <com.google.android.material.textfield.TextInputLayout
 
-                        android:id="@+id/layoutTextInput"
-                        android:layout_width="match_parent"
+                            android:id="@+id/layoutTextInput"
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            app:passwordToggleEnabled="true"
+                            android:layout_toEndOf="@+id/imgPassword"
                             app:passwordToggleDrawable="@drawable/ic_show_password_selector"
-                            android:layout_toEndOf="@+id/imgPassword">
+                            app:passwordToggleEnabled="true">
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/etUserPassword"
@@ -296,11 +296,20 @@
             app:backgroundTint="#000000"
             app:cornerRadius="20dp" />
 
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/btnGoogleSignIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnLogin"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            app:cornerRadius="20dp" />
+
         <TextView
             android:id="@+id/txtForgotPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/btnLogin"
+            android:layout_below="@id/btnGoogleSignIn"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="5dp"
             android:background="?android:attr/selectableItemBackground"
@@ -323,18 +332,18 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="end"
-                android:textColor="#1b0000"
                 android:text="@string/not_a_member"
+                android:textColor="#1b0000"
                 android:textSize="18sp" />
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="8dp"
                 android:layout_below="@id/txtMember"
-                android:elevation="0dp"
-                app:strokeColor="#d3d3d3"
                 android:layout_centerHorizontal="true"
+                android:elevation="0dp"
+                app:cardCornerRadius="8dp"
+                app:strokeColor="#d3d3d3"
                 app:strokeWidth="2dp">
 
                 <TextView
