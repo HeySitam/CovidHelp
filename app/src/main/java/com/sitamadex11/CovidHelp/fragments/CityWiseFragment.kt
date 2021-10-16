@@ -38,7 +38,6 @@ class CityWiseFragment : Fragment(), View.OnClickListener {
             val intent = Intent(context, MainActivity::class.java)
             intent.putExtra("city", "other")
             startActivity(intent)
-            Toast.makeText(context, "Here we Go!!", Toast.LENGTH_SHORT).show()
         }
         mdKolkata.setOnClickListener(this)
         mdDelhi.setOnClickListener(this)

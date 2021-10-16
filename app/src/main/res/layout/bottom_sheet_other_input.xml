@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:layout_margin="16dp">
+
+  <com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/tilOthers"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@android:color/transparent"
+    app:boxStrokeColor="@color/black"
+    app:boxStrokeWidth="2dp"
+    app:hintEnabled="true"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <com.google.android.material.textfield.TextInputEditText
+      android:id="@+id/etOthers"
+      android:layout_width="match_parent"
+      android:layout_height="72dp"
+      android:hint="@string/enter_other_item" />
+
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <com.google.android.material.button.MaterialButton
+    android:id="@+id/button_cancel"
+    android:layout_width="0dp"
+    android:layout_height="64dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="8dp"
+    android:backgroundTint="@android:color/darker_gray"
+    android:drawableStart="@drawable/ic_baseline_search_24"
+    android:text="@string/cancel"
+    android:textAllCaps="false"
+    android:textColor="@color/white"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    app:cornerRadius="4dp"
+    app:layout_constraintEnd_toStartOf="@id/button_save"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/tilOthers" />
+
+  <com.google.android.material.button.MaterialButton
+    android:id="@+id/button_save"
+    android:layout_width="0dp"
+    android:layout_height="64dp"
+    android:layout_marginTop="8dp"
+    android:backgroundTint="#6A1B9A"
+    android:drawableStart="@drawable/ic_baseline_search_24"
+    android:text="Save"
+    android:textAllCaps="false"
+    android:textColor="@color/white"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    app:cornerRadius="4dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toEndOf="@id/button_cancel"
+    app:layout_constraintTop_toBottomOf="@id/tilOthers" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
