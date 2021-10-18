@@ -2,15 +2,20 @@ package com.sitamadex11.CovidHelp.activity
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Rect
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.os.Bundle
 import android.util.Log
+import android.view.MotionEvent
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.getSystemService
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
@@ -158,7 +163,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
                                     Toast.makeText(
                                         baseContext,
-                                        "Either User already exist or check your Internaet connection",
+                                        "Either User already exist or check your Internet connection",
                                         Toast.LENGTH_LONG
                                     ).show()
                                 }
@@ -350,5 +355,36 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         } else {
             return false
         }
+    }
+    // this  lets keyboard close when clicked in background
+    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
+        if (ev.action == MotionEvent.ACTION_UP) {
+            val view = currentFocus
+            if (view != null) {
+                val consumed = super.dispatchTouchEvent(ev)
+                val viewTmp = currentFocus
+                val viewNew: View = viewTmp ?: view
+                if (viewNew == view) {
+                    val rect = Rect()
+                    val coordinates = IntArray(2)
+                    view.getLocationOnScreen(coordinates)
+                    rect[coordinates[0], coordinates[1], coordinates[0] + view.width] =
+                        coordinates[1] + view.height
+                    val x = ev.x.toInt()
+                    val y = ev.y.toInt()
+                    if (rect.contains(x, y)) {
+                        return consumed
+                    }
+                } else {
+                    return consumed
+                }
+                val inputMethodManager =
+                    getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+                inputMethodManager.hideSoftInputFromWindow(viewNew.windowToken, 0)
+                viewNew.clearFocus()
+                return consumed
+            }
+        }
+        return super.dispatchTouchEvent(ev)
     }
 }

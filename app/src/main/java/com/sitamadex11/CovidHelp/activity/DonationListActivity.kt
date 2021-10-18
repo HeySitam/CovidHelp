@@ -6,10 +6,10 @@ import android.net.NetworkInfo
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.facebook.shimmer.ShimmerFrameLayout
 import com.google.android.material.button.MaterialButton
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
@@ -26,7 +26,7 @@ class DonationListActivity : AppCompatActivity() {
     lateinit var reference: CollectionReference
     lateinit var btnRetry: MaterialButton
     lateinit var btnExit: MaterialButton
-    lateinit var spinner: ProgressBar
+    lateinit var loading: ShimmerFrameLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,9 +49,10 @@ class DonationListActivity : AppCompatActivity() {
                     //Do some thing
                     dialog.hide()
                     setContentView(R.layout.donation_list_activity)
+                    button_back.setOnClickListener { finish() }
                     firestore = FirebaseFirestore.getInstance()
                     reference = firestore.collection("donations")
-                    spinner = findViewById(R.id.progressBar1)
+                    loading = findViewById(R.id.shimmer_layout)
                     addItemToList()
                     Log.d("list_check", list.toString())
 
@@ -65,9 +66,10 @@ class DonationListActivity : AppCompatActivity() {
         } else {
             //Do some thing
             setContentView(R.layout.donation_list_activity)
+            button_back.setOnClickListener { finish() }
             firestore = FirebaseFirestore.getInstance()
             reference = firestore.collection("donations")
-            spinner = findViewById(R.id.progressBar1)
+            loading = findViewById(R.id.shimmer_layout)
             addItemToList()
             Log.d("list_check", list.toString())
         }
@@ -84,9 +86,12 @@ class DonationListActivity : AppCompatActivity() {
                 Log.d("ref_check", img.toString())
             }
             val adapter = DonationListAdapter(list, this)
-            spinner.visibility = View.GONE
+            loading.stopShimmer()
+            loading.visibility = View.GONE
+            recycler.visibility = View.VISIBLE
             recycler.adapter = adapter
             recycler.set3DItem(true)
+            recycler.setIntervalRatio(0.69f)
             recycler.setAlpha(true)
         }.addOnFailureListener { e ->
             Log.d("EXPLOREFRAGMENT", "onFailure: " + e.message)

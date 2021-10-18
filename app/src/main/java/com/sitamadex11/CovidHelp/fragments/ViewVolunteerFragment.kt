@@ -2,10 +2,12 @@ package com.sitamadex11.CovidHelp.fragments
 
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.net.Uri
 import android.os.Bundle
+import android.telephony.SmsManager
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -15,6 +17,8 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -56,6 +60,8 @@ class ViewVolunteerFragment : Fragment(), VLAdapter, View.OnClickListener {
     val state_list = java.util.ArrayList<String>()
     val district_list = java.util.ArrayList<DistrictItems>()
     val district_name_list = java.util.ArrayList<String>()
+    val CALL_PERMISSION_CODE = 1497
+    val MESSAGE_PERMISSION_CODE=123
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -247,6 +253,7 @@ class ViewVolunteerFragment : Fragment(), VLAdapter, View.OnClickListener {
     }
 
     override fun onCallBtnClicked(phone: String) {
+        checkPermission(android.Manifest.permission.CALL_PHONE, CALL_PERMISSION_CODE)
         val builder = AlertDialog.Builder(requireContext())
         builder.setTitle("⚠ Alert ⚠")
         builder.setMessage("Are you want to make a call?")
@@ -266,31 +273,29 @@ class ViewVolunteerFragment : Fragment(), VLAdapter, View.OnClickListener {
     }
 
     override fun onMessageBtnClicked(phone: String) {
-        val customLayout = layoutInflater
-            .inflate(
-                R.layout.dialog_message, null
-            )
-        msgInit(customLayout)
-        val builder = AlertDialog.Builder(requireContext())
-        builder.setView(customLayout)
-        dialog = builder.create()
-        btnCancel.setOnClickListener(this)
-        dialog.show()
-        btnSend.setOnClickListener {
-            if (etSendMessage.text.isNullOrEmpty()) {
-                etSendMessage.error = "Please enter some text message"
-            } else {
-                val msg = etSendMessage.text.toString()
-                val sms_uri = Uri.parse("smsto:$phone")
-                val sms_intent = Intent(Intent.ACTION_VIEW, sms_uri)
-                sms_intent.setData(sms_uri)
-                sms_intent.putExtra("sms_body", msg)
-                startActivity(sms_intent);
-                dialog.hide()
-                etSendMessage.error = null
-            }
-        }
-
+        checkPermission(android.Manifest.permission.SEND_SMS, MESSAGE_PERMISSION_CODE)
+            val customLayout = layoutInflater
+                .inflate(
+                    R.layout.dialog_message, null
+                )
+            msgInit(customLayout)
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setView(customLayout)
+            dialog = builder.create()
+            btnCancel.setOnClickListener(this)
+                dialog.show()
+                btnSend.setOnClickListener {
+                    if (etSendMessage.text.isNullOrEmpty()) {
+                        etSendMessage.error = "Please enter some text message"
+                    } else {
+                        val msg = etSendMessage.text.toString()
+                        val smsManager: SmsManager = SmsManager.getDefault()
+                        smsManager.sendTextMessage(phone, null, msg, null, null)
+                        dialog.hide()
+                        etSendMessage.error = null
+                        Toast.makeText(getActivity(), "Message Sent", Toast.LENGTH_SHORT).show()
+                    }
+                }
     }
 
     private fun msgInit(v: View?) {
@@ -371,6 +376,45 @@ class ViewVolunteerFragment : Fragment(), VLAdapter, View.OnClickListener {
             return activeNetwork.isConnected
         } else {
             return false
+        }
+    }
+
+    private fun checkPermission(permission: String, requestCode: Int) {
+        if (ContextCompat.checkSelfPermission(
+                requireContext(),
+                permission
+            ) == PackageManager.PERMISSION_DENIED
+        ) {
+            ActivityCompat.requestPermissions(requireActivity(), arrayOf(permission), requestCode)
+        } else {
+            Toast.makeText(requireContext(), "Permission Already Granted", Toast.LENGTH_SHORT)
+                .show()
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == CALL_PERMISSION_CODE) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(requireContext(), "Call Permission Granted", Toast.LENGTH_SHORT)
+                    .show()
+            } else {
+                Toast.makeText(requireContext(), "Call Permission Denied", Toast.LENGTH_SHORT)
+                    .show()
+            }
+        }
+        if (requestCode == MESSAGE_PERMISSION_CODE) {
+            if (grantResults.isNotEmpty() && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(requireContext(), "Message Permission Granted", Toast.LENGTH_SHORT)
+                    .show()
+            } else {
+                Toast.makeText(requireContext(), "Message Permission Denied", Toast.LENGTH_SHORT)
+                    .show()
+            }
         }
     }
 }

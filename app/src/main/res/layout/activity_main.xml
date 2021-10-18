@@ -1,225 +1,323 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activity.MainActivity">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cvCityName"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="20dp"
-        android:backgroundTint="#d3d3d3"
-        app:cardCornerRadius="25dp">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/imgEmail"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginBottom="5dp"
-                android:src="@drawable/city" />
-
-            <EditText
-                android:id="@+id/etCityName"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginEnd="5dp"
-                android:layout_toRightOf="@+id/imgEmail"
-                android:background="@null"
-                android:hint="@string/enter_city_name"
-                android:inputType="text"
-                android:textAlignment="textStart"
-                android:textColor="#000000"
-                android:textColorHint="#60000000"
-                android:textSize="15sp" />
-        </RelativeLayout>
-    </com.google.android.material.card.MaterialCardView>
-<Switch
-    android:id="@+id/stwVerification"
-    android:layout_below="@id/cvCityName"
-    android:layout_alignParentRight="true"
+  <androidx.appcompat.widget.AppCompatImageButton
+    android:id="@+id/button_back"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="@string/all"
-    android:layout_marginEnd="20dp"
-    android:layout_marginTop="10dp"
-    tools:ignore="UseSwitchCompatOrMaterialXml" />
-    <GridLayout
-        android:id="@+id/gvItems"
-        android:layout_width="match_parent"
+    android:adjustViewBounds="true"
+    android:background="@android:color/transparent"
+    android:padding="16dp"
+    android:src="@drawable/ic_back"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+  <androidx.core.widget.NestedScrollView
+    android:id="@+id/container_scroll"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:layout_marginBottom="16dp"
+    app:layout_constraintBottom_toTopOf="@id/btnSearch"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/button_back">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+
+      <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/cvCityName"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/stwVerification"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:alignmentMode="alignMargins"
-        android:columnCount="2"
-        android:columnOrderPreserved="false"
-        android:rowCount="5">
-
-        <CheckBox
-            android:id="@+id/beds"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:textStyle="bold"
-            android:text="@string/beds" />
-
-        <CheckBox
-            android:id="@+id/icu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:textStyle="bold"
-            android:layout_columnWeight="1"
-            android:text="@string/icu" />
-
-        <CheckBox
-            android:id="@+id/oxygen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:textStyle="bold"
-            android:layout_columnWeight="1"
-            android:text="@string/oxygen" />
-
-        <CheckBox
-            android:id="@+id/ventilator"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:textStyle="bold"
-            android:layout_columnWeight="1"
-            android:text="@string/ventilator" />
-
-        <CheckBox
-            android:id="@+id/tests"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:textStyle="bold"
-            android:layout_columnWeight="1"
-            android:text="@string/tests" />
-
-        <CheckBox
-            android:id="@+id/fabiflu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:textStyle="bold"
-            android:layout_columnWeight="1"
-            android:text="@string/fabiflu" />
-
-        <CheckBox
-            android:id="@+id/remdesivir"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:textStyle="bold"
-            android:layout_columnWeight="1"
-            android:text="@string/remdesivir" />
-
-        <CheckBox
-            android:id="@+id/favipiravir"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:textStyle="bold"
-            android:layout_columnWeight="1"
-            android:text="@string/favipiravir" />
-
-        <CheckBox
-            android:id="@+id/tocilizumab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:textStyle="bold"
-            android:layout_columnWeight="1"
-            android:text="@string/tocilizumab" />
-
-        <CheckBox
-            android:id="@+id/plasma"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:textStyle="bold"
-            android:text="@string/plasma" />
-
-        <CheckBox
-            android:id="@+id/food"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:textStyle="bold"
-            android:text="@string/food" />
-
-        <CheckBox
-            android:id="@+id/ambulance"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:textStyle="bold"
-            android:layout_columnWeight="1"
-            android:text="@string/ambulance" />
-    </GridLayout>
-
-    <CheckBox
-        android:id="@+id/chkOther"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/gvItems"
-        android:layout_centerHorizontal="true"
-        android:text="@string/other_item" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilOthers"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/chkOther"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="60dp"
-        android:visibility="gone"
-        app:boxStrokeColor="@color/black"
-        app:boxStrokeWidth="2dp">
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:counterEnabled="true"
+        app:counterMaxLength="25"
+        app:endIconMode="clear_text"
+        app:errorEnabled="false"
+        app:expandedHintEnabled="false"
+        app:helperText="City name must be fulfilled"
+        app:helperTextTextColor="@color/red"
+        app:hintAnimationEnabled="false"
+        app:hintEnabled="false"
+        app:hintTextColor="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:startIconDrawable="@drawable/ic_round_search_24">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etOthers"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:hint="@string/enter_other_item" />
-    </com.google.android.material.textfield.TextInputLayout>
+          android:id="@+id/etCityName"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="@android:color/transparent"
+          android:hint="@string/hint_search_city"
+          android:inputType="textCapWords"
+          android:maxLength="25"
+          android:maxLines="1"
+          android:textColor="@color/black" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnSearch"
-        android:layout_width="match_parent"
+      </com.google.android.material.textfield.TextInputLayout>
+
+      <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/stwVerification"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tilOthers"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="80dp"
-        android:drawableStart="@drawable/ic_baseline_search_24"
-        android:text="@string/search"
-        android:textColor="#ffffff"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:cornerRadius="14dp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/verification_only_twitter_help"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvCityName" />
 
-</RelativeLayout>
+      <View
+        android:id="@+id/divider1"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/stwVerification" />
+
+      <CheckBox
+        android:id="@+id/beds"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layoutDirection="rtl"
+        android:text="@string/beds"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider1" />
+
+      <CheckBox
+        android:id="@+id/icu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layoutDirection="rtl"
+        android:text="@string/icu"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/beds" />
+
+      <CheckBox
+        android:id="@+id/oxygen"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layoutDirection="rtl"
+        android:text="@string/oxygen"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/icu" />
+
+      <CheckBox
+        android:id="@+id/ventilator"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layoutDirection="rtl"
+        android:text="@string/ventilator"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/oxygen" />
+
+
+      <CheckBox
+        android:id="@+id/tests"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layoutDirection="rtl"
+        android:text="@string/tests"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ventilator" />
+
+      <CheckBox
+        android:id="@+id/fabiflu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layoutDirection="rtl"
+        android:text="@string/fabiflu"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tests" />
+
+      <CheckBox
+        android:id="@+id/remdesivir"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layoutDirection="rtl"
+        android:text="@string/remdesivir"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fabiflu" />
+
+      <CheckBox
+        android:id="@+id/favipiravir"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layoutDirection="rtl"
+        android:text="@string/favipiravir"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/remdesivir" />
+
+      <CheckBox
+        android:id="@+id/tocilizumab"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layoutDirection="rtl"
+        android:text="@string/tocilizumab"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/favipiravir" />
+
+      <CheckBox
+        android:id="@+id/plasma"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layoutDirection="rtl"
+        android:text="@string/plasma"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tocilizumab" />
+
+      <CheckBox
+        android:id="@+id/food"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layoutDirection="rtl"
+        android:text="@string/food"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/plasma" />
+
+      <CheckBox
+        android:id="@+id/ambulance"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layoutDirection="rtl"
+        android:text="@string/ambulance"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/food" />
+
+      <CheckBox
+        android:id="@+id/chkOther"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layoutDirection="rtl"
+        android:text="@string/other_item"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ambulance" />
+
+      <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/text_selected_other_item"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chkOther" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+  </androidx.core.widget.NestedScrollView>
+
+  <com.google.android.material.button.MaterialButton
+    android:id="@+id/btnSearch"
+    android:layout_width="0dp"
+    android:layout_height="64dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="16dp"
+    android:backgroundTint="#6A1B9A"
+    android:drawableStart="@drawable/ic_baseline_search_24"
+    android:text="@string/search"
+    android:textAllCaps="false"
+    android:textColor="@color/white"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    app:cornerRadius="10dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

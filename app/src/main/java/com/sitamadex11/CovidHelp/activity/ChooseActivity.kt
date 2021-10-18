@@ -1,11 +1,13 @@
 package com.sitamadex11.CovidHelp.activity
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
@@ -23,6 +25,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.sitamadex11.CovidHelp.R
 import com.sitamadex11.CovidHelp.fragments.AboutUsFragment
 import com.sitamadex11.CovidHelp.fragments.HomeFragment
+import com.sitamadex11.CovidHelp.fragments.PrivacyPolicyFragment
 import com.sitamadex11.CovidHelp.fragments.ViewProfileFragment
 import com.sitamadex11.CovidHelp.worker.CovidTrackerWorker
 import kotlinx.android.synthetic.main.activity_choose.*
@@ -97,25 +100,33 @@ class ChooseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
                     if (etSendEmail.text.isNullOrEmpty()) {
                         etSendEmail.error = "Please enter some text message"
                     } else {
-                        val email = Intent(Intent.ACTION_SENDTO)
-                        val to = "sitamadex11@gmail.com"
-                        val subject = "Covid-Help FeedBack"
-                        val intent = Intent(Intent.ACTION_SENDTO)
-                        intent.data = Uri.parse("mailto:$to") // only email apps should handle this
-                        intent.putExtra(Intent.EXTRA_EMAIL, to)
-                        intent.putExtra(Intent.EXTRA_SUBJECT, subject)
-                        intent.putExtra(Intent.EXTRA_TEXT, etSendEmail.text.toString())
-                        if (intent.resolveActivity(packageManager) != null) {
-                            startActivity(intent)
+                            val subject = "Covid-Help Query /FeedBack"
+                            val body =  (etSendEmail.text.toString())
+                            val i = Intent(Intent.ACTION_SEND)
+                            i.type = "message/rfc822"
+                            i.putExtra(Intent.EXTRA_EMAIL  , arrayOf("sitamadex11@gmail.com"))
+                            i.putExtra(Intent.EXTRA_SUBJECT, subject)
+                            i.putExtra(Intent.EXTRA_TEXT, body)
+                            try {
+                                startActivity(Intent.createChooser(i, "Send mail..."))
+                            } catch (ex: ActivityNotFoundException) {
+                                Toast.makeText(
+                                    this@ChooseActivity,
+                                    "There are no email clients installed.",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
                         }
-                        etSendEmail.error = null
-                    }
                 }
             }
             R.id.logout -> {
                 drawerLayout.closeDrawer(GravityCompat.START)
                 firebaseAuth.signOut()
                 startActivity(Intent(this, LoginActivity::class.java))
+            }
+            R.id.privacyPolicy -> {
+                fragmentTransaction(PrivacyPolicyFragment())
+                drawerLayout.closeDrawer(GravityCompat.START)
             }
         }
         return true
