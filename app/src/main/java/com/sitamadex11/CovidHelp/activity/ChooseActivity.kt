@@ -23,10 +23,7 @@ import com.google.android.material.navigation.NavigationView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.sitamadex11.CovidHelp.R
-import com.sitamadex11.CovidHelp.fragments.AboutUsFragment
-import com.sitamadex11.CovidHelp.fragments.HomeFragment
-import com.sitamadex11.CovidHelp.fragments.PrivacyPolicyFragment
-import com.sitamadex11.CovidHelp.fragments.ViewProfileFragment
+import com.sitamadex11.CovidHelp.fragments.*
 import com.sitamadex11.CovidHelp.worker.CovidTrackerWorker
 import kotlinx.android.synthetic.main.activity_choose.*
 import java.util.concurrent.TimeUnit
@@ -75,8 +72,8 @@ class ChooseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
                 drawerLayout.closeDrawer(GravityCompat.START)
             }
             R.id.addVol -> {
-                val intent = Intent(this, VolunteerActivity::class.java)
-                startActivity(intent)
+                fragmentTransaction(AddVolunteerFragment())
+                drawerLayout.closeDrawer(GravityCompat.START)
             }
             R.id.aboutUs -> {
                 fragmentTransaction(AboutUsFragment())
