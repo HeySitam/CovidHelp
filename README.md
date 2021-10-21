@@ -1,5 +1,7 @@
+ <p align="center">
+ <img src="https://github.com/sitamadex11/CovidHelp/blob/develop/Assets/CovidHelp%20Banner.png" height= 500 width = 889 />
+</p>
 
-![](https://github.com/sitamadex11/CovidHelp/blob/develop/Assets/CovidHelp%20Banner.png)
 # CovidHelp 🤝
 
 This application is a treasure of all types of covid-resources like bed, oxygen, plasma/blood, test resources, medicine, doctors' information, vaccination information, and many many more. An android app to help people.
