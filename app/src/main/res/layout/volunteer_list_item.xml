@@ -1,222 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content">
+
+  <com.google.android.material.card.MaterialCardView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="15dp"
-    android:layout_marginTop="7.5dp"
-    android:layout_marginEnd="15dp"
-    android:layout_marginBottom="7.5dp"
-    app:cardCornerRadius="5dp"
+    android:layout_margin="8dp"
+    android:backgroundTint="#E9E9FC"
+    app:cardCornerRadius="4dp"
     app:cardElevation="5dp"
     app:cardMaxElevation="5dp"
-    app:strokeColor="@color/black"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:strokeColor="@color/light_black"
     app:strokeWidth="1dp">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:padding="8dp">
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtNameVol"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/custom_card"
-        android:padding="5dp">
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Sitam Sardar" />
 
-        <LinearLayout
-            android:id="@+id/llVolDetails"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="10dp"
-            android:layout_toStartOf="@+id/llBtnSet"
-            android:layout_marginEnd="5dp"
-            android:orientation="vertical">
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_address"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="Address"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#737373"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/text_company_info"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtNameVol" />
 
-            <TextView
-                android:id="@+id/txtNameVol"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#000000"
-                android:textSize="25sp"
-                android:textStyle="bold"
-                tools:text="Sitam Sardar" />
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtStateVol"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@id/text_address"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_address"
+        tools:text="West Bengal" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtDistrictVol"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@id/text_address"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtStateVol"
+        tools:text="Kolkata" />
 
-                <TextView
-                    android:id="@+id/txtStateVol"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    tools:text="West Bengal" />
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_company_info"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Company Info"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#737373"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/text_address"
+        app:layout_constraintTop_toTopOf="@id/text_address" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/x"
-                    android:textStyle="bold" />
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtOrgVol"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:drawablePadding="16dp"
+        android:text="@string/covid_help"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/text_company_info"
+        app:layout_constraintTop_toBottomOf="@id/text_company_info" />
 
-                <TextView
-                    android:id="@+id/txtDistrictVol"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    tools:text="Kolkata" />
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtPhVol"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/_9062717912"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/text_company_info"
+        app:layout_constraintTop_toBottomOf="@id/txtOrgVol" />
 
-            </LinearLayout>
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Description"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#737373"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtPhVol" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp">
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtVolDesc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:text="Call us for urgently help. Also send me a message so that our customer service will reply as soon as possible."
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_description" />
 
-                <ImageView
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/phone" />
+      <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnVolCall"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/white"
+        android:text="Call"
+        android:textColor="@color/purple_500"
+        app:layout_constraintEnd_toStartOf="@id/btnVolMessage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtVolDesc"
+        app:strokeColor="@color/purple_500"
+        app:strokeWidth="1dp" />
 
-                <TextView
-                    android:id="@+id/txtPhVol"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:textStyle="bold"
-                    android:text="@string/_9062717912" />
-            </LinearLayout>
+      <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnVolMessage"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/white"
+        android:text="Send a message"
+        android:textColor="@color/purple_500"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnVolCall"
+        app:layout_constraintTop_toTopOf="@id/btnVolCall"
+        app:strokeColor="@color/purple_500"
+        app:strokeWidth="1dp" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp">
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <ImageView
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/organization" />
+  </com.google.android.material.card.MaterialCardView>
 
-                <TextView
-                    android:id="@+id/txtOrgVol"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="5dp"
-                    android:textStyle="bold"
-                    android:text="@string/covid_help" />
-            </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/llBtnSet"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_alignParentTop="true"
-            android:layout_alignBottom="@+id/llOrg"
-            android:layout_alignParentEnd="true">
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/btnVolCall"
-                android:layout_width="80dp"
-                android:layout_height="0dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                app:cardCornerRadius="8dp"
-                android:backgroundTint="#f5f5f5"
-                app:strokeColor="@color/black"
-                app:strokeWidth="1dp">
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_gravity="center"
-                    android:layout_height="30dp"
-                    android:src="@drawable/ic_baseline_local_phone_24"
-                    android:scaleType="fitCenter"/>
-            </com.google.android.material.card.MaterialCardView>
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/btnVolMessage"
-                android:layout_width="80dp"
-                android:layout_height="0dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                app:cardCornerRadius="8dp"
-                android:backgroundTint="#f5f5f5"
-                app:strokeColor="@color/black"
-                app:strokeWidth="1dp">
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_gravity="center"
-                    android:layout_height="30dp"
-                    android:src="@drawable/ic_baseline_message_24"
-                    android:scaleType="fitCenter"/>
-            </com.google.android.material.card.MaterialCardView>
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/llOrg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/llVolDetails"
-            android:layout_marginTop="5dp">
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0.1dp"
-                android:layout_gravity="start"
-                android:layout_weight="1.5"
-                android:background="@color/black" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0.1dp"
-                android:layout_weight="1" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0.1dp"
-                android:layout_gravity="end"
-                android:layout_weight="1.5"
-                android:background="@color/black" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/txtVolDesc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:layout_marginBottom="3dp"
-            android:gravity="center"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_below="@id/llOrg"
-            android:textColor="@color/black"
-            android:text="@string/i_want_to_help" />
-
-        <LinearLayout
-            android:id="@+id/llOrg2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:layout_below="@id/txtVolDesc"
-            >
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0.1dp"
-                android:layout_gravity="start"
-                android:layout_weight="1.5"
-                android:background="@color/black" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0.1dp"
-                android:layout_weight="1" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0.1dp"
-                android:layout_gravity="end"
-                android:layout_weight="1.5"
-                android:background="@color/black" />
-        </LinearLayout>
-    </RelativeLayout>
-</com.google.android.material.card.MaterialCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
