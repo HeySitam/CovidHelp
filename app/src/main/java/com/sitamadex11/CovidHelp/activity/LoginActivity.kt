@@ -380,7 +380,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     // this  lets keyboard close when clicked in background
-
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
         if (event.action == MotionEvent.ACTION_DOWN) {
             val v = currentFocus
@@ -393,37 +392,10 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                         v.windowToken,
                         0
                     )
-/*
-    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
-        if (ev.action == MotionEvent.ACTION_UP) {
-            val view = currentFocus
-            if (view != null) {
-                val consumed = super.dispatchTouchEvent(ev)
-                val viewTmp = currentFocus
-                val viewNew: View = viewTmp ?: view
-                if (viewNew == view) {
-                    val rect = Rect()
-                    val coordinates = IntArray(2)
-                    view.getLocationOnScreen(coordinates)
-                    rect[coordinates[0], coordinates[1], coordinates[0] + view.width] =
-                        coordinates[1] + view.height
-                    val x = ev.x.toInt()
-                    val y = ev.y.toInt()
-                    if (rect.contains(x, y)) {
-                        return consumed
-                    }
-                } else {
-                    return consumed
-*/
                 }
-                val inputMethodManager =
-                    getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-                inputMethodManager.hideSoftInputFromWindow(viewNew.windowToken, 0)
-                viewNew.clearFocus()
-                return consumed
             }
         }
-        return super.dispatchTouchEvent(ev)
+        return super.dispatchTouchEvent(event)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
