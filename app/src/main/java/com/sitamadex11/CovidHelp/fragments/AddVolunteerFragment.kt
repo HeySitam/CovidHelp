@@ -2,6 +2,7 @@ package com.sitamadex11.CovidHelp.fragments
 
 import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.os.Bundle
@@ -26,9 +27,11 @@ import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.gson.Gson
 import com.sitamadex11.CovidHelp.R
+import com.sitamadex11.CovidHelp.activity.VolunteerActivity
 import com.sitamadex11.CovidHelp.model.District
 import com.sitamadex11.CovidHelp.model.State
 import com.sitamadex11.CovidHelp.util.Constants
+import kotlinx.android.synthetic.main.activity_choose.*
 
 
 class AddVolunteerFragment : Fragment(), View.OnClickListener {
@@ -262,9 +265,8 @@ class AddVolunteerFragment : Fragment(), View.OnClickListener {
                     Toast.LENGTH_SHORT
                 ).show()
                 isVolUpdate("1")
-                requireActivity().supportFragmentManager
-                    .beginTransaction()
-                    .replace(R.id.flVolunteer, ViewVolunteerFragment()).commit()
+                val intent = Intent(this.context, VolunteerActivity::class.java);
+                startActivity(intent);
             })
             .addOnFailureListener(OnFailureListener { e ->
                 Log.w("FireStoreError", "Error adding document", e)

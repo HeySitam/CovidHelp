@@ -4,12 +4,14 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
@@ -22,11 +24,9 @@ import com.google.android.material.button.MaterialButton
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.sitamadex11.CovidHelp.R
-import com.sitamadex11.CovidHelp.fragments.AboutUsFragment
-import com.sitamadex11.CovidHelp.fragments.HomeFragment
-import com.sitamadex11.CovidHelp.fragments.PrivacyPolicyFragment
-import com.sitamadex11.CovidHelp.fragments.ViewProfileFragment
+import com.sitamadex11.CovidHelp.fragments.*
 import com.sitamadex11.CovidHelp.worker.CovidTrackerWorker
 import kotlinx.android.synthetic.main.activity_choose.*
 import java.util.concurrent.TimeUnit
@@ -38,6 +38,7 @@ class ChooseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
     lateinit var firebaseAuth: FirebaseAuth
     lateinit var txtUserName: TextView
     lateinit var fragmentManager: FragmentManager
+    lateinit var firebaseFirestore: FirebaseFirestore
     lateinit var btnSend: MaterialButton
     lateinit var btnCancel: MaterialButton
     lateinit var etSendEmail: TextInputEditText
@@ -51,6 +52,7 @@ class ChooseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
     }
 
     private fun init() {
+        firebaseFirestore = FirebaseFirestore.getInstance()
         drawerLayout = findViewById(R.id.drawerLayout)
         navDrawer = findViewById(R.id.navDrawer)
         txtUserName =
@@ -75,8 +77,27 @@ class ChooseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
                 drawerLayout.closeDrawer(GravityCompat.START)
             }
             R.id.addVol -> {
-                val intent = Intent(this, VolunteerActivity::class.java)
-                startActivity(intent)
+                    firebaseFirestore.collection("users").get()
+                        .addOnSuccessListener { queryDocumentSnapshots ->
+                            for (snapshot in queryDocumentSnapshots) {
+                                val userId = snapshot.getString("uid")
+                                if (userId == firebaseAuth.currentUser!!.uid) {
+                                    val isVol = snapshot.getString("isVol")
+                                    Log.d("chk_vol", isVol.toString())
+                                    if (isVol == "0") {
+                                        fragmentTransaction(AddVolunteerFragment())
+                                        drawerLayout.closeDrawer(GravityCompat.START);
+                                    }
+                                    else
+                                        Toast.makeText(
+                                            this.applicationContext,
+                                            "you are already a Volunteer",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                }
+                            }
+                        }
+
             }
             R.id.aboutUs -> {
                 fragmentTransaction(AboutUsFragment())
@@ -158,7 +179,9 @@ class ChooseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
             fragmentManager.beginTransaction()
                 .replace(R.id.frameBody, fragment).commit()
         }
+
     }
+
 
     private fun initWorker() {
         val constraints = Constraints.Builder()
