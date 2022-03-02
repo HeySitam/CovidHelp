@@ -1,6 +1,6 @@
 name: New Issue
-description: Give a proper description of new issue
-title: "[Bug]: "
+description: For a new issue creation
+title: "Type your issue title"
 labels: ["bug", "triage"]
 assignees:
   - octocat
@@ -8,7 +8,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report!
+        Thanks for taking the time to create a new issue!
   - type: input
     id: contact
     attributes:
@@ -17,41 +17,46 @@ body:
       placeholder: ex. email@example.com
     validations:
       required: false
-  - type: textarea
-    id: what-happened
+  - type: dropdown
+    id: isGssoc
     attributes:
-      label: What happened?
-      description: Also tell us, what did you expect to happen?
-      placeholder: Tell us what you see!
+      label: GSSoC-22
+      description: Are you making the issue for GSSoC-22?
+      options:
+        - yes
+        - no
+    validations:
+      required: true
+ - type: dropdown
+    id: issueType
+    attributes:
+      label: Type of Issue
+      description: for what you are creating the issue?
+      options:
+        - Bug
+        - New Feature
+        - UI Related
+        - Others
+    validations:
+      required: true
+  - type: textarea
+    id: issuedescription
+    attributes:
+      label: Description
+      description: Also tell us, the detail of your issue..
+      placeholder: Tell us why you are creating the issue!
       value: "A bug happened!"
     validations:
       required: true
-  - type: dropdown
-    id: version
-    attributes:
-      label: Version
-      description: What version of our software are you running?
-      options:
-        - 1.0.2 (Default)
-        - 1.0.3 (Edge)
-    validations:
-      required: true
-  - type: dropdown
-    id: browsers
-    attributes:
-      label: What browsers are you seeing the problem on?
-      multiple: true
-      options:
-        - Firefox
-        - Chrome
-        - Safari
-        - Microsoft Edge
   - type: textarea
-    id: logs
+    id: bugLog
     attributes:
-      label: Relevant log output
-      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      label: Error Logs
+      description: If the issue for bug please share the log.
       render: shell
+      placeholder: paste your log here
+    validations:
+      required: false
   - type: checkboxes
     id: terms
     attributes:
