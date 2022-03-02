@@ -27,7 +27,7 @@ body:
         - no
     validations:
       required: true
- - type: dropdown
+  - type: dropdown
     id: issueType
     attributes:
       label: Type of Issue
