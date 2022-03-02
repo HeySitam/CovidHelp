@@ -1,5 +1,5 @@
-name: "New Issue"
-description: "For a new issue creation"
+name: New Issue
+description: For a new issue creation
 title: "Type your issue title"
 labels: ["bug", "triage"]
 assignees:
