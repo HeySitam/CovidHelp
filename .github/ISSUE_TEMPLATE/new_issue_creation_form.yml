@@ -23,8 +23,8 @@ body:
       label: GSSoC-22
       description: Are you making the issue for GSSoC-22?
       options:
-        - yes
-        - no
+        - "yes"
+        - "no"
     validations:
       required: true
   - type: dropdown
