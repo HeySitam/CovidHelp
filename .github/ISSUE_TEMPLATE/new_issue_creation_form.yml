@@ -1,9 +1,7 @@
 name: New Issue
 description: For a new issue creation
 title: "Type your issue title"
-labels: ["bug", "triage"]
-assignees:
-  - octocat
+labels: ["help wanted", "GSSoC-22"]
 body:
   - type: markdown
     attributes:
