@@ -1,5 +1,5 @@
-name: Bug Report
-description: File a bug report
+name: New Issue
+description: Give a proper description of new issue
 title: "[Bug]: "
 labels: ["bug", "triage"]
 assignees:
