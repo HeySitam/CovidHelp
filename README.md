@@ -80,7 +80,7 @@ This application is a treasure of all types of covid-resources like bed, oxygen,
 ## 😎Maintainers
 <table>
   <tbody><tr>
-    <td align="center"><a href="https://github.com/sitamadex11"><img alt="" src="https://avatars.githubusercontent.com/sitamadex11" width="200px;"><br><sub><b> Sitam Sardar </b></sub></a><br></td> </a></td>
+    <td align="center"><a href="https://github.com/theDIRone"><img alt="" src="https://avatars.githubusercontent.com/theDIRone" width="200px;"><br><sub><b> Sitam Sardar </b></sub></a><br></td> </a></td>
 
      
     
